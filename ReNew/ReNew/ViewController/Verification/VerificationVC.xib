@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VerificationVC" customModule="ReNew" customModuleProvider="target">
+            <connections>
+                <outlet property="btnResendOTP" destination="4rG-in-OKd" id="DCI-S0-1LG"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="vwOTP" destination="5dG-3D-xcO" id="qtM-9N-1JJ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4by-eW-9eF">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zwa-7A-1jh" customClass="AppLogoNavBarView" customModule="ReNew" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="2ti-Vy-xrl"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXb-Wf-xHM">
+                            <rect key="frame" x="20.000000000000007" y="80" width="88.666666666666686" height="21"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter 4 digit OTP sent to 6858575757" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roW-FT-pjx">
+                            <rect key="frame" x="20" y="111" width="353" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dG-3D-xcO" customClass="AEOTPTextField" customModule="AEOTPTextField">
+                            <rect key="frame" x="40" y="149" width="313" height="50"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="Vkx-Rw-bIh"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNO-I7-JlF" customClass="SubmitButton" customModule="ReNew" customModuleProvider="target">
+                            <rect key="frame" x="40" y="219" width="313" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="ihw-KB-Olj"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Verify"/>
+                            <connections>
+                                <action selector="btnVerify:" destination="-1" eventType="touchUpInside" id="i1H-g5-QP9"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rG-in-OKd">
+                            <rect key="frame" x="154" y="269" width="85" height="30"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Resend OTP">
+                                <color key="titleColor" name="LigthGreenColor"/>
+                            </state>
+                            <connections>
+                                <action selector="btnResendOTP:" destination="-1" eventType="touchUpInside" id="t83-zb-CDh"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="5dG-3D-xcO" firstAttribute="top" secondItem="roW-FT-pjx" secondAttribute="bottom" constant="20" id="0Lk-pB-eiz"/>
+                        <constraint firstAttribute="trailing" secondItem="5dG-3D-xcO" secondAttribute="trailing" constant="40" id="Au7-n9-GpP"/>
+                        <constraint firstItem="Zwa-7A-1jh" firstAttribute="leading" secondItem="4by-eW-9eF" secondAttribute="leading" id="BT7-Hy-kGo"/>
+                        <constraint firstAttribute="trailing" secondItem="roW-FT-pjx" secondAttribute="trailing" constant="20" id="Dt9-Lj-ph0"/>
+                        <constraint firstItem="roW-FT-pjx" firstAttribute="leading" secondItem="AXb-Wf-xHM" secondAttribute="leading" id="E8s-14-HVf"/>
+                        <constraint firstItem="Zwa-7A-1jh" firstAttribute="top" secondItem="4by-eW-9eF" secondAttribute="top" id="G9a-L5-x2i"/>
+                        <constraint firstItem="5dG-3D-xcO" firstAttribute="leading" secondItem="4by-eW-9eF" secondAttribute="leading" constant="40" id="J7v-Fq-cbe"/>
+                        <constraint firstItem="AXb-Wf-xHM" firstAttribute="top" secondItem="Zwa-7A-1jh" secondAttribute="bottom" constant="30" id="VTT-ss-Cfn"/>
+                        <constraint firstAttribute="trailing" secondItem="Zwa-7A-1jh" secondAttribute="trailing" id="WF9-mP-9D8"/>
+                        <constraint firstItem="4rG-in-OKd" firstAttribute="top" secondItem="SNO-I7-JlF" secondAttribute="bottom" constant="10" id="d6u-s7-YMQ"/>
+                        <constraint firstItem="SNO-I7-JlF" firstAttribute="top" secondItem="5dG-3D-xcO" secondAttribute="bottom" constant="20" id="fvY-Yn-4Sw"/>
+                        <constraint firstItem="SNO-I7-JlF" firstAttribute="trailing" secondItem="5dG-3D-xcO" secondAttribute="trailing" id="hUY-SI-FN4"/>
+                        <constraint firstItem="roW-FT-pjx" firstAttribute="top" secondItem="AXb-Wf-xHM" secondAttribute="bottom" constant="10" id="mTC-2B-UdS"/>
+                        <constraint firstItem="4rG-in-OKd" firstAttribute="centerX" secondItem="4by-eW-9eF" secondAttribute="centerX" id="mgB-HN-q0H"/>
+                        <constraint firstItem="SNO-I7-JlF" firstAttribute="leading" secondItem="5dG-3D-xcO" secondAttribute="leading" id="oQ9-zY-UEg"/>
+                        <constraint firstItem="AXb-Wf-xHM" firstAttribute="leading" secondItem="4by-eW-9eF" secondAttribute="leading" constant="20" id="xrj-Sg-gyR"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="4by-eW-9eF" secondAttribute="bottom" id="IGB-0Y-u4a"/>
+                <constraint firstItem="4by-eW-9eF" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ZJD-4q-EU0"/>
+                <constraint firstItem="4by-eW-9eF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="lOA-kb-LIe"/>
+                <constraint firstItem="4by-eW-9eF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="upB-FF-eFP"/>
+            </constraints>
+            <point key="canvasLocation" x="-57" y="-32"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="5dG-3D-xcO">
+            <size key="intrinsicContentSize" width="5" height="22"/>
+        </designable>
+        <designable name="SNO-I7-JlF">
+            <size key="intrinsicContentSize" width="40" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <namedColor name="LigthGreenColor">
+            <color red="0.47499999403953552" green="0.71399998664855957" blue="0.16599999368190765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

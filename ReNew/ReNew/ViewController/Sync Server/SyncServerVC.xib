@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SyncServerVC" customModule="ReNew" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pzV-nD-eRW">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="45d-zg-HoT" customClass="AppLogoNavBarView" customModule="ReNew" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="DKU-st-JIs"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJM-cq-HTK" customClass="SubmitButton" customModule="ReNew" customModuleProvider="target">
+                            <rect key="frame" x="30" y="359.66666666666669" width="333" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Iu6-TW-dSG"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Sync data from server"/>
+                            <connections>
+                                <action selector="btnSyncData:" destination="-1" eventType="touchUpInside" id="SG1-Hs-r9J"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="cJM-cq-HTK" firstAttribute="leading" secondItem="pzV-nD-eRW" secondAttribute="leading" constant="30" id="9P3-iw-e2W"/>
+                        <constraint firstAttribute="trailing" secondItem="cJM-cq-HTK" secondAttribute="trailing" constant="30" id="AUP-At-qp0"/>
+                        <constraint firstItem="cJM-cq-HTK" firstAttribute="centerY" secondItem="pzV-nD-eRW" secondAttribute="centerY" id="WfG-gD-JIj"/>
+                        <constraint firstItem="45d-zg-HoT" firstAttribute="top" secondItem="pzV-nD-eRW" secondAttribute="top" id="fbl-9Y-MJA"/>
+                        <constraint firstAttribute="trailing" secondItem="45d-zg-HoT" secondAttribute="trailing" id="hv8-Xd-KJf"/>
+                        <constraint firstItem="45d-zg-HoT" firstAttribute="leading" secondItem="pzV-nD-eRW" secondAttribute="leading" id="u1N-Pa-Rnc"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="pzV-nD-eRW" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="EWl-4g-N0L"/>
+                <constraint firstItem="pzV-nD-eRW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Wnh-l9-uMq"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="pzV-nD-eRW" secondAttribute="bottom" id="Yvu-5h-cM5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pzV-nD-eRW" secondAttribute="trailing" id="w4T-Mf-Hw6"/>
+            </constraints>
+            <point key="canvasLocation" x="131" y="-32"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

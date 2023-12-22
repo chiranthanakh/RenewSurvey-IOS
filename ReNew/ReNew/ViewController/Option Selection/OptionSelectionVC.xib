@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OptionSelectionVC" customModule="ReNew" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="vwBg" destination="fpL-cY-TQH" id="aqo-LW-VAY"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpL-cY-TQH">
+                    <rect key="frame" x="0.0" y="668" width="393" height="150"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register as" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33H-I7-Erf">
+                            <rect key="frame" x="152.33333333333334" y="20" width="88.666666666666657" height="20.333333333333329"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rUk-S5-rnG">
+                            <rect key="frame" x="20" y="70.333333333333371" width="353" height="40"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xle-UY-m1Z">
+                                    <rect key="frame" x="0.0" y="0.0" width="171.66666666666666" height="40"/>
+                                    <color key="backgroundColor" name="AppThemeGreenColor"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Benificary Member">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="circleCorner" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="btnUserAction:" destination="-1" eventType="touchUpInside" id="smX-Hh-f42"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSN-Xp-QIi">
+                                    <rect key="frame" x="181.66666666666663" y="0.0" width="171.33333333333337" height="40"/>
+                                    <color key="backgroundColor" name="AppThemeGreenColor"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Team Member">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="circleCorner" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="btnMemberAction:" destination="-1" eventType="touchUpInside" id="dft-MJ-LPt"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="vvM-4f-E21"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.94939631219999998" green="0.95241898300000005" blue="0.95966070889999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="3Tu-Iv-7D9"/>
+                        <constraint firstItem="rUk-S5-rnG" firstAttribute="top" secondItem="33H-I7-Erf" secondAttribute="bottom" constant="30" id="45e-WD-3DT"/>
+                        <constraint firstAttribute="trailing" secondItem="rUk-S5-rnG" secondAttribute="trailing" constant="20" id="NeF-fX-GvT"/>
+                        <constraint firstItem="rUk-S5-rnG" firstAttribute="leading" secondItem="fpL-cY-TQH" secondAttribute="leading" constant="20" id="XHF-4f-1e5"/>
+                        <constraint firstItem="33H-I7-Erf" firstAttribute="centerX" secondItem="fpL-cY-TQH" secondAttribute="centerX" id="oD5-b5-hrJ"/>
+                        <constraint firstItem="33H-I7-Erf" firstAttribute="top" secondItem="fpL-cY-TQH" secondAttribute="top" constant="20" id="oFO-rY-9w0"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tRL-tn-EgB">
+                    <rect key="frame" x="0.0" y="59" width="393" height="609"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <connections>
+                        <action selector="btnClose:" destination="-1" eventType="touchUpInside" id="QNp-8T-VfM"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="fpL-cY-TQH" secondAttribute="bottom" id="1hl-9i-xLi"/>
+                <constraint firstItem="fpL-cY-TQH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="IOe-e6-9da"/>
+                <constraint firstItem="fpL-cY-TQH" firstAttribute="top" secondItem="tRL-tn-EgB" secondAttribute="bottom" id="Omt-z2-oAw"/>
+                <constraint firstItem="tRL-tn-EgB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Sob-DQ-l07"/>
+                <constraint firstItem="tRL-tn-EgB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="fPe-PX-Mvs"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tRL-tn-EgB" secondAttribute="trailing" id="ihG-q1-MkK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fpL-cY-TQH" secondAttribute="trailing" id="mk3-VP-k7N"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="-32"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="AppThemeGreenColor">
+            <color red="0.11800000071525574" green="0.43200001120567322" blue="0.25099998712539673" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

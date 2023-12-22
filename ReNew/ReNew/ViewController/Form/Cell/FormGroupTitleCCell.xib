@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="FormGroupTitleCCell" customModule="ReNew" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="80"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ugb-S5-wjC">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="80"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5fF-ru-DBq">
+                                <rect key="frame" x="5" y="7" width="140" height="66"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="s0F-Ks-aNt">
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="0SM-4W-jgD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vvP-I7-GRb">
+                                        <rect key="frame" x="0.0" y="41" width="140" height="4"/>
+                                        <color key="progressTintColor" name="AppThemeGreenColor"/>
+                                        <color key="trackTintColor" name="OffWhiteBgColor"/>
+                                    </progressView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10/13" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sV6-Og-WMD">
+                                        <rect key="frame" x="0.0" y="50" width="140" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.6588235294117647" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="5fF-ru-DBq" firstAttribute="leading" secondItem="Ugb-S5-wjC" secondAttribute="leading" constant="5" id="kVA-Qw-MeO"/>
+                            <constraint firstItem="5fF-ru-DBq" firstAttribute="centerY" secondItem="Ugb-S5-wjC" secondAttribute="centerY" id="tIe-1R-vVZ"/>
+                            <constraint firstAttribute="trailing" secondItem="5fF-ru-DBq" secondAttribute="trailing" constant="5" id="wMq-1d-WDt"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Ugb-S5-wjC" secondAttribute="trailing" id="D8h-21-mFy"/>
+                <constraint firstItem="Ugb-S5-wjC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Mhr-Px-2oI"/>
+                <constraint firstAttribute="bottom" secondItem="Ugb-S5-wjC" secondAttribute="bottom" id="Sc9-39-nLC"/>
+                <constraint firstItem="Ugb-S5-wjC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="pT1-1i-QdP"/>
+            </constraints>
+            <size key="customSize" width="217" height="184"/>
+            <connections>
+                <outlet property="lblGroupTitle" destination="s0F-Ks-aNt" id="zCk-e5-p4F"/>
+                <outlet property="lblQuestionCount" destination="sV6-Og-WMD" id="Kl8-LZ-NmD"/>
+                <outlet property="vwBg" destination="Ugb-S5-wjC" id="bRw-rX-5Yt"/>
+                <outlet property="vwProgress" destination="vvP-I7-GRb" id="tVQ-x0-Thz"/>
+            </connections>
+            <point key="canvasLocation" x="287.8125" y="38.028169014084504"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="AppThemeGreenColor">
+            <color red="0.11800000071525574" green="0.43200001120567322" blue="0.25099998712539673" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="OffWhiteBgColor">
+            <color red="0.99900001287460327" green="0.98299998044967651" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
