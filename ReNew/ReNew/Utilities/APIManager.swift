@@ -166,6 +166,12 @@ class APIManager: NSObject {
                          
                          multipartFormData.append(imgData! , withName: key as! String, fileName: "image.jpg", mimeType: "image/jpeg")
                     }
+                    else if let imgarr = value as? [UIImage] {
+                        imgarr.forEach { img in
+                            let imgData = img.jpegData(compressionQuality: 0.9)
+                            multipartFormData.append(imgData! , withName: key as! String, fileName: "image.jpg", mimeType: "image/jpeg")
+                        }
+                    }
                     else if value is Data
                     {
                         multipartFormData.append(value as! Data, withName: key as! String, fileName: "file_image.jpg", mimeType: "image/jpeg")
@@ -191,8 +197,115 @@ class APIManager: NSObject {
         }
     }
     
-    
+    func requestUploadMedia(endpointurl:String,
+                            parameters:NSDictionary,
+                            arrFiles: [Any],
+                            isShowLoader:Bool,
+                            uploadfileName: String = "files[]",
+                            responseData:@escaping (_ error: NSError?,_ responseDict: NSDictionary?) -> Void)
+    {
+        if self.isConnectedToNetwork()
+        {
+            if isShowLoader {
+                SVProgressHUD.show()
+            }
+            var headers: HTTPHeaders = [:]
+            var encondingType = JSONEncoding.default
+            if ModelUser.getCurrentUserFromDefault()?.accessToken != "" {
+                headers["Authorization"] = ModelUser.getCurrentUserFromDefault()?.accessToken ?? ""
+            }
+            
+            if endpointurl == AppConstant.API.kResetPassword {
+                headers["Authorization"] = parameters["access_token"] as? String ?? ""
+            }
+            
+            var jsonString = ""
+            var passingData = Data()
+
+            do {
+                
+                if parameters["post_data"] != nil{
+                    let tempaArr = parameters["post_data"] as? [[String:Any]] ?? [[String:Any]]()
+                    let jsonData = try JSONSerialization.data(withJSONObject: tempaArr, options: JSONSerialization.WritingOptions.prettyPrinted)
+                    passingData = jsonData
+                    jsonString = String(data: jsonData, encoding: String.Encoding.utf8)!
+                    print("Parameter of \(endpointurl):\n \(jsonString)")
+                }
+            }
+            catch let error as NSError {
+                print(error)
+            }
+            Alamofire.Session.default.upload(multipartFormData: { multipartFormData in
+                arrFiles.forEach { file in
+                    if let img = file as? UIImage {
+                        let imgData = img.jpegData(compressionQuality: 0.6)
+                        multipartFormData.append(imgData! , withName: uploadfileName, fileName: "\(Date().timeIntervalSince1970).jpeg", mimeType: "image/jpeg")
+                    }
+                    else if let urlType = file as? URL {
+                        let videoData : NSData = try! NSData(contentsOf: urlType, options: .mappedIfSafe)
+                        multipartFormData.append(videoData as Data, withName: uploadfileName, fileName: "video.mp4", mimeType: "video/mp4")
+                    }
+                    else if let data = file as? Data {
+                        multipartFormData.append(data, withName: uploadfileName, fileName: "file_image.jpg", mimeType: "image/jpeg")
+                    }
+                }
+                for (key, value) in parameters
+                {
+                    multipartFormData.append(passingData, withName: key as! String)
+                }
+            }, to: "\(endpointurl)", usingThreshold: UInt64.init(), method: .post, headers: headers).responseString(completionHandler: { responseStraing in
+                if isShowLoader {
+                    SVProgressHUD.dismiss()
+                }
+                switch responseStraing.result{
+                case .success(let strResult):
+                    responseData(nil, dictionaryOfFilteredBy(dict: strResult.toJson() as NSDictionary))
+                    break
+                case .failure(let error):
+                    responseData(error as NSError?, nil)
+                    break
+                }
+            })
+        }
+    }
         
+    func requestAsyncDataUploadToServer(endpointurl:String,
+                                        parameters: [[String:Any]],
+                                        isShowLoader:Bool,
+                                        responseData:@escaping (_ error: NSError?,_ responseDict: NSDictionary?) -> Void)
+    {
+        if self.isConnectedToNetwork()
+        {
+            if isShowLoader {
+                SVProgressHUD.show()
+            }
+            var request = URLRequest(url: URL(string: endpointurl)!)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.setValue(ModelUser.getCurrentUserFromDefault()?.accessToken ?? "", forHTTPHeaderField: "Authorization")
+            
+            request.httpBody = try! JSONSerialization.data(withJSONObject: parameters)
+            
+            AF.sessionConfiguration.timeoutIntervalForRequest = 36000000
+            AF.sessionConfiguration.timeoutIntervalForResource = 36000000
+            AF.sessionConfiguration.httpMaximumConnectionsPerHost = 30
+            
+            AF.request(request).responseString(completionHandler: { responseStraing in
+                if isShowLoader {
+                    SVProgressHUD.dismiss()
+                }
+                switch responseStraing.result{
+                case .success(let strResult):
+                    responseData(nil, dictionaryOfFilteredBy(dict: strResult.toJson() as NSDictionary))
+                    break
+                case .failure(let error):
+                    responseData(error as NSError?, nil)
+                    break
+                }
+            })
+        }
+    }
+    
     func downloadFile(fileURL : URL,
                             withSuccess success: @escaping (_ file: String) -> Void,
                             failure: @escaping (_ error: String) -> Void)

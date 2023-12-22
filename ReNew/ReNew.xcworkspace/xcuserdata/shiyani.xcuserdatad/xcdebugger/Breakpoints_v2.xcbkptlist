@@ -3,4 +3,245 @@
    uuid = "8BD8B48A-A938-4518-956C-5544651553F9"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2A940679-22B2-42C9-A88A-D4BB85480487"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/Utilities/APIManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
+            landmarkName = "requestUploadMedia(endpointurl:parameters:arrFiles:isShowLoader:uploadfileName:responseData:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2A940679-22B2-42C9-A88A-D4BB85480487 - 96293f82a56344d1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.APIManager.requestUploadMedia(endpointurl: Swift.String, parameters: __C.NSDictionary, arrFiles: Swift.Array&lt;Any&gt;, isShowLoader: Swift.Bool, uploadfileName: Swift.String, responseData: (Swift.Optional&lt;__C.NSError&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/ReNew-iOS/ReNew/ReNew/Utilities/APIManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "238"
+                  endingLineNumber = "238"
+                  offsetFromSymbolStart = "5175">
+               </Location>
+               <Location
+                  uuid = "2A940679-22B2-42C9-A88A-D4BB85480487 - 93875729435702de"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "function signature specialization &lt;Arg[4] = Value Promoted from Box&gt; of closure #1 (Alamofire.MultipartFormData) -&gt; () in ReNew.APIManager.requestUploadMedia(endpointurl: Swift.String, parameters: __C.NSDictionary, arrFiles: Swift.Array&lt;Any&gt;, isShowLoader: Swift.Bool, uploadfileName: Swift.String, responseData: (Swift.Optional&lt;__C.NSError&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/ReNew-iOS/ReNew/ReNew/Utilities/APIManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "239"
+                  endingLineNumber = "239"
+                  offsetFromSymbolStart = "138">
+               </Location>
+               <Location
+                  uuid = "2A940679-22B2-42C9-A88A-D4BB85480487 - 96293f82a56344d1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.APIManager.requestUploadMedia(endpointurl: Swift.String, parameters: __C.NSDictionary, arrFiles: Swift.Array&lt;Any&gt;, isShowLoader: Swift.Bool, uploadfileName: Swift.String, responseData: (Swift.Optional&lt;__C.NSError&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/ReNew-iOS/ReNew/ReNew/Utilities/APIManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "238"
+                  endingLineNumber = "238"
+                  offsetFromSymbolStart = "5155">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "647A0FF6-B82D-48F2-8033-8FA81B7A6FAC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/Extension/Global/GlobalFunctions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "547"
+            endingLineNumber = "547"
+            landmarkName = "toJsonArray()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "647A0FF6-B82D-48F2-8033-8FA81B7A6FAC - 7d1df63e703e956a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swift.String.toJsonArray() -&gt; Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/ReNew-iOS/ReNew/ReNew/Extension/Global/GlobalFunctions.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "540"
+                  endingLineNumber = "540"
+                  offsetFromSymbolStart = "1427">
+               </Location>
+               <Location
+                  uuid = "647A0FF6-B82D-48F2-8033-8FA81B7A6FAC - 7d1df63e703e9283"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swift.String.toJsonArray() -&gt; Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/ReNew-iOS/ReNew/ReNew/Extension/Global/GlobalFunctions.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "547"
+                  endingLineNumber = "547"
+                  offsetFromSymbolStart = "1245">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2419920E-967C-4122-84B4-253CD0DEDEE7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/Extension/Global/GlobalFunctions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "564"
+            endingLineNumber = "564"
+            landmarkName = "toJson()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2419920E-967C-4122-84B4-253CD0DEDEE7 - 26fa29d54f5dba81"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swift.String.toFragmentsAllowedJson() -&gt; Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/ReNew-iOS/ReNew/ReNew/Extension/Global/GlobalFunctions.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "566"
+                  endingLineNumber = "566"
+                  offsetFromSymbolStart = "163">
+               </Location>
+               <Location
+                  uuid = "2419920E-967C-4122-84B4-253CD0DEDEE7 - 6a08febaaa7e29bf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swift.String.toJson() -&gt; Swift.Dictionary&lt;Swift.String, Any&gt;"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/ReNew-iOS/ReNew/ReNew/Extension/Global/GlobalFunctions.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "564"
+                  endingLineNumber = "564"
+                  offsetFromSymbolStart = "1245">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8786722B-8315-4CD5-8ABC-5951C4F8BD6F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/Utilities/APIManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "262"
+            endingLineNumber = "262"
+            landmarkName = "requestUploadMedia(endpointurl:parameters:arrFiles:isShowLoader:uploadfileName:responseData:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "541800F5-5071-4273-9E0E-834D706C0C8F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/Utilities/APIManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
+            landmarkName = "requestUploadMedia(endpointurl:parameters:arrFiles:isShowLoader:uploadfileName:responseData:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "61047B16-BFC7-4561-95FA-19C55DF8ECD4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/Utilities/APIManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "287"
+            endingLineNumber = "287"
+            landmarkName = "requestAsyncDataUploadToServer(endpointurl:parameters:isShowLoader:responseData:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B0DF5B4E-9961-42CB-8AFF-5B484B7C240F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/ViewController/Form/Model/ModelQuestion.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "toDictionary()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5CA86B5B-1108-4F93-A2D1-9E5A585FC060"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/ViewController/Form/Model/ModelQuestionOption.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "toDictionary()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

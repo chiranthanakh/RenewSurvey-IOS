@@ -41,6 +41,9 @@ extension SyncServerVC {
                         if let tables = data["tables"] as? [[String:Any]] {
                             self.tableDataUpdate(tables: tables.compactMap(ModelServerSyncTable.init))
                         }
+                        if let assignedSurvey = data["assigned_survey"] as? [[String:Any]] {
+                            self.assignedSurveyDataSaveToLocalDb(arrAssignedSurvey: assignedSurvey)
+                        }
                     }
                 }
                 else {
@@ -60,6 +63,7 @@ extension SyncServerVC {
                 self.tableDataBind(tableData: table)
             }
         }
+        UserDefaults.kLastAsyncDate = Date().getFormattedString(format: "dd-MM-yyyy")
         self.navigationController?.pushViewController(LanguageSelectionVC(), animated: true)
     }
     
@@ -123,7 +127,6 @@ extension SyncServerVC {
             }
             
             strQueary.append(")")
-//            print(strQueary)
             if DataManager.DML(query: strQueary) == true {
                 print("Inserted")
             }
@@ -131,6 +134,33 @@ extension SyncServerVC {
                 print("Error \(strQueary)")
             }
         }
-        
+    }
+    
+    func assignedSurveyDataSaveToLocalDb(arrAssignedSurvey: [[String:Any]]) {
+        for item in 0..<arrAssignedSurvey.count {
+            var strQueary = "insert into tbl_assigned_survey("
+            let keyArr = Array(arrAssignedSurvey[item].keys).map { String($0) }
+            for itemKey in 0..<keyArr.count {
+                strQueary.append("\(keyArr[itemKey])")
+                if itemKey < keyArr.count-1 {
+                    strQueary.append(", ")
+                }
+            }
+            strQueary.append(")values(")
+            for itemKey in 0..<keyArr.count {
+                strQueary.append("'\(arrAssignedSurvey[item][keyArr[itemKey]] ?? "")'")
+                if itemKey < keyArr.count-1 {
+                    strQueary.append(", ")
+                }
+            }
+            
+            strQueary.append(")")
+            if DataManager.DML(query: strQueary) == true {
+                print("Inserted")
+            }
+            else {
+                print("Error \(strQueary)")
+            }
+        }
     }
 }

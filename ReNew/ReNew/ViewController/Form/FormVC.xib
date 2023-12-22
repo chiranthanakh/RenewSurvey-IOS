@@ -14,11 +14,12 @@
                 <outlet property="collectionFormGroup" destination="1hv-Xa-129" id="pkk-YW-FqG"/>
                 <outlet property="tblQuestion" destination="CQK-kN-bNX" id="h6p-Hs-4Ex"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="vwHeader" destination="GAC-tb-Np8" id="Nfn-ID-ZoF"/>
                 <outlet property="vwQuestionListContainer" destination="x5A-X1-z8z" id="9bS-ZK-3Ev"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="IQPreviousNextView" customModule="IQKeyboardManagerSwift">
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -46,16 +47,43 @@
                     <rect key="frame" x="0.0" y="189" width="393" height="629"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="CQK-kN-bNX">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="629"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="574"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </tableView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="4aO-H1-CyG">
+                            <rect key="frame" x="15" y="589" width="363" height="35"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yWc-ux-w7G" customClass="SubmitButton" customModule="ReNew" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="174" height="35"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Prevoius"/>
+                                    <connections>
+                                        <action selector="btnSaveDraft:" destination="-1" eventType="touchUpInside" id="AYT-Sy-Saw"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTP-NX-xuo" customClass="SubmitButton" customModule="ReNew" customModuleProvider="target">
+                                    <rect key="frame" x="189" y="0.0" width="174" height="35"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Next"/>
+                                    <connections>
+                                        <action selector="btnSave:" destination="-1" eventType="touchUpInside" id="npG-3B-XrS"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="JEo-Dk-YH6"/>
+                            </constraints>
+                        </stackView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="CQK-kN-bNX" firstAttribute="leading" secondItem="x5A-X1-z8z" secondAttribute="leading" id="Ofj-uq-Acl"/>
+                        <constraint firstAttribute="bottom" secondItem="4aO-H1-CyG" secondAttribute="bottom" constant="5" id="Q2q-UN-jjb"/>
+                        <constraint firstAttribute="trailing" secondItem="4aO-H1-CyG" secondAttribute="trailing" constant="15" id="UxA-Co-cd1"/>
                         <constraint firstItem="CQK-kN-bNX" firstAttribute="top" secondItem="x5A-X1-z8z" secondAttribute="top" id="VIu-4G-YaG"/>
                         <constraint firstAttribute="trailing" secondItem="CQK-kN-bNX" secondAttribute="trailing" id="i0x-No-lqg"/>
-                        <constraint firstAttribute="bottom" secondItem="CQK-kN-bNX" secondAttribute="bottom" id="vCf-kv-cWf"/>
+                        <constraint firstItem="4aO-H1-CyG" firstAttribute="top" secondItem="CQK-kN-bNX" secondAttribute="bottom" constant="15" id="mwc-CL-ss6"/>
+                        <constraint firstItem="4aO-H1-CyG" firstAttribute="leading" secondItem="x5A-X1-z8z" secondAttribute="leading" constant="15" id="wEU-Ei-3oW"/>
                     </constraints>
                 </view>
             </subviews>
@@ -76,6 +104,14 @@
             <point key="canvasLocation" x="-83" y="-32"/>
         </view>
     </objects>
+    <designables>
+        <designable name="vTP-NX-xuo">
+            <size key="intrinsicContentSize" width="32" height="30"/>
+        </designable>
+        <designable name="yWc-ux-w7G">
+            <size key="intrinsicContentSize" width="59" height="30"/>
+        </designable>
+    </designables>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

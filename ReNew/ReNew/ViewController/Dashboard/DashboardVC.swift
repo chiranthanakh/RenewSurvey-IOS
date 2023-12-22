@@ -11,6 +11,12 @@ class DashboardVC: UIViewController {
 
     @IBOutlet var lblFormTitle: UILabel!
     @IBOutlet var lblProjectCode: UILabel!
+    @IBOutlet var lblTotalSurvey: UILabel!
+    @IBOutlet var lblSyncSurvey: UILabel!
+    @IBOutlet var lblPendingToSync: UILabel!
+    @IBOutlet var lblDraftSurvey: UILabel!
+    
+    var viewModel = DashboardVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +25,10 @@ class DashboardVC: UIViewController {
         self.initConfig()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.viewModel.surveyCountDatabind()
+    }
 
     /*
     // MARK: - Navigation
@@ -36,6 +46,8 @@ class DashboardVC: UIViewController {
 extension DashboardVC {
     
     private func initConfig() {
+        self.viewModel.viewController = self
+        
         self.lblFormTitle.text = DataManager.getFormTitleFromFormId(formID: kAppDelegate.selectedFormID)
         self.lblProjectCode.text = DataManager.getProjectCodeFromProjectId(projectID: kAppDelegate.selectedProjectID)
     }
@@ -45,8 +57,21 @@ extension DashboardVC {
 //MARK: - UiButton Action
 extension DashboardVC {
     
+    @IBAction func btnDraft(_ sender: UIButton) {
+        self.navigationController?.pushViewController(DraftFromListVC(), animated: true)
+    }
+    
     @IBAction func btnStartNew(_ sender: UIButton) {
-        self.navigationController?.pushViewController(FormVC(), animated: true)
+        if kAppDelegate.selectedFormID == 2 {
+            self.navigationController?.pushViewController(AssignedSurveyListVC(), animated: true)
+        }
+        else {
+            self.navigationController?.pushViewController(FormVC(), animated: true)
+        }
+    }
+    
+    @IBAction func btnSyncNow(_ sender: UIButton) {
+        self.viewModel.getAsyncFormList()
     }
     
 }

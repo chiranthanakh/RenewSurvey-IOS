@@ -16,7 +16,8 @@ class ModelStaticQuestion{
 	var question : String
 	var remark : String
 	var type : String
-    var strAnswer = String()
+    var strAnswer : String
+    var answerId : Int
     
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
@@ -29,6 +30,8 @@ class ModelStaticQuestion{
 		question = dictionary["question"] as? String ?? ""
 		remark = dictionary["remark"] as? String ?? ""
 		type = dictionary["type"] as? String ?? ""
+        strAnswer = dictionary["answer"] as? String ?? ""
+        answerId = dictionary["answerId"] as? Int ?? 0
 	}
 
     func questiontitle() -> String {
@@ -38,5 +41,21 @@ class ModelStaticQuestion{
         else {
             return question
         }
+    }
+    
+    func toDictionary() -> [String:Any]
+    {
+        var dictionary = [String:Any]()
+        dictionary["id"] = id
+        dictionary["hindi"] = hindi
+        dictionary["marathi"] = marathi
+        dictionary["option"] = option
+        dictionary["question"] = question
+        dictionary["remark"] = remark
+        dictionary["type"] = type
+        dictionary["answer"] = strAnswer
+        dictionary["answerId"] = answerId
+        
+        return dictionary
     }
 }

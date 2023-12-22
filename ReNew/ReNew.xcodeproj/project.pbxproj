@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6B4C115AC72C61F327DD6A04 /* Pods_ReNew.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6626EB50BAF87CF5E7AAF1D1 /* Pods_ReNew.framework */; };
+		C6196AD62B33617B000EF557 /* ModelAsyncForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6196AD52B33617A000EF557 /* ModelAsyncForm.swift */; };
+		C6196AD82B336265000EF557 /* DashboardVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6196AD72B336265000EF557 /* DashboardVM.swift */; };
 		C620A82C2B2473E1002BBBA9 /* SignUpVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C620A82B2B2473E1002BBBA9 /* SignUpVM.swift */; };
 		C6265FB12B300502006CA786 /* RangeSeekSliderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6265FAE2B300501006CA786 /* RangeSeekSliderDelegate.swift */; };
 		C6265FB22B300502006CA786 /* RangeSeekSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6265FAF2B300501006CA786 /* RangeSeekSlider.swift */; };
@@ -43,6 +45,15 @@
 		C642A1482B28D1DE002016DA /* LanguageSelectionTCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C642A1462B28D1DE002016DA /* LanguageSelectionTCell.xib */; };
 		C642A14A2B28D2AC002016DA /* LanguageSelectionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C642A1492B28D2AC002016DA /* LanguageSelectionVM.swift */; };
 		C642A14C2B28D3C4002016DA /* ModelLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C642A14B2B28D3C3002016DA /* ModelLanguage.swift */; };
+		C659FA132B3583190056BDAD /* DraftFromListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C659FA112B3583190056BDAD /* DraftFromListVC.swift */; };
+		C659FA142B3583190056BDAD /* DraftFromListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C659FA122B3583190056BDAD /* DraftFromListVC.xib */; };
+		C659FA162B3583260056BDAD /* DraftFromListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C659FA152B3583260056BDAD /* DraftFromListVM.swift */; };
+		C659FA1A2B3585070056BDAD /* DraftListTCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C659FA182B3585070056BDAD /* DraftListTCell.swift */; };
+		C659FA1B2B3585070056BDAD /* DraftListTCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C659FA192B3585070056BDAD /* DraftListTCell.xib */; };
+		C659FA202B35BDAA0056BDAD /* AssignedSurveyListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C659FA1E2B35BDAA0056BDAD /* AssignedSurveyListVC.swift */; };
+		C659FA232B35BDB50056BDAD /* ModelAssignedSurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C659FA222B35BDB50056BDAD /* ModelAssignedSurvey.swift */; };
+		C659FA252B35BFE40056BDAD /* AssignedSurveyListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C659FA242B35BFE40056BDAD /* AssignedSurveyListVM.swift */; };
+		C659FA272B35C1C60056BDAD /* AssignedSurveyListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C659FA262B35C1C60056BDAD /* AssignedSurveyListVC.xib */; };
 		C6690CA62B281FEC00BC477B /* SyncServerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6690CA42B281FEC00BC477B /* SyncServerVC.swift */; };
 		C6690CA72B281FEC00BC477B /* SyncServerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6690CA52B281FEC00BC477B /* SyncServerVC.xib */; };
 		C6690CAC2B28209000BC477B /* ModelServerSyncTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6690CA92B28209000BC477B /* ModelServerSyncTable.swift */; };
@@ -76,6 +87,9 @@
 		C6C1E76C2B2CC26C004C120F /* AYPopupPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C1E7692B2CC26C004C120F /* AYPopupPickerView.swift */; };
 		C6CBF5E02B2F2D1E00A8B962 /* RatingQuestionTCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CBF5DE2B2F2D1E00A8B962 /* RatingQuestionTCell.swift */; };
 		C6CBF5E12B2F2D1E00A8B962 /* RatingQuestionTCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6CBF5DF2B2F2D1E00A8B962 /* RatingQuestionTCell.xib */; };
+		C6EC58632B32EFD30067969F /* ModelFormSaveQuestionAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EC58602B32EFD20067969F /* ModelFormSaveQuestionAnswer.swift */; };
+		C6EC58642B32EFD30067969F /* ModelFormSaveCommonQuestionAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EC58612B32EFD30067969F /* ModelFormSaveCommonQuestionAnswer.swift */; };
+		C6EC58652B32EFD30067969F /* ModelFormSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EC58622B32EFD30067969F /* ModelFormSave.swift */; };
 		C6F6B7312B240EB000A164BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F6B7302B240EB000A164BF /* AppDelegate.swift */; };
 		C6F6B7332B240EB000A164BF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F6B7322B240EB000A164BF /* SceneDelegate.swift */; };
 		C6F6B7352B240EB000A164BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F6B7342B240EB000A164BF /* ViewController.swift */; };
@@ -145,6 +159,8 @@
 		57B3ECB5198829B6C6844A83 /* Pods-ReNew.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReNew.debug.xcconfig"; path = "Target Support Files/Pods-ReNew/Pods-ReNew.debug.xcconfig"; sourceTree = "<group>"; };
 		6626EB50BAF87CF5E7AAF1D1 /* Pods_ReNew.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReNew.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74D3B1596C6FFCE837FF31FC /* Pods-ReNew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReNew.release.xcconfig"; path = "Target Support Files/Pods-ReNew/Pods-ReNew.release.xcconfig"; sourceTree = "<group>"; };
+		C6196AD52B33617A000EF557 /* ModelAsyncForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelAsyncForm.swift; sourceTree = "<group>"; };
+		C6196AD72B336265000EF557 /* DashboardVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVM.swift; sourceTree = "<group>"; };
 		C620A82B2B2473E1002BBBA9 /* SignUpVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVM.swift; sourceTree = "<group>"; };
 		C6265FAE2B300501006CA786 /* RangeSeekSliderDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSeekSliderDelegate.swift; sourceTree = "<group>"; };
 		C6265FAF2B300501006CA786 /* RangeSeekSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSeekSlider.swift; sourceTree = "<group>"; };
@@ -180,6 +196,15 @@
 		C642A1462B28D1DE002016DA /* LanguageSelectionTCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageSelectionTCell.xib; sourceTree = "<group>"; };
 		C642A1492B28D2AC002016DA /* LanguageSelectionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionVM.swift; sourceTree = "<group>"; };
 		C642A14B2B28D3C3002016DA /* ModelLanguage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelLanguage.swift; sourceTree = "<group>"; };
+		C659FA112B3583190056BDAD /* DraftFromListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftFromListVC.swift; sourceTree = "<group>"; };
+		C659FA122B3583190056BDAD /* DraftFromListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DraftFromListVC.xib; sourceTree = "<group>"; };
+		C659FA152B3583260056BDAD /* DraftFromListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftFromListVM.swift; sourceTree = "<group>"; };
+		C659FA182B3585070056BDAD /* DraftListTCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftListTCell.swift; sourceTree = "<group>"; };
+		C659FA192B3585070056BDAD /* DraftListTCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DraftListTCell.xib; sourceTree = "<group>"; };
+		C659FA1E2B35BDAA0056BDAD /* AssignedSurveyListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignedSurveyListVC.swift; sourceTree = "<group>"; };
+		C659FA222B35BDB50056BDAD /* ModelAssignedSurvey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelAssignedSurvey.swift; sourceTree = "<group>"; };
+		C659FA242B35BFE40056BDAD /* AssignedSurveyListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignedSurveyListVM.swift; sourceTree = "<group>"; };
+		C659FA262B35C1C60056BDAD /* AssignedSurveyListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssignedSurveyListVC.xib; sourceTree = "<group>"; };
 		C6690CA42B281FEC00BC477B /* SyncServerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncServerVC.swift; sourceTree = "<group>"; };
 		C6690CA52B281FEC00BC477B /* SyncServerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SyncServerVC.xib; sourceTree = "<group>"; };
 		C6690CA92B28209000BC477B /* ModelServerSyncTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelServerSyncTable.swift; sourceTree = "<group>"; };
@@ -213,6 +238,9 @@
 		C6C1E7692B2CC26C004C120F /* AYPopupPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AYPopupPickerView.swift; sourceTree = "<group>"; };
 		C6CBF5DE2B2F2D1E00A8B962 /* RatingQuestionTCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingQuestionTCell.swift; sourceTree = "<group>"; };
 		C6CBF5DF2B2F2D1E00A8B962 /* RatingQuestionTCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingQuestionTCell.xib; sourceTree = "<group>"; };
+		C6EC58602B32EFD20067969F /* ModelFormSaveQuestionAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelFormSaveQuestionAnswer.swift; sourceTree = "<group>"; };
+		C6EC58612B32EFD30067969F /* ModelFormSaveCommonQuestionAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelFormSaveCommonQuestionAnswer.swift; sourceTree = "<group>"; };
+		C6EC58622B32EFD30067969F /* ModelFormSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelFormSave.swift; sourceTree = "<group>"; };
 		C6F6B72D2B240EB000A164BF /* ReNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReNew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6F6B7302B240EB000A164BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6F6B7322B240EB000A164BF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -429,6 +457,37 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		C659FA102B3583020056BDAD /* Draft From List */ = {
+			isa = PBXGroup;
+			children = (
+				C659FA172B3584F80056BDAD /* Cell */,
+				C659FA152B3583260056BDAD /* DraftFromListVM.swift */,
+				C659FA112B3583190056BDAD /* DraftFromListVC.swift */,
+				C659FA122B3583190056BDAD /* DraftFromListVC.xib */,
+			);
+			path = "Draft From List";
+			sourceTree = "<group>";
+		};
+		C659FA172B3584F80056BDAD /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C659FA182B3585070056BDAD /* DraftListTCell.swift */,
+				C659FA192B3585070056BDAD /* DraftListTCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		C659FA1C2B35BD870056BDAD /* Assigned Survey */ = {
+			isa = PBXGroup;
+			children = (
+				C659FA222B35BDB50056BDAD /* ModelAssignedSurvey.swift */,
+				C659FA242B35BFE40056BDAD /* AssignedSurveyListVM.swift */,
+				C659FA1E2B35BDAA0056BDAD /* AssignedSurveyListVC.swift */,
+				C659FA262B35C1C60056BDAD /* AssignedSurveyListVC.xib */,
+			);
+			path = "Assigned Survey";
+			sourceTree = "<group>";
+		};
 		C6690CA32B281FD200BC477B /* Sync Server */ = {
 			isa = PBXGroup;
 			children = (
@@ -512,6 +571,7 @@
 			isa = PBXGroup;
 			children = (
 				C672D15B2B29D34A00C41711 /* DashboardVC.swift */,
+				C6196AD72B336265000EF557 /* DashboardVM.swift */,
 				C672D15C2B29D34A00C41711 /* DashboardVC.xib */,
 			);
 			path = Dashboard;
@@ -524,6 +584,10 @@
 				C68A8C092B2B0C9200C0802D /* ModelQuestion.swift */,
 				C68A8C0D2B2B144200C0802D /* ModelQuestionOption.swift */,
 				C6265FB92B305229006CA786 /* ModelStaticQuestion.swift */,
+				C6EC58612B32EFD30067969F /* ModelFormSaveCommonQuestionAnswer.swift */,
+				C6EC58602B32EFD20067969F /* ModelFormSaveQuestionAnswer.swift */,
+				C6EC58622B32EFD30067969F /* ModelFormSave.swift */,
+				C6196AD52B33617A000EF557 /* ModelAsyncForm.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -759,6 +823,8 @@
 		C6F6B7F72B241D1D00A164BF /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C659FA1C2B35BD870056BDAD /* Assigned Survey */,
+				C659FA102B3583020056BDAD /* Draft From List */,
 				C6265FB42B302465006CA786 /* Pending Approval */,
 				C6273CD02B2AD57800A8C3D8 /* Form */,
 				C672D15A2B29D33600C41711 /* Dashboard */,
@@ -871,10 +937,12 @@
 				C672D15E2B29D34A00C41711 /* DashboardVC.xib in Resources */,
 				C6CBF5E12B2F2D1E00A8B962 /* RatingQuestionTCell.xib in Resources */,
 				C642A1482B28D1DE002016DA /* LanguageSelectionTCell.xib in Resources */,
+				C659FA1B2B3585070056BDAD /* DraftListTCell.xib in Resources */,
 				C672D1552B29C95300C41711 /* UserRoleSelectionVC.xib in Resources */,
 				C63B57F12B249CB00057689B /* ListSelectionTCell.xib in Resources */,
 				C672D1502B29C67B00C41711 /* ProjectSelectionTCell.xib in Resources */,
 				C6F6B73A2B240EB200A164BF /* Assets.xcassets in Resources */,
+				C659FA142B3583190056BDAD /* DraftFromListVC.xib in Resources */,
 				C6273CD42B2AD5A100A8C3D8 /* FormVC.xib in Resources */,
 				C6265FB82B302480006CA786 /* PendingApprovalVC.xib in Resources */,
 				C63B57EA2B249A4F0057689B /* ListSelectionVC.xib in Resources */,
@@ -887,6 +955,7 @@
 				C6F6B75A2B24106A00A164BF /* InputTextFeildView.xib in Resources */,
 				C63B57E52B248CB50057689B /* RegistrationVC.xib in Resources */,
 				C6690CA72B281FEC00BC477B /* SyncServerVC.xib in Resources */,
+				C659FA272B35C1C60056BDAD /* AssignedSurveyListVC.xib in Resources */,
 				C6273CDD2B2AD83C00A8C3D8 /* FormGroupTitleCCell.xib in Resources */,
 				C6F6B8052B2425A600A164BF /* SignUpVC.xib in Resources */,
 				C6F6B8072B2425D300A164BF /* AppLogoNavBarView.xib in Resources */,
@@ -962,8 +1031,10 @@
 				C620A82C2B2473E1002BBBA9 /* SignUpVM.swift in Sources */,
 				C6690CA62B281FEC00BC477B /* SyncServerVC.swift in Sources */,
 				C6690CB72B28573B00BC477B /* ForgotPasswordVC.swift in Sources */,
+				C6196AD82B336265000EF557 /* DashboardVM.swift in Sources */,
 				C6F6B77F2B24107200A164BF /* UITableView+Extension.swift in Sources */,
 				C6265FB72B302480006CA786 /* PendingApprovalVC.swift in Sources */,
+				C659FA132B3583190056BDAD /* DraftFromListVC.swift in Sources */,
 				C6273CDC2B2AD83C00A8C3D8 /* FormGroupTitleCCell.swift in Sources */,
 				C6F6B7852B24107200A164BF /* NibLoadable.swift in Sources */,
 				C6C1E76C2B2CC26C004C120F /* AYPopupPickerView.swift in Sources */,
@@ -975,20 +1046,24 @@
 				C6F6B78C2B24107A00A164BF /* ServerConstant.swift in Sources */,
 				C642A14C2B28D3C4002016DA /* ModelLanguage.swift in Sources */,
 				C6F6B7842B24107200A164BF /* ReusableCollectionView.swift in Sources */,
+				C659FA1A2B3585070056BDAD /* DraftListTCell.swift in Sources */,
 				C627B4422B2719D0007D62A8 /* ModelUser.swift in Sources */,
 				C6690CBA2B285C6200BC477B /* VerificationVM.swift in Sources */,
 				C6F6B77B2B24107200A164BF /* UILable.swift in Sources */,
+				C6EC58652B32EFD30067969F /* ModelFormSave.swift in Sources */,
 				C6F6B7762B24107200A164BF /* SearchTextView.swift in Sources */,
 				C6F6B7CB2B24108300A164BF /* StarFillMode.swift in Sources */,
 				C6C1E7642B2CBF20004C120F /* TextBoxQuestionTCell.swift in Sources */,
 				C68A8C0E2B2B144300C0802D /* ModelQuestionOption.swift in Sources */,
 				C6F6B8092B2425DC00A164BF /* AppLogoNavBarView.swift in Sources */,
+				C6EC58642B32EFD30067969F /* ModelFormSaveCommonQuestionAnswer.swift in Sources */,
 				C6F6B7782B24107200A164BF /* UIViewController+BackBarButtonItem.swift in Sources */,
 				C6F6B7D12B24108300A164BF /* CosmosLayers.swift in Sources */,
 				C6265FB12B300502006CA786 /* RangeSeekSliderDelegate.swift in Sources */,
 				C6273CD82B2AD67500A8C3D8 /* ModelFormGroup.swift in Sources */,
 				C672D1492B29BAE300C41711 /* ProjectSelectionVM.swift in Sources */,
 				C6265FB32B300502006CA786 /* TapticEngine.swift in Sources */,
+				C659FA232B35BDB50056BDAD /* ModelAssignedSurvey.swift in Sources */,
 				C642A1422B28D065002016DA /* LanguageSelectionVC.swift in Sources */,
 				C6F6B7772B24107200A164BF /* UIStoryboard+Name.swift in Sources */,
 				C6F6B7CE2B24108300A164BF /* CosmosText.swift in Sources */,
@@ -1006,6 +1081,7 @@
 				C6F6B77E2B24107200A164BF /* UIFont.swift in Sources */,
 				C6265FB22B300502006CA786 /* RangeSeekSlider.swift in Sources */,
 				C6F6B77A2B24107200A164BF /* UITextField+UITextView.swift in Sources */,
+				C6196AD62B33617B000EF557 /* ModelAsyncForm.swift in Sources */,
 				C6F6B7742B24107200A164BF /* UIView+Layer.swift in Sources */,
 				C6C1E76A2B2CC26C004C120F /* UIWindow+.swift in Sources */,
 				C63B57EC2B249BF90057689B /* ListSelectionVM.swift in Sources */,
@@ -1027,10 +1103,12 @@
 				C6F6B7802B24107200A164BF /* Extension.swift in Sources */,
 				C6363D622B24E8FC00352666 /* ModelPanchayat.swift in Sources */,
 				C63B57E42B248CB50057689B /* RegistrationVC.swift in Sources */,
+				C6EC58632B32EFD30067969F /* ModelFormSaveQuestionAnswer.swift in Sources */,
 				C6F6B7FE2B241E1B00A164BF /* OptionSelectionVC.swift in Sources */,
 				C6273CD62B2AD5AB00A8C3D8 /* FormVM.swift in Sources */,
 				C6F6B7592B24106A00A164BF /* LocationManager.swift in Sources */,
 				C6F6B7822B24107200A164BF /* SideAnimatable.swift in Sources */,
+				C659FA202B35BDAA0056BDAD /* AssignedSurveyListVC.swift in Sources */,
 				C6F6B7CC2B24108300A164BF /* StarLayer.swift in Sources */,
 				C6363D5E2B24E1E500352666 /* ModelDistrict.swift in Sources */,
 				C672D14F2B29C67B00C41711 /* ProjectSelectionTCell.swift in Sources */,
@@ -1047,6 +1125,8 @@
 				C6F6B7D72B24108300A164BF /* CosmosTouchTarget.swift in Sources */,
 				C6F6B75B2B24106A00A164BF /* InputTextFeildView.swift in Sources */,
 				C6273CD32B2AD5A100A8C3D8 /* FormVC.swift in Sources */,
+				C659FA162B3583260056BDAD /* DraftFromListVM.swift in Sources */,
+				C659FA252B35BFE40056BDAD /* AssignedSurveyListVM.swift in Sources */,
 				C6F6B77C2B24107200A164BF /* UIButton.swift in Sources */,
 				C672D1592B29CA0C00C41711 /* UserRoleSelectionVM.swift in Sources */,
 				C68A8C0A2B2B0C9200C0802D /* ModelQuestion.swift in Sources */,

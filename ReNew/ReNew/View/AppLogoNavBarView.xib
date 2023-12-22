@@ -4,12 +4,17 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppLogoNavBarView" customModule="ReNew" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppLogoNavBarView" customModule="ReNew" customModuleProvider="target">
+            <connections>
+                <outlet property="btnRightOption" destination="GfD-ar-B0R" id="1Cv-XD-eTI"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -24,10 +29,31 @@
                                 <constraint firstAttribute="width" constant="100" id="zaH-IA-wb2"/>
                             </constraints>
                         </imageView>
+                        <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GfD-ar-B0R">
+                            <rect key="frame" x="239.5" y="7.5" width="127.5" height="35"/>
+                            <color key="backgroundColor" name="AppThemeGreenColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="3IG-ai-Rya"/>
+                                <constraint firstAttribute="width" constant="127.5" id="ddT-xW-31a"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Save As Draft">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="circleCorner" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="btnRightTap:" destination="-1" eventType="touchUpInside" id="VnB-cE-wt5"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="GfD-ar-B0R" secondAttribute="trailing" constant="8" id="ADh-7e-eI9"/>
                         <constraint firstItem="TR8-84-dG9" firstAttribute="top" secondItem="s1O-Kc-DP8" secondAttribute="top" id="Qzh-Vt-sZr"/>
+                        <constraint firstItem="GfD-ar-B0R" firstAttribute="centerY" secondItem="s1O-Kc-DP8" secondAttribute="centerY" id="U9A-mg-QWW"/>
                         <constraint firstItem="TR8-84-dG9" firstAttribute="leading" secondItem="s1O-Kc-DP8" secondAttribute="leading" constant="20" id="kZl-Oz-P1I"/>
                         <constraint firstAttribute="bottom" secondItem="TR8-84-dG9" secondAttribute="bottom" id="sHo-s1-v1Y"/>
                     </constraints>
@@ -47,6 +73,9 @@
     </objects>
     <resources>
         <image name="ic_header_logo" width="268" height="85"/>
+        <namedColor name="AppThemeGreenColor">
+            <color red="0.11800000071525574" green="0.43200001120567322" blue="0.25099998712539673" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

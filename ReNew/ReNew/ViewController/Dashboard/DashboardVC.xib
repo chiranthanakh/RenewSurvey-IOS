@@ -12,8 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardVC" customModule="ReNew" customModuleProvider="target">
             <connections>
+                <outlet property="lblDraftSurvey" destination="Ctl-d1-e6t" id="5P1-qZ-uq7"/>
                 <outlet property="lblFormTitle" destination="Yuk-Mv-PqI" id="CaI-ja-GKF"/>
+                <outlet property="lblPendingToSync" destination="YSv-JG-BRM" id="7Mc-NI-mOR"/>
                 <outlet property="lblProjectCode" destination="T0G-Sy-se1" id="e7a-0Y-v00"/>
+                <outlet property="lblSyncSurvey" destination="2ae-ri-WiO" id="hZA-bN-mQf"/>
+                <outlet property="lblTotalSurvey" destination="Qrc-jo-tQm" id="ieh-Qg-FHL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -119,29 +123,38 @@ Survey</string>
                                                             <rect key="frame" x="182.66666666666663" y="0.0" width="172.33333333333337" height="172.66666666666666"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gfM-F4-Vqe">
-                                                                    <rect key="frame" x="0.0" y="45.333333333333343" width="172.33333333333334" height="82"/>
+                                                                    <rect key="frame" x="0.0" y="57.333333333333343" width="172.33333333333334" height="58"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRN-ui-bYB">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="172.33333333333334" height="48"/>
-                                                                            <string key="text">Pending For
-Submit</string>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Draft" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRN-ui-bYB">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="172.33333333333334" height="24"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                                             <color key="textColor" name="AppThemeGreenColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ctl-d1-e6t">
-                                                                            <rect key="frame" x="0.0" y="57.999999999999972" width="172.33333333333334" height="24"/>
+                                                                            <rect key="frame" x="0.0" y="33.999999999999972" width="172.33333333333334" height="24"/>
                                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                                             <color key="textColor" name="AppThemeGreenColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OgZ-f1-7Dq">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="172.33333333333334" height="172.66666666666666"/>
+                                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                    <connections>
+                                                                        <action selector="btnDraft:" destination="-1" eventType="touchUpInside" id="LHS-XT-bgo"/>
+                                                                    </connections>
+                                                                </button>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.7791224122" green="1" blue="0.95607489349999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="gfM-F4-Vqe" secondAttribute="trailing" id="J6N-HO-kA1"/>
+                                                                <constraint firstItem="OgZ-f1-7Dq" firstAttribute="top" secondItem="GYo-sh-Y3f" secondAttribute="top" id="J6k-fP-IBx"/>
                                                                 <constraint firstItem="gfM-F4-Vqe" firstAttribute="centerY" secondItem="GYo-sh-Y3f" secondAttribute="centerY" id="Jog-Yo-fZq"/>
+                                                                <constraint firstItem="OgZ-f1-7Dq" firstAttribute="leading" secondItem="GYo-sh-Y3f" secondAttribute="leading" id="Vmv-Ap-Idj"/>
+                                                                <constraint firstAttribute="trailing" secondItem="OgZ-f1-7Dq" secondAttribute="trailing" id="d5t-Fu-mbf"/>
+                                                                <constraint firstAttribute="bottom" secondItem="OgZ-f1-7Dq" secondAttribute="bottom" id="eTL-QS-6pb"/>
                                                                 <constraint firstItem="gfM-F4-Vqe" firstAttribute="leading" secondItem="GYo-sh-Y3f" secondAttribute="leading" id="nPA-lk-5r5"/>
                                                             </constraints>
                                                         </view>
@@ -158,8 +171,8 @@ Submit</string>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UgW-dc-14W">
                                                                             <rect key="frame" x="0.0" y="0.0" width="172.66666666666666" height="48"/>
-                                                                            <string key="text">Today's
-Survey</string>
+                                                                            <string key="text">Sync
+Done</string>
                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                                             <color key="textColor" name="AppThemeGreenColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -221,6 +234,9 @@ Sync</string>
                                             <rect key="frame" x="30" y="440" width="315" height="40"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" title="Sync Data"/>
+                                            <connections>
+                                                <action selector="btnSyncNow:" destination="-1" eventType="touchUpInside" id="E3m-r4-8Ju"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UtS-gR-0Hh" customClass="SubmitButton" customModule="ReNew" customModuleProvider="target">
                                             <rect key="frame" x="30" y="500" width="315" height="40"/>

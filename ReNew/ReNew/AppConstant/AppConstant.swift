@@ -38,6 +38,8 @@ class AppConstant {
         static let kGetVillages                     = BASE_URL + "Common/get_villages"
         
         static let kSyncDataFromServer              = BASE_URL + "Synchronization/sync_data_from_server"
+        static let kSyncMedia                       = BASE_URL + "ProjectMaster/sync_media"
+        static let kSyncSurvey                      = BASE_URL + "ProjectMaster/sync_survey"
     }
     
     struct ValidationMessages {
@@ -107,6 +109,7 @@ struct UserDefaultsKey {
     static let kIsLoggedIn           = "isLoggedIn"
     static let kFcmToken             = "fcmToken"
     static let kLoginUser            = "loginUser"
+    static let kLastAsyncDate        = "lastAsyncDate"
 }
 
 // MARK: - Notification

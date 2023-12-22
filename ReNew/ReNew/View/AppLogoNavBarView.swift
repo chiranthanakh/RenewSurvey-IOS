@@ -15,7 +15,15 @@ class AppLogoNavBarView: UIView {
     var completion:(()->())?
 
     var isFromTraineeEnrollment = false
+    var isRightButtonVisible = false {
+        didSet {
+            self.btnRightOption.isHidden = !isRightButtonVisible
+        }
+    }
     
+    var completionRightButtonTap:(()->())?
+    
+    @IBOutlet var btnRightOption: UIButton!
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
@@ -39,4 +47,9 @@ class AppLogoNavBarView: UIView {
         return nib.instantiate(withOwner: self, options: nil).first as? UIView
     }
     
+    @IBAction func btnRightTap(_ sender: UIButton) {
+        if let function = self.completionRightButtonTap {
+            function()
+        }
+    }
 }

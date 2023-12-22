@@ -21,4 +21,11 @@ class ModelQuestionOption{
 		title = dictionary["title"] as? String
 	}
 
+    func toDictionary() -> [String:Any]
+    {
+        var dictionary = [String:Any]()
+        dictionary["tbl_form_questions_option_id"] = tblFormQuestionsOptionId
+        dictionary["title"] = title
+        return dictionary
+    }
 }

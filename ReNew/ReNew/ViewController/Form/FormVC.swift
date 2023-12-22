@@ -13,6 +13,7 @@ class FormVC: UIViewController {
     var viewModel = FormVM()
     var imagePicker = ImagePicker()
     
+    @IBOutlet var vwHeader: AppLogoNavBarView!
     @IBOutlet var collectionFormGroup: UICollectionView!
     @IBOutlet var vwQuestionListContainer: UIView!
     @IBOutlet var tblQuestion: UITableView!
@@ -34,7 +35,36 @@ class FormVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func btnSave(_ sender: UIButton) {
+        /*self.showAlert(with: "Do you want to save?", firstHandler:  { _ in
+            self.viewModel.saveToLocalDb()
+         })*/
+        if self.viewModel.selectedGrpIndex < self.viewModel.arrFormGroup.count-1{
+            self.viewModel.selectedGrpIndex+=1
+            self.collectionFormGroup.reloadData()
+            if self.viewModel.selectedGrpIndex != -1 {
+                self.collectionFormGroup.scrollToItem(at: IndexPath(item: self.viewModel.selectedGrpIndex, section: 1), at: .right, animated: true)
+            }
+            self.tblQuestion.reloadData()
+        }
+    }
+    
+    @IBAction func btnSaveDraft(_ sender: UIButton) {
+        if self.viewModel.selectedGrpIndex != -1{
+            self.viewModel.selectedGrpIndex-=1
+            self.collectionFormGroup.reloadData()
+            if self.viewModel.selectedGrpIndex != -1 {
+                self.collectionFormGroup.scrollToItem(at: IndexPath(item: self.viewModel.selectedGrpIndex, section: 1), at: .right, animated: true)
+            }
+            else {
+                self.collectionFormGroup.scrollToItem(at: IndexPath(item: 0, section: 0), at: .right, animated: true)
+            }
+            self.tblQuestion.reloadData()
+        }
+        /*self.showAlert(with: "Do you want to save as a draft?", firstHandler:  { _ in
+            self.viewModel.saveDraft()
+        })*/
+    }
 }
 
 //MARK: - Init Config
@@ -43,6 +73,15 @@ extension FormVC {
     private func initConfig() {
         self.viewModel.viewController = self
         self.imagePicker.viewController = self
+        self.vwHeader.isRightButtonVisible = true
+        self.vwHeader.completionRightButtonTap = {
+            if self.vwHeader.btnRightOption.titleLabel?.text == "Save As Draft" {
+                self.viewModel.saveDraft()
+            }
+            else {
+                self.viewModel.saveToLocalDb()
+            }
+        }
         self.viewModel.registerController()
         
         self.imagePicker.pickerHandler = { (data, path, image, tag) in
@@ -134,6 +173,7 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                 self.viewModel.arrStaticQuestion[indexPath.row].strAnswer = answer
                 cell.txtAnswer.text = answer
                 self.collectionFormGroup.reloadData()
+                self.viewModel.checkValidationForSaveButton()
             }
             cell.lblQuestion.text = "\(indexPath.row+1). \(question.questiontitle())"
             cell.txtAnswer.text = question.strAnswer
@@ -149,18 +189,19 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
             else if question.type == "SINGLE_SELECT" {
                 cell.isSelection = true
                 cell.completionSelection = {
-                    let itemsTitle = question.option.components(separatedBy: "/")
+                    let itemsTitle = self.viewModel.getStaticQuestionOption(question: question)
                     let singleComponetPopupPickerView = AYPopupPickerView()
+                    self.view.endEditing(true)
                     singleComponetPopupPickerView.display(itemTitles: itemsTitle, doneHandler: {
                         let selectedIndex = singleComponetPopupPickerView.pickerView.selectedRow(inComponent: 0)
                         print("\(itemsTitle[selectedIndex])")
                         cell.txtAnswer.text = itemsTitle[selectedIndex]
                         question.strAnswer = itemsTitle[selectedIndex]
                         self.collectionFormGroup.reloadData()
+                        self.viewModel.checkValidationForSaveButton()
                     })
                 }
             }
-            
         }
         else {
             if self.viewModel.arrFormGroup[self.viewModel.selectedGrpIndex].questions.indices ~= indexPath.row {
@@ -169,6 +210,7 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                     question.strAnswer = answer
                     cell.txtAnswer.text = answer
                     self.collectionFormGroup.reloadData()
+                    self.viewModel.checkValidationForSaveButton()
                 }
                 
                 cell.lblQuestion.text = "\(indexPath.row+1). \(question.title.capitalized)"
@@ -190,12 +232,14 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                     cell.completionSelection = {
                         let itemsTitle = question.questionOption.compactMap({$0.title})
                         let singleComponetPopupPickerView = AYPopupPickerView()
+                        self.view.endEditing(true)
                         singleComponetPopupPickerView.display(itemTitles: itemsTitle, doneHandler: {
                             let selectedIndex = singleComponetPopupPickerView.pickerView.selectedRow(inComponent: 0)
                             print("\(itemsTitle[selectedIndex])")
                             cell.txtAnswer.text = itemsTitle[selectedIndex]
                             question.strAnswer = itemsTitle[selectedIndex]
                             self.collectionFormGroup.reloadData()
+                            self.viewModel.checkValidationForSaveButton()
                         })
                     }
                 }
@@ -211,6 +255,7 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                             cell.txtAnswer.text = answers.compactMap({$0.name}).joined(separator: ", ")
                             question.strAnswer = answers.compactMap({$0.name}).joined(separator: ", ")
                             self.collectionFormGroup.reloadData()
+                            self.viewModel.checkValidationForSaveButton()
                         }
                         self.present(vc, animated: true)
                     }
@@ -230,6 +275,7 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                                 cell.txtAnswer.text = dt.getFormattedString(format: "HH:mm")
                                 question.strAnswer = dt.getFormattedString(format: "HH:mm")
                                 self.collectionFormGroup.reloadData()
+                                self.viewModel.checkValidationForSaveButton()
                             }
                         }
                     }
@@ -249,19 +295,27 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                                 cell.txtAnswer.text = dt.getFormattedString(format: "dd-MM-yyyy HH:mm")
                                 question.strAnswer = dt.getFormattedString(format: "dd-MM-yyyy HH:mm")
                                 self.collectionFormGroup.reloadData()
+                                self.viewModel.checkValidationForSaveButton()
                             }
                         }
                     }
                 }
                 else if question.questionType == "CAPTURE" {
                     cell.imgCamera.isHidden = false
-                    cell.imgCamera.image = UIImage(systemName: "camera")
                     cell.isSelection = true
                     cell.txtAnswer.text = "Capture Image"
+                    if question.strImageBase64 != "", let img = question.strImageBase64.base64ToImage() {
+                        cell.imgCamera.image = img
+                    }
+                    else {
+                        cell.imgCamera.image = UIImage(systemName: "camera")
+                    }
                     cell.completionSelection = {
                         self.imagePicker.pickImageFromGallary(self) { img in
                             cell.imgCamera.image = img
+                            question.imageAnswer = img
                             self.collectionFormGroup.reloadData()
+                            self.viewModel.checkValidationForSaveButton()
                         }
                     }
                 }
@@ -275,6 +329,7 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                         self.imagePicker.tag = indexPath.row
                         self.imagePicker.chooseDocument(docType: question.allowFileType.components(separatedBy: ","))
                         self.collectionFormGroup.reloadData()
+                        self.viewModel.checkValidationForSaveButton()
                     }
                 }
                 else if question.questionType == "DATETIME" {
@@ -292,6 +347,7 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                                 cell.txtAnswer.text = dt.getFormattedString(format: "dd-MM-yyyy HH:mm")
                                 question.strAnswer = dt.getFormattedString(format: "dd-MM-yyyy HH:mm")
                                 self.collectionFormGroup.reloadData()
+                                self.viewModel.checkValidationForSaveButton()
                             }
                         }
                     }
@@ -303,6 +359,7 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                             cell.txtAnswer.text = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
                             question.strAnswer = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
                             self.collectionFormGroup.reloadData()
+                            self.viewModel.checkValidationForSaveButton()
                             return true
                         }
                     }
@@ -318,6 +375,7 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                         cellRating.vwRating.didFinishTouchingCosmos = { rating in
                             self.viewModel.arrFormGroup[self.viewModel.selectedGrpIndex].questions[indexPath.row].strAnswer = "\(rating)"
                             self.collectionFormGroup.reloadData()
+                            self.viewModel.checkValidationForSaveButton()
                         }
                     }
                     
@@ -341,6 +399,7 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                         cellRating.completionRangeSelection = { minValue, maxValue in
                             ratingQuestion.strAnswer = "\(minValue),\(maxValue)"
                             self.collectionFormGroup.reloadData()
+                            self.viewModel.checkValidationForSaveButton()
                         }
                     }
                     

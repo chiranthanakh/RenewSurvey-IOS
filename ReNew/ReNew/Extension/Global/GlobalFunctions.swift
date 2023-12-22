@@ -293,6 +293,14 @@ extension UserDefaults {
         }
     }
     
+    class var kLastAsyncDate: String {
+        get {
+            return UserDefaults.standard.string(forKey: UserDefaultsKey.kFcmToken) ?? ""
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: UserDefaultsKey.kFcmToken)
+        }
+    }
 }
 
 extension Sequence where Element: AdditiveArithmetic {
@@ -562,6 +570,40 @@ extension String {
         }
     }
 
+    func toFragmentsAllowedJson() -> [[String:Any]] {
+        let data = self.data(using: .utf8)!
+        do {
+            if let jsonArray = try JSONSerialization.jsonObject(with: data, options : .fragmentsAllowed) as? [[String:Any]]
+            {
+//               print(jsonArray) // use the json here
+                return jsonArray
+            } else {
+                print("bad json")
+                return [[String:Any]]()
+            }
+        } catch let error as NSError {
+            print(error)
+            return [[String:Any]]()
+        }
+    }
+    
+    func toFragmentsAllowedSingleJson() -> [String:Any] {
+        let data = self.data(using: .utf8)!
+        do {
+            if let jsonArray = try JSONSerialization.jsonObject(with: data, options : .fragmentsAllowed) as? [String:Any]
+            {
+                //               print(jsonArray) // use the json here
+                return jsonArray
+            } else {
+                print("bad json")
+                return [String:Any]()
+            }
+        } catch let error as NSError {
+            print(error)
+            return [String:Any]()
+        }
+    }
+    
     func makeCall() {
         if let url = URL(string: "tel://\(self)") {
             UIApplication.shared.open(url)
@@ -606,6 +648,13 @@ extension String {
             
         // before it's 2 now it's 14
         return Date().localDate() > dt.advanced(by: Double(14) * 60.0 * 60.0)
+    }
+    
+    func base64ToImage() -> UIImage? {
+        if let dataDecoded : Data = Data(base64Encoded: self, options: .ignoreUnknownCharacters) {
+            return UIImage(data: dataDecoded)
+        }
+        return nil
     }
 }
 

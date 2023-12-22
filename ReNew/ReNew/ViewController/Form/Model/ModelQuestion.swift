@@ -13,11 +13,16 @@ class ModelQuestion{
 	var tblFormQuestionsId : Int
 	var title : String
     var questionOption : [ModelQuestionOption]!
-    var strAnswer = String()
+    var strAnswer : String
     var allowFileType: String
-    var minLength = Int()
-    var maxLength = Int()
-
+    var mstQuestionGroupId : Int
+    var minLength : Int
+    var maxLength : Int
+    var tblProjectPhaseId : Int
+    var version : Int
+    var imageAnswer = UIImage()
+    var strImageBase64 : String
+    
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
@@ -33,6 +38,44 @@ class ModelQuestion{
                 questionOption.append(value)
             }
         }
+        mstQuestionGroupId = dictionary["mst_question_group_id"] as? Int ?? 0
+        strAnswer = dictionary["answer"] as? String ?? ""
+        version = dictionary["version"] as? Int ?? 0
+        tblProjectPhaseId = dictionary["tbl_project_phase_id"] as? Int ?? 0
+        strImageBase64 = dictionary["strImageBase64"] as? String ?? ""
+        minLength = dictionary["minLength"] as? Int ?? 0
+        maxLength = dictionary["maxLength"] as? Int ?? 0
 	}
 
+    func toDictionary() -> [String:Any]
+    {
+        var dictionary = [String:Any]()
+        dictionary["tbl_form_questions_id"] = tblFormQuestionsId
+        dictionary["mst_question_group_id"] = mstQuestionGroupId
+        dictionary["question_type"] = questionType
+        dictionary["title"] = title
+        dictionary["allowed_file_type"] = allowFileType
+        dictionary["answer"] = strAnswer
+        dictionary["maxLength"] = maxLength
+        dictionary["minLength"] = minLength
+        if questionType == "CAPTURE" {
+            if let imageData:NSData = self.imageAnswer.jpegData(compressionQuality: 0.6) as NSData?  {
+                dictionary["strImageBase64"] = imageData.base64EncodedString(options: .lineLength64Characters)
+                dictionary["answer"] = "\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedFormID)_\(String(Date().timeIntervalSince1970)).jpeg"
+            }
+        }
+        dictionary["version"] = version
+        dictionary["tbl_project_phase_id"] = tblProjectPhaseId
+        dictionary["phase"] = "1"
+        
+        if questionOption != nil{
+            var dictionaryElements = [[String:Any]]()
+            for optionsElement in questionOption {
+                dictionaryElements.append(optionsElement.toDictionary())
+            }
+            dictionary["question_Option"] = dictionaryElements
+        }
+        return dictionary
+    }
+    
 }

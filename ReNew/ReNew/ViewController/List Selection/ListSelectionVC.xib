@@ -29,8 +29,8 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oQx-uU-NMK">
                             <rect key="frame" x="0.0" y="0.0" width="354" height="40"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Designation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wn4-vR-B77">
-                                    <rect key="frame" x="10" y="11" width="134.33333333333334" height="18"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Designation" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wn4-vR-B77">
+                                    <rect key="frame" x="10" y="11" width="302" height="18"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -53,6 +53,7 @@
                                 <constraint firstItem="koA-zM-tdL" firstAttribute="top" secondItem="oQx-uU-NMK" secondAttribute="top" id="GJw-cJ-wT5"/>
                                 <constraint firstItem="Wn4-vR-B77" firstAttribute="leading" secondItem="oQx-uU-NMK" secondAttribute="leading" constant="10" id="QkF-yt-1gm"/>
                                 <constraint firstItem="Wn4-vR-B77" firstAttribute="centerY" secondItem="oQx-uU-NMK" secondAttribute="centerY" id="SW8-Ln-M7v"/>
+                                <constraint firstItem="koA-zM-tdL" firstAttribute="leading" secondItem="Wn4-vR-B77" secondAttribute="trailing" constant="2" id="inw-Pa-F9Y"/>
                                 <constraint firstAttribute="bottom" secondItem="koA-zM-tdL" secondAttribute="bottom" id="kPb-gs-fgJ"/>
                                 <constraint firstAttribute="height" constant="40" id="l1S-Ld-pUr"/>
                             </constraints>

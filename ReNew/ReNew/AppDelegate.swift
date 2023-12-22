@@ -43,8 +43,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func setSyncScreen() {
-        let nav = UINavigationController(rootViewController: SyncServerVC())
-//        let nav = UINavigationController(rootViewController: LanguageSelectionVC())
+        var nav = UINavigationController()
+        if UserDefaults.kLastAsyncDate == "" || UserDefaults.kLastAsyncDate != Date().getFormattedString(format: "dd-MM-yyyy"){
+            nav = UINavigationController(rootViewController: SyncServerVC())
+        }
+        else {
+            nav = UINavigationController(rootViewController: LanguageSelectionVC())
+        }
         nav.isToolbarHidden = true
         nav.navigationBar.isHidden = true
         self.window?.rootViewController = nav
