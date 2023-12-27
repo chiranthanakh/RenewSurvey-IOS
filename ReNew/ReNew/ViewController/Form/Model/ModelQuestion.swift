@@ -64,9 +64,12 @@ class ModelQuestion{
                 dictionary["answer"] = "\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedFormID)_\(String(Date().timeIntervalSince1970)).jpeg"
             }
         }
+        else if questionType == "FILE" {
+            print(strAnswer)
+        }
         dictionary["version"] = version
         dictionary["tbl_project_phase_id"] = tblProjectPhaseId
-        dictionary["phase"] = "1"
+        dictionary["phase"] = kAppDelegate.selectedForm?.phase ?? ""
         
         if questionOption != nil{
             var dictionaryElements = [[String:Any]]()

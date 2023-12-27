@@ -242,8 +242,34 @@ class APIManager: NSObject {
                         multipartFormData.append(imgData! , withName: uploadfileName, fileName: "\(Date().timeIntervalSince1970).jpeg", mimeType: "image/jpeg")
                     }
                     else if let urlType = file as? URL {
-                        let videoData : NSData = try! NSData(contentsOf: urlType, options: .mappedIfSafe)
-                        multipartFormData.append(videoData as Data, withName: uploadfileName, fileName: "video.mp4", mimeType: "video/mp4")
+                        if urlType.pathExtension.caseInsensitiveCompare("pdf") == .orderedSame {
+                            let FileData :NSData = try! NSData(contentsOf: file as! URL)//NSData(contentsOfFile: uploadfile)
+                            multipartFormData.append(FileData as Data, withName: uploadfileName, fileName: "\(Date().timeIntervalSince1970).pdf", mimeType: "application/pdf")
+                        }
+                        if urlType.pathExtension.caseInsensitiveCompare("doc") == .orderedSame {
+                            let FileData :NSData = try! NSData(contentsOf: file as! URL)//NSData(contentsOfFile: uploadfile)
+                            multipartFormData.append(FileData as Data, withName: uploadfileName, fileName: "\(Date().timeIntervalSince1970).doc", mimeType: "application/msword")
+                        }
+                        if urlType.pathExtension.caseInsensitiveCompare("png") == .orderedSame {
+                            let FileData :NSData = try! NSData(contentsOf: file as! URL)//NSData(contentsOfFile: uploadfile)
+                            multipartFormData.append(FileData as Data, withName: uploadfileName, fileName: "\(Date().timeIntervalSince1970).png", mimeType: "image/jpeg")
+                        }
+                        if urlType.pathExtension.caseInsensitiveCompare("jpg") == .orderedSame {
+                            let FileData :NSData = try! NSData(contentsOf: file as! URL)//NSData(contentsOfFile: uploadfile)
+                            multipartFormData.append(FileData as Data, withName: uploadfileName, fileName: "\(Date().timeIntervalSince1970).jpg", mimeType: "image/jpg")
+                        }
+                        if urlType.pathExtension.caseInsensitiveCompare("jpeg") == .orderedSame {
+                            let FileData :NSData = try! NSData(contentsOf: file as! URL)//NSData(contentsOfFile: uploadfile)
+                            multipartFormData.append(FileData as Data, withName: uploadfileName, fileName: "\(Date().timeIntervalSince1970).jpeg", mimeType: "image/jpeg")
+                        }
+                        if urlType.pathExtension.caseInsensitiveCompare("xls") == .orderedSame {
+                            let FileData :NSData = try! NSData(contentsOf: file as! URL)//NSData(contentsOfFile: uploadfile)
+                            multipartFormData.append(FileData as Data, withName: uploadfileName, fileName: "\(Date().timeIntervalSince1970).xls", mimeType: "application/octet-stream")
+                        }
+                        if urlType.pathExtension.caseInsensitiveCompare("xlsx") == .orderedSame {
+                            let FileData :NSData = try! NSData(contentsOf: file as! URL)//NSData(contentsOfFile: uploadfile)
+                            multipartFormData.append(FileData as Data, withName: uploadfileName, fileName: "\(Date().timeIntervalSince1970).xlsx", mimeType: "application/octet-stream")
+                        }
                     }
                     else if let data = file as? Data {
                         multipartFormData.append(data, withName: uploadfileName, fileName: "file_image.jpg", mimeType: "image/jpeg")
@@ -284,12 +310,13 @@ class APIManager: NSObject {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.setValue(ModelUser.getCurrentUserFromDefault()?.accessToken ?? "", forHTTPHeaderField: "Authorization")
             
-            request.httpBody = try! JSONSerialization.data(withJSONObject: parameters)
+            request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: JSONSerialization.WritingOptions.prettyPrinted)
             
             AF.sessionConfiguration.timeoutIntervalForRequest = 36000000
             AF.sessionConfiguration.timeoutIntervalForResource = 36000000
             AF.sessionConfiguration.httpMaximumConnectionsPerHost = 30
             
+            print(parameters)
             AF.request(request).responseString(completionHandler: { responseStraing in
                 if isShowLoader {
                     SVProgressHUD.dismiss()

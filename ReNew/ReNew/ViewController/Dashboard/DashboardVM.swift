@@ -11,14 +11,25 @@ class DashboardVM {
 
     var viewController: DashboardVC?
     
-    
+    func registerController() {
+        self.viewController?.tblView.registerCell(withNib: "MenuTCell")
+        self.viewController?.tblView.delegate = self.viewController
+        self.viewController?.tblView.dataSource = self.viewController
+    }
+ 
     func surveyCountDatabind() {
         let arrFroms = DataManager.getAllFromList()
         self.viewController?.lblTotalSurvey.text = "\(arrFroms.count)"
         self.viewController?.lblDraftSurvey.text = "\(arrFroms.filter({$0.status == 2}).count)"
         self.viewController?.lblSyncSurvey.text = "\(arrFroms.filter({$0.status == 1}).count)"
         self.viewController?.lblPendingToSync.text = "\(arrFroms.filter({$0.status == 0}).count)"
+        
+        self.viewController?.lblUserName.text = ModelUser.getCurrentUserFromDefault()?.fullName ?? ""
+        self.viewController?.lblUserPhoneNo.text = ModelUser.getCurrentUserFromDefault()?.mobile ?? ""
+        self.viewController?.lblUserEmail.text = ModelUser.getCurrentUserFromDefault()?.email ?? ""
+        self.viewController?.imgProfile.setImage(withUrl: ModelUser.getCurrentUserFromDefault()?.profilePhoto ?? "")
     }
+    
     func getAsyncFormList() {
         let arrList = DataManager.getAsyncFromList()
         print(arrList)
@@ -29,7 +40,9 @@ class DashboardVM {
             }
         }
         else {
-            self.viewController?.showAlert(with: "Form async completed.")
+            self.viewController?.showAlert(with: "Form async completed.", firstHandler: { action in
+                self.surveyCountDatabind()
+            })
         }
     }
     
@@ -41,16 +54,33 @@ class DashboardVM {
         formJson.forEach { questionJson in
             if let questionAnswer = questionJson["question_answer"] as? [[String:Any]] {
                 questionAnswer.forEach { question in
-                    if let questionType = question["question_type"] as? String, questionType == "CAPTURE",let answer = question["strImageBase64"] as? String, let img = answer.base64ToImage() {
-                        arrFiles.append(img)
-                        arrFileDic.append(["tbl_users_id": asyncForm.tblUsersId,
-                                           "tbl_forms_id": asyncForm.tblFormsId,
-                                           "tbl_projects_id": asyncForm.tblProjectsId,
-                                           "version": question["version"] as? Int ?? 0,
-                                           "phase": "1",
-                                           "app_unique_code": asyncForm.appUniqueCode,
-                                           "tbl_form_questions_id": question["tbl_form_questions_id"] as? String ?? "",
-                                           "file_name": question["answer"] as? String ?? ""])
+                    if let questionType = question["question_type"] as? String {
+                        if questionType == "CAPTURE",let answer = question["strImageBase64"] as? String, let img = answer.base64ToImage() {
+                            arrFiles.append(img)
+                            arrFileDic.append(["tbl_users_id": asyncForm.tblUsersId,
+                                               "tbl_forms_id": asyncForm.tblFormsId,
+                                               "tbl_projects_id": asyncForm.tblProjectsId,
+                                               "version": question["version"] as? Int ?? 0,
+                                               "phase": asyncForm.phase,
+                                               "app_unique_code": asyncForm.appUniqueCode,
+                                               "tbl_form_questions_id": question["tbl_form_questions_id"] as? String ?? "",
+                                               "file_name": question["answer"] as? String ?? ""])
+                        }
+                        else if questionType == "FILE", let answer = question["answer"] as? String {
+                            if let url =  getFileFromDocuments(fileName: answer){
+                                arrFiles.append(url)
+                            }
+                            
+                            let fileName = "\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedFormID)_\(URL(fileURLWithPath: answer).lastPathComponent)"
+                            arrFileDic.append(["tbl_users_id": asyncForm.tblUsersId,
+                                               "tbl_forms_id": asyncForm.tblFormsId,
+                                               "tbl_projects_id": asyncForm.tblProjectsId,
+                                               "version": question["version"] as? Int ?? 0,
+                                               "phase": asyncForm.phase,
+                                               "app_unique_code": asyncForm.appUniqueCode,
+                                               "tbl_form_questions_id": question["tbl_form_questions_id"] as? String ?? "",
+                                               "file_name": fileName])
+                        }
                     }
                 }
             }
@@ -81,8 +111,6 @@ class DashboardVM {
     }
     
     func uploadFormToServer(asyncForm: ModelAsyncForm, completionHandler: @escaping () -> Void) {
-        var arrFileDic = [[String:Any]]()
-        var arrFiles = [Any]()
         var formJson = asyncForm.jsonValues.toFragmentsAllowedJson()
         
         for item in 0..<formJson.count {

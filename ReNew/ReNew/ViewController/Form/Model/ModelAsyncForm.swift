@@ -19,6 +19,7 @@ class ModelAsyncForm{
 	var tblProjectsId : Int
 	var tblUsersId : Int
     var parentSurveyId: Int
+    var phase: Int
 
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
@@ -34,6 +35,7 @@ class ModelAsyncForm{
 		tblProjectsId = dictionary["tbl_projects_id"] as? Int ?? Int()
 		tblUsersId = dictionary["tbl_users_id"] as? Int ?? Int()
         parentSurveyId = dictionary[ "parent_survey_id"] as? Int ?? Int()
+        phase = dictionary[ "phase"] as? Int ?? Int()
 	}
 
 }

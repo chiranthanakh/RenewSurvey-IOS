@@ -19,6 +19,7 @@ class RatingQuestionTCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.vwRangeSiker.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

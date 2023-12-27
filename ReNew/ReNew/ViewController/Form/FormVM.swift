@@ -21,6 +21,8 @@ class FormVM: NSObject {
     var selectedVillage: ModelVillage?
     
     var isFromDraft = false
+    var modelAssignedSurvey : ModelAssignedSurvey?
+    var isFromAssignList = false
     
     func registerController() {
         self.viewController?.collectionFormGroup.registerCell(withNib: "FormGroupTitleCCell")
@@ -49,6 +51,9 @@ class FormVM: NSObject {
     
     func getStaticQuestions() {
         self.arrStaticQuestion = DataManager.getStaticQuestionList()
+        if kAppDelegate.selectedFormID != 1 {
+            self.assignSurveyStaticQuestionDataBind()
+        }
         self.viewController?.collectionFormGroup.reloadData()
     }
     
@@ -117,7 +122,12 @@ class FormVM: NSObject {
         }
         for questionGrp in arrFormGroup {
             for question in questionGrp.questions {
-                if question.strAnswer == "" {
+                if question.questionType == "CAPTURE" {
+                    if question.strImageBase64 == "" {
+                        return "Please selecct \(question.title)"
+                    }
+                }
+                else if question.strAnswer == "" {
                     return "Please enter \(question.title) answer properly"
                 }
                 else if question.minLength > 0 && question.strAnswer.count < question.minLength {
@@ -138,6 +148,7 @@ class FormVM: NSObject {
             self.viewController?.vwHeader.btnRightOption.setTitle("Save", for: .normal)
         }
     }
+    
     func saveDraft() {
         if let msg = self.validationStaticQuestions() {
             self.viewController?.showAlert(with: msg)
@@ -150,7 +161,7 @@ class FormVM: NSObject {
             let dic = draftModel.toDictionary()
             DataManager.deleteDraftData()
             if let data = try? JSONSerialization.data(withJSONObject: dic, options: .fragmentsAllowed) {
-                let query = "insert into tbl_FilledForms (tbl_users_id, tbl_projects_id, mst_language_id, tbl_forms_id, app_unique_code ,jsonValues, status) values ('\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")','\(kAppDelegate.selectedProjectID)','\(kAppDelegate.selectedLanguageID)','\(kAppDelegate.selectedFormID)','\(String(Date().timeIntervalSince1970))','\(String(data: data, encoding: .utf8) ?? "")', '\(2)')"
+                let query = "insert into tbl_FilledForms (tbl_users_id, tbl_projects_id, mst_language_id, tbl_forms_id, app_unique_code ,jsonValues, status, phase) values ('\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")','\(kAppDelegate.selectedProjectID)','\(kAppDelegate.selectedLanguageID)','\(kAppDelegate.selectedFormID)','\(String(Date().timeIntervalSince1970))','\(String(data: data, encoding: .utf8) ?? "")', '\(2)', '\(kAppDelegate.selectedForm?.phase ?? 0)')"
                 if DataManager.DML(query: query) == true {
                     print("Inserted")
                     self.viewController?.showAlert(with: "Form saved as draft.", firstHandler:  { _ in
@@ -194,27 +205,34 @@ class FormVM: NSObject {
         
         
         for questionGrp in arrFormGroup {
+            let appUniqueCode = "\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedFormID)_\(questionGrp.questions.first?.tblProjectPhaseId ?? 0)_\(Date().localDate().getFormattedString(format: "dd:MM:yyyy:hh:mm:ss"))"
             var commanDic = ["tbl_projects_id": kAppDelegate.selectedProjectID,
                              "tbl_users_id": ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "",
                              "tbl_forms_id": kAppDelegate.selectedFormID,
                              "mst_language_id": kAppDelegate.selectedLanguageID,
                              "app_unique_code": appUniqueCode,
-                             "tbl_project_phase_id": questionGrp.questions.first?.tblProjectPhaseId ?? "",
+                             "tbl_project_phase_id": kAppDelegate.selectedForm?.tblProjectPhaseId ?? "",
                              "version": questionGrp.questions.first?.version ?? "",
-                             "parent_survey_id": "",
-                             "phase": ""] as [String : Any]
+                             "phase": kAppDelegate.selectedForm?.phase ?? 0] as [String : Any]
+            
             
             var arrAnswers = [[String:Any]]()
             questionGrp.questions.forEach { question in
                 arrAnswers.append(question.toDictionary())
             }
-            commanDic["common_question_answer"] = commanQueAnswers
+            if kAppDelegate.selectedFormID != 1 {
+                commanDic["parent_survey_id"] = self.modelAssignedSurvey?.parentSurveyId ?? ""
+                commanDic["tbl_project_survey_common_data_id"] = self.modelAssignedSurvey?.tblProjectSurveyCommonDataId ?? ""
+            }
+            else {
+                commanDic["common_question_answer"] = commanQueAnswers
+            }
             commanDic["question_answer"] = arrAnswers
             dicMain.append(commanDic)
         }
                 
         if let data = try? JSONSerialization.data(withJSONObject: dicMain, options: .fragmentsAllowed) {
-            let query = "insert into tbl_FilledForms (tbl_users_id, tbl_projects_id, mst_language_id, tbl_forms_id, app_unique_code ,jsonValues) values ('\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")','\(kAppDelegate.selectedProjectID)','\(kAppDelegate.selectedLanguageID)','\(kAppDelegate.selectedFormID)','\(appUniqueCode)','\(String(data: data, encoding: .utf8) ?? "")')"
+            let query = "insert into tbl_FilledForms (tbl_users_id, tbl_projects_id, mst_language_id, tbl_forms_id, app_unique_code, phase ,jsonValues) values ('\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")','\(kAppDelegate.selectedProjectID)','\(kAppDelegate.selectedLanguageID)','\(kAppDelegate.selectedFormID)','\(appUniqueCode)', '\(kAppDelegate.selectedForm?.phase ?? 0)' ,'\(String(data: data, encoding: .utf8) ?? "")')"
             if DataManager.DML(query: query) == true {
                 print("Inserted")
                 if self.isFromDraft {
@@ -226,6 +244,67 @@ class FormVM: NSObject {
             }
             else {
                 print("Error \(query)")
+            }
+        }
+    }
+    
+    func assignSurveyStaticQuestionDataBind() {
+        if let obj = self.modelAssignedSurvey {
+            self.arrStaticQuestion.forEach { staticQuestion in
+                if staticQuestion.id == 1 {
+                    staticQuestion.strAnswer = obj.banficaryName
+                }
+                else if staticQuestion.id == 2 {
+                    staticQuestion.strAnswer = DataManager.getStataName(stateId: obj.mstStateId)
+                }
+                else if staticQuestion.id == 3 {
+                    staticQuestion.strAnswer = DataManager.getDistrictName(districtId: obj.mstDistrictId)
+                }
+                else if staticQuestion.id == 4 {
+                    staticQuestion.strAnswer = DataManager.getTehsilName(tehsilId: obj.mstTehsilId)
+                }
+                else if staticQuestion.id == 5 {
+                    staticQuestion.strAnswer = DataManager.getVillageName(villageId: obj.mstVillageId)
+                }
+                else if staticQuestion.id == 6 {
+                    staticQuestion.strAnswer = obj.gender
+                }
+                else if staticQuestion.id == 7 {
+                    staticQuestion.strAnswer = obj.familySize
+                }
+                else if staticQuestion.id == 8 {
+                    staticQuestion.strAnswer = obj.isLpgUsing
+                }
+                else if staticQuestion.id == 9 {
+                    staticQuestion.strAnswer = obj.noOfCylinderPerYear
+                }
+                else if staticQuestion.id == 10 {
+                    staticQuestion.strAnswer = obj.isCowDung
+                }
+                else if staticQuestion.id == 11 {
+                    staticQuestion.strAnswer = obj.noOfCowDungPerDay
+                }
+                else if staticQuestion.id == 12 {
+                    staticQuestion.strAnswer = obj.houseType
+                }
+                else if staticQuestion.id == 13 {
+                    staticQuestion.strAnswer = obj.annualFamilyIncome
+                }
+                else if staticQuestion.id == 14 {
+                    staticQuestion.strAnswer = obj.willingToContributeCleanCooking
+                }
+                else if staticQuestion.id == 15 {
+                    staticQuestion.strAnswer = obj.woodUsePerDayInKg
+                }
+                else if staticQuestion.id == 16 {
+                    staticQuestion.strAnswer = obj.electricityConnectionAvailable
+                }
+                else if staticQuestion.id == 17 {
+                    staticQuestion.strAnswer = obj.noOfCattlesOwn
+                }
+                else if staticQuestion.id == 18 {
+                    staticQuestion.strAnswer = obj.mobileNumber
+                }
             }
         }
     }

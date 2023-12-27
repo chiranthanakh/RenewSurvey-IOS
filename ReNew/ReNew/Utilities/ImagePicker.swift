@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import MobileCoreServices
+import UniformTypeIdentifiers
 
 
 class ImagePicker: NSObject, UINavigationControllerDelegate,UIImagePickerControllerDelegate, UIDocumentPickerDelegate {
@@ -340,6 +341,22 @@ class ImagePicker: NSObject, UINavigationControllerDelegate,UIImagePickerControl
             }
             if docType.contains("JPEG") {
                 arrdocumentTypes.append(kUTTypeJPEG as String)
+            }
+            if docType.contains("PDF") {
+                arrdocumentTypes.append(kUTTypePDF as String)
+            }
+            if docType.contains("DOC") {
+                arrdocumentTypes.append("org.openxmlformats.wordprocessingml.document")
+                arrdocumentTypes.append("com.microsoft.word.doc")
+            }
+            if docType.contains("XLSX") {
+                arrdocumentTypes.append("org.openxmlformats.spreadsheetml.sheet")
+            }
+            if docType.contains("XLS") {
+                arrdocumentTypes.append("com.microsoft.excel.xls")
+            }
+            if docType.contains("GIF") {
+                arrdocumentTypes.append("com.compuserve.gif")
             }
             let documentPicker = UIDocumentPickerViewController(documentTypes: arrdocumentTypes, in: .import)
             //["com.apple.iwork.pages.pages", "com.apple.iwork.numbers.numbers", "com.apple.iwork.keynote.key","public.image", "com.apple.application", "public.item","public.data", "public.content", "public.audiovisual-content", "public.zip-archive", "com.pkware.zip-archive", "public.composite-content", "public.text"]

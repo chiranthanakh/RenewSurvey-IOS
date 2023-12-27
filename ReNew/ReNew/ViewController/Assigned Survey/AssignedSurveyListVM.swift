@@ -11,6 +11,7 @@ class AssignedSurveyListVM {
 
     var viewController: AssignedSurveyListVC?
     var arrAssignedList = [ModelAssignedSurvey]()
+    var selectedformType : FormType = .Distribution
     
     
     func registerController() {
@@ -20,7 +21,14 @@ class AssignedSurveyListVM {
     }
     
     func getAssignedList() {
-        self.arrAssignedList = DataManager.getAssignedSurveyList()
+        self.arrAssignedList = DataManager.getAssignedSurveyList().filter({$0.nextFormId == "\(kAppDelegate.selectedFormID)"})
+        print(self.arrAssignedList)
+        self.viewController?.tblView.reloadData()
     }
     
+}
+
+enum FormType {
+    case Distribution
+    case Feedback
 }

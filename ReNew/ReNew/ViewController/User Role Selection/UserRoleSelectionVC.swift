@@ -42,13 +42,14 @@ extension UserRoleSelectionVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectSelectionTCell", for: indexPath) as? ProjectSelectionTCell else { return UITableViewCell() }
         if self.viewModel.arrLanguage.indices ~= indexPath.row {
-            cell.lblProjectName.text = self.viewModel.arrLanguage[indexPath.row].title
+            cell.lblProjectName.text = self.viewModel.arrLanguage[indexPath.row].formName
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         kAppDelegate.selectedFormID = self.viewModel.arrLanguage[indexPath.row].tblFormsId
+        kAppDelegate.selectedForm = self.viewModel.arrLanguage[indexPath.row]
         let vc = DashboardVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }

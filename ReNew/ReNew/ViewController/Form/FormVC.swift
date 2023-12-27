@@ -87,7 +87,10 @@ extension FormVC {
         self.imagePicker.pickerHandler = { (data, path, image, tag) in
             if let cell = self.tblQuestion.cellForRow(at: IndexPath(row: tag, section: 0)) as? TextBoxQuestionTCell {
                 cell.txtAnswer.text = path.lastPathComponent
-                self.viewModel.arrFormGroup[self.viewModel.selectedGrpIndex].questions[tag].strAnswer = path.lastPathComponent
+                let FileData :NSData = try! NSData(contentsOf: path)
+                let fileName = "\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedFormID)_\(path.lastPathComponent)"
+                duplicateFileToDouments(fileDate: FileData, fileName: fileName)
+                self.viewModel.arrFormGroup[self.viewModel.selectedGrpIndex].questions[tag].strAnswer = fileName
                 self.tblQuestion.reloadRows(at: [IndexPath(row: tag, section: 0)], with: .none)
             }
         }
@@ -175,9 +178,15 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                 self.collectionFormGroup.reloadData()
                 self.viewModel.checkValidationForSaveButton()
             }
+            cell.isSelection = false
+            if question.strAnswer != "" && kAppDelegate.selectedFormID != 1 {
+                cell.txtAnswer.isEnabled = false
+            }
+            else {
+                cell.txtAnswer.isEnabled = true
+            }
             cell.lblQuestion.text = "\(indexPath.row+1). \(question.questiontitle())"
             cell.txtAnswer.text = question.strAnswer
-            cell.isSelection = false
             cell.imgCamera.isHidden = true
             
             if question.type == "TEXT" {
@@ -187,6 +196,12 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                 cell.txtAnswer.keyboardType = .numberPad
             }
             else if question.type == "SINGLE_SELECT" {
+                if question.strAnswer != "" && kAppDelegate.selectedFormID != 1 {
+                    cell.btnSelection.isEnabled = false
+                }
+                else {
+                    cell.btnSelection.isEnabled = true
+                }
                 cell.isSelection = true
                 cell.completionSelection = {
                     let itemsTitle = self.viewModel.getStaticQuestionOption(question: question)
@@ -204,6 +219,7 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
             }
         }
         else {
+            cell.btnSelection.isEnabled = true
             if self.viewModel.arrFormGroup[self.viewModel.selectedGrpIndex].questions.indices ~= indexPath.row {
                 let question = self.viewModel.arrFormGroup[self.viewModel.selectedGrpIndex].questions[indexPath.row]
                 cell.completionEditingComplete = { answer in
@@ -314,6 +330,9 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                         self.imagePicker.pickImageFromGallary(self) { img in
                             cell.imgCamera.image = img
                             question.imageAnswer = img
+                            if let imageData:NSData = img.jpegData(compressionQuality: 0.6) as NSData?  {
+                                question.strImageBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
+                            }
                             self.collectionFormGroup.reloadData()
                             self.viewModel.checkValidationForSaveButton()
                         }
@@ -323,8 +342,9 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                     cell.imgCamera.isHidden = false
                     cell.imgCamera.image = UIImage(systemName: "doc")
                     cell.isSelection = true
-                    cell.txtAnswer.text = question.strAnswer == "" ? "Select File" : question.strAnswer
+                    cell.txtAnswer.text = question.strAnswer == "" ? "Select File" : question.strAnswer.replace(string: "\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedProjectID)_", replacement: "")
                     
+                    //"\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedFormID)_\(path.lastPathComponent)"
                     cell.completionSelection = {
                         self.imagePicker.tag = indexPath.row
                         self.imagePicker.chooseDocument(docType: question.allowFileType.components(separatedBy: ","))

@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var selectedLanguageID = Int()
     var selectedProjectID = Int()
     var selectedFormID = Int()
+    var selectedForm: ModelUserRole?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -50,6 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         else {
             nav = UINavigationController(rootViewController: LanguageSelectionVC())
         }
+//        nav = UINavigationController(rootViewController: SyncServerVC())
         nav.isToolbarHidden = true
         nav.navigationBar.isHidden = true
         self.window?.rootViewController = nav

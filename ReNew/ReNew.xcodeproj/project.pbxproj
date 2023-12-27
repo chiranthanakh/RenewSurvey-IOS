@@ -54,6 +54,8 @@
 		C659FA232B35BDB50056BDAD /* ModelAssignedSurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C659FA222B35BDB50056BDAD /* ModelAssignedSurvey.swift */; };
 		C659FA252B35BFE40056BDAD /* AssignedSurveyListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C659FA242B35BFE40056BDAD /* AssignedSurveyListVM.swift */; };
 		C659FA272B35C1C60056BDAD /* AssignedSurveyListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C659FA262B35C1C60056BDAD /* AssignedSurveyListVC.xib */; };
+		C664F5B02B39A47400B3C739 /* MenuTCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C664F5AE2B39A47400B3C739 /* MenuTCell.swift */; };
+		C664F5B12B39A47400B3C739 /* MenuTCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C664F5AF2B39A47400B3C739 /* MenuTCell.xib */; };
 		C6690CA62B281FEC00BC477B /* SyncServerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6690CA42B281FEC00BC477B /* SyncServerVC.swift */; };
 		C6690CA72B281FEC00BC477B /* SyncServerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6690CA52B281FEC00BC477B /* SyncServerVC.xib */; };
 		C6690CAC2B28209000BC477B /* ModelServerSyncTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6690CA92B28209000BC477B /* ModelServerSyncTable.swift */; };
@@ -205,6 +207,8 @@
 		C659FA222B35BDB50056BDAD /* ModelAssignedSurvey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelAssignedSurvey.swift; sourceTree = "<group>"; };
 		C659FA242B35BFE40056BDAD /* AssignedSurveyListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignedSurveyListVM.swift; sourceTree = "<group>"; };
 		C659FA262B35C1C60056BDAD /* AssignedSurveyListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssignedSurveyListVC.xib; sourceTree = "<group>"; };
+		C664F5AE2B39A47400B3C739 /* MenuTCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTCell.swift; sourceTree = "<group>"; };
+		C664F5AF2B39A47400B3C739 /* MenuTCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTCell.xib; sourceTree = "<group>"; };
 		C6690CA42B281FEC00BC477B /* SyncServerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncServerVC.swift; sourceTree = "<group>"; };
 		C6690CA52B281FEC00BC477B /* SyncServerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SyncServerVC.xib; sourceTree = "<group>"; };
 		C6690CA92B28209000BC477B /* ModelServerSyncTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelServerSyncTable.swift; sourceTree = "<group>"; };
@@ -488,6 +492,15 @@
 			path = "Assigned Survey";
 			sourceTree = "<group>";
 		};
+		C664F5AD2B39A45F00B3C739 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C664F5AE2B39A47400B3C739 /* MenuTCell.swift */,
+				C664F5AF2B39A47400B3C739 /* MenuTCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		C6690CA32B281FD200BC477B /* Sync Server */ = {
 			isa = PBXGroup;
 			children = (
@@ -570,6 +583,7 @@
 		C672D15A2B29D33600C41711 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				C664F5AD2B39A45F00B3C739 /* Cell */,
 				C672D15B2B29D34A00C41711 /* DashboardVC.swift */,
 				C6196AD72B336265000EF557 /* DashboardVM.swift */,
 				C672D15C2B29D34A00C41711 /* DashboardVC.xib */,
@@ -940,6 +954,7 @@
 				C659FA1B2B3585070056BDAD /* DraftListTCell.xib in Resources */,
 				C672D1552B29C95300C41711 /* UserRoleSelectionVC.xib in Resources */,
 				C63B57F12B249CB00057689B /* ListSelectionTCell.xib in Resources */,
+				C664F5B12B39A47400B3C739 /* MenuTCell.xib in Resources */,
 				C672D1502B29C67B00C41711 /* ProjectSelectionTCell.xib in Resources */,
 				C6F6B73A2B240EB200A164BF /* Assets.xcassets in Resources */,
 				C659FA142B3583190056BDAD /* DraftFromListVC.xib in Resources */,
@@ -1124,6 +1139,7 @@
 				C6F6B7CD2B24108300A164BF /* CosmosAccessibility.swift in Sources */,
 				C6F6B7D72B24108300A164BF /* CosmosTouchTarget.swift in Sources */,
 				C6F6B75B2B24106A00A164BF /* InputTextFeildView.swift in Sources */,
+				C664F5B02B39A47400B3C739 /* MenuTCell.swift in Sources */,
 				C6273CD32B2AD5A100A8C3D8 /* FormVC.swift in Sources */,
 				C659FA162B3583260056BDAD /* DraftFromListVM.swift in Sources */,
 				C659FA252B35BFE40056BDAD /* AssignedSurveyListVM.swift in Sources */,

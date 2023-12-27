@@ -15,6 +15,14 @@ class DashboardVC: UIViewController {
     @IBOutlet var lblSyncSurvey: UILabel!
     @IBOutlet var lblPendingToSync: UILabel!
     @IBOutlet var lblDraftSurvey: UILabel!
+    @IBOutlet var lblUserName: UILabel!
+    @IBOutlet var lblUserPhoneNo: UILabel!
+    @IBOutlet var lblUserEmail: UILabel!
+    @IBOutlet var tblView: UITableView!
+    @IBOutlet var vwSideMenuBg: UIView!
+    @IBOutlet var menuLeading: NSLayoutConstraint!
+    @IBOutlet var vwBlackWrapper: UIView!
+    @IBOutlet var imgProfile: UIImageView!
     
     var viewModel = DashboardVM()
     
@@ -47,11 +55,15 @@ extension DashboardVC {
     
     private func initConfig() {
         self.viewModel.viewController = self
-        
+        self.viewModel.registerController()
         self.lblFormTitle.text = DataManager.getFormTitleFromFormId(formID: kAppDelegate.selectedFormID)
         self.lblProjectCode.text = DataManager.getProjectCodeFromProjectId(projectID: kAppDelegate.selectedProjectID)
     }
     
+    func hideMenu() {
+        self.vwBlackWrapper.isHidden = true
+        self.vwSideMenuBg.isHidden = true
+    }
 }
 
 //MARK: - UiButton Action
@@ -62,11 +74,13 @@ extension DashboardVC {
     }
     
     @IBAction func btnStartNew(_ sender: UIButton) {
-        if kAppDelegate.selectedFormID == 2 {
-            self.navigationController?.pushViewController(AssignedSurveyListVC(), animated: true)
+        if kAppDelegate.selectedFormID == 1 {
+            self.navigationController?.pushViewController(FormVC(), animated: true)
         }
         else {
-            self.navigationController?.pushViewController(FormVC(), animated: true)
+            let vc = AssignedSurveyListVC()
+            vc.viewModel.selectedformType = .Distribution
+            self.navigationController?.pushViewController(AssignedSurveyListVC(), animated: true)
         }
     }
     
@@ -74,4 +88,61 @@ extension DashboardVC {
         self.viewModel.getAsyncFormList()
     }
     
+    @IBAction func btnShowMenu(_ sender: UIButton) {
+        self.vwBlackWrapper.isHidden = false
+        self.vwSideMenuBg.isHidden = false
+    }
+    
+    @IBAction func btnHideMenu(_ sender: UIButton) {
+        self.hideMenu()
+    }
+}
+
+//MARK: - UITablview Delegate & Datasource Methods
+extension DashboardVC: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MenuTCell", for: indexPath) as? MenuTCell else { return UITableViewCell() }
+        
+        if indexPath.row == 0 {
+            cell.imgOption.image = UIImage(systemName: "bell.fill")
+            cell.lblOptionTitle.text = "Notification"
+        }
+        else if indexPath.row == 1 {
+            cell.imgOption.image = UIImage(systemName: "lock.fill")
+            cell.lblOptionTitle.text = "Change password"
+        }
+        else if indexPath.row == 2 {
+            cell.imgOption.image = UIImage(named: "ic_LogOut")
+            cell.lblOptionTitle.text = "LogOut"
+        }
+        return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            
+        }
+        else if indexPath.row == 1 {
+            self.hideMenu()
+            let vc = ResetPasswordVC()
+            vc.dicParam = ["mobile": ModelUser.getCurrentUserFromDefault()?.mobile ?? "",
+                           "tbl_users_id": ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? ""]
+            vc.isFromChangePassword = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else if indexPath.row == 2 {
+            self.showAlert(with: "Do you want to logout?", firstButton: "yes", firstHandler: { _ in
+                ModelUser.removeUserFromDefault()
+                kAppDelegate.setLogInScreen()
+            }, secondButton: "No") { _ in
+                
+            }
+        }
+    }
 }

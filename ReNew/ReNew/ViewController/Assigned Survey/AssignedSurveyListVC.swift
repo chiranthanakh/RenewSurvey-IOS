@@ -49,11 +49,10 @@ extension AssignedSurveyListVC: UITableViewDelegate, UITableViewDataSource {
         if self.viewModel.arrAssignedList.indices ~= indexPath.row {
             cell.lblTitle.text = self.viewModel.arrAssignedList[indexPath.row].banficaryName
             cell.completionStartAction = {
-                /*let vc = FormVC()
-                vc.viewModel.arrStaticQuestion = self.viewModel.arrList[indexPath.row].staticQuestions
-                vc.viewModel.arrFormGroup = self.viewModel.arrList[indexPath.row].grpForm
-                vc.viewModel.isFromDraft = true
-                self.navigationController?.pushViewController(vc, animated: true)*/
+                let vc = FormVC()
+                vc.viewModel.modelAssignedSurvey = self.viewModel.arrAssignedList[indexPath.row]
+                vc.viewModel.isFromAssignList = true
+                self.navigationController?.pushViewController(vc, animated: true)
             }
         }
         return cell

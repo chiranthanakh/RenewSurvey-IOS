@@ -120,6 +120,32 @@ class DataManager: NSObject {
     }
     
     static func getUserRoleList(languageId: String) -> [ModelUserRole] {
+        let query = "SELECT DISTINCT ap.tbl_projects_id,mfl1.title AS project_name, ap.tbl_forms_id, mfl.title as form_name, tpp.tbl_project_phase_id,tpp.phase,tpp.version FROM tbl_users_assigned_projects ap inner JOIN tbl_projects tp ON tp.tbl_projects_id = ap.tbl_projects_id inner JOIN tbl_project_phase tpp ON tpp.tbl_projects_id = ap.tbl_projects_id AND tpp.tbl_forms_id = ap.tbl_forms_id AND tpp.is_released = 'Y' inner JOIN tbl_forms tf ON tf.tbl_forms_id = ap.tbl_forms_id inner JOIN mst_form_language mfl ON mfl.module = 'tbl_forms' AND mfl.module_id = tf.tbl_forms_id AND mfl.is_active = 1 AND mfl.is_delete = 0 AND mfl.mst_language_id = '\(languageId)' inner JOIN mst_form_language mfl1 ON mfl1.module = 'tbl_projects' AND mfl1.module_id = tp.tbl_projects_id AND mfl1.is_active = 1 AND mfl1.is_delete = 0 AND mfl1.mst_language_id = '\(languageId)' WHERE ap.tbl_users_id = '\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")' AND ap.tbl_projects_id = '\(kAppDelegate.selectedProjectID)'"
+        var mainarr = [ModelUserRole]()
+        var dbop :OpaquePointer? = nil
+        if sqlite3_open(DataManager.databasePath(), &dbop) == SQLITE_OK {
+            var stmt : OpaquePointer? = nil
+            if sqlite3_prepare_v2(dbop, query, -1, &stmt, nil) == SQLITE_OK{
+                while sqlite3_step(stmt) == SQLITE_ROW {
+                    let temp = ModelUserRole(fromDictionary: [:])
+                    temp.tblProjectsId  = Int(sqlite3_column_int(stmt, 0))
+                    temp.title  = String(cString: sqlite3_column_text(stmt, 1))
+                    temp.tblFormsId = Int(sqlite3_column_int(stmt, 2))
+                    temp.formName = String(cString: sqlite3_column_text(stmt, 3))
+                    temp.tblProjectsId = Int(sqlite3_column_int(stmt, 4))
+                    temp.phase = Int(sqlite3_column_int(stmt, 5))
+                    
+                    mainarr.append(temp)
+                }
+                sqlite3_finalize(stmt)
+            }
+            sqlite3_close(dbop)
+        }
+        print(mainarr.count)
+        return mainarr
+    }
+    
+    /*static func getUserRoleList(languageId: String) -> [ModelUserRole] {
         let query = "SELECT  tbl_forms_id, mst_form_language_id , title FROM mst_form_language INNER JOIN tbl_forms ON mst_form_language.module_id = tbl_forms.tbl_forms_id WHERE mst_form_language.module ='tbl_forms' AND mst_form_language.mst_language_id = '\(languageId)'"
         var mainarr = [ModelUserRole]()
         var dbop :OpaquePointer? = nil
@@ -139,7 +165,7 @@ class DataManager: NSObject {
         }
         print(mainarr.count)
         return mainarr
-    }
+    }*/
     
     static func getFormGroupList() -> [ModelFormGroup] {
         let query = "SELECT title,mst_question_group.mst_question_group_id FROM tbl_project_phase_question LEFT JOIN mst_question_group  ON mst_question_group.mst_question_group_id = tbl_project_phase_question.mst_question_group_id LEFT JOIN mst_form_language ON mst_form_language.module_id =  mst_question_group.mst_question_group_id AND mst_form_language.module = 'mst_question_group' WHERE mst_form_language.mst_language_id = '\(kAppDelegate.selectedLanguageID)' AND tbl_project_phase_question.tbl_projects_id = '\(kAppDelegate.selectedProjectID)' AND  tbl_project_phase_question.tbl_forms_id = '\(kAppDelegate.selectedFormID)' GROUP BY mst_question_group.mst_question_group_id ORDER By mst_question_group.order_by"
@@ -375,6 +401,7 @@ class DataManager: NSObject {
                     temp.mstLanguageId  = Int(sqlite3_column_int(stmt, 6))
                     temp.tblFormsId  = Int(sqlite3_column_int(stmt, 7))
                     temp.appUniqueCode  = String(cString: sqlite3_column_text(stmt, 8))
+                    temp.phase  = Int(sqlite3_column_int(stmt, 9))
                     mainarr.append(temp)
                 }
                 sqlite3_finalize(stmt)
@@ -475,7 +502,7 @@ class DataManager: NSObject {
                     temp.noOfCattlesOwn  = String(cString: sqlite3_column_text(stmt, 22))
                     temp.systemApproval  = String(cString: sqlite3_column_text(stmt, 23))
                     temp.reason  = String(cString: sqlite3_column_text(stmt, 24))
-                    temp.nextFormId  = String(cString: sqlite3_column_text(stmt, 26))
+                    temp.nextFormId  = String(cString: sqlite3_column_text(stmt, 25))
                     temp.parentSurveyId  = String(cString: sqlite3_column_text(stmt, 26))
 
                     mainarr.append(temp)
@@ -503,4 +530,96 @@ class DataManager: NSObject {
         }
     }
 
+    static func getStataName(stateId: String) -> String {
+        let query = "SELECT DISTINCT state_name from mst_state WHERE mst_state_id = '\(stateId)'"
+        var strResult = String()
+        var dbop :OpaquePointer? = nil
+        if sqlite3_open(DataManager.databasePath(), &dbop) == SQLITE_OK {
+            var stmt : OpaquePointer? = nil
+            if sqlite3_prepare_v2(dbop, query, -1, &stmt, nil) == SQLITE_OK{
+                while sqlite3_step(stmt) == SQLITE_ROW {
+                    strResult  = String(cString: sqlite3_column_text(stmt, 0))
+                }
+                sqlite3_finalize(stmt)
+            }
+            sqlite3_close(dbop)
+        }
+        return strResult
+    }
+    
+    static func getDistrictName(districtId: String) -> String {
+        let query = "SELECT DISTINCT district_name from mst_district WHERE mst_district_id = '\(districtId)'"
+        var strResult = String()
+        var dbop :OpaquePointer? = nil
+        if sqlite3_open(DataManager.databasePath(), &dbop) == SQLITE_OK {
+            var stmt : OpaquePointer? = nil
+            if sqlite3_prepare_v2(dbop, query, -1, &stmt, nil) == SQLITE_OK{
+                while sqlite3_step(stmt) == SQLITE_ROW {
+                    strResult  = String(cString: sqlite3_column_text(stmt, 0))
+                }
+                sqlite3_finalize(stmt)
+            }
+            sqlite3_close(dbop)
+        }
+        return strResult
+    }
+    
+    static func getTehsilName(tehsilId: String) -> String {
+        let query = "SELECT DISTINCT tehsil_name from mst_tehsil WHERE mst_tehsil_id = '\(tehsilId)'"
+        var strResult = String()
+        var dbop :OpaquePointer? = nil
+        if sqlite3_open(DataManager.databasePath(), &dbop) == SQLITE_OK {
+            var stmt : OpaquePointer? = nil
+            if sqlite3_prepare_v2(dbop, query, -1, &stmt, nil) == SQLITE_OK{
+                while sqlite3_step(stmt) == SQLITE_ROW {
+                    strResult  = String(cString: sqlite3_column_text(stmt, 0))
+                }
+                sqlite3_finalize(stmt)
+            }
+            sqlite3_close(dbop)
+        }
+        return strResult
+    }
+    
+    static func getPanchayatName(panchayatId: String) -> String {
+        let query = "SELECT DISTINCT panchayat_name from mst_panchayat WHERE mst_panchayat_id = '\(panchayatId)'"
+        var strResult = String()
+        var dbop :OpaquePointer? = nil
+        if sqlite3_open(DataManager.databasePath(), &dbop) == SQLITE_OK {
+            var stmt : OpaquePointer? = nil
+            if sqlite3_prepare_v2(dbop, query, -1, &stmt, nil) == SQLITE_OK{
+                while sqlite3_step(stmt) == SQLITE_ROW {
+                    strResult  = String(cString: sqlite3_column_text(stmt, 0))
+                }
+                sqlite3_finalize(stmt)
+            }
+            sqlite3_close(dbop)
+        }
+        return strResult
+    }
+    
+    static func getVillageName(villageId: String) -> String {
+        let query = "SELECT DISTINCT village_name from mst_village WHERE mst_village_id = '\(villageId)'"
+        var strResult = String()
+        var dbop :OpaquePointer? = nil
+        if sqlite3_open(DataManager.databasePath(), &dbop) == SQLITE_OK {
+            var stmt : OpaquePointer? = nil
+            if sqlite3_prepare_v2(dbop, query, -1, &stmt, nil) == SQLITE_OK{
+                while sqlite3_step(stmt) == SQLITE_ROW {
+                    strResult  = String(cString: sqlite3_column_text(stmt, 0))
+                }
+                sqlite3_finalize(stmt)
+            }
+            sqlite3_close(dbop)
+        }
+        return strResult
+    }
+    
+    static func deleteDatabase() {
+        do {
+            _ =  try FileManager.default.removeItem(at: URL(fileURLWithPath: DataManager.databasePath()))
+        } catch  {
+            
+        }
+    }
 }

@@ -51,7 +51,7 @@ extension UIImageView {
         }
     }
     
-    func setImage(withUrl url: String, placeholderImage image: UIImage = #imageLiteral(resourceName: "ic_AppLogo"), indicatorStyle: UIActivityIndicatorView.Style = .gray, isProgressive: Bool = true,imageindicator : SDWebImageActivityIndicator = SDWebImageActivityIndicator.medium) {
+    func setImage(withUrl url: String, placeholderImage image: UIImage = UIImage(systemName: "person.crop.circle")!, indicatorStyle: UIActivityIndicatorView.Style = .gray, isProgressive: Bool = true,imageindicator : SDWebImageActivityIndicator = SDWebImageActivityIndicator.medium) {
         if !isProgressive {
             self.sd_setImage(with: URL(string: url), placeholderImage: image, options: .highPriority)
         }
