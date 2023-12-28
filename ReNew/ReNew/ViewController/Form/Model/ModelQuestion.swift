@@ -22,6 +22,7 @@ class ModelQuestion{
     var version : Int
     var imageAnswer = UIImage()
     var strImageBase64 : String
+    var ismandatory: String
     
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
@@ -45,6 +46,7 @@ class ModelQuestion{
         strImageBase64 = dictionary["strImageBase64"] as? String ?? ""
         minLength = dictionary["minLength"] as? Int ?? 0
         maxLength = dictionary["maxLength"] as? Int ?? 0
+        ismandatory = dictionary["is_mandatory"] as? String ?? ""
 	}
 
     func toDictionary() -> [String:Any]
@@ -70,7 +72,7 @@ class ModelQuestion{
         dictionary["version"] = version
         dictionary["tbl_project_phase_id"] = tblProjectPhaseId
         dictionary["phase"] = kAppDelegate.selectedForm?.phase ?? ""
-        
+        dictionary["is_mandatory"] = ismandatory
         if questionOption != nil{
             var dictionaryElements = [[String:Any]]()
             for optionsElement in questionOption {

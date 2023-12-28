@@ -132,8 +132,9 @@ class DataManager: NSObject {
                     temp.title  = String(cString: sqlite3_column_text(stmt, 1))
                     temp.tblFormsId = Int(sqlite3_column_int(stmt, 2))
                     temp.formName = String(cString: sqlite3_column_text(stmt, 3))
-                    temp.tblProjectsId = Int(sqlite3_column_int(stmt, 4))
+                    temp.tblProjectPhaseId = Int(sqlite3_column_int(stmt, 4))
                     temp.phase = Int(sqlite3_column_int(stmt, 5))
+                    temp.version = Int(sqlite3_column_int(stmt, 6))
                     
                     mainarr.append(temp)
                 }
@@ -189,7 +190,7 @@ class DataManager: NSObject {
     }
     
     static func getQuestionList(grpId: Int) -> [ModelQuestion] {
-        let query = "SELECT DISTINCT q.mst_question_group_id, q.tbl_form_questions_id, title, question_type, allowed_file_type, min_length, max_length, p.tbl_project_phase_id, p.version from tbl_project_phase_question as p inner join  tbl_form_questions as q  on q.tbl_form_questions_id = p.tbl_form_questions_id inner join mst_form_language as l on l.module_id = q.tbl_form_questions_id and l.module='tbl_form_questions'  where l.mst_language_id='\(kAppDelegate.selectedLanguageID)' and q.mst_question_group_id= '\(grpId)' and p.tbl_forms_id= '\(kAppDelegate.selectedFormID)' order by q.order_by"
+        let query = "SELECT DISTINCT q.mst_question_group_id, q.tbl_form_questions_id, title, question_type, allowed_file_type, min_length, max_length, p.tbl_project_phase_id, p.version, is_mandatory from tbl_project_phase_question as p inner join  tbl_form_questions as q  on q.tbl_form_questions_id = p.tbl_form_questions_id inner join mst_form_language as l on l.module_id = q.tbl_form_questions_id and l.module='tbl_form_questions'  where l.mst_language_id='\(kAppDelegate.selectedLanguageID)' and q.mst_question_group_id= '\(grpId)' and p.tbl_forms_id= '\(kAppDelegate.selectedFormID)' order by q.order_by"
         
         //"SELECT tbl_form_questions_id, title, question_type, allowed_file_type, min_length, max_length FROM tbl_form_questions as q INNER JOIN mst_form_language as I ON q.tbl_form_questions_id = I.module_id AND I.module = 'tbl_form_questions' WHERE I.mst_language_id = '\(kAppDelegate.selectedLanguageID)' AND q.mst_question_group_id = '\(grpId)'  ORDER BY q.order_by"
         var mainarr = [ModelQuestion]()
@@ -208,6 +209,7 @@ class DataManager: NSObject {
                     temp.maxLength  = Int(sqlite3_column_int(stmt, 6))
                     temp.tblProjectPhaseId  = Int(sqlite3_column_int(stmt, 7))
                     temp.version  = Int(sqlite3_column_int(stmt, 8))
+                    temp.ismandatory  = String(cString: sqlite3_column_text(stmt,9))
                     mainarr.append(temp)
                 }
                 sqlite3_finalize(stmt)
@@ -362,8 +364,29 @@ class DataManager: NSObject {
         return mainarr
     }
     
-    static func getVillageList(stateID: String, districtID: String, tehsilId: String) -> [ModelVillage] {
-        let query = "SELECT mst_village_id, village_name from mst_village WHERE mst_state_id = '\(stateID)' AND mst_district_id = '\(districtID)' AND mst_tehsil_id = '\(tehsilId)'"
+    static func getPanchayatList(stateID: String, districtID: String, tehsilId: String) -> [ModelPanchayat] {
+        let query = "SELECT mst_panchayat_id, panchayat_name  from mst_panchayat  WHERE mst_state_id = '\(stateID)' AND mst_district_id = '\(districtID)' AND mst_tehsil_id = '\(tehsilId)'"
+        var mainarr = [ModelPanchayat]()
+        var dbop :OpaquePointer? = nil
+        if sqlite3_open(DataManager.databasePath(), &dbop) == SQLITE_OK {
+            var stmt : OpaquePointer? = nil
+            if sqlite3_prepare_v2(dbop, query, -1, &stmt, nil) == SQLITE_OK{
+                while sqlite3_step(stmt) == SQLITE_ROW {
+                    let temp = ModelPanchayat(fromDictionary: [:])
+                    temp.mstPanchayatId  = String(Int(sqlite3_column_int(stmt, 0)))
+                    temp.panchayatName  = String(cString: sqlite3_column_text(stmt, 1))
+                    mainarr.append(temp)
+                }
+                sqlite3_finalize(stmt)
+            }
+            sqlite3_close(dbop)
+        }
+        print(mainarr.count)
+        return mainarr
+    }
+    
+    static func getVillageList(stateID: String, districtID: String, tehsilId: String, panchayatId: String) -> [ModelVillage] {
+        let query = "SELECT mst_village_id, village_name from mst_village WHERE mst_state_id = '\(stateID)' AND mst_district_id = '\(districtID)' AND mst_tehsil_id = '\(tehsilId)' AND mst_panchayat_id = '\(panchayatId)'"
         var mainarr = [ModelVillage]()
         var dbop :OpaquePointer? = nil
         if sqlite3_open(DataManager.databasePath(), &dbop) == SQLITE_OK {
@@ -380,6 +403,26 @@ class DataManager: NSObject {
             sqlite3_close(dbop)
         }
         print(mainarr.count)
+        return mainarr
+    }
+    
+    static func getVillageDetails(villageName: String, panchayatId: String) -> ModelVillage? {
+        let query = "SELECT * from mst_village WHERE village_name = '\(villageName)' AND mst_panchayat_id = '\(panchayatId)'"
+        var mainarr : ModelVillage?
+        var dbop :OpaquePointer? = nil
+        if sqlite3_open(DataManager.databasePath(), &dbop) == SQLITE_OK {
+            var stmt : OpaquePointer? = nil
+            if sqlite3_prepare_v2(dbop, query, -1, &stmt, nil) == SQLITE_OK{
+                while sqlite3_step(stmt) == SQLITE_ROW {
+                    let temp = ModelVillage(fromDictionary: [:])
+                    temp.mstVillagesId  = String(Int(sqlite3_column_int(stmt, 0)))
+                    temp.villageName  = String(cString: sqlite3_column_text(stmt, 1))
+                    mainarr = temp
+                }
+                sqlite3_finalize(stmt)
+            }
+            sqlite3_close(dbop)
+        }
         return mainarr
     }
     
@@ -402,6 +445,37 @@ class DataManager: NSObject {
                     temp.tblFormsId  = Int(sqlite3_column_int(stmt, 7))
                     temp.appUniqueCode  = String(cString: sqlite3_column_text(stmt, 8))
                     temp.phase  = Int(sqlite3_column_int(stmt, 9))
+                    temp.version  = Int(sqlite3_column_int(stmt, 10))
+                    mainarr.append(temp)
+                }
+                sqlite3_finalize(stmt)
+            }
+            sqlite3_close(dbop)
+        }
+        print(mainarr.count)
+        return mainarr
+    }
+    
+    static func getAllAsyncFromList() -> [ModelAsyncForm] {
+        let query = "SELECT * FROM tbl_FilledForms WHERE status = '0'"
+        var mainarr = [ModelAsyncForm]()
+        var dbop :OpaquePointer? = nil
+        if sqlite3_open(DataManager.databasePath(), &dbop) == SQLITE_OK {
+            var stmt : OpaquePointer? = nil
+            if sqlite3_prepare_v2(dbop, query, -1, &stmt, nil) == SQLITE_OK{
+                while sqlite3_step(stmt) == SQLITE_ROW {
+                    let temp = ModelAsyncForm(fromDictionary: [:])
+                    temp.id  = Int(sqlite3_column_int(stmt, 0))
+                    temp.jsonValues  = String(cString: sqlite3_column_text(stmt, 1))
+                    temp.status  = Int(sqlite3_column_int(stmt, 2))
+                    temp.tblUsersId  = Int(sqlite3_column_int(stmt, 3))
+                    temp.tblProjectsId  = Int(sqlite3_column_int(stmt, 4))
+                    temp.parentSurveyId  = Int(sqlite3_column_int(stmt, 5))
+                    temp.mstLanguageId  = Int(sqlite3_column_int(stmt, 6))
+                    temp.tblFormsId  = Int(sqlite3_column_int(stmt, 7))
+                    temp.appUniqueCode  = String(cString: sqlite3_column_text(stmt, 8))
+                    temp.phase  = Int(sqlite3_column_int(stmt, 9))
+                    temp.version  = Int(sqlite3_column_int(stmt, 10))
                     mainarr.append(temp)
                 }
                 sqlite3_finalize(stmt)
@@ -414,6 +488,34 @@ class DataManager: NSObject {
     
     static func getDraftFromList() -> [ModelAsyncForm] {
         let query = "SELECT * FROM tbl_FilledForms WHERE tbl_users_id = '\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")' AND tbl_projects_id='\(kAppDelegate.selectedProjectID)' AND mst_language_id='\(kAppDelegate.selectedLanguageID)' AND tbl_forms_id='\(kAppDelegate.selectedFormID)' and status = '2'"
+        var mainarr = [ModelAsyncForm]()
+        var dbop :OpaquePointer? = nil
+        if sqlite3_open(DataManager.databasePath(), &dbop) == SQLITE_OK {
+            var stmt : OpaquePointer? = nil
+            if sqlite3_prepare_v2(dbop, query, -1, &stmt, nil) == SQLITE_OK{
+                while sqlite3_step(stmt) == SQLITE_ROW {
+                    let temp = ModelAsyncForm(fromDictionary: [:])
+                    temp.id  = Int(sqlite3_column_int(stmt, 0))
+                    temp.jsonValues  = String(cString: sqlite3_column_text(stmt, 1))
+                    temp.status  = Int(sqlite3_column_int(stmt, 2))
+                    temp.tblUsersId  = Int(sqlite3_column_int(stmt, 3))
+                    temp.tblProjectsId  = Int(sqlite3_column_int(stmt, 4))
+                    temp.parentSurveyId  = Int(sqlite3_column_int(stmt, 5))
+                    temp.mstLanguageId  = Int(sqlite3_column_int(stmt, 6))
+                    temp.tblFormsId  = Int(sqlite3_column_int(stmt, 7))
+                    temp.appUniqueCode  = String(cString: sqlite3_column_text(stmt, 8))
+                    mainarr.append(temp)
+                }
+                sqlite3_finalize(stmt)
+            }
+            sqlite3_close(dbop)
+        }
+        print(mainarr.count)
+        return mainarr
+    }
+    
+    static func getAllDraftFromList() -> [ModelAsyncForm] {
+        let query = "SELECT * FROM tbl_FilledForms WHERE status = '2'"
         var mainarr = [ModelAsyncForm]()
         var dbop :OpaquePointer? = nil
         if sqlite3_open(DataManager.databasePath(), &dbop) == SQLITE_OK {
@@ -469,7 +571,8 @@ class DataManager: NSObject {
     }
     
     static func getAssignedSurveyList() -> [ModelAssignedSurvey] {
-        let query = "SELECT * FROM tbl_assigned_survey"
+        let query = "SELECT tbl_assigned_survey.* from tbl_assigned_survey JOIN tbl_FilledForms On tbl_assigned_survey.parent_survey_id != tbl_FilledForms.parent_survey_id"
+        //"SELECT * FROM tbl_assigned_survey"
         var mainarr = [ModelAssignedSurvey]()
         var dbop :OpaquePointer? = nil
         if sqlite3_open(DataManager.databasePath(), &dbop) == SQLITE_OK {
@@ -615,11 +718,242 @@ class DataManager: NSObject {
         return strResult
     }
     
+    static func getTestDetail(formId: Int, languageId: Int) -> ModelTest? {
+        let query = "SELECT mfl.title,tt.* from tbl_tests as tt LEFT JOIN mst_form_language mfl ON mfl.module = 'tbl_tests' AND mfl.module_id = tt.tbl_tests_id WHERE tt.tbl_forms_id = '\(formId)'  AND mst_language_id = '\(languageId)'"
+        var mainarr: ModelTest?
+        var dbop :OpaquePointer? = nil
+        if sqlite3_open(DataManager.databasePath(), &dbop) == SQLITE_OK {
+            var stmt : OpaquePointer? = nil
+            if sqlite3_prepare_v2(dbop, query, -1, &stmt, nil) == SQLITE_OK{
+                while sqlite3_step(stmt) == SQLITE_ROW {
+                    let temp = ModelTest(fromDictionary: [:])
+                    temp.title  = String(cString: sqlite3_column_text(stmt, 0))
+                    temp.tblTestsId  = Int(sqlite3_column_int(stmt, 1))
+                    temp.tblFormsId  = Int(sqlite3_column_int(stmt, 2))
+                    temp.createdBy  = Int(sqlite3_column_int(stmt, 3))
+                    temp.testCode  = String(cString: sqlite3_column_text(stmt, 4))
+                    temp.passingMarks  = String(cString: sqlite3_column_text(stmt, 5))
+                    temp.createDate  = String(cString: sqlite3_column_text(stmt, 6))
+                    temp.isActive  = Int(sqlite3_column_int(stmt, 7))
+                    temp.isDelete  = Int(sqlite3_column_int(stmt, 8))
+                    temp.lastUpdate  = String(cString: sqlite3_column_text(stmt, 9))
+                    
+                    mainarr = temp
+                }
+                sqlite3_finalize(stmt)
+            }
+            sqlite3_close(dbop)
+        }
+        return mainarr
+    }
+    
+    static func getTestQuestionOptionList(languageId: Int, questionId: Int) -> [ModelTestQuestionOption] {
+        let query = "SELECT l.title, q.* from tbl_test_questions_option as q inner join mst_form_language as l on q.tbl_test_questions_option_id=l.module_id where l.module='tbl_test_questions_option' and tbl_test_questions_id= \(questionId) and l.mst_language_id = \(languageId)"
+        var mainarr = [ModelTestQuestionOption]()
+        var dbop :OpaquePointer? = nil
+        if sqlite3_open(DataManager.databasePath(), &dbop) == SQLITE_OK {
+            var stmt : OpaquePointer? = nil
+            if sqlite3_prepare_v2(dbop, query, -1, &stmt, nil) == SQLITE_OK{
+                while sqlite3_step(stmt) == SQLITE_ROW {
+                    let temp = ModelTestQuestionOption(fromDictionary: [:])
+                    temp.title  = String(cString: sqlite3_column_text(stmt, 0))
+                    temp.tblTestQuestionsOptionId  = Int(sqlite3_column_int(stmt, 1))
+                    temp.tblTestQuestionsId  = Int(sqlite3_column_int(stmt, 2))
+                    temp.createdBy  = Int(sqlite3_column_int(stmt, 3))
+                    temp.tblFormsId  = Int(sqlite3_column_int(stmt, 4))
+                    temp.tblTestsId  = Int(sqlite3_column_int(stmt, 5))
+                    temp.isAnswer  = String(cString: sqlite3_column_text(stmt, 6))
+                    temp.createDate  = String(cString: sqlite3_column_text(stmt, 7))
+                    temp.isActive  = Int(sqlite3_column_int(stmt, 8))
+                    temp.isDelete  = Int(sqlite3_column_int(stmt, 9))
+                    temp.lastUpdate  = String(cString: sqlite3_column_text(stmt, 10))
+
+                    mainarr.append(temp)
+                }
+                sqlite3_finalize(stmt)
+            }
+            sqlite3_close(dbop)
+        }
+        print(mainarr.count)
+        return mainarr
+    }
+    
+    static func getTestQuestionList(languageId: Int, testId: Int) -> [ModelTestQuestion] {
+        let query = "SELECT mfl.title, tq.* from tbl_test_questions as tq LEFT JOIN mst_form_language mfl ON mfl.module = 'tbl_test_questions' AND mfl.module_id = tbl_test_questions_id WHERE tbl_tests_id = \(testId) AND tq.is_active AND mst_language_id = \(languageId)"
+        var mainarr = [ModelTestQuestion]()
+        var dbop :OpaquePointer? = nil
+        if sqlite3_open(DataManager.databasePath(), &dbop) == SQLITE_OK {
+            var stmt : OpaquePointer? = nil
+            if sqlite3_prepare_v2(dbop, query, -1, &stmt, nil) == SQLITE_OK{
+                while sqlite3_step(stmt) == SQLITE_ROW {
+                    let temp = ModelTestQuestion(fromDictionary: [:])
+                    temp.title  = String(cString: sqlite3_column_text(stmt, 0))
+                    temp.tblTestQuestionsId  = Int(sqlite3_column_int(stmt, 1))
+                    temp.tblTestsId  = Int(sqlite3_column_int(stmt, 2))
+                    temp.tblFormsId  = Int(sqlite3_column_int(stmt, 3))
+                    temp.createdBy  = Int(sqlite3_column_int(stmt, 4))
+                    temp.questionType  = String(cString: sqlite3_column_text(stmt, 5))
+                    temp.isMandatory  = String(cString: sqlite3_column_text(stmt, 6))
+                    temp.orderBy  = Int(sqlite3_column_int(stmt, 7))
+                    temp.isValidationRequired  = String(cString: sqlite3_column_text(stmt, 8))
+                    temp.isSpecialCharAllowed  = String(cString: sqlite3_column_text(stmt, 9))
+                    temp.minLength  = Int(sqlite3_column_int(stmt, 10))
+                    temp.maxLength  = Int(sqlite3_column_int(stmt, 11))
+                    temp.format  = String(cString: sqlite3_column_text(stmt, 12))
+                    temp.answer  = String(cString: sqlite3_column_text(stmt, 13))
+                    temp.createDate  = String(cString: sqlite3_column_text(stmt, 14))
+                    temp.isActive  = Int(sqlite3_column_int(stmt, 15))
+                    temp.isDelete  = Int(sqlite3_column_int(stmt, 16))
+                    temp.lastUpdate  = String(cString: sqlite3_column_text(stmt, 17))
+
+                    mainarr.append(temp)
+                }
+                sqlite3_finalize(stmt)
+            }
+            sqlite3_close(dbop)
+        }
+        print(mainarr.count)
+        return mainarr
+    }
+    
     static func deleteDatabase() {
         do {
             _ =  try FileManager.default.removeItem(at: URL(fileURLWithPath: DataManager.databasePath()))
         } catch  {
             
         }
+    }
+    
+    static func syncWithServer(completionHandler: @escaping () -> Void) {
+        let formList = self.getAllAsyncFromList()
+        
+        if formList.count == 0 {
+            kAppDelegate.window?.topMostController()?.showAlert(with: "No any pending form to sync.")
+            return
+        }
+        
+        var arrFileDic = [[String:Any]]()
+        var arrFiles = [Any]()
+        
+        formList.forEach { form in
+            let questionJson = form.jsonValues.toFragmentsAllowedSingleJson()
+            if let questionAnswer = questionJson["question_answer"] as? [[String:Any]] {
+                questionAnswer.forEach { question in
+                    if let questionType = question["question_type"] as? String {
+                        if questionType == "CAPTURE",let answer = question["strImageBase64"] as? String, let img = answer.base64ToImage() {
+                            arrFiles.append(img)
+                            arrFileDic.append(["tbl_users_id": form.tblUsersId,
+                                               "tbl_forms_id": form.tblFormsId,
+                                               "tbl_projects_id": form.tblProjectsId,
+                                               "version": question["version"] as? Int ?? 0,
+                                               "phase": form.phase,
+                                               "app_unique_code": form.appUniqueCode,
+                                               "tbl_form_questions_id": question["tbl_form_questions_id"] as? Int ?? 0,
+                                               "file_name": question["answer"] as? String ?? ""])
+                        }
+                        else if questionType == "FILE", let answer = question["answer"] as? String {
+                            if let url =  getFileFromDocuments(fileName: answer){
+                                arrFiles.append(url)
+                            }
+                            
+                            let fileName = "\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")_\(form.tblProjectsId)_\(form.tblFormsId)_\(form.tblProjectPhaseId)_\(URL(fileURLWithPath: answer).lastPathComponent)"
+                            arrFileDic.append(["tbl_users_id": form.tblUsersId,
+                                               "tbl_forms_id": form.tblFormsId,
+                                               "tbl_projects_id": form.tblProjectsId,
+                                               "version": question["version"] as? Int ?? 0,
+                                               "phase": form.phase,
+                                               "app_unique_code": form.appUniqueCode,
+                                               "tbl_form_questions_id": question["tbl_form_questions_id"] as? Int ?? 0,
+                                               "file_name": fileName])
+                        }
+                    }
+                }
+            }
+        }
+        
+        if arrFiles.count == 0 {
+            self.uploadFormToServer(formList: formList) {
+                completionHandler()
+            }
+        }
+        else {
+            let param = ["post_data": arrFileDic]
+            APIManager.sharedInstance.requestUploadMedia(endpointurl: AppConstant.API.kSyncMedia, parameters: param as NSDictionary, arrFiles: arrFiles, isShowLoader: true) { error, dict in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+                else if let responsedic = dict {
+                    if (responsedic["success"] as? String ?? "") == "1" {
+                        self.uploadFormToServer(formList: formList) {
+                            self.updatedDbToFormUpload(formList: formList)
+                            completionHandler()
+                        }
+                    }
+                    else {
+                        kAppDelegate.window?.topMostController()?.showAlert(with: responsedic["message"] as? String ?? "")
+                    }
+                }
+            }
+        }
+    }
+    
+    static func uploadFormToServer(formList: [ModelAsyncForm], completionHandler: @escaping () -> Void) {
+        
+        var dic = [[String:Any]]()
+        
+        formList.forEach { form in
+            var formJson = form.jsonValues.toFragmentsAllowedSingleJson()
+            for item2 in 0..<(formJson["question_answer"] as! [[String:Any]]).count {
+                let x = (formJson["question_answer"] as! NSArray).mutableCopy() as? NSMutableArray
+                let y = (x?.object(at: item2) as? NSDictionary)?.mutableCopy() as? NSMutableDictionary
+                y?["strImageBase64"] = ""
+                y?["question_type"] = ""
+                y?["title"] = ""
+                y?["allowed_file_type"] = ""
+                y?["question_Option"] = ""
+                y?["mst_question_group_id"] = ""
+                y?["version"] = ""
+                y?["tbl_project_phase_id"] = ""
+                y?["version"] = ""
+                y?["minLength"] = ""
+                y?["maxLength"] = ""
+                y?["is_mandatory"] = ""
+                x?.replaceObject(at: item2, with: y)
+                formJson["question_answer"] = x
+            }
+            dic.append(formJson)
+        }
+        
+        
+        print(dic)
+                
+        APIManager.sharedInstance.requestAsyncDataUploadToServer(endpointurl: AppConstant.API.kSyncSurvey, parameters: dic, isShowLoader: true) { error, dict in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            else if let responsedic = dict {
+                if (responsedic["success"] as? String ?? "") == "1" {
+                    print(responsedic)
+                    completionHandler()
+                }
+                else {
+                    kAppDelegate.window?.topMostController()?.showAlert(with: responsedic["message"] as? String ?? "")
+                }
+            }
+        }
+    }
+    
+    static func updatedDbToFormUpload(formList: [ModelAsyncForm]) {
+        formList.forEach { asyncForm in
+            let query = "UPDATE tbl_FilledForms SET status = '1' WHERE id = '\(asyncForm.id)'"
+            if DataManager.DML(query: query) == true {
+                print("Inserted")
+            }
+            else {
+                print("Error \(query)")
+            }
+        }
+        kAppDelegate.window?.topMostController()?.showAlert(with: "Form sync successfully")
+        //self.getAsyncFormList()
     }
 }

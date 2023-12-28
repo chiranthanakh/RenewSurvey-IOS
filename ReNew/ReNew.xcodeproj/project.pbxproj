@@ -10,6 +10,8 @@
 		6B4C115AC72C61F327DD6A04 /* Pods_ReNew.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6626EB50BAF87CF5E7AAF1D1 /* Pods_ReNew.framework */; };
 		C6196AD62B33617B000EF557 /* ModelAsyncForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6196AD52B33617A000EF557 /* ModelAsyncForm.swift */; };
 		C6196AD82B336265000EF557 /* DashboardVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6196AD72B336265000EF557 /* DashboardVM.swift */; };
+		C620965C2B3C012800382D4C /* TermsConditionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C620965A2B3C012800382D4C /* TermsConditionVC.swift */; };
+		C620965D2B3C012800382D4C /* TermsConditionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C620965B2B3C012800382D4C /* TermsConditionVC.xib */; };
 		C620A82C2B2473E1002BBBA9 /* SignUpVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C620A82B2B2473E1002BBBA9 /* SignUpVM.swift */; };
 		C6265FB12B300502006CA786 /* RangeSeekSliderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6265FAE2B300501006CA786 /* RangeSeekSliderDelegate.swift */; };
 		C6265FB22B300502006CA786 /* RangeSeekSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6265FAF2B300501006CA786 /* RangeSeekSlider.swift */; };
@@ -54,6 +56,17 @@
 		C659FA232B35BDB50056BDAD /* ModelAssignedSurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C659FA222B35BDB50056BDAD /* ModelAssignedSurvey.swift */; };
 		C659FA252B35BFE40056BDAD /* AssignedSurveyListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C659FA242B35BFE40056BDAD /* AssignedSurveyListVM.swift */; };
 		C659FA272B35C1C60056BDAD /* AssignedSurveyListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C659FA262B35C1C60056BDAD /* AssignedSurveyListVC.xib */; };
+		C65BD8072B3D980400EDA84D /* TestQuestionResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65BD8052B3D980400EDA84D /* TestQuestionResultVC.swift */; };
+		C65BD8082B3D980400EDA84D /* TestQuestionResultVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C65BD8062B3D980400EDA84D /* TestQuestionResultVC.xib */; };
+		C65BD80A2B3D999F00EDA84D /* TestQuestionResultVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65BD8092B3D999F00EDA84D /* TestQuestionResultVM.swift */; };
+		C65BD80D2B3D9B4900EDA84D /* ModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65BD80C2B3D9B4900EDA84D /* ModelTest.swift */; };
+		C65BD8102B3D9D5E00EDA84D /* ModelTestQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65BD80E2B3D9D5E00EDA84D /* ModelTestQuestion.swift */; };
+		C65BD8112B3D9D5E00EDA84D /* ModelTestQuestionOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65BD80F2B3D9D5E00EDA84D /* ModelTestQuestionOption.swift */; };
+		C65BD8152B3DA33100EDA84D /* TestQuestionFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65BD8132B3DA33100EDA84D /* TestQuestionFormVC.swift */; };
+		C65BD8162B3DA33100EDA84D /* TestQuestionFormVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C65BD8142B3DA33100EDA84D /* TestQuestionFormVC.xib */; };
+		C65BD8182B3DA3A800EDA84D /* TestQuestionFormVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65BD8172B3DA3A800EDA84D /* TestQuestionFormVM.swift */; };
+		C662C2E72B3D3EA400518843 /* PendingSyncFormScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C662C2E52B3D3EA400518843 /* PendingSyncFormScreenVC.swift */; };
+		C662C2E82B3D3EA400518843 /* PendingSyncFormScreenVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C662C2E62B3D3EA400518843 /* PendingSyncFormScreenVC.xib */; };
 		C664F5B02B39A47400B3C739 /* MenuTCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C664F5AE2B39A47400B3C739 /* MenuTCell.swift */; };
 		C664F5B12B39A47400B3C739 /* MenuTCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C664F5AF2B39A47400B3C739 /* MenuTCell.xib */; };
 		C6690CA62B281FEC00BC477B /* SyncServerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6690CA42B281FEC00BC477B /* SyncServerVC.swift */; };
@@ -163,6 +176,8 @@
 		74D3B1596C6FFCE837FF31FC /* Pods-ReNew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReNew.release.xcconfig"; path = "Target Support Files/Pods-ReNew/Pods-ReNew.release.xcconfig"; sourceTree = "<group>"; };
 		C6196AD52B33617A000EF557 /* ModelAsyncForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelAsyncForm.swift; sourceTree = "<group>"; };
 		C6196AD72B336265000EF557 /* DashboardVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVM.swift; sourceTree = "<group>"; };
+		C620965A2B3C012800382D4C /* TermsConditionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsConditionVC.swift; sourceTree = "<group>"; };
+		C620965B2B3C012800382D4C /* TermsConditionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermsConditionVC.xib; sourceTree = "<group>"; };
 		C620A82B2B2473E1002BBBA9 /* SignUpVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVM.swift; sourceTree = "<group>"; };
 		C6265FAE2B300501006CA786 /* RangeSeekSliderDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSeekSliderDelegate.swift; sourceTree = "<group>"; };
 		C6265FAF2B300501006CA786 /* RangeSeekSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSeekSlider.swift; sourceTree = "<group>"; };
@@ -207,6 +222,17 @@
 		C659FA222B35BDB50056BDAD /* ModelAssignedSurvey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelAssignedSurvey.swift; sourceTree = "<group>"; };
 		C659FA242B35BFE40056BDAD /* AssignedSurveyListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignedSurveyListVM.swift; sourceTree = "<group>"; };
 		C659FA262B35C1C60056BDAD /* AssignedSurveyListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssignedSurveyListVC.xib; sourceTree = "<group>"; };
+		C65BD8052B3D980400EDA84D /* TestQuestionResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionResultVC.swift; sourceTree = "<group>"; };
+		C65BD8062B3D980400EDA84D /* TestQuestionResultVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestQuestionResultVC.xib; sourceTree = "<group>"; };
+		C65BD8092B3D999F00EDA84D /* TestQuestionResultVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionResultVM.swift; sourceTree = "<group>"; };
+		C65BD80C2B3D9B4900EDA84D /* ModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTest.swift; sourceTree = "<group>"; };
+		C65BD80E2B3D9D5E00EDA84D /* ModelTestQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTestQuestion.swift; sourceTree = "<group>"; };
+		C65BD80F2B3D9D5E00EDA84D /* ModelTestQuestionOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTestQuestionOption.swift; sourceTree = "<group>"; };
+		C65BD8132B3DA33100EDA84D /* TestQuestionFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionFormVC.swift; sourceTree = "<group>"; };
+		C65BD8142B3DA33100EDA84D /* TestQuestionFormVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestQuestionFormVC.xib; sourceTree = "<group>"; };
+		C65BD8172B3DA3A800EDA84D /* TestQuestionFormVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionFormVM.swift; sourceTree = "<group>"; };
+		C662C2E52B3D3EA400518843 /* PendingSyncFormScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingSyncFormScreenVC.swift; sourceTree = "<group>"; };
+		C662C2E62B3D3EA400518843 /* PendingSyncFormScreenVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PendingSyncFormScreenVC.xib; sourceTree = "<group>"; };
 		C664F5AE2B39A47400B3C739 /* MenuTCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTCell.swift; sourceTree = "<group>"; };
 		C664F5AF2B39A47400B3C739 /* MenuTCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTCell.xib; sourceTree = "<group>"; };
 		C6690CA42B281FEC00BC477B /* SyncServerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncServerVC.swift; sourceTree = "<group>"; };
@@ -341,6 +367,15 @@
 				74D3B1596C6FFCE837FF31FC /* Pods-ReNew.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C62096592B3C010300382D4C /* Terms Condition */ = {
+			isa = PBXGroup;
+			children = (
+				C620965A2B3C012800382D4C /* TermsConditionVC.swift */,
+				C620965B2B3C012800382D4C /* TermsConditionVC.xib */,
+			);
+			path = "Terms Condition";
 			sourceTree = "<group>";
 		};
 		C6265FAD2B300501006CA786 /* Range Slider */ = {
@@ -490,6 +525,46 @@
 				C659FA262B35C1C60056BDAD /* AssignedSurveyListVC.xib */,
 			);
 			path = "Assigned Survey";
+			sourceTree = "<group>";
+		};
+		C65BD8042B3D97D400EDA84D /* Test Question Result */ = {
+			isa = PBXGroup;
+			children = (
+				C65BD80B2B3D9B4000EDA84D /* Model */,
+				C65BD8092B3D999F00EDA84D /* TestQuestionResultVM.swift */,
+				C65BD8052B3D980400EDA84D /* TestQuestionResultVC.swift */,
+				C65BD8062B3D980400EDA84D /* TestQuestionResultVC.xib */,
+			);
+			path = "Test Question Result";
+			sourceTree = "<group>";
+		};
+		C65BD80B2B3D9B4000EDA84D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C65BD80C2B3D9B4900EDA84D /* ModelTest.swift */,
+				C65BD80E2B3D9D5E00EDA84D /* ModelTestQuestion.swift */,
+				C65BD80F2B3D9D5E00EDA84D /* ModelTestQuestionOption.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C65BD8122B3DA31D00EDA84D /* Test Question Form */ = {
+			isa = PBXGroup;
+			children = (
+				C65BD8172B3DA3A800EDA84D /* TestQuestionFormVM.swift */,
+				C65BD8132B3DA33100EDA84D /* TestQuestionFormVC.swift */,
+				C65BD8142B3DA33100EDA84D /* TestQuestionFormVC.xib */,
+			);
+			path = "Test Question Form";
+			sourceTree = "<group>";
+		};
+		C662C2E42B3D3E8600518843 /* Pending Sync Form Screen */ = {
+			isa = PBXGroup;
+			children = (
+				C662C2E52B3D3EA400518843 /* PendingSyncFormScreenVC.swift */,
+				C662C2E62B3D3EA400518843 /* PendingSyncFormScreenVC.xib */,
+			);
+			path = "Pending Sync Form Screen";
 			sourceTree = "<group>";
 		};
 		C664F5AD2B39A45F00B3C739 /* Cell */ = {
@@ -837,6 +912,10 @@
 		C6F6B7F72B241D1D00A164BF /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C65BD8122B3DA31D00EDA84D /* Test Question Form */,
+				C65BD8042B3D97D400EDA84D /* Test Question Result */,
+				C662C2E42B3D3E8600518843 /* Pending Sync Form Screen */,
+				C62096592B3C010300382D4C /* Terms Condition */,
 				C659FA1C2B35BD870056BDAD /* Assigned Survey */,
 				C659FA102B3583020056BDAD /* Draft From List */,
 				C6265FB42B302465006CA786 /* Pending Approval */,
@@ -967,11 +1046,14 @@
 				C63B57E02B2477650057689B /* VerificationVC.xib in Resources */,
 				C6F6B7F62B24190500A164BF /* Color.xcassets in Resources */,
 				C6690CB12B2822B800BC477B /* RenewDatabse.db in Resources */,
+				C65BD8162B3DA33100EDA84D /* TestQuestionFormVC.xib in Resources */,
 				C6F6B75A2B24106A00A164BF /* InputTextFeildView.xib in Resources */,
 				C63B57E52B248CB50057689B /* RegistrationVC.xib in Resources */,
 				C6690CA72B281FEC00BC477B /* SyncServerVC.xib in Resources */,
+				C620965D2B3C012800382D4C /* TermsConditionVC.xib in Resources */,
 				C659FA272B35C1C60056BDAD /* AssignedSurveyListVC.xib in Resources */,
 				C6273CDD2B2AD83C00A8C3D8 /* FormGroupTitleCCell.xib in Resources */,
+				C65BD8082B3D980400EDA84D /* TestQuestionResultVC.xib in Resources */,
 				C6F6B8052B2425A600A164BF /* SignUpVC.xib in Resources */,
 				C6F6B8072B2425D300A164BF /* AppLogoNavBarView.xib in Resources */,
 				C6F6B7FF2B241E1B00A164BF /* OptionSelectionVC.xib in Resources */,
@@ -979,6 +1061,7 @@
 				C6690CB82B28573B00BC477B /* ForgotPasswordVC.xib in Resources */,
 				C6F6B7752B24107200A164BF /* SearchTextView.xib in Resources */,
 				C642A1432B28D065002016DA /* LanguageSelectionVC.xib in Resources */,
+				C662C2E82B3D3EA400518843 /* PendingSyncFormScreenVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1039,6 +1122,7 @@
 				C6F6B7DB2B24108300A164BF /* UIView+GoneVisible.swift in Sources */,
 				C63B57E92B249A4F0057689B /* ListSelectionVC.swift in Sources */,
 				C6C1E76B2B2CC26C004C120F /* AYPopupDatePickerView.swift in Sources */,
+				C65BD8102B3D9D5E00EDA84D /* ModelTestQuestion.swift in Sources */,
 				C6F6B7D42B24108300A164BF /* CosmosTouch.swift in Sources */,
 				C6F6B7D82B24108300A164BF /* RightToLeft.swift in Sources */,
 				C672D15D2B29D34A00C41711 /* DashboardVC.swift in Sources */,
@@ -1083,9 +1167,12 @@
 				C6F6B7772B24107200A164BF /* UIStoryboard+Name.swift in Sources */,
 				C6F6B7CE2B24108300A164BF /* CosmosText.swift in Sources */,
 				C6F6B7D92B24108300A164BF /* CosmosView.swift in Sources */,
+				C620965C2B3C012800382D4C /* TermsConditionVC.swift in Sources */,
+				C65BD8112B3D9D5E00EDA84D /* ModelTestQuestionOption.swift in Sources */,
 				C6CBF5E02B2F2D1E00A8B962 /* RatingQuestionTCell.swift in Sources */,
 				C6F6B7832B24107200A164BF /* GlobalFunctions.swift in Sources */,
 				C6F6B7572B24106A00A164BF /* KeyChain.swift in Sources */,
+				C65BD8152B3DA33100EDA84D /* TestQuestionFormVC.swift in Sources */,
 				C6363D592B24D4E800352666 /* RegistrationVM.swift in Sources */,
 				C6F6B7D62B24108300A164BF /* CosmosSettings.swift in Sources */,
 				C6F6B7352B240EB000A164BF /* ViewController.swift in Sources */,
@@ -1107,6 +1194,7 @@
 				C6F6B7562B24106A00A164BF /* ImagePicker.swift in Sources */,
 				C6F6B7812B24107200A164BF /* Reusable.swift in Sources */,
 				C6F6B78A2B24107A00A164BF /* Enums.swift in Sources */,
+				C65BD8072B3D980400EDA84D /* TestQuestionResultVC.swift in Sources */,
 				C6F6B78B2B24107A00A164BF /* AppConstant.swift in Sources */,
 				C6F6B7D32B24108300A164BF /* CosmosLayerHelper.swift in Sources */,
 				C6F6B7FA2B241D3600A164BF /* LogInVC.swift in Sources */,
@@ -1120,6 +1208,7 @@
 				C63B57E42B248CB50057689B /* RegistrationVC.swift in Sources */,
 				C6EC58632B32EFD30067969F /* ModelFormSaveQuestionAnswer.swift in Sources */,
 				C6F6B7FE2B241E1B00A164BF /* OptionSelectionVC.swift in Sources */,
+				C65BD80A2B3D999F00EDA84D /* TestQuestionResultVM.swift in Sources */,
 				C6273CD62B2AD5AB00A8C3D8 /* FormVM.swift in Sources */,
 				C6F6B7592B24106A00A164BF /* LocationManager.swift in Sources */,
 				C6F6B7822B24107200A164BF /* SideAnimatable.swift in Sources */,
@@ -1127,12 +1216,15 @@
 				C6F6B7CC2B24108300A164BF /* StarLayer.swift in Sources */,
 				C6363D5E2B24E1E500352666 /* ModelDistrict.swift in Sources */,
 				C672D14F2B29C67B00C41711 /* ProjectSelectionTCell.swift in Sources */,
+				C65BD80D2B3D9B4900EDA84D /* ModelTest.swift in Sources */,
 				C642A14A2B28D2AC002016DA /* LanguageSelectionVM.swift in Sources */,
 				C6F6B7CA2B24108300A164BF /* DatePickerDialog.swift in Sources */,
 				C672D1572B29C9F700C41711 /* ModelUserRole.swift in Sources */,
 				C6690CAD2B28209000BC477B /* ModelServerSyncData.swift in Sources */,
+				C662C2E72B3D3EA400518843 /* PendingSyncFormScreenVC.swift in Sources */,
 				C6F6B7312B240EB000A164BF /* AppDelegate.swift in Sources */,
 				C6F6B7582B24106A00A164BF /* UtilitiesFunction.swift in Sources */,
+				C65BD8182B3DA3A800EDA84D /* TestQuestionFormVM.swift in Sources */,
 				C6F6B7C92B24108300A164BF /* Colors.swift in Sources */,
 				C6F6B7332B240EB000A164BF /* SceneDelegate.swift in Sources */,
 				C6F6B7D02B24108300A164BF /* CosmosSize.swift in Sources */,

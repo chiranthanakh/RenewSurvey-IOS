@@ -146,6 +146,12 @@ class RegistrationVM: NSObject {
         else if self.viewController?.vwPassword.txtInput.text == "" {
             return "Please enter password."
         }
+        else if self.viewController?.vwConfirmPassword.txtInput.text == "" {
+            return "Please enter confirm password."
+        }
+        else if self.viewController?.vwConfirmPassword.txtInput.text != self.viewController?.vwPassword.txtInput.text {
+            return "Password & confirm password must be match."
+        }
         else if self.viewController?.vwAddress.txtInput.text == "" {
             return "Please enter address."
         }
@@ -175,6 +181,9 @@ class RegistrationVM: NSObject {
         }
         else if self.viewController?.imgUserProfile.image == UIImage(systemName: "person.crop.circle") {
             return "Please select profile photo"
+        }
+        else if self.viewController?.btnTermsCheckBox.tag == 0 {
+            return "Please accept terms & conditions."
         }
         return nil
     }

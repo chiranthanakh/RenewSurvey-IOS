@@ -20,7 +20,7 @@ class UserRoleSelectionVM {
     }
     
     func getLanguageList() {
-        self.arrLanguage = DataManager.getUserRoleList(languageId: "1")
+        self.arrLanguage = DataManager.getUserRoleList(languageId: "\(kAppDelegate.selectedLanguageID)")
         self.viewController?.tblView.reloadData()
     }
     

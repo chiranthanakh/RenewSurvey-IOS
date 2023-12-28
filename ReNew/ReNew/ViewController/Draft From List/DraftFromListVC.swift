@@ -47,12 +47,13 @@ extension DraftFromListVC: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "DraftListTCell", for: indexPath) as? DraftListTCell else { return UITableViewCell() }
         
         if self.viewModel.arrList.indices ~= indexPath.row {
-            cell.lblTitle.text = self.viewModel.arrList[indexPath.row].staticQuestions.first?.strAnswer ?? ""
+            cell.lblTitle.text = ModelFormDraft.init(fromDictionary: self.viewModel.arrList[indexPath.row].jsonValues.toFragmentsAllowedSingleJson()).staticQuestions.first?.strAnswer ?? ""
             cell.completionStartAction = {
                 let vc = FormVC()
-                vc.viewModel.arrStaticQuestion = self.viewModel.arrList[indexPath.row].staticQuestions
-                vc.viewModel.arrFormGroup = self.viewModel.arrList[indexPath.row].grpForm
+                vc.viewModel.arrStaticQuestion = ModelFormDraft.init(fromDictionary: self.viewModel.arrList[indexPath.row].jsonValues.toFragmentsAllowedSingleJson()).staticQuestions
+                vc.viewModel.arrFormGroup = ModelFormDraft.init(fromDictionary: self.viewModel.arrList[indexPath.row].jsonValues.toFragmentsAllowedSingleJson()).grpForm
                 vc.viewModel.isFromDraft = true
+                vc.viewModel.modelDraftFormDetails = self.viewModel.arrList[indexPath.row]
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }

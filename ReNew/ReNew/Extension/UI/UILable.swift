@@ -20,6 +20,29 @@ extension UILabel {
         self.attributedText = updatedText
     }
     
+    func setQuestionTitleAttributedTextLable(index: Int, question: String, isMantory: String) {
+
+        let accountAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13, weight: .bold)]
+        let signupAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)]
+        let isMantoryAttributes = [NSAttributedString.Key.foregroundColor: UIColor.red,NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)]
+        
+        
+        let account = NSMutableAttributedString(string: "\(index). ", attributes: accountAttributes)
+        let signup = NSMutableAttributedString(string: question, attributes: signupAttributes as [NSAttributedString.Key : Any])
+        let mantory = NSMutableAttributedString(string: " *", attributes: isMantoryAttributes as [NSAttributedString.Key : Any])
+
+        let combination = NSMutableAttributedString()
+
+        combination.append(account)
+        combination.append(signup)
+        if isMantory == "YES" {
+            combination.append(mantory)
+        }
+        
+        self.isUserInteractionEnabled = true
+        self.attributedText = combination
+    }
+    
     func setAnniversaryAttributedTextLable(firstText: String,SecondText: String, thirdText: String) {
 
         let accountAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white,NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]
@@ -36,6 +59,24 @@ extension UILabel {
         combination.append(account)
         combination.append(signup)
         combination.append(third)
+        
+        self.isUserInteractionEnabled = true
+        self.attributedText = combination
+    }
+    
+    func termsAttributedTextLable(firstString: String, secondString: String) {
+
+        let firstAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)]
+        let secondAttributes = [NSAttributedString.Key.foregroundColor: UIColor.blue,NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)]
+
+        
+        let account = NSMutableAttributedString(string: firstString, attributes: firstAttributes as [NSAttributedString.Key : Any])
+        let signup = NSMutableAttributedString(string: secondString, attributes: secondAttributes as [NSAttributedString.Key : Any])
+
+        let combination = NSMutableAttributedString()
+
+        combination.append(account)
+        combination.append(signup)
         
         self.isUserInteractionEnabled = true
         self.attributedText = combination

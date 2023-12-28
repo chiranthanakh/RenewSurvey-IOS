@@ -22,7 +22,9 @@ class AppConstant {
     
     struct API {
        
-        static let BASE_URL                         = "https://renewsms.proteam.co.in/api/v1/"
+        static let BASE_URL                         = "https://devrenewsms.proteam.co.in/api/v1/" // Dev
+//        static let BASE_URL                         = "https://renewsms.proteam.co.in/api/v1/"  //Live
+        
 
         //Auth Module
         static let kValidateProject                 = BASE_URL + "Auth/validate_project"
@@ -40,6 +42,14 @@ class AppConstant {
         static let kSyncDataFromServer              = BASE_URL + "Synchronization/sync_data_from_server"
         static let kSyncMedia                       = BASE_URL + "ProjectMaster/sync_media"
         static let kSyncSurvey                      = BASE_URL + "ProjectMaster/sync_survey"
+    }
+    
+    
+    struct Link {
+       
+        static let Terms                         = "https://devrenewsms.proteam.co.in/TermsConditions" // Dev
+//        static let Terms                         = "https://renewsms.proteam.co.in/TermsConditions" // Live
+
     }
     
     struct ValidationMessages {
@@ -110,6 +120,7 @@ struct UserDefaultsKey {
     static let kFcmToken             = "fcmToken"
     static let kLoginUser            = "loginUser"
     static let kLastAsyncDate        = "lastAsyncDate"
+    static let kpassedTestFromIds    = "passedTestFromIds"
 }
 
 // MARK: - Notification

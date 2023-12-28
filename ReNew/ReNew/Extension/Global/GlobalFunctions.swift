@@ -301,6 +301,15 @@ extension UserDefaults {
             UserDefaults.standard.set(newValue, forKey: UserDefaultsKey.kFcmToken)
         }
     }
+    
+    class var passedTestFromIds: [Int] {
+        get {
+            return UserDefaults.standard.value(forKey: UserDefaultsKey.kpassedTestFromIds) as? [Int] ?? [Int]()
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: UserDefaultsKey.kpassedTestFromIds)
+        }
+    }
 }
 
 extension Sequence where Element: AdditiveArithmetic {

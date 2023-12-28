@@ -16,6 +16,7 @@ class ModelUserRole{
     var formName : String
     var tblProjectPhaseId : Int
     var phase: Int
+    var version: Int
     
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
@@ -28,6 +29,7 @@ class ModelUserRole{
         formName = dictionary["form_name"] as? String ?? ""
         tblProjectPhaseId = dictionary["tbl_project_phase_id"] as? Int ?? 0
         phase = dictionary["phase"] as? Int ?? 0
+        version = dictionary["version"] as? Int ?? 0
 	}
 
 }

@@ -50,8 +50,12 @@ extension UserRoleSelectionVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         kAppDelegate.selectedFormID = self.viewModel.arrLanguage[indexPath.row].tblFormsId
         kAppDelegate.selectedForm = self.viewModel.arrLanguage[indexPath.row]
-        let vc = DashboardVC()
-        self.navigationController?.pushViewController(vc, animated: true)
+        if UserDefaults.passedTestFromIds.contains(kAppDelegate.selectedFormID) {
+            self.navigationController?.pushViewController(DashboardVC(), animated: true)
+        }
+        else {
+            self.navigationController?.pushViewController(TestQuestionResultVC(), animated: true)
+        }
     }
 }
 

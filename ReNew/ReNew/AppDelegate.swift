@@ -46,7 +46,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setSyncScreen() {
         var nav = UINavigationController()
         if UserDefaults.kLastAsyncDate == "" || UserDefaults.kLastAsyncDate != Date().getFormattedString(format: "dd-MM-yyyy"){
-            nav = UINavigationController(rootViewController: SyncServerVC())
+            if DataManager.getAllAsyncFromList().count == 0 {
+                nav = UINavigationController(rootViewController: SyncServerVC())
+            }
+            else {
+                nav = UINavigationController(rootViewController: PendingSyncFormScreenVC())
+            }
         }
         else {
             nav = UINavigationController(rootViewController: LanguageSelectionVC())
@@ -68,4 +73,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 }
-
+//9925036660

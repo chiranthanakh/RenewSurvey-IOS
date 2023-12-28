@@ -13,6 +13,7 @@ class RegistrationVC: UIViewController {
     @IBOutlet var vwUserName: InputTextFeildView!
     @IBOutlet var vwEmail: InputTextFeildView!
     @IBOutlet var vwPassword: InputTextFeildView!
+    @IBOutlet var vwConfirmPassword: InputTextFeildView!
     @IBOutlet var vwAddress: InputTextFeildView!
     @IBOutlet var vwState: InputTextFeildView!
     @IBOutlet var vwDistrict: InputTextFeildView!
@@ -27,6 +28,8 @@ class RegistrationVC: UIViewController {
     @IBOutlet var lblProjectTitle: UILabel!
     @IBOutlet var lblState: UILabel!
     @IBOutlet var imgUserProfile: UIImageView!
+    @IBOutlet var btnTermsCheckBox: UIButton!
+    @IBOutlet var lblTerms: UILabel!
     
     var viewModel = RegistrationVM()
     var imagePicker = ImagePicker()
@@ -171,8 +174,23 @@ extension RegistrationVC {
             }
         }
         
+        self.lblTerms.termsAttributedTextLable(firstString: "I accept ", secondString: "terms & conditions")
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapTermLable))
+        self.lblTerms.isUserInteractionEnabled = true
+        self.lblTerms.addGestureRecognizer(tap)
     }
     
+    @objc func tapTermLable(sender:UITapGestureRecognizer) {
+        if let text = self.lblTerms.text,let lbl = self.lblTerms {
+            let termsRange = (text as NSString).range(of: "terms & conditions")
+            
+            if sender.didTapAttributedTextInLabel(label: lbl, inRange: termsRange) {
+                print("Terms of use")
+                self.present(TermsConditionVC(), animated: true, completion: nil)
+            }
+            
+        }
+    }
 }
 
 //MARK: - UiButton Action
@@ -193,6 +211,17 @@ extension RegistrationVC {
     @IBAction func btnProfilePhotoSelect(_ sender: UIButton) {
         self.imagePicker.pickImage(self, "Choose an image source") { image in
             self.imgUserProfile.image = image
+        }
+    }
+    
+    @IBAction func btnAcceptTerms(_ sender: UIButton) {
+        if sender.tag == 0 {
+            self.btnTermsCheckBox.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+            sender.tag = 1
+        }
+        else {
+            self.btnTermsCheckBox.setImage(UIImage(systemName: "square"), for: .normal)
+            sender.tag = 0
         }
     }
     

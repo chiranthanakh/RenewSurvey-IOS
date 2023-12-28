@@ -35,21 +35,32 @@ class FormVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    @IBAction func btnSave(_ sender: UIButton) {
+    @IBAction func btnNext(_ sender: UIButton) {
         /*self.showAlert(with: "Do you want to save?", firstHandler:  { _ in
             self.viewModel.saveToLocalDb()
          })*/
         if self.viewModel.selectedGrpIndex < self.viewModel.arrFormGroup.count-1{
-            self.viewModel.selectedGrpIndex+=1
-            self.collectionFormGroup.reloadData()
-            if self.viewModel.selectedGrpIndex != -1 {
-                self.collectionFormGroup.scrollToItem(at: IndexPath(item: self.viewModel.selectedGrpIndex, section: 1), at: .right, animated: true)
+            if self.viewModel.selectedGrpIndex == -1, let msg = self.viewModel.validationStaticQuestions() {
+                self.showAlert(with: msg)
+                return
             }
-            self.tblQuestion.reloadData()
+            else if self.viewModel.selectedGrpIndex > -1, let msg = self.viewModel.validationQuestionsGroup(index: self.viewModel.selectedGrpIndex) {
+                self.showAlert(with: msg)
+                return
+            }
+            else {
+                self.viewModel.saveDraft()
+                self.viewModel.selectedGrpIndex+=1
+                self.collectionFormGroup.reloadData()
+                if self.viewModel.selectedGrpIndex != -1 {
+                    self.collectionFormGroup.scrollToItem(at: IndexPath(item: self.viewModel.selectedGrpIndex, section: 1), at: .right, animated: true)
+                }
+                self.tblQuestion.reloadData()
+            }
         }
     }
     
-    @IBAction func btnSaveDraft(_ sender: UIButton) {
+    @IBAction func btnSavePrevoius(_ sender: UIButton) {
         if self.viewModel.selectedGrpIndex != -1{
             self.viewModel.selectedGrpIndex-=1
             self.collectionFormGroup.reloadData()
@@ -61,9 +72,6 @@ class FormVC: UIViewController {
             }
             self.tblQuestion.reloadData()
         }
-        /*self.showAlert(with: "Do you want to save as a draft?", firstHandler:  { _ in
-            self.viewModel.saveDraft()
-        })*/
     }
 }
 
@@ -76,7 +84,7 @@ extension FormVC {
         self.vwHeader.isRightButtonVisible = true
         self.vwHeader.completionRightButtonTap = {
             if self.vwHeader.btnRightOption.titleLabel?.text == "Save As Draft" {
-                self.viewModel.saveDraft()
+                self.viewModel.saveDraft(isShowMsg: true)
             }
             else {
                 self.viewModel.saveToLocalDb()
@@ -88,7 +96,7 @@ extension FormVC {
             if let cell = self.tblQuestion.cellForRow(at: IndexPath(row: tag, section: 0)) as? TextBoxQuestionTCell {
                 cell.txtAnswer.text = path.lastPathComponent
                 let FileData :NSData = try! NSData(contentsOf: path)
-                let fileName = "\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedFormID)_\(path.lastPathComponent)"
+                let fileName = "\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")_\(self.viewModel.selectedTblProjectsId)_\(self.viewModel.selectedFormsId)_\(self.viewModel.selectedProjectPhaseId)_\(path.lastPathComponent)"
                 duplicateFileToDouments(fileDate: FileData, fileName: fileName)
                 self.viewModel.arrFormGroup[self.viewModel.selectedGrpIndex].questions[tag].strAnswer = fileName
                 self.tblQuestion.reloadRows(at: [IndexPath(row: tag, section: 0)], with: .none)
@@ -119,7 +127,7 @@ extension FormVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         
         cell.vwBg.backgroundColor = UIColor(hex: "#78D47D")
         if indexPath.section == 0 {
-            cell.lblGroupTitle.text = "Static Questions"
+            cell.lblGroupTitle.text = "Basic Information"
             cell.lblQuestionCount.text = "\(self.viewModel.arrStaticQuestion.filter({$0.strAnswer != ""}).count)/\(self.viewModel.arrStaticQuestion.count)"
             cell.vwProgress.progress = Float(Float(self.viewModel.arrStaticQuestion.filter({$0.strAnswer != ""}).count)/Float(self.viewModel.arrStaticQuestion.count))
             if self.viewModel.selectedGrpIndex == -1 {
@@ -179,13 +187,13 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                 self.viewModel.checkValidationForSaveButton()
             }
             cell.isSelection = false
-            if question.strAnswer != "" && kAppDelegate.selectedFormID != 1 {
+            if question.strAnswer != "" && self.viewModel.selectedFormsId != 1 {
                 cell.txtAnswer.isEnabled = false
             }
             else {
                 cell.txtAnswer.isEnabled = true
             }
-            cell.lblQuestion.text = "\(indexPath.row+1). \(question.questiontitle())"
+            cell.lblQuestion.setQuestionTitleAttributedTextLable(index: indexPath.row+1, question: question.questiontitle(), isMantory: "YES")
             cell.txtAnswer.text = question.strAnswer
             cell.imgCamera.isHidden = true
             
@@ -196,7 +204,7 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                 cell.txtAnswer.keyboardType = .numberPad
             }
             else if question.type == "SINGLE_SELECT" {
-                if question.strAnswer != "" && kAppDelegate.selectedFormID != 1 {
+                if question.strAnswer != "" && self.viewModel.selectedFormsId != 1 {
                     cell.btnSelection.isEnabled = false
                 }
                 else {
@@ -207,11 +215,16 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                     let itemsTitle = self.viewModel.getStaticQuestionOption(question: question)
                     let singleComponetPopupPickerView = AYPopupPickerView()
                     self.view.endEditing(true)
-                    singleComponetPopupPickerView.display(itemTitles: itemsTitle, doneHandler: {
+                    singleComponetPopupPickerView.display(itemTitles: itemsTitle.compactMap({$0.name}), doneHandler: {
                         let selectedIndex = singleComponetPopupPickerView.pickerView.selectedRow(inComponent: 0)
                         print("\(itemsTitle[selectedIndex])")
-                        cell.txtAnswer.text = itemsTitle[selectedIndex]
-                        question.strAnswer = itemsTitle[selectedIndex]
+                        cell.txtAnswer.text = itemsTitle[selectedIndex].name
+                        question.strAnswer = itemsTitle[selectedIndex].name
+                        question.answerId = Int(itemsTitle[selectedIndex].id) ?? 0
+                        if question.id == 6{
+                            self.viewModel.selectedVillage = ModelVillage(fromDictionary: ["mst_villages_id": itemsTitle[selectedIndex].id,
+                                                                                           "village_name": itemsTitle[selectedIndex].name])
+                        }
                         self.collectionFormGroup.reloadData()
                         self.viewModel.checkValidationForSaveButton()
                     })
@@ -229,7 +242,7 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                     self.viewModel.checkValidationForSaveButton()
                 }
                 
-                cell.lblQuestion.text = "\(indexPath.row+1). \(question.title.capitalized)"
+                cell.lblQuestion.setQuestionTitleAttributedTextLable(index: indexPath.row+1, question: question.title.capitalized, isMantory: question.ismandatory)
                 cell.txtAnswer.text = question.strAnswer
                 cell.isSelection = false
                 cell.imgCamera.isHidden = true
@@ -342,7 +355,7 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                     cell.imgCamera.isHidden = false
                     cell.imgCamera.image = UIImage(systemName: "doc")
                     cell.isSelection = true
-                    cell.txtAnswer.text = question.strAnswer == "" ? "Select File" : question.strAnswer.replace(string: "\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedProjectID)_", replacement: "")
+                    cell.txtAnswer.text = question.strAnswer == "" ? "Select File" : (question.strAnswer.components(separatedBy: "_").last ?? "")
                     
                     //"\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedFormID)_\(path.lastPathComponent)"
                     cell.completionSelection = {
@@ -390,7 +403,8 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                     cellRating.vwRating.isHidden = false
                     cellRating.vwRangeSiker.isHidden = true
                     if self.viewModel.arrFormGroup[self.viewModel.selectedGrpIndex].questions.indices ~= indexPath.row {
-                        cellRating.lblQuestion.text = "\(indexPath.row+1). \(self.viewModel.arrFormGroup[self.viewModel.selectedGrpIndex].questions[indexPath.row].title)"
+//                        cellRating.lblQuestion.text = "\(indexPath.row+1). \(self.viewModel.arrFormGroup[self.viewModel.selectedGrpIndex].questions[indexPath.row].title)"
+                        cellRating.lblQuestion.setQuestionTitleAttributedTextLable(index: indexPath.row+1, question: self.viewModel.arrFormGroup[self.viewModel.selectedGrpIndex].questions[indexPath.row].title, isMantory: question.ismandatory)
                         cellRating.vwRating.rating = Double(self.viewModel.arrFormGroup[self.viewModel.selectedGrpIndex].questions[indexPath.row].strAnswer) ?? 0
                         cellRating.vwRating.didFinishTouchingCosmos = { rating in
                             self.viewModel.arrFormGroup[self.viewModel.selectedGrpIndex].questions[indexPath.row].strAnswer = "\(rating)"
@@ -408,7 +422,8 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                     cellRating.vwRangeSiker.isHidden = false
                     if self.viewModel.arrFormGroup[self.viewModel.selectedGrpIndex].questions.indices ~= indexPath.row {
                         let ratingQuestion = self.viewModel.arrFormGroup[self.viewModel.selectedGrpIndex].questions[indexPath.row]
-                        cellRating.lblQuestion.text = "\(indexPath.row+1). \(ratingQuestion.title)"
+//                        cellRating.lblQuestion.text = "\(indexPath.row+1). \(ratingQuestion.title)"
+                        cellRating.lblQuestion.setQuestionTitleAttributedTextLable(index: indexPath.row+1, question: ratingQuestion.title, isMantory: question.ismandatory)
                         cellRating.vwRangeSiker.minValue = CGFloat(ratingQuestion.minLength)
                         cellRating.vwRangeSiker.maxValue = CGFloat(ratingQuestion.maxLength)
                         if ratingQuestion.strAnswer != "" {

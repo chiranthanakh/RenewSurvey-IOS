@@ -10,7 +10,7 @@ import UIKit
 class DraftFromListVM: NSObject {
 
     var viewController: DraftFromListVC?
-    var arrList = [ModelFormDraft]()
+    var arrList = [ModelAsyncForm]()
     
     func registerController() {
         self.viewController?.tblView.registerCell(withNib: "DraftListTCell")
@@ -21,10 +21,11 @@ class DraftFromListVM: NSObject {
     
     func getDraftFormList() {
         self.arrList.removeAll()
-        let arrDraft = DataManager.getDraftFromList()
+        /*let arrDraft = DataManager.getDraftFromList()
         arrDraft.forEach { form in
             self.arrList.append(ModelFormDraft.init(fromDictionary: form.jsonValues.toFragmentsAllowedSingleJson()))
-        }
+        }*/
+        self.arrList = DataManager.getDraftFromList()
         self.viewController?.tblView.reloadData()
     }
     
