@@ -522,8 +522,8 @@
             filePath = "ReNew/DataManager/DataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "845"
-            endingLineNumber = "845"
+            startingLineNumber = "861"
+            endingLineNumber = "861"
             landmarkName = "syncWithServer(completionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -585,6 +585,21 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "845"
                   endingLineNumber = "845"
+                  offsetFromSymbolStart = "121">
+               </Location>
+               <Location
+                  uuid = "CF37A428-36EF-4433-9491-5C031A67BE3F - a9f42ffa8ae9e0c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ReNew.DataManager.syncWithServer(completionHandler: () -&gt; ()) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "861"
+                  endingLineNumber = "861"
                   offsetFromSymbolStart = "121">
                </Location>
             </Locations>
@@ -727,8 +742,8 @@
             filePath = "ReNew/DataManager/DataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "945"
-            endingLineNumber = "945"
+            startingLineNumber = "961"
+            endingLineNumber = "961"
             landmarkName = "uploadFormToServer(formList:completionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -805,6 +820,21 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "945"
                   endingLineNumber = "945"
+                  offsetFromSymbolStart = "361">
+               </Location>
+               <Location
+                  uuid = "99C4F358-0DFA-48F5-86F3-B6494B2B9C34 - 71efebf214406899"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ReNew.DataManager.uploadFormToServer(formList: Swift.Array&lt;ReNew.ModelAsyncForm&gt;, completionHandler: () -&gt; ()) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "961"
+                  endingLineNumber = "961"
                   offsetFromSymbolStart = "361">
                </Location>
             </Locations>

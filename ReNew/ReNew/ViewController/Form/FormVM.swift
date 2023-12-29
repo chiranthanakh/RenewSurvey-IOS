@@ -146,14 +146,14 @@ class FormVM: NSObject {
             if question.strAnswer == "" {
                 return "Please enter \(question.question) answer properly"
             }
-            else if question.question == "Mobile number" {
-                if question.id == 19 {
+            else if question.id == 19 {
+                if question.strAnswer.count != 10 {
                     return "Mobile number must be 10 digit"
                 }
             }
             else if question.id == 20 {
-                if question.strAnswer.count != 16 {
-                    return "Aadhhar card number must be 16 digit"
+                if question.strAnswer.count != 12 {
+                    return "Aadhhar card number must be 12 digit"
                 }
             }
         }

@@ -22,6 +22,22 @@ class DataManager: NSObject {
             }catch{
             }
         }
+        self.createFolder()
+    }
+    
+    static func createFolder() {
+        let fileManager = FileManager.default
+        if let tDocumentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let filePathThumbnail =  tDocumentDirectory.appendingPathComponent("Files")
+            if !fileManager.fileExists(atPath: filePathThumbnail.path) {
+                do {
+                    try fileManager.createDirectory(atPath: filePathThumbnail.path, withIntermediateDirectories: true, attributes: nil)
+                } catch {
+                    NSLog("Couldn't create document directory")
+                }
+            }
+            NSLog("File directory is \(filePathThumbnail)")
+        }
     }
     
     static func databasePath() -> String{

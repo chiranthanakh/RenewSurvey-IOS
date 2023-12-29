@@ -160,7 +160,7 @@ func arrayOfFilteredBy(arr: NSArray) -> NSArray {
 
 func duplicateFileToDouments(fileDate: NSData, fileName: String) {
     let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    let videoURL = documentsURL.appendingPathComponent(fileName)
+    let videoURL = documentsURL.appendingPathComponent("Files/\(fileName)")
     
     do {
         try fileDate.write(to: videoURL)
@@ -172,7 +172,7 @@ func duplicateFileToDouments(fileDate: NSData, fileName: String) {
 func getFileFromDocuments(fileName: String) -> URL?{
     
     let fileManager = FileManager.default
-    let videoPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(fileName)
+    let videoPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("Files/\(fileName)")
     if fileManager.fileExists(atPath: videoPath){
         return URL(fileURLWithPath: videoPath)
     }else{
