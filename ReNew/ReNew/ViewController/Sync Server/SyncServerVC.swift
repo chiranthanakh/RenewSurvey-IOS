@@ -44,6 +44,17 @@ extension SyncServerVC {
                         if let assignedSurvey = data["assigned_survey"] as? [[String:Any]] {
                             self.assignedSurveyDataSaveToLocalDb(arrAssignedSurvey: assignedSurvey)
                         }
+                        if let trainingTutorials = data["training_tutorials"] as? [String] {
+                            UserDefaults.trainingTutorials = trainingTutorials
+                            trainingTutorials.forEach { fileURL in
+                                if let url = CacheManager.shared.checkIfFileExist(stringUrl: fileURL) {
+                                    print(url)
+                                }
+                                else {
+                                    CacheManager.shared.preDownloadTheMedia(stringUrl: fileURL)
+                                }
+                            }
+                        }
                     }
                 }
                 else {

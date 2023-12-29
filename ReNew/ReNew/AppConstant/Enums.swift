@@ -41,19 +41,35 @@ enum DeliveryType {
 
 
 
-enum EditProfileOption {
-    case Phone
-    case Email
-    case Address
+enum SideMenuOption {
+    case Profile
+    case Notification
+    case ChangePassword
+    case LogOut
     
     var strTitle : String {
         switch self {
-        case .Phone:
-            return "Phone"
-        case .Email:
-            return "Email"
-        case .Address:
-            return "Address"
+        case .Profile:
+            return "Profile"
+        case .Notification:
+            return "Notification"
+        case .ChangePassword:
+            return "Change Password"
+        case .LogOut:
+            return "Logout"
+        }
+    }
+    
+    var igmIcon : UIImage {
+        switch self {
+        case .Profile:
+            return UIImage(systemName: "person.crop.circle")!
+        case .Notification:
+            return UIImage(systemName: "bell.fill")!
+        case .ChangePassword:
+            return UIImage(systemName: "lock.fill")!
+        case .LogOut:
+            return UIImage(named: "ic_LogOut")!
         }
     }
     

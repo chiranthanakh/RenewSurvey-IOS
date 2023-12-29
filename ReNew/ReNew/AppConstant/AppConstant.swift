@@ -121,6 +121,7 @@ struct UserDefaultsKey {
     static let kLoginUser            = "loginUser"
     static let kLastAsyncDate        = "lastAsyncDate"
     static let kpassedTestFromIds    = "passedTestFromIds"
+    static let kTrainingTutorials    = "trainingTutorials"
 }
 
 // MARK: - Notification

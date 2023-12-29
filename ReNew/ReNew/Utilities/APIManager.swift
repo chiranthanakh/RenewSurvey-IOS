@@ -118,14 +118,24 @@ class APIManager: NSObject {
                     }
                     switch responseStraing.result{
                     case .success(let strResult):
-                        responseData(nil, dictionaryOfFilteredBy(dict: strResult.toJson() as NSDictionary))
+                        let dic = (dictionaryOfFilteredBy(dict: strResult.toJson() as NSDictionary))
+                        if let data = dic["data"] as? [String:Any], let isAccessdisable = data["is_access_disable"] as? String, isAccessdisable == "1" {
+                            getMostTopViewController()?.showAlert(with: "User access disable", firstHandler: { action in
+                                ModelUser.removeUserFromDefault()
+                                kAppDelegate.setLogInScreen()
+                            })
+                        }
+                        else {
+                            responseData(nil, dictionaryOfFilteredBy(dict: strResult.toJson() as NSDictionary))
+                        }
+                        
                         break
                     case .failure(let error):
                         responseData(error as NSError?, nil)
                         break
                     }
-                })            }
-            
+                })
+            }
         }
         else {
 //            connectionFailed("AppConstant.FailureMessage.kNoInternetConnection")

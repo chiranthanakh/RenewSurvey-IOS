@@ -816,6 +816,23 @@ class DataManager: NSObject {
         return mainarr
     }
     
+    static func getTestTutorial(testId: Int) -> String {
+        let query = "SELECT tt.tutorial_file from tbl_tutorials as tt WHERE tt.tbl_tutorials_id = \(testId)"
+        var mainarr = String()
+        var dbop :OpaquePointer? = nil
+        if sqlite3_open(DataManager.databasePath(), &dbop) == SQLITE_OK {
+            var stmt : OpaquePointer? = nil
+            if sqlite3_prepare_v2(dbop, query, -1, &stmt, nil) == SQLITE_OK{
+                while sqlite3_step(stmt) == SQLITE_ROW {
+                    mainarr = String(cString: sqlite3_column_text(stmt, 0))
+                }
+                sqlite3_finalize(stmt)
+            }
+            sqlite3_close(dbop)
+        }
+        return mainarr
+    }
+    
     static func deleteDatabase() {
         do {
             _ =  try FileManager.default.removeItem(at: URL(fileURLWithPath: DataManager.databasePath()))

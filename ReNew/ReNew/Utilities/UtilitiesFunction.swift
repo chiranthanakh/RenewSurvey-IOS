@@ -180,3 +180,14 @@ func getFileFromDocuments(fileName: String) -> URL?{
     }
     return nil
 }
+
+func getMostTopViewController() -> UIViewController?{
+    if var topController = UIApplication.shared.keyWindow?.rootViewController {
+        while let presentedViewController = topController.presentedViewController {
+            topController = presentedViewController
+        }
+        return topController
+        // topController should now be your topmost view controller
+    }
+    return nil
+}

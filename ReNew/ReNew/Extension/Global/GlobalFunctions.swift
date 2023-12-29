@@ -310,6 +310,15 @@ extension UserDefaults {
             UserDefaults.standard.set(newValue, forKey: UserDefaultsKey.kpassedTestFromIds)
         }
     }
+    
+    class var trainingTutorials: [String] {
+        get {
+            return UserDefaults.standard.value(forKey: UserDefaultsKey.kTrainingTutorials) as? [String] ?? [String]()
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: UserDefaultsKey.kTrainingTutorials)
+        }
+    }
 }
 
 extension Sequence where Element: AdditiveArithmetic {

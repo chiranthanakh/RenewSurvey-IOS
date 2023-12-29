@@ -25,6 +25,7 @@ class DashboardVC: UIViewController {
     @IBOutlet var imgProfile: UIImageView!
     
     var viewModel = DashboardVM()
+    var arrMenuOption : [SideMenuOption] = [.Profile,.Notification,.ChangePassword,.LogOut]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,33 +103,24 @@ extension DashboardVC {
 extension DashboardVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return self.arrMenuOption.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MenuTCell", for: indexPath) as? MenuTCell else { return UITableViewCell() }
         
-        if indexPath.row == 0 {
-            cell.imgOption.image = UIImage(systemName: "bell.fill")
-            cell.lblOptionTitle.text = "Notification"
-        }
-        else if indexPath.row == 1 {
-            cell.imgOption.image = UIImage(systemName: "lock.fill")
-            cell.lblOptionTitle.text = "Change password"
-        }
-        else if indexPath.row == 2 {
-            cell.imgOption.image = UIImage(named: "ic_LogOut")
-            cell.lblOptionTitle.text = "LogOut"
-        }
+        cell.imgOption.image = self.arrMenuOption[indexPath.row].igmIcon
+        cell.lblOptionTitle.text = self.arrMenuOption[indexPath.row].strTitle
+        
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            
+        if self.arrMenuOption[indexPath.row] == .Profile {
+            self.navigationController?.pushViewController(ProfileVC(), animated: true)
         }
-        else if indexPath.row == 1 {
+        else if self.arrMenuOption[indexPath.row] == .ChangePassword {
             self.hideMenu()
             let vc = ResetPasswordVC()
             vc.dicParam = ["mobile": ModelUser.getCurrentUserFromDefault()?.mobile ?? "",
@@ -136,8 +128,8 @@ extension DashboardVC: UITableViewDelegate, UITableViewDataSource {
             vc.isFromChangePassword = true
             self.navigationController?.pushViewController(vc, animated: true)
         }
-        else if indexPath.row == 2 {
-            self.showAlert(with: "Do you want to logout?", firstButton: "yes", firstHandler: { _ in
+        else if self.arrMenuOption[indexPath.row] == .LogOut {
+            self.showAlert(with: "Do you want to logout?", firstButton: "Yes", firstHandler: { _ in
                 ModelUser.removeUserFromDefault()
                 kAppDelegate.setLogInScreen()
             }, secondButton: "No") { _ in

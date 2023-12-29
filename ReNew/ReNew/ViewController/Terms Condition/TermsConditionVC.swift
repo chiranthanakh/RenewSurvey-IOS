@@ -11,14 +11,22 @@ import WebKit
 class TermsConditionVC: UIViewController {
 
     @IBOutlet var webView: WKWebView!
+    @IBOutlet var lblTitle: UILabel!
+    
+    var urlFile: URL?
+    var isFromTerms = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        if let url = URL (string: AppConstant.Link.Terms) {
-            let requestObj = URLRequest(url: url)
-            self.webView.load(requestObj)
+        
+        if isFromTerms, let url = URL (string: AppConstant.Link.Terms) {
+            self.webView.load(URLRequest(url: url))
+        }
+        else if let url = self.urlFile{
+            self.lblTitle.text = "Tutorial File"
+            self.webView.load(URLRequest(url: url))
         }
     }
 

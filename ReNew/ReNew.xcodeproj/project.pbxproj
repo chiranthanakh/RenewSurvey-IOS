@@ -65,6 +65,8 @@
 		C65BD8152B3DA33100EDA84D /* TestQuestionFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65BD8132B3DA33100EDA84D /* TestQuestionFormVC.swift */; };
 		C65BD8162B3DA33100EDA84D /* TestQuestionFormVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C65BD8142B3DA33100EDA84D /* TestQuestionFormVC.xib */; };
 		C65BD8182B3DA3A800EDA84D /* TestQuestionFormVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65BD8172B3DA3A800EDA84D /* TestQuestionFormVM.swift */; };
+		C65DA2F12B3E907600D843DA /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65DA2EF2B3E907600D843DA /* ProfileVC.swift */; };
+		C65DA2F22B3E907600D843DA /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C65DA2F02B3E907600D843DA /* ProfileVC.xib */; };
 		C662C2E72B3D3EA400518843 /* PendingSyncFormScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C662C2E52B3D3EA400518843 /* PendingSyncFormScreenVC.swift */; };
 		C662C2E82B3D3EA400518843 /* PendingSyncFormScreenVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C662C2E62B3D3EA400518843 /* PendingSyncFormScreenVC.xib */; };
 		C664F5B02B39A47400B3C739 /* MenuTCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C664F5AE2B39A47400B3C739 /* MenuTCell.swift */; };
@@ -81,6 +83,7 @@
 		C6690CBA2B285C6200BC477B /* VerificationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6690CB92B285C6200BC477B /* VerificationVM.swift */; };
 		C6690CBE2B285FFF00BC477B /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6690CBC2B285FFF00BC477B /* ResetPasswordVC.swift */; };
 		C6690CBF2B285FFF00BC477B /* ResetPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6690CBD2B285FFF00BC477B /* ResetPasswordVC.xib */; };
+		C66A4B182B3DE20F00EF4532 /* VideoResourceLoaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66A4B172B3DE20F00EF4532 /* VideoResourceLoaderDelegate.swift */; };
 		C672D1462B29BAA000C41711 /* ProjectSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C672D1442B29BAA000C41711 /* ProjectSelectionVC.swift */; };
 		C672D1472B29BAA000C41711 /* ProjectSelectionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C672D1452B29BAA000C41711 /* ProjectSelectionVC.xib */; };
 		C672D1492B29BAE300C41711 /* ProjectSelectionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C672D1482B29BAE300C41711 /* ProjectSelectionVM.swift */; };
@@ -231,6 +234,8 @@
 		C65BD8132B3DA33100EDA84D /* TestQuestionFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionFormVC.swift; sourceTree = "<group>"; };
 		C65BD8142B3DA33100EDA84D /* TestQuestionFormVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestQuestionFormVC.xib; sourceTree = "<group>"; };
 		C65BD8172B3DA3A800EDA84D /* TestQuestionFormVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionFormVM.swift; sourceTree = "<group>"; };
+		C65DA2EF2B3E907600D843DA /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		C65DA2F02B3E907600D843DA /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
 		C662C2E52B3D3EA400518843 /* PendingSyncFormScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingSyncFormScreenVC.swift; sourceTree = "<group>"; };
 		C662C2E62B3D3EA400518843 /* PendingSyncFormScreenVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PendingSyncFormScreenVC.xib; sourceTree = "<group>"; };
 		C664F5AE2B39A47400B3C739 /* MenuTCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTCell.swift; sourceTree = "<group>"; };
@@ -247,6 +252,7 @@
 		C6690CB92B285C6200BC477B /* VerificationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationVM.swift; sourceTree = "<group>"; };
 		C6690CBC2B285FFF00BC477B /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		C6690CBD2B285FFF00BC477B /* ResetPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordVC.xib; sourceTree = "<group>"; };
+		C66A4B172B3DE20F00EF4532 /* VideoResourceLoaderDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoResourceLoaderDelegate.swift; sourceTree = "<group>"; };
 		C672D1442B29BAA000C41711 /* ProjectSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSelectionVC.swift; sourceTree = "<group>"; };
 		C672D1452B29BAA000C41711 /* ProjectSelectionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectSelectionVC.xib; sourceTree = "<group>"; };
 		C672D1482B29BAE300C41711 /* ProjectSelectionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSelectionVM.swift; sourceTree = "<group>"; };
@@ -558,6 +564,15 @@
 			path = "Test Question Form";
 			sourceTree = "<group>";
 		};
+		C65DA2EE2B3E905F00D843DA /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				C65DA2EF2B3E907600D843DA /* ProfileVC.swift */,
+				C65DA2F02B3E907600D843DA /* ProfileVC.xib */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		C662C2E42B3D3E8600518843 /* Pending Sync Form Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -856,6 +871,7 @@
 				C6F6B7922B24108200A164BF /* DatePicker */,
 				C6F6B7962B24108200A164BF /* Cosmos */,
 				C6F6B7A92B24108200A164BF /* UIView+GoneVisible.swift */,
+				C66A4B172B3DE20F00EF4532 /* VideoResourceLoaderDelegate.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -912,6 +928,7 @@
 		C6F6B7F72B241D1D00A164BF /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C65DA2EE2B3E905F00D843DA /* Profile */,
 				C65BD8122B3DA31D00EDA84D /* Test Question Form */,
 				C65BD8042B3D97D400EDA84D /* Test Question Result */,
 				C662C2E42B3D3E8600518843 /* Pending Sync Form Screen */,
@@ -1035,6 +1052,7 @@
 				C63B57F12B249CB00057689B /* ListSelectionTCell.xib in Resources */,
 				C664F5B12B39A47400B3C739 /* MenuTCell.xib in Resources */,
 				C672D1502B29C67B00C41711 /* ProjectSelectionTCell.xib in Resources */,
+				C65DA2F22B3E907600D843DA /* ProfileVC.xib in Resources */,
 				C6F6B73A2B240EB200A164BF /* Assets.xcassets in Resources */,
 				C659FA142B3583190056BDAD /* DraftFromListVC.xib in Resources */,
 				C6273CD42B2AD5A100A8C3D8 /* FormVC.xib in Resources */,
@@ -1144,6 +1162,7 @@
 				C6690CAE2B28209000BC477B /* ModelServerSyncColumn.swift in Sources */,
 				C6F6B78C2B24107A00A164BF /* ServerConstant.swift in Sources */,
 				C642A14C2B28D3C4002016DA /* ModelLanguage.swift in Sources */,
+				C65DA2F12B3E907600D843DA /* ProfileVC.swift in Sources */,
 				C6F6B7842B24107200A164BF /* ReusableCollectionView.swift in Sources */,
 				C659FA1A2B3585070056BDAD /* DraftListTCell.swift in Sources */,
 				C627B4422B2719D0007D62A8 /* ModelUser.swift in Sources */,
@@ -1157,6 +1176,7 @@
 				C6F6B8092B2425DC00A164BF /* AppLogoNavBarView.swift in Sources */,
 				C6EC58642B32EFD30067969F /* ModelFormSaveCommonQuestionAnswer.swift in Sources */,
 				C6F6B7782B24107200A164BF /* UIViewController+BackBarButtonItem.swift in Sources */,
+				C66A4B182B3DE20F00EF4532 /* VideoResourceLoaderDelegate.swift in Sources */,
 				C6F6B7D12B24108300A164BF /* CosmosLayers.swift in Sources */,
 				C6265FB12B300502006CA786 /* RangeSeekSliderDelegate.swift in Sources */,
 				C6273CD82B2AD67500A8C3D8 /* ModelFormGroup.swift in Sources */,

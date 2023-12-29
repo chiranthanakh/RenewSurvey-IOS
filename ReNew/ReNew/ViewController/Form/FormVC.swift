@@ -340,7 +340,7 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                         cell.imgCamera.image = UIImage(systemName: "camera")
                     }
                     cell.completionSelection = {
-                        self.imagePicker.pickImageFromGallary(self) { img in
+                        self.imagePicker.pickImageFromCamera(self) { img in
                             cell.imgCamera.image = img
                             question.imageAnswer = img
                             if let imageData:NSData = img.jpegData(compressionQuality: 0.6) as NSData?  {

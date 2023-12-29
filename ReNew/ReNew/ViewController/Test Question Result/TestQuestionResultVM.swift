@@ -18,10 +18,18 @@ class TestQuestionResultVM: NSObject {
             self.viewController?.lblPassingMark.text = "Passing Marks: \(test.passingMarks)"
             test.question = DataManager.getTestQuestionList(languageId: kAppDelegate.selectedLanguageID, testId: test.tblTestsId)
             self.viewController?.lblTotalQuestion.text = "Total Questions: \(test.question.count)"
+            test.tutorial = DataManager.getTestTutorial(testId: test.tblTestsId)
             test.question.forEach { question in
                 question.questionOption = DataManager.getTestQuestionOptionList(languageId: kAppDelegate.selectedLanguageID, questionId: question.tblTestQuestionsId)
             }
             self.modelTest = test
+            if test.tutorial.contains("pdf") {
+                self.viewController?.vwPdfPreview.isHidden = false
+                self.viewController?.vwVideoPreview.isHidden = true
+            }else {
+                self.viewController?.vwPdfPreview.isHidden = true
+                self.viewController?.vwVideoPreview.isHidden = false
+            }
         }
     }
 }

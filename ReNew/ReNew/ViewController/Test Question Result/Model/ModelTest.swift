@@ -21,7 +21,8 @@ class ModelTest {
     var testCode : String
     var title : String
     var question : [ModelTestQuestion]
-
+    var tutorial: String
+    
     
     /**
      * Instantiate the instance using the passed dictionary values to set the properties values
@@ -37,6 +38,7 @@ class ModelTest {
         tblTestsId = dictionary["tbl_tests_id"] as? Int ?? Int()
         testCode = dictionary["test_code"] as? String ?? ""
         title = dictionary["title"] as? String ?? ""
+        tutorial = dictionary["tutorial"] as? String ?? ""
         question = [ModelTestQuestion]()
         if let questionOptionArray = dictionary["question"] as? [[String:Any]]{
             for dic in questionOptionArray{
@@ -67,6 +69,7 @@ class ModelTest {
             dictionaryElements.append(questionOptionElement.toDictionary())
         }
         dictionary["question"] = dictionaryElements
+        dictionary["tutorial"] = tutorial
         return dictionary
     }
     
