@@ -31,7 +31,7 @@
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="STC-ur-KUx">
-                            <rect key="frame" x="30" y="259" width="333" height="241.33333333333337"/>
+                            <rect key="frame" x="30" y="226.33333333333334" width="333" height="306.33333333333326"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_Sucess" translatesAutoresizingMaskIntoConstraints="NO" id="8sA-Pq-sBn">
                                     <rect key="frame" x="0.0" y="0.0" width="333" height="100"/>
@@ -55,6 +55,29 @@ We will notify once your request is approved or rejected</string>
                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DTE-09-GjP">
+                                    <rect key="frame" x="0.0" y="256.33333333333331" width="333" height="50"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UlA-Bj-JSA" customClass="SubmitButton" customModule="ReNew" customModuleProvider="target">
+                                            <rect key="frame" x="101.66666666666666" y="10" width="130" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="130" id="smv-M1-9y0"/>
+                                                <constraint firstAttribute="height" constant="40" id="yDP-bu-COq"/>
+                                            </constraints>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="Go to Login"/>
+                                            <connections>
+                                                <action selector="btnBackToLogin:" destination="-1" eventType="touchUpInside" id="qzA-eA-L6r"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="UlA-Bj-JSA" firstAttribute="centerX" secondItem="DTE-09-GjP" secondAttribute="centerX" id="fh2-hJ-QaR"/>
+                                        <constraint firstAttribute="bottom" secondItem="UlA-Bj-JSA" secondAttribute="bottom" id="h9a-VH-NmR"/>
+                                        <constraint firstItem="UlA-Bj-JSA" firstAttribute="top" secondItem="DTE-09-GjP" secondAttribute="top" constant="10" id="iEP-r1-fGY"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                         </stackView>
                     </subviews>
@@ -80,6 +103,11 @@ We will notify once your request is approved or rejected</string>
             <point key="canvasLocation" x="-83" y="-32"/>
         </view>
     </objects>
+    <designables>
+        <designable name="UlA-Bj-JSA">
+            <size key="intrinsicContentSize" width="79" height="30"/>
+        </designable>
+    </designables>
     <resources>
         <image name="ic_Sucess" width="128" height="128"/>
         <namedColor name="AppThemeGreenColor">

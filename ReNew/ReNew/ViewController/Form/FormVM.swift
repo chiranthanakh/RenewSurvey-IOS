@@ -14,7 +14,16 @@ class FormVM: NSObject {
     var viewController: FormVC?
     var arrFormGroup = [ModelFormGroup]()
     var arrStaticQuestion = [ModelStaticQuestion]()
-    var selectedGrpIndex = -1
+    var selectedGrpIndex = -1 {
+        didSet{
+            if self.selectedGrpIndex == self.arrFormGroup.count-1 {
+                self.viewController?.btnNext.setTitle("Finish", for: .normal)
+            }
+            else {
+                self.viewController?.btnNext.setTitle("Next", for: .normal)
+            }
+        }
+    }
     var selectedState: ModelState?
     var selectedDistrict: ModelDistrict?
     var selectedTehsil: ModelTehsil?
@@ -33,6 +42,19 @@ class FormVM: NSObject {
     var selectedProjectPhaseId = kAppDelegate.selectedForm?.tblProjectPhaseId ?? 0
     var selectedphase = kAppDelegate.selectedForm?.phase ?? 0
     var selectedversion = kAppDelegate.selectedForm?.version ?? 0
+    
+    var isAllowCollectData = true{
+        didSet{
+            self.viewController?.collectionFormGroup.reloadData()
+            self.viewController?.tblQuestion.reloadData()
+            if self.isAllowCollectData {
+                self.viewController?.btnNext.setTitle("Next", for: .normal)
+            }
+            else {
+                self.viewController?.btnNext.setTitle("Save", for: .normal)
+            }
+        }
+    }
     
     func registerController() {
         self.viewController?.collectionFormGroup.registerCell(withNib: "FormGroupTitleCCell")
@@ -53,6 +75,9 @@ class FormVM: NSObject {
             self.selectedphase = self.modelDraftFormDetails?.phase ?? 0
             self.selectedversion = self.modelDraftFormDetails?.version ?? 0
             self.viewController?.tblQuestion.reloadData()
+            if self.arrStaticQuestion.count >= 2 && self.arrStaticQuestion[1].strAnswer.lowercased() == "no" {
+                self.isAllowCollectData = false
+            }
         }
         else {
             self.getStaticQuestions()
@@ -99,26 +124,26 @@ class FormVM: NSObject {
             let arrTemp = question.option.components(separatedBy: "/")
             arrList = arrTemp.compactMap({ModelListSelection.init(id: "", name: $0)})
         }
-        else if question.id == 2 {
+        else if question.id == 10 {
             let arrState = DataManager.getStateList()
             returnValues = arrState.compactMap({$0.stateName})
             arrList = arrState.compactMap({ModelListSelection.init(id: $0.mstStateId, name: $0.stateName)})
         }
-        else if question.id == 3 && self.arrStaticQuestion.filter({$0.id == 2}).first?.strAnswer != ""{
-            self.selectedState = DataManager.getStateList().filter({$0.stateName == self.arrStaticQuestion.filter({$0.id == 2}).first?.strAnswer}).first
+        else if question.id == 11 && self.arrStaticQuestion.filter({$0.id == 10}).first?.strAnswer != ""{
+            self.selectedState = DataManager.getStateList().filter({$0.stateName == self.arrStaticQuestion.filter({$0.id == 10}).first?.strAnswer}).first
             let arrState = DataManager.getDistrictList(stateID: self.selectedState?.mstStateId ?? "")
             returnValues = arrState.compactMap({$0.districtName})
             arrList = arrState.compactMap({ModelListSelection.init(id: $0.mstDistrictId, name: $0.districtName)})
         }
-        else if question.id == 4 {
-            self.selectedState = DataManager.getStateList().filter({$0.stateName == self.arrStaticQuestion.filter({$0.id == 2}).first?.strAnswer}).first
-            self.selectedDistrict = DataManager.getDistrictList(stateID: self.selectedState?.mstStateId ?? "").filter({$0.districtName == self.arrStaticQuestion.filter({$0.id == 3}).first?.strAnswer}).first
+        else if question.id == 12 {
+            self.selectedState = DataManager.getStateList().filter({$0.stateName == self.arrStaticQuestion.filter({$0.id == 10}).first?.strAnswer}).first
+            self.selectedDistrict = DataManager.getDistrictList(stateID: self.selectedState?.mstStateId ?? "").filter({$0.districtName == self.arrStaticQuestion.filter({$0.id == 11}).first?.strAnswer}).first
             
             let arrState = DataManager.getTehsilList(stateID: self.selectedState?.mstStateId ?? "", districtID: self.selectedDistrict?.mstDistrictId ?? "")
             returnValues = arrState.compactMap({$0.tehsilName})
             arrList = arrState.compactMap({ModelListSelection.init(id: $0.mstTehsilId, name: $0.tehsilName)})
         }
-        else if question.id == 5 {
+        /*else if question.id == 13 { // Panchayat
             self.selectedState = DataManager.getStateList().filter({$0.stateName == self.arrStaticQuestion.filter({$0.id == 2}).first?.strAnswer}).first
             self.selectedDistrict = DataManager.getDistrictList(stateID: self.selectedState?.mstStateId ?? "").filter({$0.districtName == self.arrStaticQuestion.filter({$0.id == 3}).first?.strAnswer}).first
             self.selectedTehsil = DataManager.getTehsilList(stateID: self.selectedState?.mstStateId ?? "", districtID: self.selectedDistrict?.mstDistrictId ?? "").filter({$0.tehsilName == self.arrStaticQuestion.filter({$0.id == 4}).first?.strAnswer}).first
@@ -126,14 +151,13 @@ class FormVM: NSObject {
             let arrState = DataManager.getPanchayatList(stateID: self.selectedState?.mstStateId ?? "", districtID: self.selectedDistrict?.mstDistrictId ?? "", tehsilId: self.selectedTehsil?.mstTehsilId ?? "")
             returnValues = arrState.compactMap({$0.panchayatName})
             arrList = arrState.compactMap({ModelListSelection.init(id: $0.mstPanchayatId, name: $0.panchayatName)})
-        }
-        else if question.id == 6 { //Village
-            self.selectedState = DataManager.getStateList().filter({$0.stateName == self.arrStaticQuestion.filter({$0.id == 2}).first?.strAnswer}).first
-            self.selectedDistrict = DataManager.getDistrictList(stateID: self.selectedState?.mstStateId ?? "").filter({$0.districtName == self.arrStaticQuestion.filter({$0.id == 3}).first?.strAnswer}).first
-            self.selectedTehsil = DataManager.getTehsilList(stateID: self.selectedState?.mstStateId ?? "", districtID: self.selectedDistrict?.mstDistrictId ?? "").filter({$0.tehsilName == self.arrStaticQuestion.filter({$0.id == 4}).first?.strAnswer}).first
-            self.selectedPanchayat = DataManager.getPanchayatList(stateID: self.selectedState?.mstStateId ?? "", districtID: self.selectedDistrict?.mstDistrictId ?? "", tehsilId: self.selectedTehsil?.mstTehsilId ?? "").filter({$0.panchayatName == self.arrStaticQuestion.filter({$0.id == 5}).first?.strAnswer}).first
+        }*/
+        else if question.id == 13 { //Village
+            self.selectedState = DataManager.getStateList().filter({$0.stateName == self.arrStaticQuestion.filter({$0.id == 10}).first?.strAnswer}).first
+            self.selectedDistrict = DataManager.getDistrictList(stateID: self.selectedState?.mstStateId ?? "").filter({$0.districtName == self.arrStaticQuestion.filter({$0.id == 11}).first?.strAnswer}).first
+            self.selectedTehsil = DataManager.getTehsilList(stateID: self.selectedState?.mstStateId ?? "", districtID: self.selectedDistrict?.mstDistrictId ?? "").filter({$0.tehsilName == self.arrStaticQuestion.filter({$0.id == 12}).first?.strAnswer}).first
             
-            let arrState = DataManager.getVillageList(stateID: self.selectedState?.mstStateId ?? "", districtID: self.selectedDistrict?.mstDistrictId ?? "", tehsilId: self.selectedTehsil?.mstTehsilId ?? "", panchayatId: self.selectedPanchayat?.mstPanchayatId ?? "")
+            let arrState = DataManager.getVillageList(stateID: self.selectedState?.mstStateId ?? "", districtID: self.selectedDistrict?.mstDistrictId ?? "", tehsilId: self.selectedTehsil?.mstTehsilId ?? "")
             returnValues = arrState.compactMap({$0.villageName})
             arrList = arrState.compactMap({ModelListSelection.init(id: $0.mstVillagesId, name: $0.villageName)})
         }
@@ -143,19 +167,30 @@ class FormVM: NSObject {
     
     func validationStaticQuestions() -> String? {
         for question in arrStaticQuestion {
-            if question.strAnswer == "" {
-                return "Please enter \(question.question) answer properly"
+            if question.type == "CAPTURE" {
+                if question.strAnswer == "" {
+                    return "Please selecct \(question.questiontitle())"
+                }
             }
-            else if question.id == 19 {
+            else if question.strAnswer == "" && question.id != 19{
+                return "Please enter \(question.questiontitle()) answer properly"
+            }
+            else if question.remark == "Digit 10" {
                 if question.strAnswer.count != 10 {
-                    return "Mobile number must be 10 digit"
+                    return "\(question.questiontitle()) must be 10 digit"
                 }
             }
-            else if question.id == 20 {
+            else if question.remark == "Digit 12" {
                 if question.strAnswer.count != 12 {
-                    return "Aadhhar card number must be 12 digit"
+                    return "\(question.questiontitle()) must be 12 digit"
                 }
             }
+        }
+        let queFullFamily = Int(self.arrStaticQuestion.filter({$0.id == 15}).first?.strAnswer ?? "") ?? 0
+        let queAboveFamily = Int(self.arrStaticQuestion.filter({$0.id == 16}).first?.strAnswer ?? "") ?? 0
+        let queBelowFamily = Int(self.arrStaticQuestion.filter({$0.id == 17}).first?.strAnswer ?? "") ?? 0
+        if queFullFamily != (queAboveFamily+queBelowFamily){
+            return "Sum of family members above 15 years and below 15 yearsmust be equals to family size"
         }
         return nil
     }
@@ -164,7 +199,7 @@ class FormVM: NSObject {
         for question in arrFormGroup[index].questions {
             if question.ismandatory == "YES" {
                 if question.questionType == "CAPTURE" {
-                    if question.strImageBase64 == "" {
+                    if question.strAnswer == "" {
                         return "Please selecct \(question.title)"
                     }
                 }
@@ -187,7 +222,7 @@ class FormVM: NSObject {
             for question in questionGrp.questions {
                 if question.ismandatory == "YES" {
                     if question.questionType == "CAPTURE" {
-                        if question.strImageBase64 == "" {
+                        if question.strAnswer == "" {
                             return "Please selecct \(question.title)"
                         }
                     }
@@ -215,7 +250,7 @@ class FormVM: NSObject {
     }
     
     func saveDraft(isShowMsg: Bool = false) {
-        if let msg = self.validationStaticQuestions() {
+        if let msg = self.validationStaticQuestions(), self.isAllowCollectData{
             self.viewController?.showAlert(with: msg)
             return
         }
@@ -227,12 +262,14 @@ class FormVM: NSObject {
             DataManager.deleteDraftData()
             let appUniqueCode = "\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")_\(self.selectedTblProjectsId)_\(self.selectedFormsId)_\(self.selectedProjectPhaseId)_\(Date().localDate().getFormattedString(format: "dd:MM:yyyy:hh:mm:ss"))"
             if let data = try? JSONSerialization.data(withJSONObject: dic, options: .fragmentsAllowed) {
-                let query = "insert into tbl_FilledForms (tbl_users_id, tbl_projects_id, mst_language_id, tbl_forms_id, app_unique_code ,jsonValues, status, phase, version, parent_survey_id) values ('\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")','\(self.selectedTblProjectsId)','\(self.selectedLanguageId)','\(self.selectedFormsId)','\(appUniqueCode)','\(String(data: data, encoding: .utf8) ?? "")', '\(2)', '\(self.selectedphase)', '\(self.selectedversion)', '\(self.modelAssignedSurvey?.parentSurveyId ?? "")')"
-                if DataManager.DML(query: query) == true, isShowMsg {
+                let query = "insert into tbl_FilledForms (tbl_users_id, tbl_projects_id, mst_language_id, tbl_forms_id, app_unique_code ,jsonValues, status, phase, version, parent_survey_id, tblProjectPhaseId) values ('\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")','\(self.selectedTblProjectsId)','\(self.selectedLanguageId)','\(self.selectedFormsId)','\(appUniqueCode)','\(String(data: data, encoding: .utf8) ?? "")', '\(2)', '\(self.selectedphase)', '\(self.selectedversion)', '\(self.modelAssignedSurvey?.parentSurveyId ?? "")','\(self.selectedProjectPhaseId)')"
+                if DataManager.DML(query: query) == true  {
                     print("Inserted")
-                    self.viewController?.showAlert(with: "Form saved as draft.", firstHandler:  { _ in
-                        self.viewController?.navigationController?.popViewController(animated: true)
-                    })
+                    if isShowMsg {
+                        self.viewController?.showAlert(with: "Form saved as draft.", firstHandler:  { _ in
+                            self.viewController?.navigationController?.popViewController(animated: true)
+                        })
+                    }
                 }
                 else {
                     print("Error \(query)")
@@ -242,14 +279,46 @@ class FormVM: NSObject {
     }
     
     func saveToLocalDb() {
-        if let msg = self.validationAllForms() {
+        if let msg = self.validationAllForms(), self.isAllowCollectData {
             self.viewController?.showAlert(with: msg)
             return
         }
         let appUniqueCode = "\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")_\(self.selectedTblProjectsId)_\(self.selectedFormsId)_\(self.selectedProjectPhaseId)_\(Date().localDate().getFormattedString(format: "dd:MM:yyyy:hh:mm:ss"))"
         
-        var commanQueAnswers = ["banficary_name": self.arrStaticQuestion.filter({$0.id == 1}).first?.strAnswer ?? ""] as [String:Any]
-        commanQueAnswers["mst_state_id"] = self.arrStaticQuestion.filter({$0.id == 2}).first?.answerId ?? 0
+        var commanQueAnswers = ["date_and_time_of_visit": self.arrStaticQuestion.filter({$0.id == 1}).first?.strAnswer ?? ""] as [String:Any]
+        
+        commanQueAnswers["did_the_met_person_allowed_for_data"] = self.arrStaticQuestion.filter({$0.id == 2}).first?.strAnswer ?? ""
+        commanQueAnswers["gps_location"] = self.arrStaticQuestion.filter({$0.id == 3}).first?.strAnswer ?? ""
+        commanQueAnswers["banficary_name"] = self.arrStaticQuestion.filter({$0.id == 4}).first?.strAnswer ?? ""
+        commanQueAnswers["mobile_number"] = self.arrStaticQuestion.filter({$0.id == 5}).first?.strAnswer ?? ""
+        commanQueAnswers["do_you_have_aadhar_card"] = self.arrStaticQuestion.filter({$0.id == 6}).first?.strAnswer ?? ""
+        commanQueAnswers["aadhar_card"] = self.arrStaticQuestion.filter({$0.id == 7}).first?.strAnswer ?? ""
+        commanQueAnswers["font_photo_of_aadar_card"] = self.arrStaticQuestion.filter({$0.id == 8}).first?.strAnswer ?? ""
+        commanQueAnswers["back_photo_of_aadhar_card"] = self.arrStaticQuestion.filter({$0.id == 9}).first?.strAnswer ?? ""
+        commanQueAnswers["mst_state_id"] = self.arrStaticQuestion.filter({$0.id == 10}).first?.answerId ?? 0
+        commanQueAnswers["mst_district_id"] = self.arrStaticQuestion.filter({$0.id == 11}).first?.answerId ?? 0
+        commanQueAnswers["mst_tehsil_id"] = self.arrStaticQuestion.filter({$0.id == 12}).first?.answerId ?? 0
+        commanQueAnswers["mst_village_id"] = self.arrStaticQuestion.filter({$0.id == 13}).first?.answerId ?? 0
+        commanQueAnswers["gender"] = self.arrStaticQuestion.filter({$0.id == 14}).first?.strAnswer ?? ""
+        commanQueAnswers["family_size"] = self.arrStaticQuestion.filter({$0.id == 15}).first?.strAnswer ?? ""
+        commanQueAnswers["family_member_above_15_year"] = self.arrStaticQuestion.filter({$0.id == 16}).first?.strAnswer ?? ""
+        commanQueAnswers["family_member_below_15_year"] = self.arrStaticQuestion.filter({$0.id == 17}).first?.strAnswer ?? ""
+        commanQueAnswers["is_lpg_using"] = self.arrStaticQuestion.filter({$0.id == 18}).first?.strAnswer ?? ""
+        commanQueAnswers["no_of_cylinder_per_year"] = self.arrStaticQuestion.filter({$0.id == 19}).first?.strAnswer ?? ""
+        commanQueAnswers["cost_of_lpg_cyliner"] = self.arrStaticQuestion.filter({$0.id == 20}).first?.strAnswer ?? ""
+        commanQueAnswers["house_type"] = self.arrStaticQuestion.filter({$0.id == 21}).first?.strAnswer ?? ""
+        commanQueAnswers["annual_family_income"] = self.arrStaticQuestion.filter({$0.id == 22}).first?.strAnswer ?? ""
+        commanQueAnswers["willing_to_contribute_clean_cooking"] = self.arrStaticQuestion.filter({$0.id == 23}).first?.strAnswer ?? ""
+        commanQueAnswers["electricity_connection_available"] = self.arrStaticQuestion.filter({$0.id == 24}).first?.strAnswer ?? ""
+        commanQueAnswers["total_electricity_bill"] = self.arrStaticQuestion.filter({$0.id == 25}).first?.strAnswer ?? ""
+        commanQueAnswers["frequency_of_bill_payment"] = self.arrStaticQuestion.filter({$0.id == 26}).first?.strAnswer ?? ""
+        commanQueAnswers["photo_of_bill"] = self.arrStaticQuestion.filter({$0.id == 27}).first?.strAnswer ?? ""
+        commanQueAnswers["no_of_cattles_own"] = self.arrStaticQuestion.filter({$0.id == 28}).first?.strAnswer ?? ""
+        commanQueAnswers["do_you_have_ration_or_aadhar"] = self.arrStaticQuestion.filter({$0.id == 29}).first?.strAnswer ?? ""
+        
+
+
+        /*commanQueAnswers["mst_state_id"] = self.arrStaticQuestion.filter({$0.id == 2}).first?.answerId ?? 0
         commanQueAnswers["mst_district_id"] = self.arrStaticQuestion.filter({$0.id == 3}).first?.answerId ?? 0
         commanQueAnswers["mst_tehsil_id"] = self.arrStaticQuestion.filter({$0.id == 4}).first?.answerId ?? 0
         commanQueAnswers["mst_panchayat_id"] = self.arrStaticQuestion.filter({$0.id == 5}).first?.answerId ?? 0
@@ -267,7 +336,7 @@ class FormVM: NSObject {
         commanQueAnswers["annual_family_income"] = self.arrStaticQuestion.filter({$0.id == 14}).first?.strAnswer ?? ""
         commanQueAnswers["willing_to_contribute_clean_cooking"] = self.arrStaticQuestion.filter({$0.id == 15}).first?.strAnswer ?? ""
         commanQueAnswers["no_of_cattles_own"] = self.arrStaticQuestion.filter({$0.id == 18}).first?.strAnswer ?? ""
-        commanQueAnswers["aadhar_card"] = self.arrStaticQuestion.filter({$0.id == 20}).first?.strAnswer ?? ""
+        commanQueAnswers["aadhar_card"] = self.arrStaticQuestion.filter({$0.id == 20}).first?.strAnswer ?? ""*/
         
         var commanDic = ["tbl_projects_id": self.selectedTblProjectsId,
                          "tbl_users_id": ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "",
@@ -299,7 +368,7 @@ class FormVM: NSObject {
             if self.selectedFormsId != 1 {
                 self.deleteOldForm()
             }
-            let query = "insert into tbl_FilledForms (tbl_users_id, tbl_projects_id, mst_language_id, tbl_forms_id, app_unique_code, phase, version, parent_survey_id ,jsonValues) values ('\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")','\(kAppDelegate.selectedProjectID)','\(self.selectedLanguageId)','\(self.selectedFormsId)','\(appUniqueCode)', '\(self.selectedphase)', '\(self.selectedversion)', '\(self.modelAssignedSurvey?.parentSurveyId ?? "")' ,'\(String(data: data, encoding: .utf8) ?? "")')"
+            let query = "insert into tbl_FilledForms (tbl_users_id, tbl_projects_id, mst_language_id, tbl_forms_id, app_unique_code, phase, version, parent_survey_id ,jsonValues, tblProjectPhaseId) values ('\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")','\(kAppDelegate.selectedProjectID)','\(self.selectedLanguageId)','\(self.selectedFormsId)','\(appUniqueCode)', '\(self.selectedphase)', '\(self.selectedversion)', '\(self.modelAssignedSurvey?.parentSurveyId ?? "")' ,'\(String(data: data, encoding: .utf8) ?? "")','\(self.selectedProjectPhaseId)')"
             if DataManager.DML(query: query) == true {
                 print("Inserted")
                 /*if self.isFromDraft {

@@ -26,4 +26,7 @@ class PendingApprovalVC: UIViewController {
     }
     */
 
+    @IBAction func btnBackToLogin(_ sender: Any) {
+        kAppDelegate.setLogInScreen()
+    }
 }

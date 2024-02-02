@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FormVC" customModule="ReNew" customModuleProvider="target">
             <connections>
+                <outlet property="btnNext" destination="vTP-NX-xuo" id="n1L-Zq-7mY"/>
                 <outlet property="collectionFormGroup" destination="1hv-Xa-129" id="pkk-YW-FqG"/>
                 <outlet property="tblQuestion" destination="CQK-kN-bNX" id="h6p-Hs-4Ex"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

@@ -8,6 +8,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import SVProgressHUD
+import CoreLocation
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,13 +19,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var selectedFormID = Int()
     var selectedForm: ModelUserRole?
     
+    var latCurrent = CLLocationDegrees()
+    var longCurrent = CLLocationDegrees()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = true
         DataManager.createcopy()
         SVProgressHUD.setDefaultMaskType(.custom)
-
+        LocationHandler.shared.getLocationUpdates { (locationManger, location) -> (Bool) in
+            self.latCurrent = location.coordinate.latitude
+            self.longCurrent = location.coordinate.longitude
+            return true
+        }
         return true
     }
 

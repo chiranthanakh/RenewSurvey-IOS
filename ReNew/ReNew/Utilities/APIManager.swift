@@ -254,31 +254,31 @@ class APIManager: NSObject {
                     else if let urlType = file as? URL {
                         if urlType.pathExtension.caseInsensitiveCompare("pdf") == .orderedSame {
                             let FileData :NSData = try! NSData(contentsOf: file as! URL)//NSData(contentsOfFile: uploadfile)
-                            multipartFormData.append(FileData as Data, withName: uploadfileName, fileName: "\(Date().timeIntervalSince1970).pdf", mimeType: "application/pdf")
+                            multipartFormData.append(FileData as Data, withName: uploadfileName, fileName: urlType.lastPathComponent, mimeType: "application/pdf")
                         }
                         if urlType.pathExtension.caseInsensitiveCompare("doc") == .orderedSame {
                             let FileData :NSData = try! NSData(contentsOf: file as! URL)//NSData(contentsOfFile: uploadfile)
-                            multipartFormData.append(FileData as Data, withName: uploadfileName, fileName: "\(Date().timeIntervalSince1970).doc", mimeType: "application/msword")
+                            multipartFormData.append(FileData as Data, withName: uploadfileName, fileName: urlType.lastPathComponent, mimeType: "application/msword")
                         }
                         if urlType.pathExtension.caseInsensitiveCompare("png") == .orderedSame {
                             let FileData :NSData = try! NSData(contentsOf: file as! URL)//NSData(contentsOfFile: uploadfile)
-                            multipartFormData.append(FileData as Data, withName: uploadfileName, fileName: "\(Date().timeIntervalSince1970).png", mimeType: "image/jpeg")
+                            multipartFormData.append(FileData as Data, withName: uploadfileName, fileName: urlType.lastPathComponent, mimeType: "image/jpeg")
                         }
                         if urlType.pathExtension.caseInsensitiveCompare("jpg") == .orderedSame {
                             let FileData :NSData = try! NSData(contentsOf: file as! URL)//NSData(contentsOfFile: uploadfile)
-                            multipartFormData.append(FileData as Data, withName: uploadfileName, fileName: "\(Date().timeIntervalSince1970).jpg", mimeType: "image/jpg")
+                            multipartFormData.append(FileData as Data, withName: uploadfileName, fileName: urlType.lastPathComponent, mimeType: "image/jpg")
                         }
                         if urlType.pathExtension.caseInsensitiveCompare("jpeg") == .orderedSame {
                             let FileData :NSData = try! NSData(contentsOf: file as! URL)//NSData(contentsOfFile: uploadfile)
-                            multipartFormData.append(FileData as Data, withName: uploadfileName, fileName: "\(Date().timeIntervalSince1970).jpeg", mimeType: "image/jpeg")
+                            multipartFormData.append(FileData as Data, withName: uploadfileName, fileName: urlType.lastPathComponent, mimeType: "image/jpeg")
                         }
                         if urlType.pathExtension.caseInsensitiveCompare("xls") == .orderedSame {
                             let FileData :NSData = try! NSData(contentsOf: file as! URL)//NSData(contentsOfFile: uploadfile)
-                            multipartFormData.append(FileData as Data, withName: uploadfileName, fileName: "\(Date().timeIntervalSince1970).xls", mimeType: "application/octet-stream")
+                            multipartFormData.append(FileData as Data, withName: uploadfileName, fileName: urlType.lastPathComponent, mimeType: "application/octet-stream")
                         }
                         if urlType.pathExtension.caseInsensitiveCompare("xlsx") == .orderedSame {
                             let FileData :NSData = try! NSData(contentsOf: file as! URL)//NSData(contentsOfFile: uploadfile)
-                            multipartFormData.append(FileData as Data, withName: uploadfileName, fileName: "\(Date().timeIntervalSince1970).xlsx", mimeType: "application/octet-stream")
+                            multipartFormData.append(FileData as Data, withName: uploadfileName, fileName: urlType.lastPathComponent, mimeType: "application/octet-stream")
                         }
                     }
                     else if let data = file as? Data {

@@ -211,7 +211,7 @@ class RegistrationVM: NSObject {
                      "fcm_token": "Firebase Not implment",
                      "gender": self.strGender,
                      "date_of_birth": self.viewController?.vwDOB.txtInput.text ?? "",
-                     "co_ordinator_id": "1",
+                     "co_ordinator_id": self.dicVericifationParam["co_ordinator_id"] ?? "",
                      "user_type": self.dicVericifationParam["user_type"] ?? "",
                      "profile_photo": self.viewController?.imgUserProfile.image ?? UIImage()] as [String : Any]
         

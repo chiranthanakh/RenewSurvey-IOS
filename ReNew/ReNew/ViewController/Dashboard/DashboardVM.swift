@@ -55,6 +55,39 @@ class DashboardVM {
         
         formList.forEach { form in
             let questionJson = form.jsonValues.toFragmentsAllowedSingleJson()
+            if let staticQuestionAnswer = questionJson["staticQuestions"] as? [[String:Any]] {
+                staticQuestionAnswer.forEach { question in
+                    if let questionType = question["type"] as? String {
+                        if questionType == "CAPTURE",let answer = question["strImageBase64"] as? String, let img = answer.base64ToImage() {
+                            arrFiles.append(img)
+                            arrFileDic.append(["tbl_users_id": asyncForm.tblUsersId,
+                                               "tbl_forms_id": asyncForm.tblFormsId,
+                                               "tbl_projects_id": asyncForm.tblProjectsId,
+                                               "version": question["version"] as? Int ?? 0,
+                                               "phase": asyncForm.phase,
+                                               "app_unique_code": asyncForm.appUniqueCode,
+                                               "tbl_form_questions_id": question["tbl_form_questions_id"] as? Int ?? 0,
+                                               "file_name": question["answer"] as? String ?? ""])
+                        }
+                        else if questionType == "FILE", let answer = question["answer"] as? String {
+                            if let url =  getFileFromDocuments(fileName: answer){
+                                arrFiles.append(url)
+                            }
+                            
+                            let fileName = "\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedFormID)_\(URL(fileURLWithPath: answer).lastPathComponent)"
+                            arrFileDic.append(["tbl_users_id": asyncForm.tblUsersId,
+                                               "tbl_forms_id": asyncForm.tblFormsId,
+                                               "tbl_projects_id": asyncForm.tblProjectsId,
+                                               "version": question["version"] as? Int ?? 0,
+                                               "phase": asyncForm.phase,
+                                               "app_unique_code": asyncForm.appUniqueCode,
+                                               "tbl_form_questions_id": question["tbl_form_questions_id"] as? Int ?? 0,
+                                               "file_name": fileName])
+                        }
+                    }
+                }
+            }
+            
             if let questionAnswer = questionJson["question_answer"] as? [[String:Any]] {
                 questionAnswer.forEach { question in
                     if let questionType = question["question_type"] as? String {

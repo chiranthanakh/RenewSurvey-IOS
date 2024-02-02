@@ -12,7 +12,7 @@ class ListSelectionVM: NSObject {
     var viewController: ListSelectionVC?
     var arrList = [ModelListSelection]()
     var arrFilterList = [ModelListSelection]()
-    var arrSelectedList = [ModelListSelection]()
+    var arrSelectedList = [String]()
     var strTitle = String()
     
     func dataBind(strSearch: String) {

@@ -104,6 +104,7 @@ extension TestQuestionFormVC: UITableViewDelegate, UITableViewDataSource {
                     vc.modalPresentationStyle = .overFullScreen
                     vc.viewModel.arrList = question.questionOption.compactMap({ ModelListSelection.init(id: String($0.tblTestQuestionsOptionId), name: $0.title)})
                     vc.isMultpalSelection = true
+                    vc.viewModel.arrSelectedList = question.userAnswer.components(separatedBy: ", ")
                     vc.viewModel.strTitle = question.title
                     vc.completionMultipalSelection = { answers in
                         cell.txtAnswer.text = answers.compactMap({$0.name}).joined(separator: ", ")

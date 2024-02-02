@@ -52,6 +52,15 @@ extension ListSelectionVC {
         self.viewModel.dataBind(strSearch: "")
         self.txtSearchBar.isHidden = self.isMultpalSelection
         self.vwDoneBg.isHidden = !self.isMultpalSelection
+        
+        if self.viewModel.arrSelectedList.count > 0 {
+            self.viewModel.arrFilterList.forEach { list in
+                if self.viewModel.arrSelectedList.contains(list.name) {
+                    list.isSelected = true
+                }
+            }
+        }
+        self.tblView.reloadData()
     }
 }
 

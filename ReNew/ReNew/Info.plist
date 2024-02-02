@@ -25,7 +25,7 @@
 	<array>
 		<string>location</string>
 	</array>
-	<key>NSFileProviderPresenceUsageDescription</key>
-	<string>Allow file to select files from your device.</string>
+    <key>UIUserInterfaceStyle</key>
+    <string>Light</string>
 </dict>
 </plist>

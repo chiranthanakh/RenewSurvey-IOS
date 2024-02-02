@@ -17,6 +17,7 @@ class FormVC: UIViewController {
     @IBOutlet var collectionFormGroup: UICollectionView!
     @IBOutlet var vwQuestionListContainer: UIView!
     @IBOutlet var tblQuestion: UITableView!
+    @IBOutlet var btnNext: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,27 +37,33 @@ class FormVC: UIViewController {
     }
     */
     @IBAction func btnNext(_ sender: UIButton) {
-        /*self.showAlert(with: "Do you want to save?", firstHandler:  { _ in
-            self.viewModel.saveToLocalDb()
-         })*/
-        if self.viewModel.selectedGrpIndex < self.viewModel.arrFormGroup.count-1{
-            if self.viewModel.selectedGrpIndex == -1, let msg = self.viewModel.validationStaticQuestions() {
-                self.showAlert(with: msg)
-                return
-            }
-            else if self.viewModel.selectedGrpIndex > -1, let msg = self.viewModel.validationQuestionsGroup(index: self.viewModel.selectedGrpIndex) {
-                self.showAlert(with: msg)
-                return
+        if self.viewModel.isAllowCollectData {
+            if self.viewModel.selectedGrpIndex < self.viewModel.arrFormGroup.count-1{
+                if self.viewModel.selectedGrpIndex == -1, let msg = self.viewModel.validationStaticQuestions() {
+                    self.showAlert(with: msg)
+                    return
+                }
+                else if self.viewModel.selectedGrpIndex > -1, let msg = self.viewModel.validationQuestionsGroup(index: self.viewModel.selectedGrpIndex) {
+                    self.showAlert(with: msg)
+                    return
+                }
+                else {
+                    self.viewModel.saveDraft()
+                    self.viewModel.selectedGrpIndex+=1
+                    self.collectionFormGroup.reloadData()
+                    if self.viewModel.selectedGrpIndex != -1 {
+                        self.collectionFormGroup.scrollToItem(at: IndexPath(item: self.viewModel.selectedGrpIndex, section: 1), at: .right, animated: true)
+                    }
+                    self.tblQuestion.reloadData()
+                }
             }
             else {
-                self.viewModel.saveDraft()
-                self.viewModel.selectedGrpIndex+=1
-                self.collectionFormGroup.reloadData()
-                if self.viewModel.selectedGrpIndex != -1 {
-                    self.collectionFormGroup.scrollToItem(at: IndexPath(item: self.viewModel.selectedGrpIndex, section: 1), at: .right, animated: true)
-                }
-                self.tblQuestion.reloadData()
+//                self.viewModel.saveDraft(isShowMsg: true)
+                self.viewModel.saveToLocalDb()
             }
+        }
+        else {
+            self.viewModel.saveToLocalDb()
         }
     }
     
@@ -110,7 +117,12 @@ extension FormVC {
 extension FormVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        2
+        if self.viewModel.isAllowCollectData {
+            return 2
+        }
+        else {
+            return 1
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -196,6 +208,22 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
             cell.lblQuestion.setQuestionTitleAttributedTextLable(index: indexPath.row+1, question: question.questiontitle(), isMantory: "YES")
             cell.txtAnswer.text = question.strAnswer
             cell.imgCamera.isHidden = true
+            if question.id > 2 {
+                cell.vwTopBlur.isHidden = self.viewModel.isAllowCollectData
+                if question.id == 19 {
+                    cell.vwTopBlur.isHidden = ((self.viewModel.arrStaticQuestion.filter({$0.id == 18}).first?.strAnswer.lowercased() ?? "") == "yes")
+                }
+            }
+            else {
+                cell.vwTopBlur.isHidden = true
+            }
+            if question.remark == "Digit 10" {
+                cell.maxChacaterLimit = 10
+            }
+            else if question.remark == "Digit 12" {
+                cell.maxChacaterLimit = 12
+            }
+            
             
             if question.type == "TEXT" {
                 cell.txtAnswer.keyboardType = .default
@@ -203,7 +231,61 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
             else if question.type == "NUMBER" {
                 cell.txtAnswer.keyboardType = .numberPad
             }
-            else if question.type == "SINGLE_SELECT" {
+            else if question.type == "DATETIME" {
+                cell.isSelection = true
+                cell.completionSelection = {
+                    let datePicker = DatePickerDialog()
+                    datePicker.show(question.questiontitle(),
+                                    doneButtonTitle: "Done",
+                                    cancelButtonTitle: "Cancel",
+                                    defaultDate: Date(),
+                                    minimumDate: nil,
+                                    maximumDate: nil,
+                                    datePickerMode: .dateAndTime) { (date) in
+                        if let dt = date {
+                            cell.txtAnswer.text = dt.getFormattedString(format: "dd-MM-yyyy HH:mm")
+                            question.strAnswer = dt.getFormattedString(format: "dd-MM-yyyy HH:mm")
+                            self.collectionFormGroup.reloadData()
+                            self.viewModel.checkValidationForSaveButton()
+                        }
+                    }
+                }
+            }
+            else if question.type == "GEO_LOCATION" {
+                cell.isSelection = true
+                cell.completionSelection = {
+                    cell.txtAnswer.text = "\(kAppDelegate.latCurrent),\(kAppDelegate.longCurrent)"
+                    question.strAnswer = "\(kAppDelegate.latCurrent),\(kAppDelegate.longCurrent)"
+                    self.collectionFormGroup.reloadData()
+                    self.viewModel.checkValidationForSaveButton()
+                }
+            }
+            else if question.type == "CAPTURE" {
+                cell.imgCamera.isHidden = false
+                cell.isSelection = true
+                cell.txtAnswer.text = "Capture Image"
+                if question.strAnswer != "", let url = getFileFromDocuments(fileName: question.strAnswer) {
+                    cell.imgCamera.sd_setImage(with: url)
+                }
+                else {
+                    cell.imgCamera.image = UIImage(systemName: "camera")
+                }
+                cell.completionSelection = {
+                    self.imagePicker.pickImageFromCamera(self) { img in
+                        cell.imgCamera.image = img
+                        question.imageAnswer = img
+                        if let imageData:NSData = img.jpegData(compressionQuality: 0.6) as NSData?  {
+                            let fileName = "\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedFormID)_\(String(Date().timeIntervalSince1970)).jpeg"
+                            duplicateFileToDouments(fileDate: imageData, fileName: fileName)
+                            question.strAnswer = fileName
+                        }
+                        
+                        self.collectionFormGroup.reloadData()
+                        self.viewModel.checkValidationForSaveButton()
+                    }
+                }
+            }
+            else if question.type == "SINGLE_SELECT" || question.type == "Dropdown" {
                 if question.strAnswer != "" && self.viewModel.selectedFormsId != 1 {
                     cell.btnSelection.isEnabled = false
                 }
@@ -225,6 +307,17 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                             self.viewModel.selectedVillage = ModelVillage(fromDictionary: ["mst_villages_id": itemsTitle[selectedIndex].id,
                                                                                            "village_name": itemsTitle[selectedIndex].name])
                         }
+                        if question.id == 2 {
+                            self.viewModel.isAllowCollectData = itemsTitle[selectedIndex].name.lowercased() == "yes"
+                        }
+                        if question.id == 18{
+                            self.tblQuestion.reloadRows(at: [IndexPath(row: indexPath.row+1, section: 0)], with: .none)
+                            self.viewModel.arrStaticQuestion.forEach { que in
+                                if que.id == 19 {
+                                    que.strAnswer = ""
+                                }
+                            }
+                        }
                         self.collectionFormGroup.reloadData()
                         self.viewModel.checkValidationForSaveButton()
                     })
@@ -233,6 +326,7 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
         }
         else {
             cell.btnSelection.isEnabled = true
+            cell.vwTopBlur.isHidden = true
             if self.viewModel.arrFormGroup[self.viewModel.selectedGrpIndex].questions.indices ~= indexPath.row {
                 let question = self.viewModel.arrFormGroup[self.viewModel.selectedGrpIndex].questions[indexPath.row]
                 cell.completionEditingComplete = { answer in
@@ -278,6 +372,7 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                         let vc = ListSelectionVC()
                         vc.modalPresentationStyle = .overFullScreen
                         vc.viewModel.arrList = question.questionOption.compactMap({ ModelListSelection.init(id: String($0.tblFormQuestionsOptionId), name: $0.title)})
+                        vc.viewModel.arrSelectedList = question.strAnswer.components(separatedBy: ", ")
                         vc.isMultpalSelection = true
                         vc.viewModel.strTitle = question.title
                         vc.completionMultipalSelection = { answers in
@@ -333,8 +428,8 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                     cell.imgCamera.isHidden = false
                     cell.isSelection = true
                     cell.txtAnswer.text = "Capture Image"
-                    if question.strImageBase64 != "", let img = question.strImageBase64.base64ToImage() {
-                        cell.imgCamera.image = img
+                    if question.strAnswer != "", let url = getFileFromDocuments(fileName: question.strAnswer) {
+                        cell.imgCamera.sd_setImage(with: url)
                     }
                     else {
                         cell.imgCamera.image = UIImage(systemName: "camera")
@@ -344,12 +439,42 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                             cell.imgCamera.image = img
                             question.imageAnswer = img
                             if let imageData:NSData = img.jpegData(compressionQuality: 0.6) as NSData?  {
+                                let fileName = "\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedFormID)_\(String(Date().timeIntervalSince1970)).jpeg"
+                                duplicateFileToDouments(fileDate: imageData, fileName: fileName)
+                                question.strAnswer = fileName
+                            }
+                            
+                            self.collectionFormGroup.reloadData()
+                            self.viewModel.checkValidationForSaveButton()
+                            /*if let imageData:NSData = img.jpegData(compressionQuality: 0.6) as NSData?  {
                                 question.strImageBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
                             }
                             self.collectionFormGroup.reloadData()
-                            self.viewModel.checkValidationForSaveButton()
+                            self.viewModel.checkValidationForSaveButton()*/
                         }
                     }
+                    /*
+                     if question.strAnswer != "", let url = getFileFromDocuments(fileName: question.strAnswer) {
+                         cell.imgCamera.sd_setImage(with: url)
+                     }
+                     else {
+                         cell.imgCamera.image = UIImage(systemName: "camera")
+                     }
+                     cell.completionSelection = {
+                         self.imagePicker.pickImageFromGallary(self) { img in
+                             cell.imgCamera.image = img
+                             question.imageAnswer = img
+                             if let imageData:NSData = img.jpegData(compressionQuality: 0.6) as NSData?  {
+                                 let fileName = "\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedFormID)_\(String(Date().timeIntervalSince1970)).jpeg"
+                                 duplicateFileToDouments(fileDate: imageData, fileName: fileName)
+                                 question.strAnswer = fileName
+                             }
+                             
+                             self.collectionFormGroup.reloadData()
+                             self.viewModel.checkValidationForSaveButton()
+                         }
+                     }
+                     */
                 }
                 else if question.questionType == "FILE" {
                     cell.imgCamera.isHidden = false
@@ -388,13 +513,10 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                 else if question.questionType == "GEO_LOCATION" {
                     cell.isSelection = true
                     cell.completionSelection = {
-                        LocationHandler.shared.getLocationUpdates { (locationManger, location) -> (Bool) in
-                            cell.txtAnswer.text = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
-                            question.strAnswer = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
-                            self.collectionFormGroup.reloadData()
-                            self.viewModel.checkValidationForSaveButton()
-                            return true
-                        }
+                        cell.txtAnswer.text = "\(kAppDelegate.latCurrent),\(kAppDelegate.longCurrent)"
+                        question.strAnswer = "\(kAppDelegate.latCurrent),\(kAppDelegate.longCurrent)"
+                        self.collectionFormGroup.reloadData()
+                        self.viewModel.checkValidationForSaveButton()
                     }
                 }
                 else if question.questionType == "RATING" {

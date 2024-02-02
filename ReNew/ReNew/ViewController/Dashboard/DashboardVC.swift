@@ -58,7 +58,7 @@ extension DashboardVC {
         self.viewModel.viewController = self
         self.viewModel.registerController()
         self.lblFormTitle.text = DataManager.getFormTitleFromFormId(formID: kAppDelegate.selectedFormID)
-        self.lblProjectCode.text = DataManager.getProjectCodeFromProjectId(projectID: kAppDelegate.selectedProjectID)
+        self.lblProjectCode.text = ("\(DataManager.getProjectCodeFromProjectId(projectID: kAppDelegate.selectedProjectID).0) v\(DataManager.getProjectCodeFromProjectId(projectID: kAppDelegate.selectedProjectID).1)")
     }
     
     func hideMenu() {

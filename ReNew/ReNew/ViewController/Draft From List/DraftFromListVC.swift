@@ -47,7 +47,7 @@ extension DraftFromListVC: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "DraftListTCell", for: indexPath) as? DraftListTCell else { return UITableViewCell() }
         
         if self.viewModel.arrList.indices ~= indexPath.row {
-            cell.lblTitle.text = ModelFormDraft.init(fromDictionary: self.viewModel.arrList[indexPath.row].jsonValues.toFragmentsAllowedSingleJson()).staticQuestions.first?.strAnswer ?? ""
+            cell.lblTitle.text = ModelFormDraft.init(fromDictionary: self.viewModel.arrList[indexPath.row].jsonValues.toFragmentsAllowedSingleJson()).staticQuestions[3].strAnswer
             cell.completionStartAction = {
                 let vc = FormVC()
                 vc.viewModel.arrStaticQuestion = ModelFormDraft.init(fromDictionary: self.viewModel.arrList[indexPath.row].jsonValues.toFragmentsAllowedSingleJson()).staticQuestions

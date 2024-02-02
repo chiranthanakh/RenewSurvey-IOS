@@ -114,11 +114,19 @@
                             <constraint firstAttribute="trailing" secondItem="2xY-c5-sb1" secondAttribute="trailing" id="t02-Ze-EkP"/>
                         </constraints>
                     </view>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9k-kF-2nB">
+                        <rect key="frame" x="0.0" y="0.0" width="351" height="70"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="FAn-Py-90t" secondAttribute="trailing" constant="10" id="94P-qY-l1D"/>
+                    <constraint firstItem="A9k-kF-2nB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="9Z2-Ku-PPh"/>
                     <constraint firstItem="FAn-Py-90t" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ACt-wf-NSq"/>
                     <constraint firstItem="xI9-iH-XjX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Blv-C0-UC6"/>
+                    <constraint firstAttribute="bottom" secondItem="A9k-kF-2nB" secondAttribute="bottom" id="DnO-mi-TUO"/>
+                    <constraint firstItem="A9k-kF-2nB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="HIb-YY-N8j"/>
+                    <constraint firstAttribute="trailing" secondItem="A9k-kF-2nB" secondAttribute="trailing" id="Jv5-4X-kbP"/>
                     <constraint firstAttribute="trailing" secondItem="xI9-iH-XjX" secondAttribute="trailing" constant="10" id="NNP-fq-WeL"/>
                     <constraint firstItem="TIc-US-P04" firstAttribute="trailing" secondItem="FAn-Py-90t" secondAttribute="trailing" constant="-5" id="OLR-6d-di1"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="xI9-iH-XjX" secondAttribute="bottom" constant="5" id="QSb-x9-aw9"/>
@@ -137,6 +145,7 @@
                 <outlet property="imgCamera" destination="MNS-8m-CbG" id="Q6Z-Y7-cYB"/>
                 <outlet property="lblQuestion" destination="xt8-XX-7x7" id="1az-I7-SLA"/>
                 <outlet property="txtAnswer" destination="k9p-6m-TlN" id="Fn6-Mo-zAi"/>
+                <outlet property="vwTopBlur" destination="A9k-kF-2nB" id="E6K-nG-Opo"/>
             </connections>
             <point key="canvasLocation" x="153.43511450381678" y="-23.239436619718312"/>
         </tableViewCell>

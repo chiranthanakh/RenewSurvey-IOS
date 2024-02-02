@@ -56,6 +56,7 @@ class SignUpVM: NSObject {
                             param["project_code"] = projectInfo["project_code"] as? String
                             param["title"] = projectInfo["title"] as? String
                             param["state_name"] = projectInfo["state_name"] as? String
+                            param["co_ordinator_id"] = projectInfo["co_ordinator_id"] as? String
                         }
                         let vc = VerificationVC()
                         vc.viewModel.validtedOTP = String(otp)

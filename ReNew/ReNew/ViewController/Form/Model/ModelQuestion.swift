@@ -62,8 +62,8 @@ class ModelQuestion{
         dictionary["minLength"] = minLength
         if questionType == "CAPTURE" {
             if let imageData:NSData = self.imageAnswer.jpegData(compressionQuality: 0.6) as NSData?  {
-                dictionary["strImageBase64"] = imageData.base64EncodedString(options: .lineLength64Characters)
-                dictionary["answer"] = "\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedFormID)_\(String(Date().timeIntervalSince1970)).jpeg"
+                //dictionary["strImageBase64"] = imageData.base64EncodedString(options: .lineLength64Characters)
+                //dictionary["answer"] = "\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedFormID)_\(String(Date().timeIntervalSince1970)).jpeg"
             }
         }
         else if questionType == "FILE" {

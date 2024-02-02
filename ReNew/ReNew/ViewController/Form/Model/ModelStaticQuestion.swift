@@ -18,6 +18,8 @@ class ModelStaticQuestion{
 	var type : String
     var strAnswer : String
     var answerId : Int
+    var imageAnswer = UIImage()
+    var strImageBase64 : String
     
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
@@ -32,6 +34,7 @@ class ModelStaticQuestion{
 		type = dictionary["type"] as? String ?? ""
         strAnswer = dictionary["answer"] as? String ?? ""
         answerId = dictionary["answerId"] as? Int ?? 0
+        strImageBase64 = dictionary["strImageBase64"] as? String ?? ""
 	}
 
     func questiontitle() -> String {
@@ -54,6 +57,15 @@ class ModelStaticQuestion{
         dictionary["remark"] = remark
         dictionary["type"] = type
         dictionary["answer"] = strAnswer
+        if type == "CAPTURE" {
+            if let imageData:NSData = self.imageAnswer.jpegData(compressionQuality: 0.6) as NSData?  {
+               // dictionary["strImageBase64"] = imageData.base64EncodedString(options: .lineLength64Characters)
+                //dictionary["answer"] = "\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedProjectID)_\(kAppDelegate.selectedFormID)_\(String(Date().timeIntervalSince1970)).jpeg"
+            }
+        }
+        else if type == "FILE" {
+            print(strAnswer)
+        }
         dictionary["answerId"] = answerId
         
         return dictionary

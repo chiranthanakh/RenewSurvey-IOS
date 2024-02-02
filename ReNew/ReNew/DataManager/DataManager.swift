@@ -273,6 +273,9 @@ class DataManager: NSObject {
                     temp.type  = String(cString: sqlite3_column_text(stmt,4))
                     temp.option  = String(cString: sqlite3_column_text(stmt,5))
                     temp.remark  = String(cString: sqlite3_column_text(stmt,6))
+                    if temp.id == 1 {
+                        temp.strAnswer = Date().getFormattedString(format: "dd-MM-yyyy HH:mm")
+                    }
                     mainarr.append(temp)
                 }
                 sqlite3_finalize(stmt)
@@ -283,15 +286,16 @@ class DataManager: NSObject {
         return mainarr
     }
     
-    static func getProjectCodeFromProjectId(projectID: Int) -> String {
-        let query = "Select DISTINCT project_code from tbl_projects WHERE tbl_projects.tbl_projects_id = '\(kAppDelegate.selectedProjectID)'"
-        var result = String()
+    static func getProjectCodeFromProjectId(projectID: Int) -> (String, String) {
+        let query = "Select DISTINCT project_code, version from tbl_projects LEFT JOIN tbl_project_phase ON tbl_projects.tbl_projects_id = tbl_project_phase.tbl_projects_id WHERE tbl_projects.tbl_projects_id = '\(kAppDelegate.selectedProjectID)'"
+            //"Select DISTINCT project_code from tbl_projects WHERE tbl_projects.tbl_projects_id = '\(kAppDelegate.selectedProjectID)'"
+        var result = (String(), String())
         var dbop :OpaquePointer? = nil
         if sqlite3_open(DataManager.databasePath(), &dbop) == SQLITE_OK {
             var stmt : OpaquePointer? = nil
             if sqlite3_prepare_v2(dbop, query, -1, &stmt, nil) == SQLITE_OK{
                 while sqlite3_step(stmt) == SQLITE_ROW {
-                    result  = String(cString: sqlite3_column_text(stmt,0))
+                    result  = (String(cString: sqlite3_column_text(stmt,0)), String(cString: sqlite3_column_text(stmt,1)))
                 }
                 sqlite3_finalize(stmt)
             }
@@ -401,8 +405,9 @@ class DataManager: NSObject {
         return mainarr
     }
     
-    static func getVillageList(stateID: String, districtID: String, tehsilId: String, panchayatId: String) -> [ModelVillage] {
-        let query = "SELECT mst_village_id, village_name from mst_village WHERE mst_state_id = '\(stateID)' AND mst_district_id = '\(districtID)' AND mst_tehsil_id = '\(tehsilId)' AND mst_panchayat_id = '\(panchayatId)'"
+    static func getVillageList(stateID: String, districtID: String, tehsilId: String) -> [ModelVillage] {
+        let query = "SELECT mst_village_id, village_name from mst_village WHERE mst_state_id = '\(stateID)' AND mst_district_id = '\(districtID)' AND mst_tehsil_id = '\(tehsilId)'"
+        //"SELECT mst_village_id, village_name from mst_village WHERE mst_state_id = '\(stateID)' AND mst_district_id = '\(districtID)' AND mst_tehsil_id = '\(tehsilId)' AND mst_panchayat_id = '\(panchayatId)'"
         var mainarr = [ModelVillage]()
         var dbop :OpaquePointer? = nil
         if sqlite3_open(DataManager.databasePath(), &dbop) == SQLITE_OK {
@@ -520,6 +525,7 @@ class DataManager: NSObject {
                     temp.mstLanguageId  = Int(sqlite3_column_int(stmt, 6))
                     temp.tblFormsId  = Int(sqlite3_column_int(stmt, 7))
                     temp.appUniqueCode  = String(cString: sqlite3_column_text(stmt, 8))
+                    temp.tblProjectPhaseId  = Int(sqlite3_column_int(stmt, 11))
                     mainarr.append(temp)
                 }
                 sqlite3_finalize(stmt)
@@ -548,6 +554,7 @@ class DataManager: NSObject {
                     temp.mstLanguageId  = Int(sqlite3_column_int(stmt, 6))
                     temp.tblFormsId  = Int(sqlite3_column_int(stmt, 7))
                     temp.appUniqueCode  = String(cString: sqlite3_column_text(stmt, 8))
+                    temp.tblProjectPhaseId  = Int(sqlite3_column_int(stmt, 11))
                     mainarr.append(temp)
                 }
                 sqlite3_finalize(stmt)
@@ -795,7 +802,7 @@ class DataManager: NSObject {
     }
     
     static func getTestQuestionList(languageId: Int, testId: Int) -> [ModelTestQuestion] {
-        let query = "SELECT mfl.title, tq.* from tbl_test_questions as tq LEFT JOIN mst_form_language mfl ON mfl.module = 'tbl_test_questions' AND mfl.module_id = tbl_test_questions_id WHERE tbl_tests_id = \(testId) AND tq.is_active AND mst_language_id = \(languageId)"
+        let query = "SELECT mfl.title, tq.* from tbl_test_questions as tq LEFT JOIN mst_form_language mfl ON mfl.module = 'tbl_test_questions' AND mfl.module_id = tbl_test_questions_id WHERE tbl_tests_id = \(testId) AND tq.is_active AND mst_language_id = \(languageId) ORDER BY order_by ASC"
         var mainarr = [ModelTestQuestion]()
         var dbop :OpaquePointer? = nil
         if sqlite3_open(DataManager.databasePath(), &dbop) == SQLITE_OK {
@@ -870,6 +877,54 @@ class DataManager: NSObject {
         
         formList.forEach { form in
             let questionJson = form.jsonValues.toFragmentsAllowedSingleJson()
+            if let staticQuestionAnswer = questionJson["common_question_answer"] as? [String:Any] {
+                if let aadharCardAnswer = staticQuestionAnswer["back_photo_of_aadhar_card"] as? String {
+                    if let url =  getFileFromDocuments(fileName: aadharCardAnswer){
+                        arrFiles.append(url)
+                    }
+                    
+                    let fileName = "\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")_\(form.tblProjectsId)_\(form.tblFormsId)_\(form.tblProjectPhaseId)_\(aadharCardAnswer)"
+                    arrFileDic.append(["tbl_users_id": form.tblUsersId,
+                                       "tbl_forms_id": form.tblFormsId,
+                                       "tbl_projects_id": form.tblProjectsId,
+                                       "version": form.version,
+                                       "phase": form.phase,
+                                       "app_unique_code": form.appUniqueCode,
+                                       "tbl_form_questions_id": "",
+                                       "file_name": fileName])
+                }
+                if let aadharFrontCardAnswer = staticQuestionAnswer["font_photo_of_aadar_card"] as? String {
+                    if let url =  getFileFromDocuments(fileName: aadharFrontCardAnswer){
+                        arrFiles.append(url)
+                    }
+                    
+                    let fileName = "\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")_\(form.tblProjectsId)_\(form.tblFormsId)_\(form.tblProjectPhaseId)_\(aadharFrontCardAnswer)"
+                    arrFileDic.append(["tbl_users_id": form.tblUsersId,
+                                       "tbl_forms_id": form.tblFormsId,
+                                       "tbl_projects_id": form.tblProjectsId,
+                                       "version": form.version,
+                                       "phase": form.phase,
+                                       "app_unique_code": form.appUniqueCode,
+                                       "tbl_form_questions_id": "",
+                                       "file_name": fileName])
+                }
+                if let BillPhotoAnswer = staticQuestionAnswer["photo_of_bill"] as? String {
+                    if let url =  getFileFromDocuments(fileName: BillPhotoAnswer){
+                        arrFiles.append(url)
+                    }
+                    
+                    let fileName = "\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")_\(form.tblProjectsId)_\(form.tblFormsId)_\(form.tblProjectPhaseId)_\(BillPhotoAnswer)"
+                    arrFileDic.append(["tbl_users_id": form.tblUsersId,
+                                       "tbl_forms_id": form.tblFormsId,
+                                       "tbl_projects_id": form.tblProjectsId,
+                                       "version": form.version,
+                                       "phase": form.phase,
+                                       "app_unique_code": form.appUniqueCode,
+                                       "tbl_form_questions_id": "",
+                                       "file_name": fileName])
+                }
+            }
+            
             if let questionAnswer = questionJson["question_answer"] as? [[String:Any]] {
                 questionAnswer.forEach { question in
                     if let questionType = question["question_type"] as? String {

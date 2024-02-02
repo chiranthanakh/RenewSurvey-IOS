@@ -15,6 +15,7 @@ class TextBoxQuestionTCell: UITableViewCell {
     @IBOutlet var txtAnswer: UITextField!
     @IBOutlet var btnSelection: UIButton!
     @IBOutlet var imgCamera: UIImageView!
+    @IBOutlet var vwTopBlur: UIView!
     
     var completionSelection:(()->())?
     var completionEditingComplete:((String)->())?
