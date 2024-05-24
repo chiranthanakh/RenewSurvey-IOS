@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.longCurrent = location.coordinate.longitude
             return true
         }
+//        UserDefaults.kLastAsyncDate = Date().removeDay(numnerOfDay: 1).getFormattedString(format: "dd-MM-yyyy")
         return true
     }
 
@@ -78,6 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             nav.navigationBar.isHidden = true
             self.window?.rootViewController = nav
             self.window?.makeKeyAndVisible()
+            DataManager.createcopy()
         }
     }
 }

@@ -37,7 +37,25 @@ class ModelAssignedSurvey {
     var tblProjectsId : String
     var willingToContributeCleanCooking : String
     var woodUsePerDayInKg : String
-    
+    var dateAndTimeOfVisit: String
+    var didThemetPersonAllowedForDat: String
+    var gpsLocation : String
+    var doYouHaveAadharCard : String
+    var fontPhotoOfAadarCard: String
+    var backPhotoOfAadharCard: String
+    var familyMemberAbove15Year: String
+    var familyMemberBelow15Year: String
+    var costOfLpgCyliner : String
+    var totalElectricityBill : String
+    var frequencyOfbillPayment : String
+    var photoOfBill : String
+    var doYouHaveRationOrAadhar : String
+    var deviceSerialNumber: String
+    var stateName: String
+    var villageName: String
+    var districtName: String
+    var farmlandIsOwnedByBenficary: String
+    var if5mAreaIsAvailableNearBy: String
     
     /**
      * Instantiate the instance using the passed dictionary values to set the properties values
@@ -70,8 +88,33 @@ class ModelAssignedSurvey {
         tblProjectsId = dictionary["tbl_projects_id"] as? String ?? ""
         willingToContributeCleanCooking = dictionary["willing_to_contribute_clean_cooking"] as? String ?? ""
         woodUsePerDayInKg = dictionary["wood_use_per_day_in_kg"] as? String ?? ""
+        dateAndTimeOfVisit = dictionary["date_and_time_of_visit"] as? String ?? ""
+        didThemetPersonAllowedForDat = dictionary["did_the_met_person_allowed_for_data"] as? String ?? ""
+        gpsLocation = dictionary["gps_location"] as? String ?? ""
+        doYouHaveAadharCard = dictionary["do_you_have_aadhar_card"] as? String ?? ""
+        fontPhotoOfAadarCard = dictionary["font_photo_of_aadar_card"] as? String ?? ""
+        backPhotoOfAadharCard = dictionary["back_photo_of_aadhar_card"] as? String ?? ""
+        familyMemberAbove15Year = dictionary["family_member_above_15_year"] as? String ?? ""
+        familyMemberBelow15Year = dictionary["family_member_below_15_year"] as? String ?? ""
+        costOfLpgCyliner = dictionary["cost_of_lpg_cyliner"] as? String ?? ""
+        totalElectricityBill = dictionary["total_electricity_bill"] as? String ?? ""
+        frequencyOfbillPayment = dictionary["frequency_of_bill_payment"] as? String ?? ""
+        photoOfBill = dictionary["photo_of_bill"] as? String ?? ""
+        doYouHaveRationOrAadhar = dictionary["do_you_have_ration_or_aadhar"] as? String ?? ""
+        deviceSerialNumber = dictionary["device_serial_number"] as? String ?? ""
+        farmlandIsOwnedByBenficary = dictionary["farmland_is_owned_by_benficary"] as? String ?? ""
+        if5mAreaIsAvailableNearBy = dictionary["if_5m_area_is_available_near_by"] as? String ?? ""
+        
+        stateName = DataManager.getStataName(stateId: self.mstStateId)
+        villageName = DataManager.getVillageName(villageId: self.mstVillageId)
+        districtName = DataManager.getDistrictName(districtId: self.mstDistrictId)
     }
     
+    func bindExtraData() {
+        stateName = DataManager.getStataName(stateId: self.mstStateId)
+        villageName = DataManager.getVillageName(villageId: self.mstVillageId)
+        districtName = DataManager.getDistrictName(districtId: self.mstDistrictId)
+    }
     /**
      * Returns all the available property values in the form of [String:Any] object where the key is the approperiate json key and the value is the value of the corresponding property
      */
@@ -105,6 +148,22 @@ class ModelAssignedSurvey {
         dictionary["tbl_projects_id"] = tblProjectsId
         dictionary["willing_to_contribute_clean_cooking"] = willingToContributeCleanCooking
         dictionary["wood_use_per_day_in_kg"] = woodUsePerDayInKg
+        dictionary["did_the_met_person_allowed_for_data"] = didThemetPersonAllowedForDat
+        dictionary["date_and_time_of_visit"] = dateAndTimeOfVisit
+        dictionary["gps_location"] = gpsLocation
+        dictionary["do_you_have_aadhar_card"] = doYouHaveAadharCard
+        dictionary["font_photo_of_aadar_card"] = fontPhotoOfAadarCard
+        dictionary["back_photo_of_aadhar_card"] = backPhotoOfAadharCard
+        dictionary["family_member_above_15_year"] = familyMemberAbove15Year
+        dictionary["family_member_below_15_year"] = familyMemberBelow15Year
+        dictionary["cost_of_lpg_cyliner"] = costOfLpgCyliner
+        dictionary["total_electricity_bill"] = totalElectricityBill
+        dictionary["frequency_of_bill_payment"] = frequencyOfbillPayment
+        dictionary["photo_of_bill"] = photoOfBill
+        dictionary["do_you_have_ration_or_aadhar"] = doYouHaveRationOrAadhar
+        dictionary["device_serial_number"] = deviceSerialNumber
+        dictionary["farmland_is_owned_by_benficary"] = farmlandIsOwnedByBenficary
+        dictionary["if_5m_area_is_available_near_by"] = if5mAreaIsAvailableNearBy
         return dictionary
     }
     

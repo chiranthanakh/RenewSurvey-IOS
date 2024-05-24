@@ -302,9 +302,9 @@ extension UserDefaults {
         }
     }
     
-    class var passedTestFromIds: [Int] {
+    class var passedTestFromIds: [[String:Any]] {
         get {
-            return UserDefaults.standard.value(forKey: UserDefaultsKey.kpassedTestFromIds) as? [Int] ?? [Int]()
+            UserDefaults.standard.value(forKey: UserDefaultsKey.kpassedTestFromIds) as? [[String:Any]] ?? [[String:Any]]()
         }
         set {
             UserDefaults.standard.set(newValue, forKey: UserDefaultsKey.kpassedTestFromIds)
@@ -480,13 +480,12 @@ extension String {
     }
     
    
-    func getStringToDateToStringToDate(firstformat: String,secondformat: String) -> Date {
+    func getStringToDateToStringToDate(firstformat: String,secondformat: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = firstformat
         let fdate = dateFormatter.date(from: self) ?? Date()
         let strfdate = fdate.getFormattedString(format: secondformat)
-        dateFormatter.dateFormat = secondformat
-        return dateFormatter.date(from: strfdate) ?? Date()
+        return strfdate
     }
     
     func getFormmattedDateFromString(format: String) -> String {

@@ -59,7 +59,8 @@ extension ResetPasswordVC {
             else if let responsedic = dict {
                 if (responsedic["success"] as? String ?? "") == "1" {
                     self.showAlert(with: responsedic["message"] as? String ?? "", firstHandler:  { action in
-                        
+                        ModelUser.removeUserFromDefault()
+                        kAppDelegate.setLogInScreen()
                     })
                 }
                 else {

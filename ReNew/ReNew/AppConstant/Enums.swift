@@ -44,6 +44,8 @@ enum DeliveryType {
 enum SideMenuOption {
     case Profile
     case Notification
+    case Sync
+    case AddNewProject
     case ChangePassword
     case LogOut
     
@@ -53,10 +55,14 @@ enum SideMenuOption {
             return "Profile"
         case .Notification:
             return "Notification"
+        case .AddNewProject:
+            return "Add New Project"
         case .ChangePassword:
             return "Change Password"
         case .LogOut:
             return "Logout"
+        case .Sync:
+            return "Sync"
         }
     }
     
@@ -66,10 +72,14 @@ enum SideMenuOption {
             return UIImage(systemName: "person.crop.circle")!
         case .Notification:
             return UIImage(systemName: "bell.fill")!
+        case .AddNewProject:
+            return UIImage(systemName: "person.fill.badge.plus")!
         case .ChangePassword:
             return UIImage(systemName: "lock.fill")!
         case .LogOut:
             return UIImage(named: "ic_LogOut")!
+        case .Sync:
+            return UIImage(systemName: "arrow.triangle.2.circlepath")!
         }
     }
     

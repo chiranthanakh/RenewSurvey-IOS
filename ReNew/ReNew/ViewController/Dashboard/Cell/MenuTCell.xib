@@ -21,8 +21,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGq-QZ-kKj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ioE-98-aVg">
-                                <rect key="frame" x="10" y="10.999999999999998" width="30" height="28.666666666666664"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.triangle.2.circlepath" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ioE-98-aVg">
+                                <rect key="frame" x="10" y="10.999999999999998" width="30" height="28.666666666666657"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ioE-98-aVg" secondAttribute="height" id="w9y-DD-nFF"/>
@@ -74,9 +74,9 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="person.crop.circle" catalog="system" width="128" height="123"/>
+        <image name="arrow.triangle.2.circlepath" catalog="system" width="128" height="104"/>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="tblView" destination="ToT-SD-Nel" id="cj4-E7-3VC"/>
                 <outlet property="view" destination="iN0-l3-epB" id="1qw-if-2AZ"/>
+                <outlet property="vwSearchBar" destination="85s-7G-W6h" id="1g4-28-Pat"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -27,6 +28,19 @@
                         <constraint firstAttribute="height" constant="50" id="vuj-e7-o95"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNR-AS-IHi">
+                    <rect key="frame" x="343" y="59" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="RY4-3e-gHA"/>
+                        <constraint firstAttribute="width" secondItem="eNR-AS-IHi" secondAttribute="height" id="m18-rj-Bcm"/>
+                    </constraints>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="slider.horizontal.3" catalog="system"/>
+                    <connections>
+                        <action selector="btnFilter:" destination="-1" eventType="touchUpInside" id="MUN-ML-MI9"/>
+                    </connections>
+                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h7C-0m-fA8">
                     <rect key="frame" x="0.0" y="109" width="393" height="40"/>
                     <subviews>
@@ -47,6 +61,14 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ToT-SD-Nel">
                     <rect key="frame" x="0.0" y="149" width="393" height="669"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <searchBar key="tableHeaderView" contentMode="redraw" id="85s-7G-W6h">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <outlet property="delegate" destination="-1" id="y4q-sI-fEC"/>
+                        </connections>
+                    </searchBar>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -56,10 +78,12 @@
                 <constraint firstItem="ToT-SD-Nel" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Fs4-7q-WRf"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ToT-SD-Nel" secondAttribute="bottom" id="MLV-dW-ZEu"/>
                 <constraint firstItem="h7C-0m-fA8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Nwr-GW-yw3"/>
+                <constraint firstItem="eNR-AS-IHi" firstAttribute="centerY" secondItem="pQf-eV-a5M" secondAttribute="centerY" id="Q0r-tp-t5u"/>
                 <constraint firstItem="ToT-SD-Nel" firstAttribute="top" secondItem="h7C-0m-fA8" secondAttribute="bottom" id="RBZ-c3-Ofz"/>
                 <constraint firstItem="ToT-SD-Nel" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="WoU-1U-LFw"/>
                 <constraint firstItem="h7C-0m-fA8" firstAttribute="top" secondItem="pQf-eV-a5M" secondAttribute="bottom" id="ZwH-bI-iR5"/>
                 <constraint firstItem="pQf-eV-a5M" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="dPe-3S-E9B"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="eNR-AS-IHi" secondAttribute="trailing" id="k4g-AI-O7x"/>
                 <constraint firstItem="pQf-eV-a5M" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="pvk-L1-JKE"/>
                 <constraint firstItem="pQf-eV-a5M" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="qyZ-gE-IOY"/>
             </constraints>
@@ -67,6 +91,7 @@
         </view>
     </objects>
     <resources>
+        <image name="slider.horizontal.3" catalog="system" width="128" height="99"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -178,6 +178,8 @@ extension RegistrationVC {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapTermLable))
         self.lblTerms.isUserInteractionEnabled = true
         self.lblTerms.addGestureRecognizer(tap)
+        self.viewModel.perfixDataBind()
+        
     }
     
     @objc func tapTermLable(sender:UITapGestureRecognizer) {

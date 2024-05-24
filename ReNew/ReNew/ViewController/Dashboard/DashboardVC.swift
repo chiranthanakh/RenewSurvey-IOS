@@ -25,7 +25,7 @@ class DashboardVC: UIViewController {
     @IBOutlet var imgProfile: UIImageView!
     
     var viewModel = DashboardVM()
-    var arrMenuOption : [SideMenuOption] = [.Profile,.Notification,.ChangePassword,.LogOut]
+    var arrMenuOption : [SideMenuOption] = [.Profile,.AddNewProject, .Sync,.Notification,.ChangePassword,.LogOut]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +75,7 @@ extension DashboardVC {
     }
     
     @IBAction func btnStartNew(_ sender: UIButton) {
-        if kAppDelegate.selectedFormID == 1 {
+        if kAppDelegate.selectedFormID == 1 || kAppDelegate.selectedFormID == 4 {
             self.navigationController?.pushViewController(FormVC(), animated: true)
         }
         else {
@@ -120,6 +120,11 @@ extension DashboardVC: UITableViewDelegate, UITableViewDataSource {
         if self.arrMenuOption[indexPath.row] == .Profile {
             self.navigationController?.pushViewController(ProfileVC(), animated: true)
         }
+        if self.arrMenuOption[indexPath.row] == .AddNewProject {
+            let vc = SignUpVC()
+            vc.viewModel.selecteduserRole = .Member
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         else if self.arrMenuOption[indexPath.row] == .ChangePassword {
             self.hideMenu()
             let vc = ResetPasswordVC()
@@ -135,6 +140,11 @@ extension DashboardVC: UITableViewDelegate, UITableViewDataSource {
             }, secondButton: "No") { _ in
                 
             }
+        }
+        else if self.arrMenuOption[indexPath.row] == .Sync {
+            self.hideMenu()
+            let vc = SyncServerVC()
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

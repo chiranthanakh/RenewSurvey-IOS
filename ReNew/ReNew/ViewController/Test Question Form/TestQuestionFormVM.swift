@@ -53,7 +53,11 @@ class TestQuestionFormVM: NSObject {
         if let test = self.modelTest, numberOfcorrect >= (Int(test.passingMarks) ?? 0) {
             //Pass
             self.viewController?.showAlert(withTitle: "Test passed!!",with: "Your obtained Marks :\(numberOfcorrect)", firstButton: "Okay", firstHandler: { action in
-                UserDefaults.passedTestFromIds.append(self.modelTest?.tblFormsId ?? 0)
+                if let modelTest = self.modelTest {
+                    modelTest.projectId = kAppDelegate.selectedProjectID
+                    modelTest.question.removeAll()
+                    UserDefaults.passedTestFromIds.append(modelTest.toDictionary())
+                }
                 self.viewController?.navigationController?.pushViewController(DashboardVC(), animated: true)
             })
         }

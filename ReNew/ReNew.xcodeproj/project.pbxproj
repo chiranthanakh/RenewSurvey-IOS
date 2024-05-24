@@ -47,6 +47,11 @@
 		C642A1482B28D1DE002016DA /* LanguageSelectionTCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C642A1462B28D1DE002016DA /* LanguageSelectionTCell.xib */; };
 		C642A14A2B28D2AC002016DA /* LanguageSelectionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C642A1492B28D2AC002016DA /* LanguageSelectionVM.swift */; };
 		C642A14C2B28D3C4002016DA /* ModelLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C642A14B2B28D3C3002016DA /* ModelLanguage.swift */; };
+		C6586D132BB6BBE600C7DB75 /* BenificaryMemberRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6586D112BB6BBE600C7DB75 /* BenificaryMemberRegisterVC.swift */; };
+		C6586D142BB6BBE600C7DB75 /* BenificaryMemberRegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6586D122BB6BBE600C7DB75 /* BenificaryMemberRegisterVC.xib */; };
+		C6586D162BB6BC9B00C7DB75 /* BenificaryMemberRegisterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6586D152BB6BC9B00C7DB75 /* BenificaryMemberRegisterVM.swift */; };
+		C659F3CE2BBB1CC10086C5FC /* FilterAssigneeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C659F3CC2BBB1CC10086C5FC /* FilterAssigneeVC.swift */; };
+		C659F3CF2BBB1CC10086C5FC /* FilterAssigneeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C659F3CD2BBB1CC10086C5FC /* FilterAssigneeVC.xib */; };
 		C659FA132B3583190056BDAD /* DraftFromListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C659FA112B3583190056BDAD /* DraftFromListVC.swift */; };
 		C659FA142B3583190056BDAD /* DraftFromListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C659FA122B3583190056BDAD /* DraftFromListVC.xib */; };
 		C659FA162B3583260056BDAD /* DraftFromListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C659FA152B3583260056BDAD /* DraftFromListVM.swift */; };
@@ -98,6 +103,9 @@
 		C672D15E2B29D34A00C41711 /* DashboardVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C672D15C2B29D34A00C41711 /* DashboardVC.xib */; };
 		C68A8C0A2B2B0C9200C0802D /* ModelQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68A8C092B2B0C9200C0802D /* ModelQuestion.swift */; };
 		C68A8C0E2B2B144300C0802D /* ModelQuestionOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68A8C0D2B2B144200C0802D /* ModelQuestionOption.swift */; };
+		C68F44A22BB5D1090055900D /* OTPVerifyTCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68F44A02BB5D1090055900D /* OTPVerifyTCell.swift */; };
+		C68F44A32BB5D1090055900D /* OTPVerifyTCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C68F44A12BB5D1090055900D /* OTPVerifyTCell.xib */; };
+		C6AB4F612B7D2BD1005AFEDC /* ModelUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AB4F602B7D2BD0005AFEDC /* ModelUserInfo.swift */; };
 		C6C1E7642B2CBF20004C120F /* TextBoxQuestionTCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C1E7622B2CBF20004C120F /* TextBoxQuestionTCell.swift */; };
 		C6C1E7652B2CBF21004C120F /* TextBoxQuestionTCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C1E7632B2CBF20004C120F /* TextBoxQuestionTCell.xib */; };
 		C6C1E76A2B2CC26C004C120F /* UIWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C1E7672B2CC26C004C120F /* UIWindow+.swift */; };
@@ -216,6 +224,11 @@
 		C642A1462B28D1DE002016DA /* LanguageSelectionTCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageSelectionTCell.xib; sourceTree = "<group>"; };
 		C642A1492B28D2AC002016DA /* LanguageSelectionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionVM.swift; sourceTree = "<group>"; };
 		C642A14B2B28D3C3002016DA /* ModelLanguage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelLanguage.swift; sourceTree = "<group>"; };
+		C6586D112BB6BBE600C7DB75 /* BenificaryMemberRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenificaryMemberRegisterVC.swift; sourceTree = "<group>"; };
+		C6586D122BB6BBE600C7DB75 /* BenificaryMemberRegisterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BenificaryMemberRegisterVC.xib; sourceTree = "<group>"; };
+		C6586D152BB6BC9B00C7DB75 /* BenificaryMemberRegisterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenificaryMemberRegisterVM.swift; sourceTree = "<group>"; };
+		C659F3CC2BBB1CC10086C5FC /* FilterAssigneeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterAssigneeVC.swift; sourceTree = "<group>"; };
+		C659F3CD2BBB1CC10086C5FC /* FilterAssigneeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterAssigneeVC.xib; sourceTree = "<group>"; };
 		C659FA112B3583190056BDAD /* DraftFromListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftFromListVC.swift; sourceTree = "<group>"; };
 		C659FA122B3583190056BDAD /* DraftFromListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DraftFromListVC.xib; sourceTree = "<group>"; };
 		C659FA152B3583260056BDAD /* DraftFromListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftFromListVM.swift; sourceTree = "<group>"; };
@@ -267,6 +280,9 @@
 		C672D15C2B29D34A00C41711 /* DashboardVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardVC.xib; sourceTree = "<group>"; };
 		C68A8C092B2B0C9200C0802D /* ModelQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelQuestion.swift; sourceTree = "<group>"; };
 		C68A8C0D2B2B144200C0802D /* ModelQuestionOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelQuestionOption.swift; sourceTree = "<group>"; };
+		C68F44A02BB5D1090055900D /* OTPVerifyTCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerifyTCell.swift; sourceTree = "<group>"; };
+		C68F44A12BB5D1090055900D /* OTPVerifyTCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OTPVerifyTCell.xib; sourceTree = "<group>"; };
+		C6AB4F602B7D2BD0005AFEDC /* ModelUserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelUserInfo.swift; sourceTree = "<group>"; };
 		C6C1E7622B2CBF20004C120F /* TextBoxQuestionTCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBoxQuestionTCell.swift; sourceTree = "<group>"; };
 		C6C1E7632B2CBF20004C120F /* TextBoxQuestionTCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextBoxQuestionTCell.xib; sourceTree = "<group>"; };
 		C6C1E7672B2CC26C004C120F /* UIWindow+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+.swift"; sourceTree = "<group>"; };
@@ -424,6 +440,8 @@
 				C6C1E7632B2CBF20004C120F /* TextBoxQuestionTCell.xib */,
 				C6CBF5DE2B2F2D1E00A8B962 /* RatingQuestionTCell.swift */,
 				C6CBF5DF2B2F2D1E00A8B962 /* RatingQuestionTCell.xib */,
+				C68F44A02BB5D1090055900D /* OTPVerifyTCell.swift */,
+				C68F44A12BB5D1090055900D /* OTPVerifyTCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -443,6 +461,7 @@
 		C63B57DC2B2477560057689B /* Verification */ = {
 			isa = PBXGroup;
 			children = (
+				C6AB4F602B7D2BD0005AFEDC /* ModelUserInfo.swift */,
 				C63B57DD2B2477650057689B /* VerificationVC.swift */,
 				C6690CB92B285C6200BC477B /* VerificationVM.swift */,
 				C63B57DE2B2477650057689B /* VerificationVC.xib */,
@@ -500,6 +519,25 @@
 				C642A1462B28D1DE002016DA /* LanguageSelectionTCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		C6586D102BB6BB8B00C7DB75 /* Benificary Member Register */ = {
+			isa = PBXGroup;
+			children = (
+				C6586D112BB6BBE600C7DB75 /* BenificaryMemberRegisterVC.swift */,
+				C6586D152BB6BC9B00C7DB75 /* BenificaryMemberRegisterVM.swift */,
+				C6586D122BB6BBE600C7DB75 /* BenificaryMemberRegisterVC.xib */,
+			);
+			path = "Benificary Member Register";
+			sourceTree = "<group>";
+		};
+		C659F3CB2BBB1CA70086C5FC /* Filter Assignee */ = {
+			isa = PBXGroup;
+			children = (
+				C659F3CC2BBB1CC10086C5FC /* FilterAssigneeVC.swift */,
+				C659F3CD2BBB1CC10086C5FC /* FilterAssigneeVC.xib */,
+			);
+			path = "Filter Assignee";
 			sourceTree = "<group>";
 		};
 		C659FA102B3583020056BDAD /* Draft From List */ = {
@@ -928,6 +966,8 @@
 		C6F6B7F72B241D1D00A164BF /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C659F3CB2BBB1CA70086C5FC /* Filter Assignee */,
+				C6586D102BB6BB8B00C7DB75 /* Benificary Member Register */,
 				C65DA2EE2B3E905F00D843DA /* Profile */,
 				C65BD8122B3DA31D00EDA84D /* Test Question Form */,
 				C65BD8042B3D97D400EDA84D /* Test Question Result */,
@@ -1062,10 +1102,12 @@
 				C6C1E7652B2CBF21004C120F /* TextBoxQuestionTCell.xib in Resources */,
 				C6690CBF2B285FFF00BC477B /* ResetPasswordVC.xib in Resources */,
 				C63B57E02B2477650057689B /* VerificationVC.xib in Resources */,
+				C659F3CF2BBB1CC10086C5FC /* FilterAssigneeVC.xib in Resources */,
 				C6F6B7F62B24190500A164BF /* Color.xcassets in Resources */,
 				C6690CB12B2822B800BC477B /* RenewDatabse.db in Resources */,
 				C65BD8162B3DA33100EDA84D /* TestQuestionFormVC.xib in Resources */,
 				C6F6B75A2B24106A00A164BF /* InputTextFeildView.xib in Resources */,
+				C68F44A32BB5D1090055900D /* OTPVerifyTCell.xib in Resources */,
 				C63B57E52B248CB50057689B /* RegistrationVC.xib in Resources */,
 				C6690CA72B281FEC00BC477B /* SyncServerVC.xib in Resources */,
 				C620965D2B3C012800382D4C /* TermsConditionVC.xib in Resources */,
@@ -1073,6 +1115,7 @@
 				C6273CDD2B2AD83C00A8C3D8 /* FormGroupTitleCCell.xib in Resources */,
 				C65BD8082B3D980400EDA84D /* TestQuestionResultVC.xib in Resources */,
 				C6F6B8052B2425A600A164BF /* SignUpVC.xib in Resources */,
+				C6586D142BB6BBE600C7DB75 /* BenificaryMemberRegisterVC.xib in Resources */,
 				C6F6B8072B2425D300A164BF /* AppLogoNavBarView.xib in Resources */,
 				C6F6B7FF2B241E1B00A164BF /* OptionSelectionVC.xib in Resources */,
 				C672D1472B29BAA000C41711 /* ProjectSelectionVC.xib in Resources */,
@@ -1175,10 +1218,12 @@
 				C68A8C0E2B2B144300C0802D /* ModelQuestionOption.swift in Sources */,
 				C6F6B8092B2425DC00A164BF /* AppLogoNavBarView.swift in Sources */,
 				C6EC58642B32EFD30067969F /* ModelFormSaveCommonQuestionAnswer.swift in Sources */,
+				C68F44A22BB5D1090055900D /* OTPVerifyTCell.swift in Sources */,
 				C6F6B7782B24107200A164BF /* UIViewController+BackBarButtonItem.swift in Sources */,
 				C66A4B182B3DE20F00EF4532 /* VideoResourceLoaderDelegate.swift in Sources */,
 				C6F6B7D12B24108300A164BF /* CosmosLayers.swift in Sources */,
 				C6265FB12B300502006CA786 /* RangeSeekSliderDelegate.swift in Sources */,
+				C6586D132BB6BBE600C7DB75 /* BenificaryMemberRegisterVC.swift in Sources */,
 				C6273CD82B2AD67500A8C3D8 /* ModelFormGroup.swift in Sources */,
 				C672D1492B29BAE300C41711 /* ProjectSelectionVM.swift in Sources */,
 				C6265FB32B300502006CA786 /* TapticEngine.swift in Sources */,
@@ -1211,7 +1256,9 @@
 				C63B57DF2B2477650057689B /* VerificationVC.swift in Sources */,
 				C6F6B7732B24107200A164BF /* UINavigationBar+Translucent.swift in Sources */,
 				C6F6B8042B2425A600A164BF /* SignUpVC.swift in Sources */,
+				C659F3CE2BBB1CC10086C5FC /* FilterAssigneeVC.swift in Sources */,
 				C6F6B7562B24106A00A164BF /* ImagePicker.swift in Sources */,
+				C6586D162BB6BC9B00C7DB75 /* BenificaryMemberRegisterVM.swift in Sources */,
 				C6F6B7812B24107200A164BF /* Reusable.swift in Sources */,
 				C6F6B78A2B24107A00A164BF /* Enums.swift in Sources */,
 				C65BD8072B3D980400EDA84D /* TestQuestionResultVC.swift in Sources */,
@@ -1232,6 +1279,7 @@
 				C6273CD62B2AD5AB00A8C3D8 /* FormVM.swift in Sources */,
 				C6F6B7592B24106A00A164BF /* LocationManager.swift in Sources */,
 				C6F6B7822B24107200A164BF /* SideAnimatable.swift in Sources */,
+				C6AB4F612B7D2BD1005AFEDC /* ModelUserInfo.swift in Sources */,
 				C659FA202B35BDAA0056BDAD /* AssignedSurveyListVC.swift in Sources */,
 				C6F6B7CC2B24108300A164BF /* StarLayer.swift in Sources */,
 				C6363D5E2B24E1E500352666 /* ModelDistrict.swift in Sources */,
@@ -1411,7 +1459,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = RFQW68HK3X;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -1458,7 +1506,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = RFQW68HK3X;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;

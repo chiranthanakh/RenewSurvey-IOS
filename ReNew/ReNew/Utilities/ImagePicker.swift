@@ -132,8 +132,15 @@ class ImagePicker: NSObject, UINavigationControllerDelegate,UIImagePickerControl
                     
                     return
                 }
-                
+#if DEBUG
+    //Do something on debug
+                self.choosePhoto()
+                    
+#else
+    // Do something on prod
                 self.takePhoto()
+#endif
+                
             }
         }
     }
@@ -357,6 +364,9 @@ class ImagePicker: NSObject, UINavigationControllerDelegate,UIImagePickerControl
             }
             if docType.contains("GIF") {
                 arrdocumentTypes.append("com.compuserve.gif")
+            }
+            if arrdocumentTypes.count == 0 {
+                arrdocumentTypes = [kUTTypePDF as String ,"org.openxmlformats.wordprocessingml.document", "com.microsoft.word.doc"]
             }
             let documentPicker = UIDocumentPickerViewController(documentTypes: arrdocumentTypes, in: .import)
             //["com.apple.iwork.pages.pages", "com.apple.iwork.numbers.numbers", "com.apple.iwork.keynote.key","public.image", "com.apple.application", "public.item","public.data", "public.content", "public.audiovisual-content", "public.zip-archive", "com.pkware.zip-archive", "public.composite-content", "public.text"]

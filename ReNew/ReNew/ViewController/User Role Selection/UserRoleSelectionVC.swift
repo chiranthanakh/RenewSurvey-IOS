@@ -50,12 +50,21 @@ extension UserRoleSelectionVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         kAppDelegate.selectedFormID = self.viewModel.arrLanguage[indexPath.row].tblFormsId
         kAppDelegate.selectedForm = self.viewModel.arrLanguage[indexPath.row]
-        if UserDefaults.passedTestFromIds.contains(kAppDelegate.selectedFormID) {
+        //self.navigationController?.pushViewController(DashboardVC(), animated: true)
+        //new Code
+        if UserDefaults.passedTestFromIds.compactMap(ModelTest.init).filter({$0.tblFormsId == kAppDelegate.selectedFormID && $0.projectId == kAppDelegate.selectedProjectID}).count == 0 && kAppDelegate.selectedFormID != 4 {
+            self.navigationController?.pushViewController(TestQuestionResultVC(), animated: true)
+        }
+        else {
+            self.navigationController?.pushViewController(DashboardVC(), animated: true)
+        }
+        
+        /*if UserDefaults.passedTestFromIds.contains(kAppDelegate.selectedFormID) {
             self.navigationController?.pushViewController(DashboardVC(), animated: true)
         }
         else {
             self.navigationController?.pushViewController(TestQuestionResultVC(), animated: true)
-        }
+        }*/
     }
 }
 

@@ -12,7 +12,8 @@ class FormVC: UIViewController {
 
     var viewModel = FormVM()
     var imagePicker = ImagePicker()
-    
+    var oTPTimer = Timer()
+
     @IBOutlet var vwHeader: AppLogoNavBarView!
     @IBOutlet var collectionFormGroup: UICollectionView!
     @IBOutlet var vwQuestionListContainer: UIView!
@@ -38,6 +39,17 @@ class FormVC: UIViewController {
     */
     @IBAction func btnNext(_ sender: UIButton) {
         if self.viewModel.isAllowCollectData {
+            if self.viewModel.selectedFormsId == 2, self.viewModel.isVerificationSuccess == false && self.viewModel.isFromDraft == false{
+                self.showAlert(with: "Please enter otp and verify it.")
+                return
+            }
+            else if self.viewModel.selectedFormsId == 3, (self.viewModel.arrStaticQuestion.filter({$0.id == 32}).first?.strAnswer ?? "" != self.viewModel.modelAssignedSurvey?.deviceSerialNumber ?? "") && self.viewModel.isFromDraft == false{
+                self.showAlert(with: "Please valid device serial number")
+                return
+            }
+            else {
+                self.viewModel.arrStaticQuestion = self.viewModel.arrStaticQuestion.filter({$0.id != 33})
+            }
             if self.viewModel.selectedGrpIndex < self.viewModel.arrFormGroup.count-1{
                 if self.viewModel.selectedGrpIndex == -1, let msg = self.viewModel.validationStaticQuestions() {
                     self.showAlert(with: msg)
@@ -55,6 +67,9 @@ class FormVC: UIViewController {
                         self.collectionFormGroup.scrollToItem(at: IndexPath(item: self.viewModel.selectedGrpIndex, section: 1), at: .right, animated: true)
                     }
                     self.tblQuestion.reloadData()
+                    delay(seconds: 0.5) {
+                        self.tblQuestion.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+                    }
                 }
             }
             else {
@@ -78,6 +93,9 @@ class FormVC: UIViewController {
                 self.collectionFormGroup.scrollToItem(at: IndexPath(item: 0, section: 0), at: .right, animated: true)
             }
             self.tblQuestion.reloadData()
+            delay(seconds: 0.5) {
+                self.tblQuestion.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+            }
         }
     }
 }
@@ -90,12 +108,14 @@ extension FormVC {
         self.imagePicker.viewController = self
         self.vwHeader.isRightButtonVisible = true
         self.vwHeader.completionRightButtonTap = {
-            if self.vwHeader.btnRightOption.titleLabel?.text == "Save As Draft" {
+            /*if self.vwHeader.btnRightOption.titleLabel?.text == "Save As Draft" {
                 self.viewModel.saveDraft(isShowMsg: true)
             }
             else {
                 self.viewModel.saveToLocalDb()
-            }
+            }*/
+            self.view.endEditing(true)
+            self.viewModel.saveDraft(isShowMsg: true)
         }
         self.viewModel.registerController()
         
@@ -111,6 +131,24 @@ extension FormVC {
         }
     }
     
+    func runOTPTimer() {
+        self.oTPTimer.invalidate()
+        self.oTPTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.otpTimerUpdate), userInfo: nil, repeats: true)
+    }
+    
+    @objc func otpTimerUpdate() {
+        // Something cool
+        if self.viewModel.intOTPTimer == 0 {
+            self.oTPTimer.invalidate()
+            self.tblQuestion.reloadData()
+        }
+        else {
+            self.viewModel.intOTPTimer-=1
+            if let cell = self.tblQuestion.cellForRow(at: IndexPath(row: self.tblQuestion.numberOfRows(inSection: 0)-1, section: 0)) as? OTPVerifyTCell {
+                cell.lblSendCode.text = "Resend OTP in \(self.viewModel.intOTPTimer) second"
+            }
+        }
+    }
 }
 
 //MARK: - UICollectionView Delegate & DataSource Methods
@@ -192,6 +230,44 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
         
         if self.viewModel.selectedGrpIndex == -1 {
             let question = self.viewModel.arrStaticQuestion[indexPath.row]
+            if question.id == 33 {
+                guard let otpCell = tableView.dequeueReusableCell(withIdentifier: "OTPVerifyTCell", for: indexPath) as? OTPVerifyTCell else { return UITableViewCell() }
+                otpCell.lblQuestion.setQuestionTitleAttributedTextLable(index: question.indexNo, question: question.questiontitle(), isMantory: "YES")
+                otpCell.lblSendCode.text = "Resend OTP in \(self.viewModel.intOTPTimer) second"
+                if self.viewModel.intOTPTimer == 0 {
+                    otpCell.btnVerifyOTP.isHidden = true
+                    otpCell.btnSendOTP.isHidden = false
+                    otpCell.lblSendCode.isHidden = true
+                }
+                else{
+                    otpCell.btnVerifyOTP.isHidden = false
+                    otpCell.btnSendOTP.isHidden = true
+                    otpCell.lblSendCode.isHidden = false
+                }
+                if self.viewModel.isVerificationSuccess {
+                    otpCell.vwButtons.isHidden = true
+                    otpCell.lblSendCode.isHidden = true
+                }
+                otpCell.completionSendCodeTap = {
+                    self.viewModel.sendOTPAPICall()
+                }
+                otpCell.completionVerifyTap = {
+                    if (otpCell.txtAnswer.text ?? "") == self.viewModel.strOTP {
+                        self.showAlert(with: "OTP verification success.", firstHandler:  { action in
+                            self.viewModel.isVerificationSuccess = true
+                            self.tblQuestion.reloadData()
+                        })
+                    }
+                    else {
+                        self.showAlert(with: "Please enter valid OTP")
+                    }
+                }
+                otpCell.completionEditingComplete = { answer in
+                    self.viewModel.arrStaticQuestion[indexPath.row].strAnswer = answer
+                    cell.txtAnswer.text = answer
+                }
+                return otpCell
+            }
             cell.completionEditingComplete = { answer in
                 self.viewModel.arrStaticQuestion[indexPath.row].strAnswer = answer
                 cell.txtAnswer.text = answer
@@ -199,19 +275,20 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                 self.viewModel.checkValidationForSaveButton()
             }
             cell.isSelection = false
-            if question.strAnswer != "" && self.viewModel.selectedFormsId != 1 {
-                cell.txtAnswer.isEnabled = false
-            }
-            else {
-                cell.txtAnswer.isEnabled = true
-            }
-            cell.lblQuestion.setQuestionTitleAttributedTextLable(index: indexPath.row+1, question: question.questiontitle(), isMantory: "YES")
+            
+            cell.lblQuestion.setQuestionTitleAttributedTextLable(index: question.indexNo, question: question.questiontitle(), isMantory: "YES")
             cell.txtAnswer.text = question.strAnswer
             cell.imgCamera.isHidden = true
             if question.id > 2 {
                 cell.vwTopBlur.isHidden = self.viewModel.isAllowCollectData
-                if question.id == 19 {
+                if question.id == 19 || question.id == 20 {
                     cell.vwTopBlur.isHidden = ((self.viewModel.arrStaticQuestion.filter({$0.id == 18}).first?.strAnswer.lowercased() ?? "") == "yes")
+                }
+                if question.id == 7 || question.id == 8 || question.id == 9 {
+                    cell.vwTopBlur.isHidden = ((self.viewModel.arrStaticQuestion.filter({$0.id == 6}).first?.strAnswer.lowercased() ?? "") == "yes")
+                }
+                if question.id == 25 || question.id == 26 || question.id == 27 {
+                    cell.vwTopBlur.isHidden = ((self.viewModel.arrStaticQuestion.filter({$0.id == 24}).first?.strAnswer.lowercased() ?? "") == "yes")
                 }
             }
             else {
@@ -224,6 +301,15 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                 cell.maxChacaterLimit = 12
             }
             
+            if question.id == 32 {
+                cell.isOnlyAcceptAlphanumeric = true
+            }
+            else {
+                cell.isOnlyAcceptAlphanumeric = false
+            }
+            if self.viewModel.selectedFormsId != 1 && self.viewModel.selectedFormsId != 4{
+                cell.vwTopBlur.isHidden = (question.id == 1 || question.id == 3 || question.id == 32 || question.id == 33)
+            }
             
             if question.type == "TEXT" {
                 cell.txtAnswer.keyboardType = .default
@@ -286,7 +372,7 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                 }
             }
             else if question.type == "SINGLE_SELECT" || question.type == "Dropdown" {
-                if question.strAnswer != "" && self.viewModel.selectedFormsId != 1 {
+                if question.strAnswer != "" && self.viewModel.selectedFormsId != 1 && self.viewModel.selectedFormsId != 4 {
                     cell.btnSelection.isEnabled = false
                 }
                 else {
@@ -311,12 +397,15 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                             self.viewModel.isAllowCollectData = itemsTitle[selectedIndex].name.lowercased() == "yes"
                         }
                         if question.id == 18{
-                            self.tblQuestion.reloadRows(at: [IndexPath(row: indexPath.row+1, section: 0)], with: .none)
                             self.viewModel.arrStaticQuestion.forEach { que in
-                                if que.id == 19 {
+                                if que.id == 19 || que.id == 20 {
                                     que.strAnswer = ""
                                 }
                             }
+                            self.tblQuestion.reloadData()
+                        }
+                        if question.id == 6 || question.id == 24{
+                            self.tblQuestion.reloadData()
                         }
                         self.collectionFormGroup.reloadData()
                         self.viewModel.checkValidationForSaveButton()
@@ -336,7 +425,7 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                     self.viewModel.checkValidationForSaveButton()
                 }
                 
-                cell.lblQuestion.setQuestionTitleAttributedTextLable(index: indexPath.row+1, question: question.title.capitalized, isMantory: question.ismandatory)
+                cell.lblQuestion.setQuestionTitleAttributedTextLable(index: "\(indexPath.row+1)", question: question.title.capitalized, isMantory: question.ismandatory)
                 cell.txtAnswer.text = question.strAnswer
                 cell.isSelection = false
                 cell.imgCamera.isHidden = true
@@ -396,8 +485,8 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                                         maximumDate: nil,
                                         datePickerMode: .time) { (date) in
                             if let dt = date {
-                                cell.txtAnswer.text = dt.getFormattedString(format: "HH:mm")
-                                question.strAnswer = dt.getFormattedString(format: "HH:mm")
+                                cell.txtAnswer.text = dt.getFormattedString(format: question.format)
+                                question.strAnswer = dt.getFormattedString(format: question.format)
                                 self.collectionFormGroup.reloadData()
                                 self.viewModel.checkValidationForSaveButton()
                             }
@@ -416,8 +505,28 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                                         maximumDate: nil,
                                         datePickerMode: .dateAndTime) { (date) in
                             if let dt = date {
-                                cell.txtAnswer.text = dt.getFormattedString(format: "dd-MM-yyyy HH:mm")
-                                question.strAnswer = dt.getFormattedString(format: "dd-MM-yyyy HH:mm")
+                                cell.txtAnswer.text = dt.getFormattedString(format: question.format)
+                                question.strAnswer = dt.getFormattedString(format: question.format)
+                                self.collectionFormGroup.reloadData()
+                                self.viewModel.checkValidationForSaveButton()
+                            }
+                        }
+                    }
+                }
+                else if question.questionType == "DATE" {
+                    cell.isSelection = true
+                    cell.completionSelection = {
+                        let datePicker = DatePickerDialog()
+                        datePicker.show(question.title,
+                                        doneButtonTitle: "Done",
+                                        cancelButtonTitle: "Cancel",
+                                        defaultDate: Date(),
+                                        minimumDate: nil,
+                                        maximumDate: nil,
+                                        datePickerMode: .date) { (date) in
+                            if let dt = date {
+                                cell.txtAnswer.text = dt.getFormattedString(format: question.format)
+                                question.strAnswer = dt.getFormattedString(format: question.format)
                                 self.collectionFormGroup.reloadData()
                                 self.viewModel.checkValidationForSaveButton()
                             }
@@ -526,7 +635,7 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                     cellRating.vwRangeSiker.isHidden = true
                     if self.viewModel.arrFormGroup[self.viewModel.selectedGrpIndex].questions.indices ~= indexPath.row {
 //                        cellRating.lblQuestion.text = "\(indexPath.row+1). \(self.viewModel.arrFormGroup[self.viewModel.selectedGrpIndex].questions[indexPath.row].title)"
-                        cellRating.lblQuestion.setQuestionTitleAttributedTextLable(index: indexPath.row+1, question: self.viewModel.arrFormGroup[self.viewModel.selectedGrpIndex].questions[indexPath.row].title, isMantory: question.ismandatory)
+                        cellRating.lblQuestion.setQuestionTitleAttributedTextLable(index: "\(indexPath.row+1)", question: self.viewModel.arrFormGroup[self.viewModel.selectedGrpIndex].questions[indexPath.row].title, isMantory: question.ismandatory)
                         cellRating.vwRating.rating = Double(self.viewModel.arrFormGroup[self.viewModel.selectedGrpIndex].questions[indexPath.row].strAnswer) ?? 0
                         cellRating.vwRating.didFinishTouchingCosmos = { rating in
                             self.viewModel.arrFormGroup[self.viewModel.selectedGrpIndex].questions[indexPath.row].strAnswer = "\(rating)"
@@ -545,7 +654,7 @@ extension FormVC: UITableViewDelegate, UITableViewDataSource {
                     if self.viewModel.arrFormGroup[self.viewModel.selectedGrpIndex].questions.indices ~= indexPath.row {
                         let ratingQuestion = self.viewModel.arrFormGroup[self.viewModel.selectedGrpIndex].questions[indexPath.row]
 //                        cellRating.lblQuestion.text = "\(indexPath.row+1). \(ratingQuestion.title)"
-                        cellRating.lblQuestion.setQuestionTitleAttributedTextLable(index: indexPath.row+1, question: ratingQuestion.title, isMantory: question.ismandatory)
+                        cellRating.lblQuestion.setQuestionTitleAttributedTextLable(index: "\(indexPath.row+1)", question: ratingQuestion.title, isMantory: question.ismandatory)
                         cellRating.vwRangeSiker.minValue = CGFloat(ratingQuestion.minLength)
                         cellRating.vwRangeSiker.maxValue = CGFloat(ratingQuestion.maxLength)
                         if ratingQuestion.strAnswer != "" {

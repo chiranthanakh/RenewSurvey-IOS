@@ -206,7 +206,7 @@ class ModelUser : NSObject, NSCoding{
         UserDefaults.standard.set(nil, forKey: UserDefaultsKey.kLoginUser)
         DataManager.deleteDatabase()
         UserDefaults.kLastAsyncDate = ""
-        UserDefaults.passedTestFromIds = [Int]()
+        UserDefaults.passedTestFromIds.removeAll()
         UserDefaults.trainingTutorials = [String]()
     }
     

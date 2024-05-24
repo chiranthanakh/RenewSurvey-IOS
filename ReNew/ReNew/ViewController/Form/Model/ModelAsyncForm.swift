@@ -21,6 +21,7 @@ class ModelAsyncForm{
     var parentSurveyId: Int
     var phase: Int
     var version: Int
+    var tblProjectSurveyCommonDataId : String
     
 
 	/**
@@ -39,6 +40,7 @@ class ModelAsyncForm{
         parentSurveyId = dictionary[ "parent_survey_id"] as? Int ?? Int()
         phase = dictionary["phase"] as? Int ?? Int()
         version = dictionary["version"] as? Int ?? Int()
+        tblProjectSurveyCommonDataId = dictionary["tbl_project_survey_common_data_id"] as? String ?? ""
 	}
 
 }

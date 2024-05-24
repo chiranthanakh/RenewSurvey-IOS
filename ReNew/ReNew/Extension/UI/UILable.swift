@@ -20,7 +20,7 @@ extension UILabel {
         self.attributedText = updatedText
     }
     
-    func setQuestionTitleAttributedTextLable(index: Int, question: String, isMantory: String) {
+    func setQuestionTitleAttributedTextLable(index: String, question: String, isMantory: String) {
 
         let accountAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13, weight: .bold)]
         let signupAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)]

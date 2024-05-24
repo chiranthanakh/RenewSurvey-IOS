@@ -22,8 +22,8 @@ class AppConstant {
     
     struct API {
        
-        static let BASE_URL                         = "https://devrenewsms.proteam.co.in/api/v1/" // Dev
-//        static let BASE_URL                         = "https://renewsms.proteam.co.in/api/v1/"  //Live
+        static let BASE_URL                         = "https://devrenewsms.proteam.co.in/api/v2/" // Dev
+//        static let BASE_URL                         = "https://renewsms.proteam.co.in/api/v2/"  //Live
         
 
         //Auth Module
@@ -42,6 +42,8 @@ class AppConstant {
         static let kSyncDataFromServer              = BASE_URL + "Synchronization/sync_data_from_server"
         static let kSyncMedia                       = BASE_URL + "ProjectMaster/sync_media"
         static let kSyncSurvey                      = BASE_URL + "ProjectMaster/sync_survey"
+        
+        static let kSendVerificationCode            = BASE_URL + "ProjectMaster/send_verification_code"
     }
     
     

@@ -23,6 +23,7 @@ class ModelQuestion{
     var imageAnswer = UIImage()
     var strImageBase64 : String
     var ismandatory: String
+    var format: String
     
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
@@ -47,6 +48,7 @@ class ModelQuestion{
         minLength = dictionary["minLength"] as? Int ?? 0
         maxLength = dictionary["maxLength"] as? Int ?? 0
         ismandatory = dictionary["is_mandatory"] as? String ?? ""
+        format = dictionary["format"] as? String ?? ""
 	}
 
     func toDictionary() -> [String:Any]
@@ -80,6 +82,7 @@ class ModelQuestion{
             }
             dictionary["question_Option"] = dictionaryElements
         }
+        dictionary["format"] = format
         return dictionary
     }
     

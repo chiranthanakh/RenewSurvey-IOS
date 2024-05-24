@@ -43,6 +43,10 @@ class FormVM: NSObject {
     var selectedphase = kAppDelegate.selectedForm?.phase ?? 0
     var selectedversion = kAppDelegate.selectedForm?.version ?? 0
     
+    var strOTP = String()
+    var isVerificationSuccess = false
+    var intOTPTimer = 0
+    
     var isAllowCollectData = true{
         didSet{
             self.viewController?.collectionFormGroup.reloadData()
@@ -63,6 +67,7 @@ class FormVM: NSObject {
         
         self.viewController?.tblQuestion.registerCell(withNib: "TextBoxQuestionTCell")
         self.viewController?.tblQuestion.registerCell(withNib: "RatingQuestionTCell")
+        self.viewController?.tblQuestion.registerCell(withNib: "OTPVerifyTCell")
         self.viewController?.tblQuestion.delegate = self.viewController
         self.viewController?.tblQuestion.dataSource = self.viewController
         self.viewController?.tblQuestion.separatorStyle = .none
@@ -92,7 +97,7 @@ class FormVM: NSObject {
     
     func getStaticQuestions() {
         self.arrStaticQuestion = DataManager.getStaticQuestionList()
-        if self.selectedFormsId != 1 {
+        if self.selectedFormsId != 1 && self.selectedFormsId != 4{
             self.assignSurveyStaticQuestionDataBind()
         }
         self.viewController?.collectionFormGroup.reloadData()
@@ -166,31 +171,60 @@ class FormVM: NSObject {
     }
     
     func validationStaticQuestions() -> String? {
-        for question in arrStaticQuestion {
-            if question.type == "CAPTURE" {
-                if question.strAnswer == "" {
-                    return "Please selecct \(question.questiontitle())"
+        if self.selectedFormsId == 2 {
+            for question in arrStaticQuestion {
+                if question.id == 32 && question.strAnswer == "" {
+                    return "Please enter device serial number"
                 }
-            }
-            else if question.strAnswer == "" && question.id != 19{
-                return "Please enter \(question.questiontitle()) answer properly"
-            }
-            else if question.remark == "Digit 10" {
-                if question.strAnswer.count != 10 {
-                    return "\(question.questiontitle()) must be 10 digit"
-                }
-            }
-            else if question.remark == "Digit 12" {
-                if question.strAnswer.count != 12 {
-                    return "\(question.questiontitle()) must be 12 digit"
+                else if self.isVerificationSuccess == false && self.isFromDraft == false{
+                    return "Please verify otp."
                 }
             }
         }
-        let queFullFamily = Int(self.arrStaticQuestion.filter({$0.id == 15}).first?.strAnswer ?? "") ?? 0
-        let queAboveFamily = Int(self.arrStaticQuestion.filter({$0.id == 16}).first?.strAnswer ?? "") ?? 0
-        let queBelowFamily = Int(self.arrStaticQuestion.filter({$0.id == 17}).first?.strAnswer ?? "") ?? 0
-        if queFullFamily != (queAboveFamily+queBelowFamily){
-            return "Sum of family members above 15 years and below 15 yearsmust be equals to family size"
+        else {
+            for question in arrStaticQuestion {
+                if question.type == "CAPTURE" {
+                    if question.strAnswer == "" && question.id != 25 && question.id != 26 && question.id != 27 && question.id != 19 && question.id != 7 && question.id != 8 && question.id != 9{
+                        return "Please selecct \(question.questiontitle())"
+                    }
+                }
+                else if question.strAnswer == "" && (question.id == 19 || question.id == 20) && arrStaticQuestion[17].strAnswer.lowercased() == "yes"{
+                    return "Please enter \(question.questiontitle()) answer properly"
+                }
+                else if question.strAnswer == "" && (question.id == 7 || question.id == 8 || question.id == 9) && arrStaticQuestion[5].strAnswer.lowercased() == "yes"{
+                    return "Please select Aadharcard photo"
+                }
+                else if question.strAnswer == "" && (question.id == 25 || question.id == 26 || question.id == 27) && arrStaticQuestion[23].strAnswer.lowercased() == "yes"{
+                    return "Please enter \(question.questiontitle()) answer properly"
+                }
+                else if question.strAnswer == "" && question.id != 25 && question.id != 26 && question.id != 27 && question.id != 19 && question.id != 20 && question.id != 7 && question.id != 8 && question.id != 9{
+                    return "Please enter \(question.questiontitle()) answer properly"
+                }
+                else if question.remark == "Digit 10" {
+                    if question.strAnswer.count != 10 {
+                        return "\(question.questiontitle()) must be 10 digit"
+                    }
+                }
+                else if question.remark == "Digit 12" {
+                    if (question.id == 7) {
+                        if arrStaticQuestion[5].strAnswer.lowercased() == "yes" && question.strAnswer.count != 12 {
+                            return "\(question.questiontitle()) must be 12 digit"
+                        }
+                    }
+                    else if question.strAnswer.count != 12 {
+                        return "\(question.questiontitle()) must be 12 digit"
+                    }
+                }
+                else if question.id == 32 && question.strAnswer == "" {
+                    return "Please enter device serial number"
+                }
+            }
+            let queFullFamily = Int(self.arrStaticQuestion.filter({$0.id == 15}).first?.strAnswer ?? "") ?? 0
+            let queAboveFamily = Int(self.arrStaticQuestion.filter({$0.id == 16}).first?.strAnswer ?? "") ?? 0
+            let queBelowFamily = Int(self.arrStaticQuestion.filter({$0.id == 17}).first?.strAnswer ?? "") ?? 0
+            if queFullFamily != (queAboveFamily+queBelowFamily){
+                return "Sum of family members above 15 years and below 15 yearsmust be equals to family size"
+            }
         }
         return nil
     }
@@ -242,10 +276,10 @@ class FormVM: NSObject {
     func checkValidationForSaveButton() {
         if let msg = self.validationAllForms() {
             print(msg)
-            self.viewController?.vwHeader.btnRightOption.setTitle("Save As Draft", for: .normal)
+//            self.viewController?.vwHeader.btnRightOption.setTitle("Save As Draft", for: .normal)
         }
         else {
-            self.viewController?.vwHeader.btnRightOption.setTitle("Save", for: .normal)
+//            self.viewController?.vwHeader.btnRightOption.setTitle("Save", for: .normal)
         }
     }
     
@@ -261,8 +295,20 @@ class FormVM: NSObject {
             let dic = draftModel.toDictionary()
             DataManager.deleteDraftData()
             let appUniqueCode = "\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")_\(self.selectedTblProjectsId)_\(self.selectedFormsId)_\(self.selectedProjectPhaseId)_\(Date().localDate().getFormattedString(format: "dd:MM:yyyy:hh:mm:ss"))"
+            var tempParentSurveyId = Int()
+            var temptblProjectSurveyCommonDataId = String()
+            
+            if self.isFromDraft {
+                tempParentSurveyId = self.modelDraftFormDetails?.parentSurveyId ?? Int()
+                temptblProjectSurveyCommonDataId = self.modelDraftFormDetails?.tblProjectSurveyCommonDataId ?? ""
+            }
+            else {
+                tempParentSurveyId = Int(self.modelAssignedSurvey?.parentSurveyId ?? "") ?? Int()
+                temptblProjectSurveyCommonDataId = self.modelAssignedSurvey?.tblProjectSurveyCommonDataId ?? ""
+            }
+            
             if let data = try? JSONSerialization.data(withJSONObject: dic, options: .fragmentsAllowed) {
-                let query = "insert into tbl_FilledForms (tbl_users_id, tbl_projects_id, mst_language_id, tbl_forms_id, app_unique_code ,jsonValues, status, phase, version, parent_survey_id, tblProjectPhaseId) values ('\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")','\(self.selectedTblProjectsId)','\(self.selectedLanguageId)','\(self.selectedFormsId)','\(appUniqueCode)','\(String(data: data, encoding: .utf8) ?? "")', '\(2)', '\(self.selectedphase)', '\(self.selectedversion)', '\(self.modelAssignedSurvey?.parentSurveyId ?? "")','\(self.selectedProjectPhaseId)')"
+                let query = "insert into tbl_FilledForms (tbl_users_id, tbl_projects_id, mst_language_id, tbl_forms_id, app_unique_code ,jsonValues, status, phase, version, parent_survey_id, tblProjectPhaseId,tblProjectSurveyCommonDataId) values ('\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")','\(self.selectedTblProjectsId)','\(self.selectedLanguageId)','\(self.selectedFormsId)','\(appUniqueCode)','\(String(data: data, encoding: .utf8) ?? "")', '\(2)', '\(self.selectedphase)', '\(self.selectedversion)', '\(tempParentSurveyId)','\(self.selectedProjectPhaseId)','\(temptblProjectSurveyCommonDataId)')"
                 if DataManager.DML(query: query) == true  {
                     print("Inserted")
                     if isShowMsg {
@@ -315,6 +361,12 @@ class FormVM: NSObject {
         commanQueAnswers["photo_of_bill"] = self.arrStaticQuestion.filter({$0.id == 27}).first?.strAnswer ?? ""
         commanQueAnswers["no_of_cattles_own"] = self.arrStaticQuestion.filter({$0.id == 28}).first?.strAnswer ?? ""
         commanQueAnswers["do_you_have_ration_or_aadhar"] = self.arrStaticQuestion.filter({$0.id == 29}).first?.strAnswer ?? ""
+        commanQueAnswers["farmland_is_owned_by_benficary"] = self.arrStaticQuestion.filter({$0.id == 30}).first?.strAnswer ?? ""
+        commanQueAnswers["if_5m_area_is_available_near_by"] = self.arrStaticQuestion.filter({$0.id == 31}).first?.strAnswer ?? ""
+
+        if let deviceSerialNumber = self.arrStaticQuestion.filter({$0.id == 32}).first{
+            commanQueAnswers["device_serial_number"] = deviceSerialNumber.strAnswer
+        }
         
 
 
@@ -347,15 +399,26 @@ class FormVM: NSObject {
                          "version": self.selectedversion,
                          "phase": self.selectedphase] as [String : Any]
         
-        if self.selectedFormsId != 1 {
-            commanDic["parent_survey_id"] = self.modelAssignedSurvey?.parentSurveyId ?? ""
-            commanDic["tbl_project_survey_common_data_id"] = self.modelAssignedSurvey?.tblProjectSurveyCommonDataId ?? ""
+        var tempParentSurveyId = Int()
+        var temptblProjectSurveyCommonDataId = String()
+
+        if self.selectedFormsId != 1 && self.selectedFormsId != 4{
+            if self.isFromDraft {
+                commanDic["parent_survey_id"] = self.modelDraftFormDetails?.parentSurveyId ?? Int()
+                tempParentSurveyId = self.modelDraftFormDetails?.parentSurveyId ?? Int()
+                temptblProjectSurveyCommonDataId = self.modelDraftFormDetails?.tblProjectSurveyCommonDataId ?? ""
+            }
+            else {
+                commanDic["parent_survey_id"] = self.modelAssignedSurvey?.parentSurveyId ?? ""
+                tempParentSurveyId = Int(self.modelAssignedSurvey?.parentSurveyId ?? "") ?? Int()
+                temptblProjectSurveyCommonDataId = self.modelAssignedSurvey?.tblProjectSurveyCommonDataId ?? ""
+            }
+            commanDic["tbl_project_survey_common_data_id"] = temptblProjectSurveyCommonDataId
         }
         else {
             commanDic["parent_survey_id"] = ""
-            commanDic["common_question_answer"] = commanQueAnswers
         }
-        
+        commanDic["common_question_answer"] = commanQueAnswers
         var arrAnswers = [[String:Any]]()
         for questionGrp in arrFormGroup {
             questionGrp.questions.forEach { question in
@@ -365,10 +428,10 @@ class FormVM: NSObject {
         commanDic["question_answer"] = arrAnswers
         
         if let data = try? JSONSerialization.data(withJSONObject: commanDic, options: .fragmentsAllowed) {
-            if self.selectedFormsId != 1 {
+            if self.selectedFormsId != 1 && self.selectedFormsId != 4{
                 self.deleteOldForm()
             }
-            let query = "insert into tbl_FilledForms (tbl_users_id, tbl_projects_id, mst_language_id, tbl_forms_id, app_unique_code, phase, version, parent_survey_id ,jsonValues, tblProjectPhaseId) values ('\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")','\(kAppDelegate.selectedProjectID)','\(self.selectedLanguageId)','\(self.selectedFormsId)','\(appUniqueCode)', '\(self.selectedphase)', '\(self.selectedversion)', '\(self.modelAssignedSurvey?.parentSurveyId ?? "")' ,'\(String(data: data, encoding: .utf8) ?? "")','\(self.selectedProjectPhaseId)')"
+            let query = "insert into tbl_FilledForms (tbl_users_id, tbl_projects_id, mst_language_id, tbl_forms_id, app_unique_code, phase, version, parent_survey_id ,jsonValues, tblProjectPhaseId, tblProjectSurveyCommonDataId) values ('\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")','\(kAppDelegate.selectedProjectID)','\(self.selectedLanguageId)','\(self.selectedFormsId)','\(appUniqueCode)', '\(self.selectedphase)', '\(self.selectedversion)', '\(tempParentSurveyId)' ,'\(String(data: data, encoding: .utf8) ?? "")','\(self.selectedProjectPhaseId)','\(temptblProjectSurveyCommonDataId)')"
             if DataManager.DML(query: query) == true {
                 print("Inserted")
                 /*if self.isFromDraft {
@@ -403,58 +466,148 @@ class FormVM: NSObject {
         if let obj = self.modelAssignedSurvey {
             self.arrStaticQuestion.forEach { staticQuestion in
                 if staticQuestion.id == 1 {
-                    staticQuestion.strAnswer = obj.banficaryName
+                    staticQuestion.strAnswer = obj.dateAndTimeOfVisit
                 }
                 else if staticQuestion.id == 2 {
-                    staticQuestion.strAnswer = DataManager.getStataName(stateId: obj.mstStateId)
+                    staticQuestion.strAnswer = obj.didThemetPersonAllowedForDat
                 }
                 else if staticQuestion.id == 3 {
-                    staticQuestion.strAnswer = DataManager.getDistrictName(districtId: obj.mstDistrictId)
+                    staticQuestion.strAnswer = obj.gpsLocation
                 }
                 else if staticQuestion.id == 4 {
-                    staticQuestion.strAnswer = DataManager.getTehsilName(tehsilId: obj.mstTehsilId)
+                    staticQuestion.strAnswer = obj.banficaryName
                 }
                 else if staticQuestion.id == 5 {
-                    staticQuestion.strAnswer = DataManager.getVillageName(villageId: obj.mstVillageId)
+                    staticQuestion.strAnswer = obj.mobileNumber
                 }
                 else if staticQuestion.id == 6 {
-                    staticQuestion.strAnswer = obj.gender
+                    staticQuestion.strAnswer = obj.doYouHaveAadharCard
                 }
                 else if staticQuestion.id == 7 {
-                    staticQuestion.strAnswer = obj.familySize
+                    staticQuestion.strAnswer = obj.aadharCard
                 }
                 else if staticQuestion.id == 8 {
-                    staticQuestion.strAnswer = obj.isLpgUsing
+                    staticQuestion.strAnswer = obj.fontPhotoOfAadarCard
                 }
                 else if staticQuestion.id == 9 {
-                    staticQuestion.strAnswer = obj.noOfCylinderPerYear
+                    staticQuestion.strAnswer = obj.backPhotoOfAadharCard
                 }
                 else if staticQuestion.id == 10 {
-                    staticQuestion.strAnswer = obj.isCowDung
+                    staticQuestion.strAnswer = DataManager.getStataName(stateId: obj.mstStateId)
                 }
                 else if staticQuestion.id == 11 {
-                    staticQuestion.strAnswer = obj.noOfCowDungPerDay
+                    staticQuestion.strAnswer = DataManager.getDistrictName(districtId: obj.mstDistrictId)
                 }
                 else if staticQuestion.id == 12 {
-                    staticQuestion.strAnswer = obj.houseType
+                    staticQuestion.strAnswer = DataManager.getTehsilName(tehsilId: obj.mstTehsilId)
                 }
                 else if staticQuestion.id == 13 {
-                    staticQuestion.strAnswer = obj.annualFamilyIncome
+                    staticQuestion.strAnswer = DataManager.getVillageName(villageId: obj.mstVillageId)
                 }
                 else if staticQuestion.id == 14 {
-                    staticQuestion.strAnswer = obj.willingToContributeCleanCooking
+                    staticQuestion.strAnswer = obj.gender
                 }
                 else if staticQuestion.id == 15 {
-                    staticQuestion.strAnswer = obj.woodUsePerDayInKg
+                    staticQuestion.strAnswer = obj.familySize
                 }
                 else if staticQuestion.id == 16 {
-                    staticQuestion.strAnswer = obj.electricityConnectionAvailable
+                    staticQuestion.strAnswer = obj.familyMemberAbove15Year
                 }
                 else if staticQuestion.id == 17 {
-                    staticQuestion.strAnswer = obj.noOfCattlesOwn
+                    staticQuestion.strAnswer = obj.familyMemberBelow15Year
                 }
                 else if staticQuestion.id == 18 {
-                    staticQuestion.strAnswer = obj.mobileNumber
+                    staticQuestion.strAnswer = obj.isLpgUsing
+                }
+                else if staticQuestion.id == 19 {
+                    staticQuestion.strAnswer = obj.noOfCylinderPerYear
+                }
+                else if staticQuestion.id == 20 {
+                    staticQuestion.strAnswer = obj.costOfLpgCyliner
+                }
+                else if staticQuestion.id == 21 {
+                    staticQuestion.strAnswer = obj.houseType
+                }
+                else if staticQuestion.id == 22 {
+                    staticQuestion.strAnswer = obj.annualFamilyIncome
+                }
+                else if staticQuestion.id == 23 {
+                    staticQuestion.strAnswer = obj.willingToContributeCleanCooking
+                }
+                else if staticQuestion.id == 24 {
+                    staticQuestion.strAnswer = obj.electricityConnectionAvailable
+                }
+                else if staticQuestion.id == 25 {
+                    staticQuestion.strAnswer = obj.totalElectricityBill
+                }
+                else if staticQuestion.id == 26 {
+                    staticQuestion.strAnswer = obj.frequencyOfbillPayment
+                }
+                else if staticQuestion.id == 27 {
+                    staticQuestion.strAnswer = obj.photoOfBill
+                }
+                else if staticQuestion.id == 28 {
+                    staticQuestion.strAnswer = obj.noOfCattlesOwn
+                }
+                else if staticQuestion.id == 29 {
+                    staticQuestion.strAnswer = obj.doYouHaveRationOrAadhar
+                }
+                else if staticQuestion.id == 30 {
+                    staticQuestion.strAnswer = obj.farmlandIsOwnedByBenficary
+                }
+                else if staticQuestion.id == 31 {
+                    staticQuestion.strAnswer = obj.if5mAreaIsAvailableNearBy
+                }
+            }
+            if self.selectedFormsId == 2 || self.selectedFormsId == 3 {
+                self.arrStaticQuestion.append(ModelStaticQuestion(fromDictionary: ["hindi": "",
+                                                                                   "id": 32,
+                                                                                   "marathi": "",
+                                                                                   "option": "",
+                                                                                   "question": "Device Serial Number",
+                                                                                   "remark": "",
+                                                                                   "type": "TEXT",
+                                                                                   "answer": "",
+                                                                                   "answerId": "",
+                                                                                   "strImageBase64": "",
+                                                                                   "indexNo": "22"]))
+                
+                if !self.isFromDraft && self.selectedFormsId == 2{
+                    self.arrStaticQuestion.append(ModelStaticQuestion(fromDictionary: ["hindi": "",
+                                                                                       "id": 33,
+                                                                                       "marathi": "",
+                                                                                       "option": "",
+                                                                                       "question": "Verify OTP",
+                                                                                       "remark": "",
+                                                                                       "type": "NUMBER",
+                                                                                       "answer": "",
+                                                                                       "answerId": "",
+                                                                                       "strImageBase64": "",
+                                                                                       "indexNo": "23"]))
+                }
+            }
+        }
+    }
+    
+    func sendOTPAPICall() {
+        
+        let dicParam = ["tbl_users_id": self.selectedTblProjectsId] as [String : Any]
+        
+        APIManager.sharedInstance.makeRequest(with: AppConstant.API.kSendVerificationCode, method: .post, parameter: dicParam) { error, dict in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            else if let responsedic = dict {
+                if (responsedic["success"] as? String ?? "") == "1", let data = responsedic["data"] as? [String:Any], let otp = data["otp"] as? String {
+                    self.strOTP = otp
+                    self.viewController?.showAlert(with: "Otp send successfully.", firstHandler: { action in
+                        self.intOTPTimer = 30
+                        self.viewController?.runOTPTimer()
+                        self.viewController?.tblQuestion.reloadData()
+                    })
+                }
+                else {
+                    self.viewController?.showAlert(with: "Something went wrong.")
                 }
             }
         }

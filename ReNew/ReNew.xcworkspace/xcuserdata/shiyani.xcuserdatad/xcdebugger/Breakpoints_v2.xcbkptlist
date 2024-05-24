@@ -77,28 +77,13 @@
             filePath = "ReNew/Extension/Global/GlobalFunctions.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "565"
-            endingLineNumber = "565"
+            startingLineNumber = "564"
+            endingLineNumber = "564"
             landmarkName = "toJsonArray()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "647A0FF6-B82D-48F2-8033-8FA81B7A6FAC - 559fc2458c5a779e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Swift.String.toJson() -&gt; Swift.Dictionary&lt;Swift.String, Any&gt;"
-                  moduleName = "ReNew"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/Extension/Global/GlobalFunctions.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "557"
-                  endingLineNumber = "557"
-                  offsetFromSymbolStart = "163">
-               </Location>
-               <Location
-                  uuid = "647A0FF6-B82D-48F2-8033-8FA81B7A6FAC - 428acac1561ace70"
+                  uuid = "647A0FF6-B82D-48F2-8033-8FA81B7A6FAC - 428acac1561acf48"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -108,12 +93,12 @@
                   urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/Extension/Global/GlobalFunctions.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "556"
-                  endingLineNumber = "556"
-                  offsetFromSymbolStart = "1245">
+                  startingLineNumber = "564"
+                  endingLineNumber = "564"
+                  offsetFromSymbolStart = "960">
                </Location>
                <Location
-                  uuid = "647A0FF6-B82D-48F2-8033-8FA81B7A6FAC - 428acac1561acf2b"
+                  uuid = "647A0FF6-B82D-48F2-8033-8FA81B7A6FAC - 428acac1561acf48"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -123,8 +108,8 @@
                   urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/Extension/Global/GlobalFunctions.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "565"
-                  endingLineNumber = "565"
+                  startingLineNumber = "564"
+                  endingLineNumber = "564"
                   offsetFromSymbolStart = "1245">
                </Location>
             </Locations>
@@ -140,28 +125,13 @@
             filePath = "ReNew/Extension/Global/GlobalFunctions.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "582"
-            endingLineNumber = "582"
+            startingLineNumber = "581"
+            endingLineNumber = "581"
             landmarkName = "toJson()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "2419920E-967C-4122-84B4-253CD0DEDEE7 - 196d152a6979e68f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Swift.String.toFragmentsAllowedJson() -&gt; Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;"
-                  moduleName = "ReNew"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/Extension/Global/GlobalFunctions.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "574"
-                  endingLineNumber = "574"
-                  offsetFromSymbolStart = "163">
-               </Location>
-               <Location
-                  uuid = "2419920E-967C-4122-84B4-253CD0DEDEE7 - 559fc2458c5a75ee"
+                  uuid = "2419920E-967C-4122-84B4-253CD0DEDEE7 - 559fc2458c5a74f6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -171,12 +141,12 @@
                   urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/Extension/Global/GlobalFunctions.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "573"
-                  endingLineNumber = "573"
-                  offsetFromSymbolStart = "1245">
+                  startingLineNumber = "581"
+                  endingLineNumber = "581"
+                  offsetFromSymbolStart = "960">
                </Location>
                <Location
-                  uuid = "2419920E-967C-4122-84B4-253CD0DEDEE7 - 559fc2458c5a74d7"
+                  uuid = "2419920E-967C-4122-84B4-253CD0DEDEE7 - 559fc2458c5a74f6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -186,57 +156,9 @@
                   urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/Extension/Global/GlobalFunctions.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "582"
-                  endingLineNumber = "582"
+                  startingLineNumber = "581"
+                  endingLineNumber = "581"
                   offsetFromSymbolStart = "1245">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8786722B-8315-4CD5-8ABC-5951C4F8BD6F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ReNew/Utilities/APIManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "298"
-            endingLineNumber = "298"
-            landmarkName = "requestUploadMedia(endpointurl:parameters:arrFiles:isShowLoader:uploadfileName:responseData:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "8786722B-8315-4CD5-8ABC-5951C4F8BD6F - 6313599ac9ac4ac8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ReNew.APIManager.requestAsyncDataUploadToServer(endpointurl: Swift.String, parameters: Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, isShowLoader: Swift.Bool, responseData: (Swift.Optional&lt;__C.NSError&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "ReNew"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/Utilities/APIManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "303"
-                  endingLineNumber = "303"
-                  offsetFromSymbolStart = "388">
-               </Location>
-               <Location
-                  uuid = "8786722B-8315-4CD5-8ABC-5951C4F8BD6F - 5c07c6f51a16efa"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Alamofire.DataResponse&lt;Swift.String, Alamofire.AFError&gt;) -&gt; () in ReNew.APIManager.requestUploadMedia(endpointurl: Swift.String, parameters: __C.NSDictionary, arrFiles: Swift.Array&lt;Any&gt;, isShowLoader: Swift.Bool, uploadfileName: Swift.String, responseData: (Swift.Optional&lt;__C.NSError&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "ReNew"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/Utilities/APIManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "298"
-                  endingLineNumber = "298"
-                  offsetFromSymbolStart = "363">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -356,22 +278,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "28770DDF-4560-429F-B73E-605D759B276C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ReNew/ViewController/Form/FormVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "487"
-            endingLineNumber = "487"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "DE22FEE2-FA84-4D44-AB37-30E3C6B6E69F"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -379,8 +285,8 @@
             filePath = "ReNew/ViewController/Form/Model/ModelQuestion.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "toDictionary()"
             landmarkType = "7">
             <Locations>
@@ -427,8 +333,8 @@
             filePath = "ReNew/ViewController/Form/Model/ModelQuestion.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "init(fromDictionary:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -461,56 +367,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "178"
             endingLineNumber = "178"
-            landmarkName = "uploadFormToServer(formList:asyncForm:completionHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CF37A428-36EF-4433-9491-5C031A67BE3F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ReNew/DataManager/DataManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "868"
-            endingLineNumber = "868"
-            landmarkName = "syncWithServer(completionHandler:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "CF37A428-36EF-4433-9491-5C031A67BE3F - a9f42ffa8ae9e1d1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static ReNew.DataManager.syncWithServer(completionHandler: () -&gt; ()) -&gt; ()"
-                  moduleName = "ReNew"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "869"
-                  endingLineNumber = "869"
-                  offsetFromSymbolStart = "134">
-               </Location>
-               <Location
-                  uuid = "CF37A428-36EF-4433-9491-5C031A67BE3F - a9f42ffa8ae9e1b0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static ReNew.DataManager.syncWithServer(completionHandler: () -&gt; ()) -&gt; ()"
-                  moduleName = "ReNew"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "868"
-                  endingLineNumber = "868"
-                  offsetFromSymbolStart = "121">
-               </Location>
-            </Locations>
+            landmarkName = "DashboardVM"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -746,10 +604,42 @@
             filePath = "ReNew/ViewController/Verification/VerificationVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "resendVerifyOTP()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A6445729-AD60-4A2C-A0CA-0F18646DEDFC - 8d522c0c958d3bd6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.NSError&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; () in ReNew.VerificationVM.resendVerifyOTP() -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Verification/VerificationVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "603">
+               </Location>
+               <Location
+                  uuid = "A6445729-AD60-4A2C-A0CA-0F18646DEDFC - 8d522c0c958d3bf7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.NSError&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; () in ReNew.VerificationVM.resendVerifyOTP() -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Verification/VerificationVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "603">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -762,72 +652,40 @@
             filePath = "ReNew/ViewController/Verification/VerificationVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "resendOTP()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4B35E12E-D5CD-4601-A91D-CC27F47555F2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ReNew/ViewController/Verification/VerificationVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "btnVerify(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B27D498D-AF50-4ADB-8B18-30E9E01FBA0E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ReNew/ViewController/Registration/RegistrationVM.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
-            landmarkName = "regisetrApiCall()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "B27D498D-AF50-4ADB-8B18-30E9E01FBA0E - 8666039850865b4c"
+                  uuid = "980A8EF8-12B8-4C7E-AE79-17E70E429609 - 78991aa62a14baba"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "ReNew.RegistrationVM.regisetrApiCall() -&gt; ()"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.NSError&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; () in ReNew.VerificationVM.resendOTP() -&gt; ()"
                   moduleName = "ReNew"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Registration/RegistrationVM.swift"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Verification/VerificationVM.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "232"
-                  endingLineNumber = "232"
-                  offsetFromSymbolStart = "12127">
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "603">
                </Location>
                <Location
-                  uuid = "B27D498D-AF50-4ADB-8B18-30E9E01FBA0E - f140187b21f8554a"
+                  uuid = "980A8EF8-12B8-4C7E-AE79-17E70E429609 - 78991aa62a14ba9b"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.NSError&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; () in ReNew.RegistrationVM.regisetrApiCall() -&gt; ()"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.NSError&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; () in ReNew.VerificationVM.resendOTP() -&gt; ()"
                   moduleName = "ReNew"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Registration/RegistrationVM.swift"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Verification/VerificationVM.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "233"
-                  endingLineNumber = "233"
-                  offsetFromSymbolStart = "150">
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "603">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -842,8 +700,8 @@
             filePath = "ReNew/ViewController/Form/FormVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
             landmarkName = "validationStaticQuestions()"
             landmarkType = "7">
          </BreakpointContent>
@@ -858,8 +716,8 @@
             filePath = "ReNew/ViewController/Form/FormVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "validationStaticQuestions()"
             landmarkType = "7">
          </BreakpointContent>
@@ -874,24 +732,8 @@
             filePath = "ReNew/ViewController/Form/FormVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
-            landmarkName = "validationStaticQuestions()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3ABA2DF9-67CE-471C-ADA5-F7D1C9EA9F74"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ReNew/ViewController/Form/FormVM.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
             landmarkName = "validationStaticQuestions()"
             landmarkType = "7">
          </BreakpointContent>
@@ -908,8 +750,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "125"
             endingLineNumber = "125"
-            landmarkName = "uploadMediatoServer(formList:asyncForm:completionHandler:)"
-            landmarkType = "7">
+            landmarkName = "DashboardVM"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -922,13 +764,13 @@
             filePath = "ReNew/ViewController/Form/FormVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "341"
-            endingLineNumber = "341"
+            startingLineNumber = "393"
+            endingLineNumber = "393"
             landmarkName = "saveToLocalDb()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "ECE48F3E-0D95-4FB9-8EAD-AA5C3FA7F5E6 - 53ddf43b2aef516b"
+                  uuid = "ECE48F3E-0D95-4FB9-8EAD-AA5C3FA7F5E6 - 53ddf43b2aef2edc"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -938,12 +780,12 @@
                   urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Form/FormVM.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "341"
-                  endingLineNumber = "341"
-                  offsetFromSymbolStart = "20733">
+                  startingLineNumber = "390"
+                  endingLineNumber = "390"
+                  offsetFromSymbolStart = "20487">
                </Location>
                <Location
-                  uuid = "ECE48F3E-0D95-4FB9-8EAD-AA5C3FA7F5E6 - 53ddf43b2aef516b"
+                  uuid = "ECE48F3E-0D95-4FB9-8EAD-AA5C3FA7F5E6 - 53ddf43b2aef2edc"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -953,12 +795,12 @@
                   urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Form/FormVM.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "341"
-                  endingLineNumber = "341"
-                  offsetFromSymbolStart = "19842">
+                  startingLineNumber = "390"
+                  endingLineNumber = "390"
+                  offsetFromSymbolStart = "20368">
                </Location>
                <Location
-                  uuid = "ECE48F3E-0D95-4FB9-8EAD-AA5C3FA7F5E6 - 53ddf43b2aef516b"
+                  uuid = "ECE48F3E-0D95-4FB9-8EAD-AA5C3FA7F5E6 - 53ddf43b2aef2ebf"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -968,9 +810,9 @@
                   urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Form/FormVM.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "341"
-                  endingLineNumber = "341"
-                  offsetFromSymbolStart = "19893">
+                  startingLineNumber = "393"
+                  endingLineNumber = "393"
+                  offsetFromSymbolStart = "21612">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -978,62 +820,188 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "026CB3C7-6933-46A8-B7E4-9DDEBE4C6418"
+            uuid = "7B7D74FF-5F83-47FA-BC1F-FB78531B8686"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/ViewController/Sync Server/SyncServerVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "assignedSurveyDataSaveToLocalDb(arrAssignedSurvey:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7B7D74FF-5F83-47FA-BC1F-FB78531B8686 - b206bf530c991093"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.SyncServerVC.tableDataBind(tableData: ReNew.ModelServerSyncTable) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Sync%20Server/SyncServerVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "4034">
+               </Location>
+               <Location
+                  uuid = "7B7D74FF-5F83-47FA-BC1F-FB78531B8686 - b206bf530c991490"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.SyncServerVC.tableDataBind(tableData: ReNew.ModelServerSyncTable) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Sync%20Server/SyncServerVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "176"
+                  endingLineNumber = "176"
+                  offsetFromSymbolStart = "4034">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AEE5ED1C-046F-451B-B620-D6DB916CE6C0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/ViewController/Sync Server/SyncServerVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "tableDataBind(tableData:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AEE5ED1C-046F-451B-B620-D6DB916CE6C0 - ad92ecba3e0a0e3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.SyncServerVC.createTable(tableData: ReNew.ModelServerSyncTable) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Sync%20Server/SyncServerVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "5103">
+               </Location>
+               <Location
+                  uuid = "AEE5ED1C-046F-451B-B620-D6DB916CE6C0 - ad92ecba3e0a0e3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.SyncServerVC.createTable(tableData: ReNew.ModelServerSyncTable) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Sync%20Server/SyncServerVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "5436">
+               </Location>
+               <Location
+                  uuid = "AEE5ED1C-046F-451B-B620-D6DB916CE6C0 - ad92ecba3e0a0e3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.SyncServerVC.createTable(tableData: ReNew.ModelServerSyncTable) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Sync%20Server/SyncServerVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "5489">
+               </Location>
+               <Location
+                  uuid = "AEE5ED1C-046F-451B-B620-D6DB916CE6C0 - ad92ecba3e0bce2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.SyncServerVC.createTable(tableData: ReNew.ModelServerSyncTable) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Sync%20Server/SyncServerVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
+                  offsetFromSymbolStart = "5489">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CCF2B1E7-9798-444F-A922-4F4ECABA9130"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReNew/DataManager/DataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "962"
-            endingLineNumber = "962"
-            landmarkName = "syncWithServer(completionHandler:)"
+            startingLineNumber = "1106"
+            endingLineNumber = "1106"
+            landmarkName = "updatedDbToFormUpload(formList:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "026CB3C7-6933-46A8-B7E4-9DDEBE4C6418 - a9f42ffa8ae9edd2"
+                  uuid = "CCF2B1E7-9798-444F-A922-4F4ECABA9130 - 3a1b1b6f883f39b7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "static ReNew.DataManager.syncWithServer(completionHandler: () -&gt; ()) -&gt; ()"
+                  symbolName = "closure #1 (ReNew.ModelAsyncForm) -&gt; () in static ReNew.DataManager.updatedDbToFormUpload(formList: Swift.Array&lt;ReNew.ModelAsyncForm&gt;) -&gt; ()"
                   moduleName = "ReNew"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "962"
-                  endingLineNumber = "962"
-                  offsetFromSymbolStart = "974">
+                  startingLineNumber = "1102"
+                  endingLineNumber = "1102"
+                  offsetFromSymbolStart = "422">
                </Location>
                <Location
-                  uuid = "026CB3C7-6933-46A8-B7E4-9DDEBE4C6418 - 56a42aa9748194e9"
+                  uuid = "CCF2B1E7-9798-444F-A922-4F4ECABA9130 - 3a1b1b6f883f39b7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #2 () -&gt; () in static ReNew.DataManager.syncWithServer(completionHandler: () -&gt; ()) -&gt; ()"
+                  symbolName = "closure #1 (ReNew.ModelAsyncForm) -&gt; () in static ReNew.DataManager.updatedDbToFormUpload(formList: Swift.Array&lt;ReNew.ModelAsyncForm&gt;) -&gt; ()"
                   moduleName = "ReNew"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "963"
-                  endingLineNumber = "963"
-                  offsetFromSymbolStart = "36">
+                  startingLineNumber = "1102"
+                  endingLineNumber = "1102"
+                  offsetFromSymbolStart = "66">
                </Location>
                <Location
-                  uuid = "026CB3C7-6933-46A8-B7E4-9DDEBE4C6418 - a9f42ffa8ae9edd2"
+                  uuid = "CCF2B1E7-9798-444F-A922-4F4ECABA9130 - 3a1b1b6f883f3933"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "static ReNew.DataManager.syncWithServer(completionHandler: () -&gt; ()) -&gt; ()"
+                  symbolName = "closure #1 (ReNew.ModelAsyncForm) -&gt; () in static ReNew.DataManager.updatedDbToFormUpload(formList: Swift.Array&lt;ReNew.ModelAsyncForm&gt;) -&gt; ()"
                   moduleName = "ReNew"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "962"
-                  endingLineNumber = "962"
-                  offsetFromSymbolStart = "851">
+                  startingLineNumber = "1106"
+                  endingLineNumber = "1106"
+                  offsetFromSymbolStart = "66">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1041,62 +1009,62 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "26B1E37C-3228-4DDB-836E-D0073CF35121"
+            uuid = "D3E991C5-5838-4CF2-9E1F-EC09CDD8273F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReNew/DataManager/DataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "969"
-            endingLineNumber = "969"
-            landmarkName = "syncWithServer(completionHandler:)"
+            startingLineNumber = "1108"
+            endingLineNumber = "1108"
+            landmarkName = "updatedDbToFormUpload(formList:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "26B1E37C-3228-4DDB-836E-D0073CF35121 - 7066b458e94727e"
+                  uuid = "D3E991C5-5838-4CF2-9E1F-EC09CDD8273F - 3a1b1b6f883f3914"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #3 (Swift.Optional&lt;__C.NSError&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; () in static ReNew.DataManager.syncWithServer(completionHandler: () -&gt; ()) -&gt; ()"
+                  symbolName = "closure #1 (ReNew.ModelAsyncForm) -&gt; () in static ReNew.DataManager.updatedDbToFormUpload(formList: Swift.Array&lt;ReNew.ModelAsyncForm&gt;) -&gt; ()"
                   moduleName = "ReNew"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "969"
-                  endingLineNumber = "969"
-                  offsetFromSymbolStart = "236">
+                  startingLineNumber = "1105"
+                  endingLineNumber = "1105"
+                  offsetFromSymbolStart = "644">
                </Location>
                <Location
-                  uuid = "26B1E37C-3228-4DDB-836E-D0073CF35121 - a9f42ffa8ae9eebd"
+                  uuid = "D3E991C5-5838-4CF2-9E1F-EC09CDD8273F - 3a1b1b6f883f3975"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "static ReNew.DataManager.syncWithServer(completionHandler: () -&gt; ()) -&gt; ()"
+                  symbolName = "closure #1 (ReNew.ModelAsyncForm) -&gt; () in static ReNew.DataManager.updatedDbToFormUpload(formList: Swift.Array&lt;ReNew.ModelAsyncForm&gt;) -&gt; ()"
                   moduleName = "ReNew"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "969"
-                  endingLineNumber = "969"
-                  offsetFromSymbolStart = "1203">
+                  startingLineNumber = "1104"
+                  endingLineNumber = "1104"
+                  offsetFromSymbolStart = "422">
                </Location>
                <Location
-                  uuid = "26B1E37C-3228-4DDB-836E-D0073CF35121 - 7066b458e947219"
+                  uuid = "D3E991C5-5838-4CF2-9E1F-EC09CDD8273F - 3a1b1b6f883f26f1"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #3 (Swift.Optional&lt;__C.NSError&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; () in static ReNew.DataManager.syncWithServer(completionHandler: () -&gt; ()) -&gt; ()"
+                  symbolName = "closure #1 (ReNew.ModelAsyncForm) -&gt; () in static ReNew.DataManager.updatedDbToFormUpload(formList: Swift.Array&lt;ReNew.ModelAsyncForm&gt;) -&gt; ()"
                   moduleName = "ReNew"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "970"
-                  endingLineNumber = "970"
-                  offsetFromSymbolStart = "236">
+                  startingLineNumber = "1108"
+                  endingLineNumber = "1108"
+                  offsetFromSymbolStart = "422">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1104,271 +1072,62 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "15D1B2CE-A7BD-4FFB-BEFD-C9FEC3B6DF78"
+            uuid = "61CA5016-10B0-44A8-B6DF-216B8FB5FC2D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReNew/DataManager/DataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "806"
-            endingLineNumber = "806"
-            landmarkName = "getTestQuestionList(languageId:testId:)"
+            startingLineNumber = "1111"
+            endingLineNumber = "1111"
+            landmarkName = "updatedDbToFormUpload(formList:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "15D1B2CE-A7BD-4FFB-BEFD-C9FEC3B6DF78 - 691902f8a42ce92b"
+                  uuid = "61CA5016-10B0-44A8-B6DF-216B8FB5FC2D - 3a1b1b6f883f26d2"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "static ReNew.DataManager.getTestQuestionList(languageId: Swift.Int, testId: Swift.Int) -&gt; Swift.Array&lt;ReNew.ModelTestQuestion&gt;"
+                  symbolName = "closure #1 (ReNew.ModelAsyncForm) -&gt; () in static ReNew.DataManager.updatedDbToFormUpload(formList: Swift.Array&lt;ReNew.ModelAsyncForm&gt;) -&gt; ()"
                   moduleName = "ReNew"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "806"
-                  endingLineNumber = "806"
-                  offsetFromSymbolStart = "538">
+                  startingLineNumber = "1107"
+                  endingLineNumber = "1107"
+                  offsetFromSymbolStart = "1061">
                </Location>
                <Location
-                  uuid = "15D1B2CE-A7BD-4FFB-BEFD-C9FEC3B6DF78 - 691902f8a42ce92b"
+                  uuid = "61CA5016-10B0-44A8-B6DF-216B8FB5FC2D - 3a1b1b6f883f26d2"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "static ReNew.DataManager.getTestQuestionList(languageId: Swift.Int, testId: Swift.Int) -&gt; Swift.Array&lt;ReNew.ModelTestQuestion&gt;"
+                  symbolName = "closure #1 (ReNew.ModelAsyncForm) -&gt; () in static ReNew.DataManager.updatedDbToFormUpload(formList: Swift.Array&lt;ReNew.ModelAsyncForm&gt;) -&gt; ()"
                   moduleName = "ReNew"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "806"
-                  endingLineNumber = "806"
-                  offsetFromSymbolStart = "510">
+                  startingLineNumber = "1107"
+                  endingLineNumber = "1107"
+                  offsetFromSymbolStart = "644">
                </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BA1C9C93-AE82-4EAA-ACF3-13C3941C869C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ReNew/ViewController/Test Question Result/TestQuestionResultVM.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "getTestDetails()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BDDCEA8C-D906-4FE3-9213-AD9598322390"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ReNew/ViewController/Test Question Form/TestQuestionFormVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-            <Locations>
                <Location
-                  uuid = "BDDCEA8C-D906-4FE3-9213-AD9598322390 - 8310aa0b35400bf7"
+                  uuid = "61CA5016-10B0-44A8-B6DF-216B8FB5FC2D - 3a1b1b6f883f265e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "ReNew.TestQuestionFormVC.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
-                  moduleName = "ReNew"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Test%20Question%20Form/TestQuestionFormVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "67"
-                  endingLineNumber = "67"
-                  offsetFromSymbolStart = "1431">
-               </Location>
-               <Location
-                  uuid = "BDDCEA8C-D906-4FE3-9213-AD9598322390 - a6ae0541e669bf1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.String) -&gt; () in ReNew.TestQuestionFormVC.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
-                  moduleName = "ReNew"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Test%20Question%20Form/TestQuestionFormVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
-                  offsetFromSymbolStart = "104">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DFCD042F-0017-470B-91CF-280D3FFF3A9D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ReNew/ViewController/Test Question Form/TestQuestionFormVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "517336AE-56C0-43DD-A0B0-206E7151AE16"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ReNew/ViewController/Test Question Form/TestQuestionFormVM.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "checkAnswer()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "517336AE-56C0-43DD-A0B0-206E7151AE16 - 9bfb19a8ca94ba64"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ReNew.TestQuestionFormVM.checkAnswer() -&gt; ()"
-                  moduleName = "ReNew"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Test%20Question%20Form/TestQuestionFormVM.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
-                  offsetFromSymbolStart = "187">
-               </Location>
-               <Location
-                  uuid = "517336AE-56C0-43DD-A0B0-206E7151AE16 - 9bfb19a8ca94ba64"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ReNew.TestQuestionFormVM.checkAnswer() -&gt; ()"
-                  moduleName = "ReNew"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Test%20Question%20Form/TestQuestionFormVM.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
-                  offsetFromSymbolStart = "270">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3861BEA7-22F2-4C4E-ACC5-227C3025542F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ReNew/ViewController/Assigned Survey/AssignedSurveyListVM.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "getAssignedList()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "3861BEA7-22F2-4C4E-ACC5-227C3025542F - 31ee2d0121831b41"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ReNew.AssignedSurveyListVM.getAssignedList() -&gt; ()"
-                  moduleName = "ReNew"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Assigned%20Survey/AssignedSurveyListVM.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  uuid = "3861BEA7-22F2-4C4E-ACC5-227C3025542F - bb30d4015d99fc51"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (ReNew.ModelAssignedSurvey) -&gt; Swift.Bool in ReNew.AssignedSurveyListVM.getAssignedList() -&gt; ()"
-                  moduleName = "ReNew"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Assigned%20Survey/AssignedSurveyListVM.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "32">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F961DAB0-50DD-4DC7-A084-06DC53441700"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ReNew/DataManager/DataManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "599"
-            endingLineNumber = "599"
-            landmarkName = "getAssignedSurveyList()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "F961DAB0-50DD-4DC7-A084-06DC53441700 - 2d07724a5e6f6c57"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static ReNew.DataManager.getAssignedSurveyList() -&gt; Swift.Array&lt;ReNew.ModelAssignedSurvey&gt;"
+                  symbolName = "closure #1 (ReNew.ModelAsyncForm) -&gt; () in static ReNew.DataManager.updatedDbToFormUpload(formList: Swift.Array&lt;ReNew.ModelAsyncForm&gt;) -&gt; ()"
                   moduleName = "ReNew"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "599"
-                  endingLineNumber = "599"
-                  offsetFromSymbolStart = "167">
-               </Location>
-               <Location
-                  uuid = "F961DAB0-50DD-4DC7-A084-06DC53441700 - 2d07724a5e6f6c57"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static ReNew.DataManager.getAssignedSurveyList() -&gt; Swift.Array&lt;ReNew.ModelAssignedSurvey&gt;"
-                  moduleName = "ReNew"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "599"
-                  endingLineNumber = "599"
-                  offsetFromSymbolStart = "139">
+                  startingLineNumber = "1111"
+                  endingLineNumber = "1111"
+                  offsetFromSymbolStart = "644">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1376,47 +1135,1262 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "62AFFAF5-FA35-49B3-9B71-830D282AA7DD"
+            uuid = "4B24EDFB-B44A-4C02-BBFC-A761CD3FD199"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReNew/Utilities/APIManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
-            landmarkName = "requestUploadMedia(endpointurl:parameters:arrFiles:isShowLoader:uploadfileName:responseData:)"
+            startingLineNumber = "343"
+            endingLineNumber = "343"
+            landmarkName = "requestAsyncDataUploadToServer(endpointurl:parameters:isShowLoader:responseData:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "917BC17C-C254-4345-9175-547CB5242A39"
+            uuid = "E2AFBB3D-F03D-4FD8-8A70-ED2890C44D70"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/ViewController/Registration/RegistrationVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
+            landmarkName = "regisetrApiCall()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E2AFBB3D-F03D-4FD8-8A70-ED2890C44D70 - 8666039850865272"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.RegistrationVM.regisetrApiCall() -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Registration/RegistrationVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "286"
+                  endingLineNumber = "286"
+                  offsetFromSymbolStart = "12127">
+               </Location>
+               <Location
+                  uuid = "E2AFBB3D-F03D-4FD8-8A70-ED2890C44D70 - f140187b21f85c30"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.NSError&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; () in ReNew.RegistrationVM.regisetrApiCall() -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Registration/RegistrationVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "287"
+                  endingLineNumber = "287"
+                  offsetFromSymbolStart = "150">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0DFB152E-E5D5-4B28-9CB0-570DA363AF86"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/DataManager/DataManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1089"
+            endingLineNumber = "1089"
+            landmarkName = "uploadFormToServer(formList:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0DFB152E-E5D5-4B28-9CB0-570DA363AF86 - 7aca2e7dd6907429"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;__C.NSError&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; () in static ReNew.DataManager.uploadFormToServer(formList: Swift.Array&lt;ReNew.ModelAsyncForm&gt;, completionHandler: () -&gt; ()) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1085"
+                  endingLineNumber = "1085"
+                  offsetFromSymbolStart = "494">
+               </Location>
+               <Location
+                  uuid = "0DFB152E-E5D5-4B28-9CB0-570DA363AF86 - 7aca2e7dd6907429"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;__C.NSError&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; () in static ReNew.DataManager.uploadFormToServer(formList: Swift.Array&lt;ReNew.ModelAsyncForm&gt;, completionHandler: () -&gt; ()) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1085"
+                  endingLineNumber = "1085"
+                  offsetFromSymbolStart = "168">
+               </Location>
+               <Location
+                  uuid = "0DFB152E-E5D5-4B28-9CB0-570DA363AF86 - 7aca2e7dd69074b5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;__C.NSError&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; () in static ReNew.DataManager.uploadFormToServer(formList: Swift.Array&lt;ReNew.ModelAsyncForm&gt;, completionHandler: () -&gt; ()) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1089"
+                  endingLineNumber = "1089"
+                  offsetFromSymbolStart = "168">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9A281FB3-46E3-41D4-8985-41DF1615F038"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/DataManager/DataManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1105"
+            endingLineNumber = "1105"
+            landmarkName = "updatedDbToFormUpload(formList:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9A281FB3-46E3-41D4-8985-41DF1615F038 - 3a1b1b6f883f39e8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (ReNew.ModelAsyncForm) -&gt; () in static ReNew.DataManager.updatedDbToFormUpload(formList: Swift.Array&lt;ReNew.ModelAsyncForm&gt;) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1101"
+                  endingLineNumber = "1101"
+                  offsetFromSymbolStart = "356">
+               </Location>
+               <Location
+                  uuid = "9A281FB3-46E3-41D4-8985-41DF1615F038 - fe238ae62bf18134"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ReNew.DataManager.updatedDbToFormUpload(formList: Swift.Array&lt;ReNew.ModelAsyncForm&gt;) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1101"
+                  endingLineNumber = "1101"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "9A281FB3-46E3-41D4-8985-41DF1615F038 - 3a1b1b6f883f39b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (ReNew.ModelAsyncForm) -&gt; () in static ReNew.DataManager.updatedDbToFormUpload(formList: Swift.Array&lt;ReNew.ModelAsyncForm&gt;) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1102"
+                  endingLineNumber = "1102"
+                  offsetFromSymbolStart = "66">
+               </Location>
+               <Location
+                  uuid = "9A281FB3-46E3-41D4-8985-41DF1615F038 - fe238ae62bf181c8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ReNew.DataManager.updatedDbToFormUpload(formList: Swift.Array&lt;ReNew.ModelAsyncForm&gt;) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1105"
+                  endingLineNumber = "1105"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "9A281FB3-46E3-41D4-8985-41DF1615F038 - 3a1b1b6f883f3933"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (ReNew.ModelAsyncForm) -&gt; () in static ReNew.DataManager.updatedDbToFormUpload(formList: Swift.Array&lt;ReNew.ModelAsyncForm&gt;) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1106"
+                  endingLineNumber = "1106"
+                  offsetFromSymbolStart = "66">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FB217DB1-B9BE-425F-A8C1-6A80A01E34FD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/DataManager/DataManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1046"
+            endingLineNumber = "1046"
+            landmarkName = "syncWithServer(completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FB217DB1-B9BE-425F-A8C1-6A80A01E34FD - cc63fedb272c9200"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #3 (Swift.Optional&lt;__C.NSError&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; () in static ReNew.DataManager.syncWithServer(completionHandler: () -&gt; ()) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1042"
+                  endingLineNumber = "1042"
+                  offsetFromSymbolStart = "95">
+               </Location>
+               <Location
+                  uuid = "FB217DB1-B9BE-425F-A8C1-6A80A01E34FD - cc63fedb272c9200"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #3 (Swift.Optional&lt;__C.NSError&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; () in static ReNew.DataManager.syncWithServer(completionHandler: () -&gt; ()) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1042"
+                  endingLineNumber = "1042"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "FB217DB1-B9BE-425F-A8C1-6A80A01E34FD - cc63fedb272c9d8c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #3 (Swift.Optional&lt;__C.NSError&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; () in static ReNew.DataManager.syncWithServer(completionHandler: () -&gt; ()) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1046"
+                  endingLineNumber = "1046"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2DF09E02-AF58-4C5B-85F9-8409291C715E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/DataManager/DataManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1044"
+            endingLineNumber = "1044"
+            landmarkName = "syncWithServer(completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2DF09E02-AF58-4C5B-85F9-8409291C715E - cc63fedb272c92c6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #3 (Swift.Optional&lt;__C.NSError&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; () in static ReNew.DataManager.syncWithServer(completionHandler: () -&gt; ()) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1040"
+                  endingLineNumber = "1040"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "2DF09E02-AF58-4C5B-85F9-8409291C715E - 7066b458e978b27"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (Swift.Optional&lt;__C.NSError&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; () in static ReNew.DataManager.syncWithServer(completionHandler: () -&gt; ()) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1040"
+                  endingLineNumber = "1040"
+                  offsetFromSymbolStart = "632">
+               </Location>
+               <Location
+                  uuid = "2DF09E02-AF58-4C5B-85F9-8409291C715E - 7066b458e978ba3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (Swift.Optional&lt;__C.NSError&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; () in static ReNew.DataManager.syncWithServer(completionHandler: () -&gt; ()) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1044"
+                  endingLineNumber = "1044"
+                  offsetFromSymbolStart = "632">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E9521565-DA16-4679-A2A2-1E1A5E9F6997"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/DataManager/DataManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "935"
+            endingLineNumber = "935"
+            landmarkName = "syncWithServer(completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E9521565-DA16-4679-A2A2-1E1A5E9F6997 - a9f42ffa8ae9e9d3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ReNew.DataManager.syncWithServer(completionHandler: () -&gt; ()) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "931"
+                  endingLineNumber = "931"
+                  offsetFromSymbolStart = "134">
+               </Location>
+               <Location
+                  uuid = "E9521565-DA16-4679-A2A2-1E1A5E9F6997 - a9f42ffa8ae9e9d3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ReNew.DataManager.syncWithServer(completionHandler: () -&gt; ()) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "931"
+                  endingLineNumber = "931"
+                  offsetFromSymbolStart = "121">
+               </Location>
+               <Location
+                  uuid = "E9521565-DA16-4679-A2A2-1E1A5E9F6997 - a9f42ffa8ae9e95f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ReNew.DataManager.syncWithServer(completionHandler: () -&gt; ()) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "935"
+                  endingLineNumber = "935"
+                  offsetFromSymbolStart = "121">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D64BF727-C06E-4D8B-B059-F508B93598E6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/DataManager/DataManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1086"
+            endingLineNumber = "1086"
+            landmarkName = "uploadFormToServer(formList:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D64BF727-C06E-4D8B-B059-F508B93598E6 - 71efebf214439966"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ReNew.DataManager.uploadFormToServer(formList: Swift.Array&lt;ReNew.ModelAsyncForm&gt;, completionHandler: () -&gt; ()) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1082"
+                  endingLineNumber = "1082"
+                  offsetFromSymbolStart = "402">
+               </Location>
+               <Location
+                  uuid = "D64BF727-C06E-4D8B-B059-F508B93598E6 - 7aca2e7dd69075eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;__C.NSError&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; () in static ReNew.DataManager.uploadFormToServer(formList: Swift.Array&lt;ReNew.ModelAsyncForm&gt;, completionHandler: () -&gt; ()) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1083"
+                  endingLineNumber = "1083"
+                  offsetFromSymbolStart = "168">
+               </Location>
+               <Location
+                  uuid = "D64BF727-C06E-4D8B-B059-F508B93598E6 - 71efebf214439966"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ReNew.DataManager.uploadFormToServer(formList: Swift.Array&lt;ReNew.ModelAsyncForm&gt;, completionHandler: () -&gt; ()) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1082"
+                  endingLineNumber = "1082"
+                  offsetFromSymbolStart = "361">
+               </Location>
+               <Location
+                  uuid = "D64BF727-C06E-4D8B-B059-F508B93598E6 - 71efebf2144398fa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ReNew.DataManager.uploadFormToServer(formList: Swift.Array&lt;ReNew.ModelAsyncForm&gt;, completionHandler: () -&gt; ()) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1086"
+                  endingLineNumber = "1086"
+                  offsetFromSymbolStart = "361">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4B57F4C2-0B2E-415F-9A03-E83D31085C89"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReNew/ViewController/Form/FormVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "registerController()"
+            startingLineNumber = "405"
+            endingLineNumber = "405"
+            landmarkName = "saveToLocalDb()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4B57F4C2-0B2E-415F-9A03-E83D31085C89 - 53ddf43b2aef2948"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.FormVM.saveToLocalDb() -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Form/FormVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "402"
+                  endingLineNumber = "402"
+                  offsetFromSymbolStart = "21636">
+               </Location>
+               <Location
+                  uuid = "4B57F4C2-0B2E-415F-9A03-E83D31085C89 - 53ddf43b2aef2948"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.FormVM.saveToLocalDb() -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Form/FormVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "402"
+                  endingLineNumber = "402"
+                  offsetFromSymbolStart = "21556">
+               </Location>
+               <Location
+                  uuid = "4B57F4C2-0B2E-415F-9A03-E83D31085C89 - 53ddf43b2aef292b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.FormVM.saveToLocalDb() -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Form/FormVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "405"
+                  endingLineNumber = "405"
+                  offsetFromSymbolStart = "22800">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9F61267A-D94F-4878-877D-C4B61C242ED7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/ViewController/Form/FormVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "328"
+            endingLineNumber = "328"
+            landmarkName = "saveToLocalDb()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9F61267A-D94F-4878-877D-C4B61C242ED7 - 53ddf43b2aef577b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.FormVM.saveToLocalDb() -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Form/FormVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "325"
+                  endingLineNumber = "325"
+                  offsetFromSymbolStart = "2880">
+               </Location>
+               <Location
+                  uuid = "9F61267A-D94F-4878-877D-C4B61C242ED7 - abdf93ad838dcd4f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (ReNew.ModelStaticQuestion) -&gt; Swift.Bool in ReNew.FormVM.saveToLocalDb() -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Form/FormVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "325"
+                  endingLineNumber = "325"
+                  offsetFromSymbolStart = "29">
+               </Location>
+               <Location
+                  uuid = "9F61267A-D94F-4878-877D-C4B61C242ED7 - 53ddf43b2aef56de"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.FormVM.saveToLocalDb() -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Form/FormVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "328"
+                  endingLineNumber = "328"
+                  offsetFromSymbolStart = "279">
+               </Location>
+               <Location
+                  uuid = "9F61267A-D94F-4878-877D-C4B61C242ED7 - 53ddf43b2aef56de"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.FormVM.saveToLocalDb() -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Form/FormVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "328"
+                  endingLineNumber = "328"
+                  offsetFromSymbolStart = "403">
+               </Location>
+               <Location
+                  uuid = "9F61267A-D94F-4878-877D-C4B61C242ED7 - 53ddf43b2aef56de"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.FormVM.saveToLocalDb() -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Form/FormVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "328"
+                  endingLineNumber = "328"
+                  offsetFromSymbolStart = "290">
+               </Location>
+               <Location
+                  uuid = "9F61267A-D94F-4878-877D-C4B61C242ED7 - 53ddf43b2aef56de"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.FormVM.saveToLocalDb() -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Form/FormVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "328"
+                  endingLineNumber = "328"
+                  offsetFromSymbolStart = "414">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6A1DFE2E-F2D2-4F0E-9F3C-BFD2062B6201"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/ViewController/Form/FormVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "321"
+            endingLineNumber = "321"
+            landmarkName = "saveDraft(isShowMsg:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6A1DFE2E-F2D2-4F0E-9F3C-BFD2062B6201 - 53ddf43b2aef5464"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.FormVM.saveToLocalDb() -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Form/FormVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "318"
+                  endingLineNumber = "318"
+                  offsetFromSymbolStart = "439">
+               </Location>
+               <Location
+                  uuid = "6A1DFE2E-F2D2-4F0E-9F3C-BFD2062B6201 - fb6e83318f4f89e0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.FormVM.saveDraft(isShowMsg: Swift.Bool) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Form/FormVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "321"
+                  endingLineNumber = "321"
+                  offsetFromSymbolStart = "7269">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ADD0677A-394A-4EB2-A175-A77246A62549"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/ViewController/Test Question Form/TestQuestionFormVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "checkAnswer()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6FB1CA2F-FBDF-442B-A690-A9630B320371"
+            uuid = "29736838-6770-4F04-911F-22EE6E9CAD89"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/ViewController/Test Question Result/TestQuestionResultVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "btnStartTest(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D4C2CCD6-1D72-42C1-87D1-265B769D3CA7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/DataManager/DataManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "813"
+            endingLineNumber = "813"
+            landmarkName = "getTestDetail(formId:languageId:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D4C2CCD6-1D72-42C1-87D1-265B769D3CA7 - 4e100a5426f4e503"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ReNew.DataManager.getTestDetail(formId: Swift.Int, languageId: Swift.Int) -&gt; Swift.Optional&lt;ReNew.ModelTest&gt;"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "809"
+                  endingLineNumber = "809"
+                  offsetFromSymbolStart = "510">
+               </Location>
+               <Location
+                  uuid = "D4C2CCD6-1D72-42C1-87D1-265B769D3CA7 - 4e100a5426f4e524"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ReNew.DataManager.getTestDetail(formId: Swift.Int, languageId: Swift.Int) -&gt; Swift.Optional&lt;ReNew.ModelTest&gt;"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "810"
+                  endingLineNumber = "810"
+                  offsetFromSymbolStart = "502">
+               </Location>
+               <Location
+                  uuid = "D4C2CCD6-1D72-42C1-87D1-265B769D3CA7 - 4e100a5426f4e6d8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ReNew.DataManager.getTestDetail(formId: Swift.Int, languageId: Swift.Int) -&gt; Swift.Optional&lt;ReNew.ModelTest&gt;"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "814"
+                  endingLineNumber = "814"
+                  offsetFromSymbolStart = "502">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0C3E72AC-D950-408D-8888-61556F65ADBC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/ViewController/Assigned Survey/AssignedSurveyListVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "searchBarTextDidBeginEditing(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0C3E72AC-D950-408D-8888-61556F65ADBC - 23afacd8481539"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.AssignedSurveyListVC.searchBarSearchButtonClicked(__C.UISearchBar) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Assigned%20Survey/AssignedSurveyListVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "0C3E72AC-D950-408D-8888-61556F65ADBC - b88f29754183e1df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.AssignedSurveyListVC.searchBarTextDidBeginEditing(__C.UISearchBar) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Assigned%20Survey/AssignedSurveyListVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "34">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "31037C7F-03C7-4F65-8D17-DD56F5761E51"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/DataManager/DataManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "995"
+            endingLineNumber = "995"
+            landmarkName = "syncWithServer(completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "31037C7F-03C7-4F65-8D17-DD56F5761E51 - 5289f4d309d442ca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; () in closure #1 (ReNew.ModelAsyncForm) -&gt; () in static ReNew.DataManager.syncWithServer(completionHandler: () -&gt; ()) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "991"
+                  endingLineNumber = "991"
+                  offsetFromSymbolStart = "352">
+               </Location>
+               <Location
+                  uuid = "31037C7F-03C7-4F65-8D17-DD56F5761E51 - 2ff6eb8671bfd5de"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (ReNew.ModelAsyncForm) -&gt; () in static ReNew.DataManager.syncWithServer(completionHandler: () -&gt; ()) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "991"
+                  endingLineNumber = "991"
+                  offsetFromSymbolStart = "8663">
+               </Location>
+               <Location
+                  uuid = "31037C7F-03C7-4F65-8D17-DD56F5761E51 - 2ff6eb8671bfd55a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (ReNew.ModelAsyncForm) -&gt; () in static ReNew.DataManager.syncWithServer(completionHandler: () -&gt; ()) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "995"
+                  endingLineNumber = "995"
+                  offsetFromSymbolStart = "8663">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D870927D-3152-468A-A334-CF58E22ADDB0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ReNew/ViewController/Form/FormVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "261"
-            endingLineNumber = "261"
+            startingLineNumber = "368"
+            endingLineNumber = "368"
+            landmarkName = "saveToLocalDb()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D870927D-3152-468A-A334-CF58E22ADDB0 - 53ddf43b2aef5213"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.FormVM.saveToLocalDb() -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Form/FormVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "365"
+                  endingLineNumber = "365"
+                  offsetFromSymbolStart = "20201">
+               </Location>
+               <Location
+                  uuid = "D870927D-3152-468A-A334-CF58E22ADDB0 - 53ddf43b2aef2df6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.FormVM.saveToLocalDb() -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Form/FormVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "368"
+                  endingLineNumber = "368"
+                  offsetFromSymbolStart = "21445">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AEF50AFE-A873-442E-96FC-06953EBA0F72"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/ViewController/Form/FormVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "btnNext(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "64826462-4DC4-4938-9180-7B74397EBEC9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/ViewController/Form/FormVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "446"
+            endingLineNumber = "446"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "64826462-4DC4-4938-9180-7B74397EBEC9 - 8c4810720303f23c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #13 () -&gt; () in ReNew.FormVC.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Form/FormVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "440"
+                  endingLineNumber = "440"
+                  offsetFromSymbolStart = "344">
+               </Location>
+               <Location
+                  uuid = "64826462-4DC4-4938-9180-7B74397EBEC9 - 8c4810720303f3c2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #13 () -&gt; () in ReNew.FormVC.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Form/FormVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "446"
+                  endingLineNumber = "446"
+                  offsetFromSymbolStart = "344">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0EB1258A-74EC-443C-9620-DDC3BE35191E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/ViewController/Form/FormVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "443"
+            endingLineNumber = "443"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0EB1258A-74EC-443C-9620-DDC3BE35191E - 7bf4af04dd19d16e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.FormVC.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Form/FormVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "437"
+                  endingLineNumber = "437"
+                  offsetFromSymbolStart = "20214">
+               </Location>
+               <Location
+                  uuid = "0EB1258A-74EC-443C-9620-DDC3BE35191E - 7bf4af04dd19d1a8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.FormVC.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Form/FormVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "443"
+                  endingLineNumber = "443"
+                  offsetFromSymbolStart = "20300">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "32C4765C-25F3-426B-A162-8B8AF243ACD2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/ViewController/Form/FormVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "384"
+            endingLineNumber = "384"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "32C4765C-25F3-426B-A162-8B8AF243ACD2 - 6a372336033c403c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #11 () -&gt; () in ReNew.FormVC.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Form/FormVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "378"
+                  endingLineNumber = "378"
+                  offsetFromSymbolStart = "164">
+               </Location>
+               <Location
+                  uuid = "32C4765C-25F3-426B-A162-8B8AF243ACD2 - 6a372336033c41c6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #11 () -&gt; () in ReNew.FormVC.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Form/FormVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "384"
+                  endingLineNumber = "384"
+                  offsetFromSymbolStart = "164">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EAEAF69D-6D20-4227-8092-56C192C1D5B6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/DataManager/DataManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "641"
+            endingLineNumber = "641"
+            landmarkName = "getAssignedSurveyList()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EAEAF69D-6D20-4227-8092-56C192C1D5B6 - 2d07724a5e6f71b1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ReNew.DataManager.getAssignedSurveyList() -&gt; Swift.Array&lt;ReNew.ModelAssignedSurvey&gt;"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "637"
+                  endingLineNumber = "637"
+                  offsetFromSymbolStart = "182">
+               </Location>
+               <Location
+                  uuid = "EAEAF69D-6D20-4227-8092-56C192C1D5B6 - 2d07724a5e6f71b1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ReNew.DataManager.getAssignedSurveyList() -&gt; Swift.Array&lt;ReNew.ModelAssignedSurvey&gt;"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "637"
+                  endingLineNumber = "637"
+                  offsetFromSymbolStart = "146">
+               </Location>
+               <Location
+                  uuid = "EAEAF69D-6D20-4227-8092-56C192C1D5B6 - 2d07724a5e6f712d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ReNew.DataManager.getAssignedSurveyList() -&gt; Swift.Array&lt;ReNew.ModelAssignedSurvey&gt;"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "641"
+                  endingLineNumber = "641"
+                  offsetFromSymbolStart = "146">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DA9FC1C1-01C3-498A-B205-6671EB8D79AC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/ViewController/Form/FormVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "initConfig()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "82C2403F-9737-4965-A2CC-C52DD0B599BE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/ViewController/Form/FormVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "287"
+            endingLineNumber = "287"
+            landmarkName = "saveDraft(isShowMsg:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "82C2403F-9737-4965-A2CC-C52DD0B599BE - fb6e83318f4f8642"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.FormVM.saveDraft(isShowMsg: Swift.Bool) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Form/FormVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "287"
+                  endingLineNumber = "287"
+                  offsetFromSymbolStart = "283">
+               </Location>
+               <Location
+                  uuid = "82C2403F-9737-4965-A2CC-C52DD0B599BE - fb6e83318f4f8642"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReNew.FormVM.saveDraft(isShowMsg: Swift.Bool) -&gt; ()"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/ViewController/Form/FormVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "287"
+                  endingLineNumber = "287"
+                  offsetFromSymbolStart = "407">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0AC11CFB-9FC1-4D51-A820-8C556AC97461"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/ViewController/Form/FormVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
             landmarkName = "saveDraft(isShowMsg:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1424,16 +2398,80 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A5A047BB-AC05-49E7-B3DE-5BF86B8EB15A"
+            uuid = "5E443B15-825B-402D-84DA-CB78A5EA0790"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ReNew/ViewController/Form/FormVM.swift"
+            filePath = "ReNew/Utilities/APIManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "264"
-            endingLineNumber = "264"
-            landmarkName = "saveDraft(isShowMsg:)"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "makeRequest(with:method:parameter:isShowLoader:responseData:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ED596FD0-088C-4C07-82FF-BE6F9ADD1863"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/DataManager/DataManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "getUserRoleList(languageId:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "ED596FD0-088C-4C07-82FF-BE6F9ADD1863 - 88b5c36139ff5137"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ReNew.DataManager.getUserRoleList(languageId: Swift.String) -&gt; Swift.Array&lt;ReNew.ModelUserRole&gt;"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "992">
+               </Location>
+               <Location
+                  uuid = "ED596FD0-088C-4C07-82FF-BE6F9ADD1863 - 88b5c36139ff56b3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ReNew.DataManager.getUserRoleList(languageId: Swift.String) -&gt; Swift.Array&lt;ReNew.ModelUserRole&gt;"
+                  moduleName = "ReNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyani/Documents/GitHub/RenewSurvey-IOS/ReNew/ReNew/DataManager/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "148"
+                  endingLineNumber = "148"
+                  offsetFromSymbolStart = "2195">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EF443B5E-24BB-4002-85DF-79BB1B302BBE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReNew/ViewController/Benificary Member Register/BenificaryMemberRegisterVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "callValidateProjectAPI()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

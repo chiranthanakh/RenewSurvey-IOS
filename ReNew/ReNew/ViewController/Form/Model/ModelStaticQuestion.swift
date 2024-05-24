@@ -20,6 +20,7 @@ class ModelStaticQuestion{
     var answerId : Int
     var imageAnswer = UIImage()
     var strImageBase64 : String
+    var indexNo : String
     
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
@@ -35,6 +36,7 @@ class ModelStaticQuestion{
         strAnswer = dictionary["answer"] as? String ?? ""
         answerId = dictionary["answerId"] as? Int ?? 0
         strImageBase64 = dictionary["strImageBase64"] as? String ?? ""
+        indexNo = dictionary["indexNo"] as? String ?? ""
 	}
 
     func questiontitle() -> String {
@@ -67,6 +69,7 @@ class ModelStaticQuestion{
             print(strAnswer)
         }
         dictionary["answerId"] = answerId
+        dictionary["indexNo"] = indexNo
         
         return dictionary
     }

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterAssigneeVC" customModule="ReNew" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="vwDistict" destination="lzR-az-ucD" id="Y2j-Uw-PPb"/>
+                <outlet property="vwPanchyat" destination="9kG-kt-9jt" id="7Uf-hi-WjY"/>
+                <outlet property="vwState" destination="0VG-E1-IHL" id="87d-7E-FOn"/>
+                <outlet property="vwTehsil" destination="l9K-TY-3tT" id="dvz-mc-ooa"/>
+                <outlet property="vwVillage" destination="qaO-WO-VMM" id="el1-vm-b2E"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UEt-ux-Tp2">
+                    <rect key="frame" x="15" y="198.66666666666663" width="363" height="480"/>
+                    <subviews>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3v1-2X-noh">
+                            <rect key="frame" x="0.0" y="0.0" width="363" height="480"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RGL-04-QFK">
+                                    <rect key="frame" x="0.0" y="0.0" width="363" height="480"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7vb-8f-gSJ">
+                                            <rect key="frame" x="15" y="70.000000000000028" width="333" height="330"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0VG-E1-IHL" customClass="InputTextFeildView" customModule="ReNew" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="333" height="50"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="7v9-WR-E1j"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Select State"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isEditable" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="topHeaderLabelText" value="State"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lzR-az-ucD" customClass="InputTextFeildView" customModule="ReNew" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="70" width="333" height="50"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="District"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isEditable" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l9K-TY-3tT" customClass="InputTextFeildView" customModule="ReNew" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="140" width="333" height="50"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Tehsil"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isEditable" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9kG-kt-9jt" customClass="InputTextFeildView" customModule="ReNew" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="210" width="333" height="50"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Paunchyat"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isEditable" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qaO-WO-VMM" customClass="InputTextFeildView" customModule="ReNew" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="279.99999999999994" width="333" height="50"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Village"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isEditable" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="w0o-40-R6U">
+                                            <rect key="frame" x="91.666666666666686" y="420" width="180" height="40"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KC4-I5-4jw" customClass="SubmitButton" customModule="ReNew" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="WHW-jS-vfi"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="Reset"/>
+                                                    <connections>
+                                                        <action selector="btnReset:" destination="-1" eventType="touchUpInside" id="MpU-zu-CVi"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H9b-h9-zzJ" customClass="SubmitButton" customModule="ReNew" customModuleProvider="target">
+                                                    <rect key="frame" x="100" y="0.0" width="80" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="1Q7-iQ-ZQd"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="Submit"/>
+                                                    <connections>
+                                                        <action selector="btnSubmit:" destination="-1" eventType="touchUpInside" id="D9j-D8-sJl"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="FIu-ol-J2C"/>
+                                            </constraints>
+                                        </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAE-Uf-q6B">
+                                            <rect key="frame" x="313" y="0.0" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="TZf-23-jVL"/>
+                                                <constraint firstAttribute="width" secondItem="QAE-Uf-q6B" secondAttribute="height" id="Ymx-c2-Xbc"/>
+                                            </constraints>
+                                            <color key="tintColor" systemColor="labelColor"/>
+                                            <state key="normal" image="xmark" catalog="system"/>
+                                            <connections>
+                                                <action selector="btnClose:" destination="-1" eventType="touchUpInside" id="AQk-ni-0lA"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="7vb-8f-gSJ" firstAttribute="top" secondItem="RGL-04-QFK" secondAttribute="top" constant="70" id="8vv-GG-Qjf"/>
+                                        <constraint firstAttribute="bottom" secondItem="w0o-40-R6U" secondAttribute="bottom" constant="20" id="I9n-f8-eDF"/>
+                                        <constraint firstItem="7vb-8f-gSJ" firstAttribute="leading" secondItem="RGL-04-QFK" secondAttribute="leading" constant="15" id="Nq3-P4-Quv"/>
+                                        <constraint firstAttribute="trailing" secondItem="QAE-Uf-q6B" secondAttribute="trailing" id="ekH-ls-MuP"/>
+                                        <constraint firstItem="w0o-40-R6U" firstAttribute="top" secondItem="7vb-8f-gSJ" secondAttribute="bottom" constant="20" id="hpX-PP-jcc"/>
+                                        <constraint firstItem="w0o-40-R6U" firstAttribute="centerX" secondItem="RGL-04-QFK" secondAttribute="centerX" id="pqz-RQ-fz8"/>
+                                        <constraint firstAttribute="trailing" secondItem="7vb-8f-gSJ" secondAttribute="trailing" constant="15" id="qIl-yX-ZBL"/>
+                                        <constraint firstItem="QAE-Uf-q6B" firstAttribute="top" secondItem="RGL-04-QFK" secondAttribute="top" id="up3-dm-22M"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="RGL-04-QFK" firstAttribute="top" secondItem="3v1-2X-noh" secondAttribute="top" id="3Bj-pR-rRK"/>
+                                <constraint firstItem="RGL-04-QFK" firstAttribute="leading" secondItem="3v1-2X-noh" secondAttribute="leading" id="FBS-md-lMC"/>
+                                <constraint firstItem="RGL-04-QFK" firstAttribute="height" secondItem="3v1-2X-noh" secondAttribute="height" id="eGV-4e-6ba"/>
+                                <constraint firstAttribute="bottom" secondItem="RGL-04-QFK" secondAttribute="bottom" id="fiw-kR-1N0"/>
+                                <constraint firstAttribute="trailing" secondItem="RGL-04-QFK" secondAttribute="trailing" id="maH-ls-44h"/>
+                                <constraint firstItem="RGL-04-QFK" firstAttribute="width" secondItem="3v1-2X-noh" secondAttribute="width" id="o9N-Af-sxq"/>
+                            </constraints>
+                        </scrollView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="3v1-2X-noh" secondAttribute="trailing" id="Awz-cZ-kcE"/>
+                        <constraint firstItem="3v1-2X-noh" firstAttribute="leading" secondItem="UEt-ux-Tp2" secondAttribute="leading" id="aOd-y9-jtv"/>
+                        <constraint firstAttribute="bottom" secondItem="3v1-2X-noh" secondAttribute="bottom" id="iry-he-od1"/>
+                        <constraint firstItem="3v1-2X-noh" firstAttribute="top" secondItem="UEt-ux-Tp2" secondAttribute="top" id="kYg-vP-K6G"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UEt-ux-Tp2" secondAttribute="trailing" constant="15" id="92X-2U-E4h"/>
+                <constraint firstItem="UEt-ux-Tp2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="Rtd-R3-Ext"/>
+                <constraint firstItem="UEt-ux-Tp2" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="Xhk-lr-LfI"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="-32"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="H9b-h9-zzJ">
+            <size key="intrinsicContentSize" width="49" height="30"/>
+        </designable>
+        <designable name="KC4-I5-4jw">
+            <size key="intrinsicContentSize" width="39" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

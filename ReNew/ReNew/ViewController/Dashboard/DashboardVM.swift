@@ -49,7 +49,7 @@ class DashboardVM {
     }
     
     
-    func uploadMediatoServer(formList: [ModelAsyncForm], asyncForm: ModelAsyncForm, completionHandler: @escaping () -> Void) {
+    /*func uploadMediatoServer(formList: [ModelAsyncForm], asyncForm: ModelAsyncForm, completionHandler: @escaping () -> Void) {
         var arrFileDic = [[String:Any]]()
         var arrFiles = [Any]()
         
@@ -161,7 +161,7 @@ class DashboardVM {
                 y?["title"] = ""
                 y?["allowed_file_type"] = ""
                 y?["question_Option"] = ""
-                y?["mst_question_group_id"] = ""
+//                y?["mst_question_group_id"] = ""
                 y?["version"] = ""
                 y?["tbl_project_phase_id"] = ""
                 y?["version"] = ""
@@ -205,5 +205,5 @@ class DashboardVM {
         }
         self.viewController?.showAlert(with: "Form async successfully")
         //self.getAsyncFormList()
-    }
+    }*/
 }

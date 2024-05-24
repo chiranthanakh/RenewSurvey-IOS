@@ -22,6 +22,7 @@ class ModelTest {
     var title : String
     var question : [ModelTestQuestion]
     var tutorial: String
+    var projectId : Int
     
     
     /**
@@ -39,6 +40,7 @@ class ModelTest {
         testCode = dictionary["test_code"] as? String ?? ""
         title = dictionary["title"] as? String ?? ""
         tutorial = dictionary["tutorial"] as? String ?? ""
+        projectId = dictionary["projectId"] as? Int ?? Int()
         question = [ModelTestQuestion]()
         if let questionOptionArray = dictionary["question"] as? [[String:Any]]{
             for dic in questionOptionArray{
@@ -70,6 +72,7 @@ class ModelTest {
         }
         dictionary["question"] = dictionaryElements
         dictionary["tutorial"] = tutorial
+        dictionary["projectId"] = projectId
         return dictionary
     }
     

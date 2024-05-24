@@ -136,7 +136,15 @@ class DataManager: NSObject {
     }
     
     static func getUserRoleList(languageId: String) -> [ModelUserRole] {
-        let query = "SELECT DISTINCT ap.tbl_projects_id,mfl1.title AS project_name, ap.tbl_forms_id, mfl.title as form_name, tpp.tbl_project_phase_id,tpp.phase,tpp.version FROM tbl_users_assigned_projects ap inner JOIN tbl_projects tp ON tp.tbl_projects_id = ap.tbl_projects_id inner JOIN tbl_project_phase tpp ON tpp.tbl_projects_id = ap.tbl_projects_id AND tpp.tbl_forms_id = ap.tbl_forms_id AND tpp.is_released = 'Y' inner JOIN tbl_forms tf ON tf.tbl_forms_id = ap.tbl_forms_id inner JOIN mst_form_language mfl ON mfl.module = 'tbl_forms' AND mfl.module_id = tf.tbl_forms_id AND mfl.is_active = 1 AND mfl.is_delete = 0 AND mfl.mst_language_id = '\(languageId)' inner JOIN mst_form_language mfl1 ON mfl1.module = 'tbl_projects' AND mfl1.module_id = tp.tbl_projects_id AND mfl1.is_active = 1 AND mfl1.is_delete = 0 AND mfl1.mst_language_id = '\(languageId)' WHERE ap.tbl_users_id = '\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")' AND ap.tbl_projects_id = '\(kAppDelegate.selectedProjectID)'"
+        /*let query = "SELECT DISTINCT ap.tbl_projects_id,mfl1.title AS project_name, ap.tbl_forms_id, mfl.title as form_name, tpp.tbl_project_phase_id,tpp.phase,tpp.version FROM tbl_users_assigned_projects ap inner JOIN tbl_projects tp ON tp.tbl_projects_id = ap.tbl_projects_id inner JOIN tbl_project_phase tpp ON tpp.tbl_projects_id = ap.tbl_projects_id AND tpp.tbl_forms_id = ap.tbl_forms_id AND tpp.is_released = 'Y' inner JOIN tbl_forms tf ON tf.tbl_forms_id = ap.tbl_forms_id inner JOIN mst_form_language mfl ON mfl.module = 'tbl_forms' AND mfl.module_id = tf.tbl_forms_id AND mfl.is_active = 1 AND mfl.is_delete = 0 AND mfl.mst_language_id = '\(languageId)' inner JOIN mst_form_language mfl1 ON mfl1.module = 'tbl_projects' AND mfl1.module_id = tp.tbl_projects_id AND mfl1.is_active = 1 AND mfl1.is_delete = 0 AND mfl1.mst_language_id = '\(languageId)' WHERE ap.tbl_users_id = '\(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "")' AND ap.tbl_projects_id = '\(kAppDelegate.selectedProjectID)'"*/
+        
+        /*let query = "Select DISTINCT pp.tbl_projects_id,fl.title AS project_name, pp.tbl_forms_id, fl.title as form_name, pp.tbl_project_phase_id,pp.phase,pp.version from tbl_forms as fm inner join tbl_project_phase pp on fm.tbl_forms_id =pp.tbl_forms_id and pp.tbl_projects_id='\(kAppDelegate.selectedProjectID)' inner join mst_form_language as fl on fm.tbl_forms_id=fl.module_id where fl.module='tbl_forms' and fl.mst_language_id='\(languageId)' order by fm.tbl_forms_id"*/
+        
+        var query = "SELECT pp.tbl_projects_id,fl.title AS project_name, pp.tbl_forms_id, fl.title as form_name, pp.tbl_project_phase_id,pp.phase,pp.version FROM `tbl_users_assigned_projects` as uap INNER join tbl_project_phase as pp ON pp.tbl_forms_id = uap.tbl_forms_id INNER JOIN tbl_forms AS fm ON fm.tbl_forms_id = pp.tbl_forms_id INNER JOIN mst_form_language AS fl ON fl.module_id = fm.tbl_forms_id AND fl.mst_language_id = '\(languageId)' AND fl.module = 'tbl_forms' WHERE uap.`tbl_projects_id` = '\(kAppDelegate.selectedProjectID)' AND uap.`tbl_users_id` = \(ModelUser.getCurrentUserFromDefault()?.tblUsersId ?? "") and uap.is_active = 1 and uap.is_delete = 0 and pp.is_active = 1 and pp.is_delete = 0 and fm.is_active= 1 and fm.is_delete = 0 GROUP by uap.tbl_forms_id"
+        
+        if ModelUser.getCurrentUserFromDefault()?.userType == "USER" {
+            query = "Select fm.tbl_forms_id,mst_form_language_id,title,pp.tbl_project_phase_id,pp.version from tbl_forms as fm inner join tbl_project_phase pp on fm.tbl_forms_id =pp.tbl_forms_id and pp.tbl_projects_id=\(kAppDelegate.selectedProjectID) inner join mst_form_language as fl on fm.tbl_forms_id=fl.module_id where fl.module='tbl_forms' and fl.mst_language_id='\(languageId)' order by fm.tbl_forms_id"
+        }
         var mainarr = [ModelUserRole]()
         var dbop :OpaquePointer? = nil
         if sqlite3_open(DataManager.databasePath(), &dbop) == SQLITE_OK {
@@ -206,7 +214,13 @@ class DataManager: NSObject {
     }
     
     static func getQuestionList(grpId: Int) -> [ModelQuestion] {
-        let query = "SELECT DISTINCT q.mst_question_group_id, q.tbl_form_questions_id, title, question_type, allowed_file_type, min_length, max_length, p.tbl_project_phase_id, p.version, is_mandatory from tbl_project_phase_question as p inner join  tbl_form_questions as q  on q.tbl_form_questions_id = p.tbl_form_questions_id inner join mst_form_language as l on l.module_id = q.tbl_form_questions_id and l.module='tbl_form_questions'  where l.mst_language_id='\(kAppDelegate.selectedLanguageID)' and q.mst_question_group_id= '\(grpId)' and p.tbl_forms_id= '\(kAppDelegate.selectedFormID)' order by q.order_by"
+        let query = "SELECT DISTINCT q.mst_question_group_id, q.tbl_form_questions_id, title, question_type, allowed_file_type, min_length, max_length, p.tbl_project_phase_id, p.version, is_mandatory, q.format from tbl_project_phase_question as p inner join  tbl_form_questions as q  on q.tbl_form_questions_id = p.tbl_form_questions_id and p.tbl_projects_id='\(kAppDelegate.selectedProjectID)'  inner join mst_form_language as l on l.module_id = q.tbl_form_questions_id and l.module='tbl_form_questions'  where l.mst_language_id='\(kAppDelegate.selectedLanguageID)' and q.mst_question_group_id= '\(grpId)' and p.tbl_forms_id= '\(kAppDelegate.selectedFormID)' order by q.order_by"
+        
+        /*"SELECT l.title,q.* from \n" +
+                    "ProjectPhaseQuestionEntity as p inner join\n" +
+                    "FormQuestionEntity as q  on q.id = p.tbl_form_questions_id and p.tbl_projects_id=:project \n" +
+                    "inner join FormLanguageEntity as l on l.module_id = q.id and l.module='tbl_form_questions' \n" +
+                    "where l.mst_language_id=:language and q.mst_question_group_id=:group and p.tbl_forms_id=:formId order by q.order_by"*/
         
         //"SELECT tbl_form_questions_id, title, question_type, allowed_file_type, min_length, max_length FROM tbl_form_questions as q INNER JOIN mst_form_language as I ON q.tbl_form_questions_id = I.module_id AND I.module = 'tbl_form_questions' WHERE I.mst_language_id = '\(kAppDelegate.selectedLanguageID)' AND q.mst_question_group_id = '\(grpId)'  ORDER BY q.order_by"
         var mainarr = [ModelQuestion]()
@@ -226,6 +240,7 @@ class DataManager: NSObject {
                     temp.tblProjectPhaseId  = Int(sqlite3_column_int(stmt, 7))
                     temp.version  = Int(sqlite3_column_int(stmt, 8))
                     temp.ismandatory  = String(cString: sqlite3_column_text(stmt,9))
+                    temp.format  = String(cString: sqlite3_column_text(stmt,10))
                     mainarr.append(temp)
                 }
                 sqlite3_finalize(stmt)
@@ -273,6 +288,7 @@ class DataManager: NSObject {
                     temp.type  = String(cString: sqlite3_column_text(stmt,4))
                     temp.option  = String(cString: sqlite3_column_text(stmt,5))
                     temp.remark  = String(cString: sqlite3_column_text(stmt,6))
+                    temp.indexNo  = String(cString: sqlite3_column_text(stmt,7))
                     if temp.id == 1 {
                         temp.strAnswer = Date().getFormattedString(format: "dd-MM-yyyy HH:mm")
                     }
@@ -427,6 +443,28 @@ class DataManager: NSObject {
         return mainarr
     }
     
+    static func getVillageWithTehsilList(stateID: String, districtID: String, tehsilId: String, panchayatId: String) -> [ModelVillage] {
+        let query = "SELECT mst_village_id, village_name from mst_village WHERE mst_state_id = '\(stateID)' AND mst_district_id = '\(districtID)' AND mst_tehsil_id = '\(tehsilId)' AND mst_panchayat_id = '\(panchayatId)'"
+        //"SELECT mst_village_id, village_name from mst_village WHERE mst_state_id = '\(stateID)' AND mst_district_id = '\(districtID)' AND mst_tehsil_id = '\(tehsilId)' AND mst_panchayat_id = '\(panchayatId)'"
+        var mainarr = [ModelVillage]()
+        var dbop :OpaquePointer? = nil
+        if sqlite3_open(DataManager.databasePath(), &dbop) == SQLITE_OK {
+            var stmt : OpaquePointer? = nil
+            if sqlite3_prepare_v2(dbop, query, -1, &stmt, nil) == SQLITE_OK{
+                while sqlite3_step(stmt) == SQLITE_ROW {
+                    let temp = ModelVillage(fromDictionary: [:])
+                    temp.mstVillagesId  = String(Int(sqlite3_column_int(stmt, 0)))
+                    temp.villageName  = String(cString: sqlite3_column_text(stmt, 1))
+                    mainarr.append(temp)
+                }
+                sqlite3_finalize(stmt)
+            }
+            sqlite3_close(dbop)
+        }
+        print(mainarr.count)
+        return mainarr
+    }
+    
     static func getVillageDetails(villageName: String, panchayatId: String) -> ModelVillage? {
         let query = "SELECT * from mst_village WHERE village_name = '\(villageName)' AND mst_panchayat_id = '\(panchayatId)'"
         var mainarr : ModelVillage?
@@ -525,7 +563,10 @@ class DataManager: NSObject {
                     temp.mstLanguageId  = Int(sqlite3_column_int(stmt, 6))
                     temp.tblFormsId  = Int(sqlite3_column_int(stmt, 7))
                     temp.appUniqueCode  = String(cString: sqlite3_column_text(stmt, 8))
+                    temp.phase = Int(sqlite3_column_int(stmt, 9))
+                    temp.version = Int(sqlite3_column_int(stmt, 10))
                     temp.tblProjectPhaseId  = Int(sqlite3_column_int(stmt, 11))
+                    temp.tblProjectSurveyCommonDataId  = String(cString: sqlite3_column_text(stmt, 12))
                     mainarr.append(temp)
                 }
                 sqlite3_finalize(stmt)
@@ -594,7 +635,8 @@ class DataManager: NSObject {
     }
     
     static func getAssignedSurveyList() -> [ModelAssignedSurvey] {
-        let query = "SELECT tbl_assigned_survey.* from tbl_assigned_survey JOIN tbl_FilledForms On tbl_assigned_survey.parent_survey_id != tbl_FilledForms.parent_survey_id"
+        let query = "SELECT tbl_assigned_survey.* from tbl_assigned_survey  where parent_survey_id not in (SELECT parent_survey_id from tbl_FilledForms)"
+        //"SELECT tbl_assigned_survey.* from tbl_assigned_survey JOIN tbl_FilledForms On tbl_assigned_survey.parent_survey_id != tbl_FilledForms.parent_survey_id"
         //"SELECT * FROM tbl_assigned_survey"
         var mainarr = [ModelAssignedSurvey]()
         var dbop :OpaquePointer? = nil
@@ -631,6 +673,23 @@ class DataManager: NSObject {
                     temp.nextFormId  = String(cString: sqlite3_column_text(stmt, 25))
                     temp.parentSurveyId  = String(cString: sqlite3_column_text(stmt, 26))
 
+                    temp.photoOfBill  = String(cString: sqlite3_column_text(stmt, 27))
+                    temp.dateAndTimeOfVisit  = String(cString: sqlite3_column_text(stmt, 28))
+                    temp.backPhotoOfAadharCard  = String(cString: sqlite3_column_text(stmt, 29))
+                    temp.costOfLpgCyliner  = String(cString: sqlite3_column_text(stmt, 30))
+                    temp.didThemetPersonAllowedForDat  = String(cString: sqlite3_column_text(stmt, 31))
+                    temp.doYouHaveAadharCard  = String(cString: sqlite3_column_text(stmt, 32))
+                    temp.doYouHaveRationOrAadhar  = String(cString: sqlite3_column_text(stmt, 33))
+                    temp.familyMemberAbove15Year  = String(cString: sqlite3_column_text(stmt, 34))
+                    temp.familyMemberBelow15Year  = String(cString: sqlite3_column_text(stmt, 35))
+                    temp.fontPhotoOfAadarCard  = String(cString: sqlite3_column_text(stmt, 36))
+                    temp.frequencyOfbillPayment  = String(cString: sqlite3_column_text(stmt, 37))
+                    temp.gpsLocation  = String(cString: sqlite3_column_text(stmt, 38))
+                    temp.totalElectricityBill  = String(cString: sqlite3_column_text(stmt, 39))
+                    temp.farmlandIsOwnedByBenficary  = columnTextOrNil(stmt, column: 40)
+                    temp.if5mAreaIsAvailableNearBy  = columnTextOrNil(stmt, column: 41)
+                    temp.deviceSerialNumber  = String(cString: sqlite3_column_text(stmt, 42))
+                    temp.bindExtraData()
                     mainarr.append(temp)
                 }
                 sqlite3_finalize(stmt)
@@ -639,6 +698,14 @@ class DataManager: NSObject {
         }
         print(mainarr.count)
         return mainarr
+    }
+    
+    private static func columnTextOrNil(_ stmt: OpaquePointer?, column: Int32) -> String {
+        if sqlite3_column_type(stmt, column) == SQLITE_NULL {
+            return ""
+        } else {
+            return String(cString: sqlite3_column_text(stmt, column))
+        }
     }
     
     static func deleteDraftData() {
@@ -928,8 +995,10 @@ class DataManager: NSObject {
             if let questionAnswer = questionJson["question_answer"] as? [[String:Any]] {
                 questionAnswer.forEach { question in
                     if let questionType = question["question_type"] as? String {
-                        if questionType == "CAPTURE",let answer = question["strImageBase64"] as? String, let img = answer.base64ToImage() {
-                            arrFiles.append(img)
+                        if questionType == "CAPTURE", let answer = question["answer"] as? String {
+                            if let url =  getFileFromDocuments(fileName: answer){
+                                arrFiles.append(url)
+                            }
                             arrFileDic.append(["tbl_users_id": form.tblUsersId,
                                                "tbl_forms_id": form.tblFormsId,
                                                "tbl_projects_id": form.tblProjectsId,
@@ -961,6 +1030,7 @@ class DataManager: NSObject {
         
         if arrFiles.count == 0 {
             self.uploadFormToServer(formList: formList) {
+                self.updatedDbToFormUpload(formList: formList)
                 completionHandler()
             }
         }
@@ -999,7 +1069,7 @@ class DataManager: NSObject {
                 y?["title"] = ""
                 y?["allowed_file_type"] = ""
                 y?["question_Option"] = ""
-                y?["mst_question_group_id"] = ""
+//                y?["mst_question_group_id"] = ""
                 y?["version"] = ""
                 y?["tbl_project_phase_id"] = ""
                 y?["version"] = ""
@@ -1045,3 +1115,6 @@ class DataManager: NSObject {
         //self.getAsyncFormList()
     }
 }
+/*
+ Select fm.tbl_forms_id,mst_form_language_id,title,pp.tbl_project_phase_id,pp.version from tbl_forms as fm inner join tbl_project_phase pp on fm.tbl_forms_id =pp.tbl_forms_id and pp.tbl_projects_id='1' inner join mst_form_language as fl on fm.tbl_forms_id=fl.module_id where fl.module='tbl_forms' and fl.mst_language_id='1' order by fm.tbl_forms_id
+ */

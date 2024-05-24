@@ -14,6 +14,8 @@ class VerificationVM: NSObject {
     var inputOTP = String()
     var dicResedParam = [String:Any]()
     var isFromForgotPassword = false
+    var isFromBenificarymember = false
+    var modelUserInfo: ModelUserInfo?
     
     func resendOTP() {
         APIManager.sharedInstance.makeRequest(with: AppConstant.API.kValidateProject, method: .post, parameter: self.dicResedParam) { error, dict in
@@ -25,6 +27,9 @@ class VerificationVM: NSObject {
                     if let data = responsedic["data"] as? [String:Any], let otp = data["otp"] as? String {
                         self.validtedOTP = otp
                         self.viewController?.runTimer()
+                        if let userInfo = data["user_info"] as? [String:Any]{
+                            self.modelUserInfo = ModelUserInfo.init(fromDictionary: userInfo)
+                        }
                     }
                 }
                 else {
@@ -44,6 +49,9 @@ class VerificationVM: NSObject {
                     if let data = responsedic["data"] as? [String:Any], let otp = data["otp"] as? String {
                         self.validtedOTP = otp
                         self.viewController?.runTimer()
+                        if let userInfo = data["user_info"] as? [String:Any]{
+                            self.modelUserInfo = ModelUserInfo.init(fromDictionary: userInfo)
+                        }
                     }
                 }
                 else {

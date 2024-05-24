@@ -315,11 +315,15 @@ class APIManager: NSObject {
             if isShowLoader {
                 SVProgressHUD.show()
             }
+            if let data = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) {
+                print("Parameter of \(endpointurl):\n \(String(data: data, encoding: .utf8) ?? "Nil Param")")
+            }
             var request = URLRequest(url: URL(string: endpointurl)!)
             request.httpMethod = "POST"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.setValue(ModelUser.getCurrentUserFromDefault()?.accessToken ?? "", forHTTPHeaderField: "Authorization")
             
+            print(request.headers)
             request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: JSONSerialization.WritingOptions.prettyPrinted)
             
             AF.sessionConfiguration.timeoutIntervalForRequest = 36000000

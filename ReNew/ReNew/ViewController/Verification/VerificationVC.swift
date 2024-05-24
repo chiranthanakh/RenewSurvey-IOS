@@ -76,9 +76,15 @@ extension VerificationVC {
                 vc.dicParam = self.viewModel.dicResedParam
                 self.navigationController?.pushViewController(vc, animated: true)
             }
+            else if self.viewModel.isFromBenificarymember {
+                let user = ModelUser(fromDictionary: self.viewModel.dicResedParam)
+                user.saveCurrentUserInDefault()
+                kAppDelegate.setSyncScreen()
+            }
             else {
                 let vc = RegistrationVC()
                 vc.viewModel.dicVericifationParam = self.viewModel.dicResedParam
+                vc.viewModel.modelUserInfo = self.viewModel.modelUserInfo
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }

@@ -69,7 +69,7 @@ extension TestQuestionFormVC: UITableViewDelegate, UITableViewDataSource {
                 cell.txtAnswer.text = answer
             }
             
-            cell.lblQuestion.setQuestionTitleAttributedTextLable(index: indexPath.row+1, question: question.title.capitalized, isMantory: question.isMandatory)
+            cell.lblQuestion.setQuestionTitleAttributedTextLable(index: "\(indexPath.row+1)", question: question.title.capitalized, isMantory: question.isMandatory)
             cell.txtAnswer.text = question.userAnswer
             cell.isSelection = false
             cell.imgCamera.isHidden = true

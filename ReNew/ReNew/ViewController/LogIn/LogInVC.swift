@@ -84,14 +84,14 @@ extension LogInVC {
         let vc = OptionSelectionVC()
         vc.modalPresentationStyle = .overFullScreen
         vc.completionFirstSelection = { isFirstSelection in
-            let vc = SignUpVC()
             if isFirstSelection {
-                vc.viewModel.selecteduserRole = .User
+                self.navigationController?.pushViewController(BenificaryMemberRegisterVC(), animated: true)
             }
             else {
+                let vc = SignUpVC()
                 vc.viewModel.selecteduserRole = .Member
+                self.navigationController?.pushViewController(vc, animated: true)
             }
-            self.navigationController?.pushViewController(vc, animated: true)
         }
         self.present(vc, animated: true)
     }

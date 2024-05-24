@@ -8,9 +8,9 @@
 import UIKit
 
 class TextBoxQuestionTCell: UITableViewCell {
-
-//    @IBOutlet var btnCamera: UIButton!
-//    @IBOutlet var imgPreview: UIImageView!
+    
+    //    @IBOutlet var btnCamera: UIButton!
+    //    @IBOutlet var imgPreview: UIImageView!
     @IBOutlet var lblQuestion: UILabel!
     @IBOutlet var txtAnswer: UITextField!
     @IBOutlet var btnSelection: UIButton!
@@ -20,6 +20,7 @@ class TextBoxQuestionTCell: UITableViewCell {
     var completionSelection:(()->())?
     var completionEditingComplete:((String)->())?
     var maxChacaterLimit = 0
+    var isOnlyAcceptAlphanumeric = false
     
     var isSelection: Bool = false {
         didSet {
@@ -33,12 +34,12 @@ class TextBoxQuestionTCell: UITableViewCell {
         // Initialization code
         self.selectionStyle = .none
         self.txtAnswer.delegate = self
-//        self.vwText.txtInput.autocapitalizationType = .sentences
+        //        self.vwText.txtInput.autocapitalizationType = .sentences
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -59,12 +60,26 @@ extension TextBoxQuestionTCell: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if self.maxChacaterLimit == 0 {
+        if self.isOnlyAcceptAlphanumeric {
+            do {
+                let regex = try NSRegularExpression(pattern: ".*[^A-Za-z0-9 ].*", options: [])
+                if regex.firstMatch(in: string, options: [], range: NSMakeRange(0, string.count)) != nil {
+                    return false
+                }
+            }
+            catch {
+                print("ERROR")
+            }
             return true
         }
-        let currentString = (textField.text ?? "") as NSString
-        let newString = currentString.replacingCharacters(in: range, with: string)
-
-        return newString.count <= self.maxChacaterLimit
+        else {
+            if self.maxChacaterLimit == 0 {
+                return true
+            }
+            let currentString = (textField.text ?? "") as NSString
+            let newString = currentString.replacingCharacters(in: range, with: string)
+            
+            return newString.count <= self.maxChacaterLimit
+        }
     }
 }

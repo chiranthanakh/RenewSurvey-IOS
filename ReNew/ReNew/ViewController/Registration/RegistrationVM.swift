@@ -17,6 +17,60 @@ class RegistrationVM: NSObject {
     var selectedVillage: ModelVillage?
     var strGender = "MALE"
     var dicVericifationParam = [String:Any]()
+    var modelUserInfo: ModelUserInfo?
+    
+    
+    func perfixDataBind() {
+        if let userInfo = self.modelUserInfo{
+            self.viewController?.vwFullName.txtInput.text = userInfo.fullName
+            self.viewController?.vwUserName.txtInput.text = userInfo.username
+            self.viewController?.vwEmail.txtInput.text = userInfo.email
+            self.viewController?.vwAddress.txtInput.text = userInfo.address
+            self.viewController?.vwPinCode.txtInput.text = userInfo.pincode
+            self.viewController?.vwDOB.txtInput.text = userInfo.dateOfBirth.getStringToDateToStringToDate(firstformat: "yyyy-MM-dd", secondformat: "dd-MM-yyyy")
+            if userInfo.gender.lowercased() == "male" {
+                self.viewController?.btnMale(UIButton())
+            }
+            else {
+                self.viewController?.btnFemale(UIButton())
+            }
+            self.viewController?.imgUserProfile.setImage(withUrl: userInfo.profilePhoto)
+            self.getStateList { arrState in
+                if let state = arrState?.filter({$0.mstStateId == userInfo.mstStateId}).first{
+                    self.selectedState = state
+                    self.viewController?.vwState.txtInput.text = state.stateName
+                    
+                    self.getDistrictsList(stateid: state.mstStateId) { arrDistricts in
+                        if let district = arrDistricts?.filter({$0.mstDistrictId == userInfo.mstDistrictId}).first{
+                            self.selectedDistrict = district
+                            self.viewController?.vwDistrict.txtInput.text = district.districtName
+                            
+                            self.getTehsilsList(districtsid: district.mstDistrictId) { arrTehsil in
+                                if let tehsil = arrTehsil?.filter({$0.mstTehsilId == userInfo.mstTehsilId}).first{
+                                    self.selectedTehsil = tehsil
+                                    self.viewController?.vwTehsil.txtInput.text = tehsil.tehsilName
+                                    
+                                    self.getPanchayatsList(tehsilsid: tehsil.mstTehsilId) { arrTehsil in
+                                        if let panchayat = arrTehsil?.filter({$0.mstPanchayatId == userInfo.mstPanchayatId}).first{
+                                            self.selectedPanchayat = panchayat
+                                            self.viewController?.vwPanchayat.txtInput.text = panchayat.panchayatName
+                                            
+                                            self.getVillagesList(panchayatid: panchayat.mstPanchayatId) { arrVillages in
+                                                if let village = arrVillages?.filter({$0.mstVillagesId == userInfo.mstVillageId}).first {
+                                                    self.selectedVillage = village
+                                                    self.viewController?.vwVillage.txtInput.text = village.villageName
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
     
     func getStateList(responseData: @escaping  (_ arrState: [ModelState]?) -> Void){
         
